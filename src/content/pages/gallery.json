@@ -1,8 +1,23 @@
 {
   "id": "gallery",
-  "path": "/gallery",
+  "path": "/parish/gallery",
+  "navLabel": {
+    "en": "Gallery",
+    "es": "Galería",
+    "ru": "Галерея"
+  },
+  "icon": "church",
+  "summary": {
+    "en": "Photos of the church and parish life.",
+    "es": "Fotos de la iglesia y de la vida parroquial.",
+    "ru": "Фотографии храма и жизни прихода."
+  },
   "seo": {
-    "title": { "en": "Gallery", "es": "Galería", "ru": "Галерея" },
+    "title": {
+      "en": "Gallery",
+      "es": "Galería",
+      "ru": "Галерея"
+    },
     "description": {
       "en": "Photos of St. Example Orthodox Church and parish life.",
       "es": "Fotos de la Iglesia Ortodoxa San Ejemplo y de la vida parroquial.",
@@ -14,8 +29,16 @@
       "id": "page-hero",
       "type": "pageHero",
       "enabled": true,
-      "eyebrow": { "en": "Gallery", "es": "Galería", "ru": "Галерея" },
-      "title": { "en": "The Life of Our Community", "es": "La vida de nuestra comunidad", "ru": "Жизнь нашей общины" },
+      "eyebrow": {
+        "en": "Gallery",
+        "es": "Galería",
+        "ru": "Галерея"
+      },
+      "title": {
+        "en": "The Life of Our Community",
+        "es": "La vida de nuestra comunidad",
+        "ru": "Жизнь нашей общины"
+      },
       "subtitle": {
         "en": "Sample text: the church, its services, and the life of our parish.",
         "es": "Texto de ejemplo: el templo, sus servicios y la vida de nuestra parroquia.",

@@ -31,7 +31,7 @@ export default function Story({ section }: { section: StorySection }) {
         {section.aside && (
           <Reveal delay={0.15} className="lg:col-span-2">
             <div className="rounded-2xl bg-primary-900 p-6 text-primary-100 sm:p-8">
-              <h3 className="font-serif text-2xl font-semibold text-white">{t(section.aside.title)}</h3>
+              <h3 className="font-heading text-2xl font-semibold text-white">{t(section.aside.title)}</h3>
               <ul className="mt-6 space-y-5 text-sm leading-relaxed">
                 {section.aside.items.map((item) => (
                   <li key={item.id} className="flex gap-3">

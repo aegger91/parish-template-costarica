@@ -1,0 +1,80 @@
+{
+  "id": "livestream",
+  "path": "/livestream",
+  "module": "livestream",
+  "navLabel": {
+    "en": "Livestream",
+    "es": "Transmisión",
+    "ru": "Трансляции"
+  },
+  "icon": "bells",
+  "summary": {
+    "en": "Live services and recorded sermons.",
+    "es": "Servicios en directo y homilías grabadas.",
+    "ru": "Прямые трансляции и записи проповедей."
+  },
+  "seo": {
+    "title": {
+      "en": "Livestream and Sermons",
+      "es": "Transmisión y homilías",
+      "ru": "Трансляции и проповеди"
+    },
+    "description": {
+      "en": "Watch services live and listen to recent sermons.",
+      "es": "Vea los servicios en directo y escuche las homilías recientes.",
+      "ru": "Смотрите богослужения онлайн и слушайте проповеди."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Livestream",
+        "es": "Transmisión",
+        "ru": "Трансляция"
+      },
+      "title": {
+        "en": "Livestream and Sermons",
+        "es": "Transmisión y homilías",
+        "ru": "Трансляции и проповеди"
+      },
+      "subtitle": {
+        "en": "Pray with us from home when you cannot be in church.",
+        "es": "Rece con nosotros desde casa cuando no pueda venir a la iglesia.",
+        "ru": "Молитесь с нами из дома, если не можете прийти в храм."
+      }
+    },
+    {
+      "id": "live",
+      "type": "livestream",
+      "enabled": true,
+      "title": {
+        "en": "Watch the Services",
+        "es": "Vea los servicios",
+        "ru": "Смотреть богослужения"
+      },
+      "text": {
+        "en": "Services marked as streamed on the schedule are broadcast live. The page shows Live now while a service is on.",
+        "es": "Los servicios marcados como transmitidos en el horario se emiten en directo. La página indica En directo mientras dura el servicio.",
+        "ru": "Богослужения с отметкой о трансляции идут в прямом эфире. Во время службы на странице видна отметка «В эфире»."
+      }
+    },
+    {
+      "id": "sermons",
+      "type": "sermons",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Listen",
+        "es": "Escuche",
+        "ru": "Слушайте"
+      },
+      "title": {
+        "en": "Sermons and Talks",
+        "es": "Homilías y charlas",
+        "ru": "Проповеди и беседы"
+      }
+    }
+  ]
+}

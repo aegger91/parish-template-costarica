@@ -1,14 +1,16 @@
-import { useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
 import { AlertCircle, CheckCircle2, ChevronDown, Info, Loader2, Mail, Phone } from 'lucide-react';
 import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import Reveal from '@/components/ui/Reveal';
-import { clergy, giving } from '@/content';
+import { useSearchParams } from 'react-router-dom';
+import { clergy, giving, payments } from '@/content';
 import type { Localized, SectionBase } from '@/content';
 import { useI18n } from '@/i18n';
 import { submitDonation } from '@/lib/donate';
 import type { DonationResult } from '@/lib/donate';
 import { formatMoney, telHref } from '@/lib/format';
+import { EMAIL_RE } from '@/lib/forms';
 
 export interface GiveFormSection extends SectionBase {
   formTitle: Localized;
@@ -19,7 +21,6 @@ export interface GiveFormSection extends SectionBase {
 
 type Errors = Partial<Record<'amount' | 'name' | 'email', string>>;
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function currencySymbol(currency: string, locale: string): string {
   return (
@@ -35,7 +36,17 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
   const [frequency, setFrequency] = useState(giving.frequencies[0]?.id ?? 'once');
   const [preset, setPreset] = useState<number | null>(giving.defaultAmount ?? null);
   const [custom, setCustom] = useState('');
-  const [fundId, setFundId] = useState(giving.funds[0]?.id ?? '');
+  const [params] = useSearchParams();
+  const designations = [...giving.funds.map((f) => ({ id: f.id, label: f.label })), ...giving.projects.map((p) => ({ id: p.id, label: p.title }))];
+  const [fundId, setFundId] = useState(() => {
+    const wanted = params.get('fund');
+    return designations.some((d) => d.id === wanted) ? wanted! : (giving.funds[0]?.id ?? '');
+  });
+  const wantedFund = params.get('fund');
+  useEffect(() => {
+    if (wantedFund && designations.some((d) => d.id === wantedFund)) setFundId(wantedFund);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [wantedFund]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState<Errors>({});
@@ -43,10 +54,10 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
   const [result, setResult] = useState<DonationResult | null>(null);
 
   const contact = clergy.find((m) => m.id === giving.contactId);
-  const symbol = useMemo(() => currencySymbol(giving.currency, language.locale), [language.locale]);
+  const symbol = useMemo(() => currencySymbol(payments.currency, language.locale), [language.locale]);
   const amount = custom ? Number(custom.replace(',', '.')) : (preset ?? 0);
   const validAmount = Number.isFinite(amount) && amount >= giving.minimumAmount;
-  const money = validAmount ? formatMoney(amount, giving.currency, language.locale) : '';
+  const money = validAmount ? formatMoney(amount, payments.currency, language.locale) : '';
   const recurring = frequency !== 'once';
 
   const submitLabel = !validAmount
@@ -74,9 +85,9 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
     setSubmitting(true);
     const res = await submitDonation({
       amount,
-      currency: giving.currency,
       frequency,
       fundId,
+      fundLabel: t(designations.find((d) => d.id === fundId)?.label),
       donor: { name: name.trim(), email: email.trim() },
       lang,
     });
@@ -110,7 +121,7 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
             className="h-full rounded-2xl border border-primary-100 bg-white p-6 shadow-sm sm:p-8"
             aria-labelledby={`${uid}-title`}
           >
-            <h2 id={`${uid}-title`} className="font-serif text-2xl font-semibold text-primary-900 sm:text-3xl">
+            <h2 id={`${uid}-title`} className="font-heading text-2xl font-semibold text-primary-900 sm:text-3xl">
               {t(section.formTitle)}
             </h2>
             <div className="accent-rule mt-5" />
@@ -163,7 +174,7 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
                       }}
                       className="sr-only"
                     />
-                    {formatMoney(value, giving.currency, language.locale)}
+                    {formatMoney(value, payments.currency, language.locale)}
                   </label>
                 ))}
               </div>
@@ -171,7 +182,7 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
                 {ui('give.otherAmount')}
               </label>
               <div className="relative mt-2">
-                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[15px] font-medium text-ink-500">
+                <span className="pointer-events-none absolute start-4 top-1/2 -translate-y-1/2 text-[15px] font-medium text-ink-500">
                   {symbol}
                 </span>
                 <input
@@ -186,7 +197,7 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
                   }}
                   aria-invalid={!!errors.amount}
                   className="field"
-                  style={{ paddingLeft: `${Math.max(2.25, symbol.length * 0.6 + 1.5)}rem` }}
+                  style={{ paddingInlineStart: `${Math.max(2.25, symbol.length * 0.6 + 1.5)}rem` }}
                 />
               </div>
               {errors.amount && (
@@ -207,16 +218,25 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
                     id={`${uid}-fund`}
                     value={fundId}
                     onChange={(e) => setFundId(e.target.value)}
-                    className="field appearance-none pr-10"
+                    className="field appearance-none pe-10"
                   >
                     {giving.funds.map((f) => (
                       <option key={f.id} value={f.id}>
                         {t(f.label)}
                       </option>
                     ))}
+                    {giving.projects.length > 0 && (
+                      <optgroup label={ui('give.projects')}>
+                        {giving.projects.map((p) => (
+                          <option key={p.id} value={p.id}>
+                            {t(p.title)}
+                          </option>
+                        ))}
+                      </optgroup>
+                    )}
                   </select>
                   <ChevronDown
-                    className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-500"
+                    className="pointer-events-none absolute end-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-500"
                     strokeWidth={1.8}
                     aria-hidden
                   />
@@ -313,13 +333,13 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
         <Reveal delay={0.12} className="lg:col-span-2">
           <aside className="flex flex-col rounded-2xl bg-primary-900 p-6 text-primary-100 sm:p-8">
             {section.asideTitle && (
-              <h2 className="font-serif text-2xl font-semibold text-white">{t(section.asideTitle)}</h2>
+              <h2 className="font-heading text-2xl font-semibold text-white">{t(section.asideTitle)}</h2>
             )}
             {section.asideText && <p className="mt-4 text-[15px] leading-relaxed">{t(section.asideText)}</p>}
             {contact && (
               <div className="mt-6 rounded-xl border border-white/10 bg-primary-800/60 p-5">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent-300">{t(contact.role)}</p>
-                <p className="mt-1 font-serif text-xl font-semibold text-white">{t(contact.name)}</p>
+                <p className="mt-1 font-heading text-xl font-semibold text-white">{t(contact.name)}</p>
                 <div className="mt-3 space-y-2 text-sm">
                   {contact.phone && (
                     <a href={telHref(contact.phone)} className="flex min-h-6 items-center gap-2.5 hover:text-accent-200">
@@ -337,7 +357,7 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
               </div>
             )}
             {section.quote && (
-              <p className="mt-8 border-t border-white/10 pt-6 font-serif text-lg italic leading-snug text-primary-100">
+              <p className="mt-8 border-t border-white/10 pt-6 font-heading text-lg italic leading-snug text-primary-100">
                 {t(section.quote)}
               </p>
             )}

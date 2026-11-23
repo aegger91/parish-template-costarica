@@ -4,6 +4,11 @@
       "id": "rector",
       "name": { "en": "Fr. John Example", "es": "P. Juan Ejemplo", "ru": "Иерей Иоанн Примеров" },
       "role": { "en": "Rector", "es": "Párroco", "ru": "Настоятель" },
+      "bio": {
+        "en": "Sample text. Write a few warm sentences about the rector: where he was ordained, how long he has served the parish, and how people can reach him for confession or pastoral care.",
+        "es": "Texto de ejemplo. Escriba unas frases cálidas sobre el párroco: dónde fue ordenado, cuánto tiempo lleva sirviendo a la parroquia y cómo contactarlo para la confesión o la atención pastoral.",
+        "ru": "Пример текста. Напишите несколько тёплых слов о настоятеле: где он был рукоположен, сколько лет служит в приходе и как к нему обратиться для исповеди или беседы."
+      },
       "phone": "+1 (555) 010-0101",
       "email": "rector@example.org",
       "photo": ""
@@ -12,6 +17,11 @@
       "id": "deacon",
       "name": { "en": "Deacon Stephen Sample", "es": "Diácono Esteban Muestra", "ru": "Диакон Стефан Образцов" },
       "role": { "en": "Deacon", "es": "Diácono", "ru": "Диакон" },
+      "bio": {
+        "en": "Sample text. A short note about the deacon, his family, and the ministries he leads, such as catechism or the youth group.",
+        "es": "Texto de ejemplo. Una breve nota sobre el diácono, su familia y los ministerios que dirige, como la catequesis o el grupo de jóvenes.",
+        "ru": "Пример текста. Несколько слов о диаконе, его семье и служениях, которые он ведёт, например катехизация или молодёжная группа."
+      },
       "phone": "+1 (555) 010-0102",
       "email": "deacon@example.org",
       "photo": ""
@@ -20,6 +30,11 @@
       "id": "council",
       "name": { "en": "Mary Sample", "es": "María Muestra", "ru": "Мария Образцова" },
       "role": { "en": "Parish Council President", "es": "Presidenta del consejo parroquial", "ru": "Председатель приходского совета" },
+      "bio": {
+        "en": "Sample text. Explain what the parish council does and when it meets.",
+        "es": "Texto de ejemplo. Explique qué hace el consejo parroquial y cuándo se reúne.",
+        "ru": "Пример текста. Расскажите, чем занимается приходской совет и когда он собирается."
+      },
       "phone": "+1 (555) 010-0103",
       "email": "council@example.org",
       "photo": ""
@@ -28,6 +43,11 @@
       "id": "choir",
       "name": { "en": "Anna Example", "es": "Ana Ejemplo", "ru": "Анна Примерова" },
       "role": { "en": "Choir Director", "es": "Directora del coro", "ru": "Регент хора" },
+      "bio": {
+        "en": "Sample text. Invite singers to join and say when rehearsals are held.",
+        "es": "Texto de ejemplo. Invite a los cantores a unirse e indique cuándo son los ensayos.",
+        "ru": "Пример текста. Пригласите певчих присоединиться и укажите время спевок."
+      },
       "phone": "",
       "email": "choir@example.org",
       "photo": ""
@@ -36,6 +56,11 @@
       "id": "treasurer",
       "name": { "en": "Peter Sample", "es": "Pedro Muestra", "ru": "Пётр Образцов" },
       "role": { "en": "Treasurer", "es": "Tesorero", "ru": "Казначей" },
+      "bio": {
+        "en": "Sample text. Questions about gifts, receipts and parish finances go to the treasurer.",
+        "es": "Texto de ejemplo. Las preguntas sobre donativos, recibos y finanzas de la parroquia van al tesorero.",
+        "ru": "Пример текста. С вопросами о пожертвованиях, квитанциях и финансах прихода обращайтесь к казначею."
+      },
       "phone": "+1 (555) 010-0105",
       "email": "treasurer@example.org",
       "photo": ""

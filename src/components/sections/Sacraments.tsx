@@ -40,7 +40,7 @@ export default function Sacraments({ section }: { section: SacramentsSection }) 
               <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
                 <IconPanel src={featured.icon} large />
                 <div className="min-w-0">
-                  <h2 className="font-serif text-2xl font-semibold leading-snug text-white sm:text-3xl">{t(featured.name)}</h2>
+                  <h2 className="font-heading text-2xl font-semibold leading-snug text-white sm:text-3xl">{t(featured.name)}</h2>
                   <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-primary-100 sm:text-base">{t(featured.text)}</p>
                 </div>
               </div>
@@ -53,7 +53,7 @@ export default function Sacraments({ section }: { section: SacramentsSection }) 
             <Reveal key={s.id} delay={0.05 * i}>
               <article className="flex h-full flex-col rounded-2xl border border-primary-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-primary-900/10 sm:p-8">
                 <IconPanel src={s.icon} />
-                <h3 className="mt-5 font-serif text-2xl font-semibold leading-snug text-primary-900">{t(s.name)}</h3>
+                <h3 className="mt-5 font-heading text-2xl font-semibold leading-snug text-primary-900">{t(s.name)}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-ink-700">{t(s.text)}</p>
               </article>
             </Reveal>

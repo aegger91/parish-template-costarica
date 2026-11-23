@@ -1,23 +1,46 @@
 {
+  "categories": [
+    { "id": "parish", "label": { "en": "Parish life", "es": "Vida parroquial", "ru": "Жизнь прихода" } },
+    { "id": "events", "label": { "en": "Events", "es": "Eventos", "ru": "События" } },
+    { "id": "learning", "label": { "en": "Learning", "es": "Formación", "ru": "Просвещение" } }
+  ],
   "items": [
     {
-      "id": "sample-news-pascha",
-      "date": "2026-04-05",
+      "id": "sample-news-nativity",
+      "date": "2026-11-15",
+      "category": "parish",
       "title": {
-        "en": "Sample news: Holy Week and Pascha schedule",
-        "es": "Noticia de ejemplo: horario de Semana Santa y Pascua",
-        "ru": "Пример новости: расписание Страстной седмицы и Пасхи"
+        "en": "Sample news: the Nativity Fast begins",
+        "es": "Noticia de ejemplo: comienza el ayuno de Navidad",
+        "ru": "Пример новости: начался Рождественский пост"
       },
       "summary": {
-        "en": "This is a sample news item. Replace it with your own notices, or leave the list empty to show the “Coming soon” message.",
-        "es": "Esta es una noticia de ejemplo. Reemplácela con sus propios avisos, o deje la lista vacía para mostrar el mensaje «Próximamente».",
-        "ru": "Это пример новости. Замените её своими объявлениями или оставьте список пустым, чтобы показать сообщение «Скоро»."
+        "en": "This is a sample news item. Replace it with your own notices. With no items, the page says news is coming soon.",
+        "es": "Esta es una noticia de ejemplo. Reemplácela con sus propios avisos. Sin noticias, la página indica que pronto habrá novedades.",
+        "ru": "Это пример новости. Замените её своими объявлениями. Если новостей нет, страница сообщит, что они скоро появятся."
+      },
+      "url": ""
+    },
+    {
+      "id": "sample-news-lunch",
+      "date": "2026-11-08",
+      "category": "events",
+      "title": {
+        "en": "Sample news: parish lunch after Liturgy",
+        "es": "Noticia de ejemplo: almuerzo parroquial después de la Liturgia",
+        "ru": "Пример новости: трапеза после литургии"
+      },
+      "summary": {
+        "en": "Sample text. Everyone is invited to stay for lunch in the parish hall. Bring a dish to share if you can.",
+        "es": "Texto de ejemplo. Todos están invitados a quedarse a almorzar en el salón parroquial. Traiga un plato para compartir si puede.",
+        "ru": "Пример текста. Все приглашены остаться на трапезу в приходском зале. По возможности принесите угощение."
       },
       "url": ""
     },
     {
       "id": "sample-news-catechism",
-      "date": "2026-03-15",
+      "date": "2026-10-04",
+      "category": "learning",
       "title": {
         "en": "Sample news: catechism classes begin",
         "es": "Noticia de ejemplo: comienzan las clases de catequesis",
@@ -32,16 +55,17 @@
     },
     {
       "id": "sample-news-feast",
-      "date": "2026-02-01",
+      "date": "2026-09-14",
+      "category": "parish",
       "title": {
-        "en": "Sample news: patronal feast",
-        "es": "Noticia de ejemplo: fiesta patronal",
-        "ru": "Пример новости: престольный праздник"
+        "en": "Sample news: the Exaltation of the Cross",
+        "es": "Noticia de ejemplo: la Exaltación de la Cruz",
+        "ru": "Пример новости: Воздвижение Креста"
       },
       "summary": {
-        "en": "Sample text. Divine Liturgy followed by a parish meal. Bring a dish to share if you can.",
-        "es": "Texto de ejemplo. Divina Liturgia seguida de una comida parroquial. Traiga un plato para compartir si puede.",
-        "ru": "Пример текста. Божественная литургия, затем приходская трапеза. По возможности принесите угощение."
+        "en": "Sample text. Photos and a few words from the feast day.",
+        "es": "Texto de ejemplo. Fotos y unas palabras del día de fiesta.",
+        "ru": "Пример текста. Фотографии и несколько слов о празднике."
       },
       "url": ""
     }

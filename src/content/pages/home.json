@@ -24,21 +24,44 @@
         "es": "Iglesia Ortodoxa [[San Ejemplo]]",
         "ru": "Храм [[святого Примера]]"
       },
-      "eyebrow": { "en": "{site.jurisdiction}", "es": "{site.jurisdiction}", "ru": "{site.jurisdiction}" },
-      "tagline": { "en": "Everyone is welcome.", "es": "Todos son bienvenidos.", "ru": "Все приглашены." },
-      "primaryCta": { "to": "/visit", "label": { "en": "Plan a Visit", "es": "Planee su visita", "ru": "Как нас найти" } },
-      "secondaryCta": { "to": "/worship", "label": { "en": "Service Schedule", "es": "Horario de servicios", "ru": "Расписание богослужений" } },
-      "servicesLine": {
-        "en": "Saturday: Vespers {time:saturday-vespers} · Sunday: Liturgy {time:sunday-liturgy}",
-        "es": "Sábado: Vísperas {time:saturday-vespers} · Domingo: Liturgia {time:sunday-liturgy}",
-        "ru": "Суббота: Всенощная {time:saturday-vespers} · Воскресенье: Литургия {time:sunday-liturgy}"
-      }
+      "eyebrow": {
+        "en": "{site.jurisdiction}",
+        "es": "{site.jurisdiction}",
+        "ru": "{site.jurisdiction}"
+      },
+      "tagline": {
+        "en": "Everyone is welcome.",
+        "es": "Todos son bienvenidos.",
+        "ru": "Все приглашены."
+      },
+      "primaryCta": {
+        "to": "/services#first-visit",
+        "label": {
+          "en": "Plan your visit",
+          "es": "Planee su visita",
+          "ru": "Как нас найти"
+        }
+      },
+      "secondaryCta": {
+        "to": "/services",
+        "label": {
+          "en": "Service schedule",
+          "es": "Horario de servicios",
+          "ru": "Расписание богослужений"
+        }
+      },
+      "upcoming": 3,
+      "commemorationShortcut": true
     },
     {
       "id": "welcome",
       "type": "intro",
       "enabled": true,
-      "eyebrow": { "en": "Welcome", "es": "Bienvenido", "ru": "Добро пожаловать" },
+      "eyebrow": {
+        "en": "Welcome",
+        "es": "Bienvenido",
+        "ru": "Добро пожаловать"
+      },
       "title": {
         "en": "A house of prayer for all peoples",
         "es": "Una casa de oración para todos los pueblos",
@@ -56,7 +79,14 @@
           "ru": "Пример текста: богослужения совершаются на английском языке, частично на других языках. Кто бы вы ни были, вас примут с христианской теплотой."
         }
       ],
-      "link": { "to": "/about", "label": { "en": "Meet Our Parish", "es": "Conozca nuestra parroquia", "ru": "О нашем приходе" } },
+      "link": {
+        "to": "/parish",
+        "label": {
+          "en": "Meet Our Parish",
+          "es": "Conozca nuestra parroquia",
+          "ru": "О нашем приходе"
+        }
+      },
       "image": {
         "src": "/images/placeholder/icon.jpg",
         "alt": {
@@ -75,38 +105,55 @@
       "id": "service-times",
       "type": "serviceTimes",
       "enabled": true,
-      "eyebrow": { "en": "Service Schedule", "es": "Horario de servicios", "ru": "Богослужения" },
-      "title": { "en": "Weekly Services", "es": "Servicios semanales", "ru": "Богослужения недели" },
+      "eyebrow": {
+        "en": "Service Schedule",
+        "es": "Horario de servicios",
+        "ru": "Богослужения"
+      },
+      "title": {
+        "en": "Weekly Services",
+        "es": "Servicios semanales",
+        "ru": "Богослужения недели"
+      },
       "note": {
         "en": "Feast day services as announced.",
         "es": "Los servicios de los días de fiesta se anuncian en la parroquia.",
         "ru": "О праздничных богослужениях объявляется в приходе."
       },
-      "link": { "to": "/worship", "label": { "en": "See the calendar", "es": "Ver el calendario", "ru": "Открыть календарь" } }
+      "link": {
+        "to": "/services",
+        "label": {
+          "en": "See the calendar",
+          "es": "Ver el calendario",
+          "ru": "Открыть календарь"
+        }
+      }
     },
     {
       "id": "visit-cards",
       "type": "featureCards",
       "enabled": true,
-      "eyebrow": { "en": "Visit Us", "es": "Visítenos", "ru": "Приезжайте" },
-      "title": { "en": "We Look Forward to Meeting You", "es": "Le esperamos", "ru": "Рады видеть вас" },
+      "eyebrow": {
+        "en": "Parish Life",
+        "es": "Vida parroquial",
+        "ru": "Жизнь прихода"
+      },
+      "title": {
+        "en": "Find Your Place With Us",
+        "es": "Encuentre su lugar entre nosotros",
+        "ru": "Найдите своё место в общине"
+      },
       "cards": [
-        {
-          "id": "getting-here",
-          "icon": "map-pin",
-          "to": "/visit",
-          "title": { "en": "Getting Here", "es": "Cómo llegar", "ru": "Как добраться" },
-          "text": {
-            "en": "{site.address.singleLine}. Sample text: parking is available beside the church.",
-            "es": "{site.address.singleLine}. Texto de ejemplo: hay estacionamiento junto a la iglesia.",
-            "ru": "{site.address.singleLine}. Пример текста: рядом с храмом есть парковка."
-          }
-        },
         {
           "id": "first-visit",
           "icon": "icon",
-          "to": "/visit",
-          "title": { "en": "First Visit", "es": "Primera visita", "ru": "Первое посещение" },
+          "page": "services",
+          "anchor": "first-visit",
+          "title": {
+            "en": "First Visit",
+            "es": "Primera visita",
+            "ru": "Первое посещение"
+          },
           "text": {
             "en": "You do not need to know anything to visit. Simply come and pray with us, and someone will gladly guide you through the service.",
             "es": "No necesita saber nada para venir. Rece con nosotros y alguien le acompañará con gusto durante el servicio.",
@@ -114,23 +161,67 @@
           }
         },
         {
-          "id": "community",
-          "icon": "bells",
-          "to": "/about",
-          "title": { "en": "Community", "es": "Comunidad", "ru": "Община" },
+          "id": "request",
+          "icon": "censer",
+          "page": "request",
+          "title": {
+            "en": "Request a Service",
+            "es": "Solicite un servicio",
+            "ru": "Заказать требу"
+          },
           "text": {
-            "en": "Sample text: a spiritual family of many backgrounds, united in faith and worship.",
-            "es": "Texto de ejemplo: una familia espiritual de muchos orígenes, unida en la fe y en el culto.",
-            "ru": "Пример текста: духовная семья людей разного происхождения, объединённых верой и богослужением."
+            "en": "Ask for a moleben, a house blessing, baptism, confession or a visit from the priest.",
+            "es": "Pida un moleben, la bendición de una casa, un bautizo, la confesión o la visita del sacerdote.",
+            "ru": "Молебен, освящение дома, крещение, исповедь или приглашение священника."
+          }
+        },
+        {
+          "id": "involved",
+          "icon": "bells",
+          "page": "events",
+          "title": {
+            "en": "Get Involved",
+            "es": "Participe",
+            "ru": "Участвуйте"
+          },
+          "text": {
+            "en": "Parish events, the choir, coffee hour and ways to help a neighbor.",
+            "es": "Eventos parroquiales, el coro, el café después de la Liturgia y formas de ayudar al prójimo.",
+            "ru": "Приходские события, хор, трапеза и возможность помочь ближнему."
           }
         }
       ]
     },
     {
+      "id": "news",
+      "type": "newsList",
+      "enabled": true,
+      "eyebrow": {
+        "en": "News",
+        "es": "Noticias",
+        "ru": "Новости"
+      },
+      "title": {
+        "en": "From the Parish",
+        "es": "Desde la parroquia",
+        "ru": "Из жизни прихода"
+      },
+      "limit": 3,
+      "emptyTitle": {
+        "en": "No news yet",
+        "es": "Aún no hay noticias",
+        "ru": "Новостей пока нет"
+      },
+      "emptyText": {
+        "en": "Parish news will appear here.",
+        "es": "Las noticias de la parroquia aparecerán aquí.",
+        "ru": "Здесь будут появляться новости прихода."
+      }
+    },
+    {
       "id": "axion-estin",
       "type": "quote",
       "enabled": true,
-      "variant": "dark",
       "backgroundImage": "/images/placeholder/icon.jpg",
       "text": {
         "en": "“It is truly meet to bless you, O Theotokos, the ever-blessed and most immaculate Mother of our God.”",

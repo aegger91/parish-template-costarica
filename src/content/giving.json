@@ -1,17 +1,79 @@
 {
-  "provider": "none",
-  "checkoutEndpoint": "",
-  "currency": "USD",
-  "presetAmounts": [25, 50, 100, 250],
+  "presetAmounts": [
+    25,
+    50,
+    100,
+    250
+  ],
   "defaultAmount": 50,
   "minimumAmount": 1,
   "frequencies": [
-    { "id": "once", "label": { "en": "One-time", "es": "Una vez", "ru": "Разово" } },
-    { "id": "monthly", "label": { "en": "Monthly", "es": "Mensual", "ru": "Ежемесячно" } }
+    {
+      "id": "once",
+      "label": {
+        "en": "One-time",
+        "es": "Una vez",
+        "ru": "Разово"
+      }
+    },
+    {
+      "id": "monthly",
+      "label": {
+        "en": "Monthly",
+        "es": "Mensual",
+        "ru": "Ежемесячно"
+      }
+    }
   ],
   "funds": [
-    { "id": "general", "label": { "en": "Where it is needed most", "es": "Donde más se necesite", "ru": "На нужды прихода" } },
-    { "id": "projects", "label": { "en": "Parish projects", "es": "Proyectos de la parroquia", "ru": "Проекты прихода" } }
+    {
+      "id": "general",
+      "label": {
+        "en": "Where it is needed most",
+        "es": "Donde más se necesite",
+        "ru": "На нужды прихода"
+      }
+    },
+    {
+      "id": "charity",
+      "label": {
+        "en": "Help for those in need",
+        "es": "Ayuda a los necesitados",
+        "ru": "Помощь нуждающимся"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "roof",
+      "title": {
+        "en": "Sample project: a new church roof",
+        "es": "Proyecto de ejemplo: un techo nuevo",
+        "ru": "Пример проекта: новая кровля храма"
+      },
+      "text": {
+        "en": "Sample text. Describe the project, why it matters, and when you hope to finish it.",
+        "es": "Texto de ejemplo. Describa el proyecto, por qué es importante y cuándo esperan terminarlo.",
+        "ru": "Пример текста. Опишите проект, почему он важен и когда вы надеетесь его завершить."
+      },
+      "goal": 40000,
+      "raised": 26500
+    },
+    {
+      "id": "icons",
+      "title": {
+        "en": "Sample project: icons for the iconostasis",
+        "es": "Proyecto de ejemplo: íconos para el iconostasio",
+        "ru": "Пример проекта: иконы для иконостаса"
+      },
+      "text": {
+        "en": "Sample text. Each icon can be given in memory of a loved one.",
+        "es": "Texto de ejemplo. Cada ícono puede donarse en memoria de un ser querido.",
+        "ru": "Пример текста. Каждую икону можно пожертвовать в память о близких."
+      },
+      "goal": 12000,
+      "raised": 4800
+    }
   ],
   "contactId": "treasurer"
 }

@@ -2,16 +2,32 @@
   "id": "not-found",
   "path": "*",
   "seo": {
-    "title": { "en": "Page Not Found", "es": "Página no encontrada", "ru": "Страница не найдена" },
-    "description": { "en": "", "es": "", "ru": "" }
+    "title": {
+      "en": "Page Not Found",
+      "es": "Página no encontrada",
+      "ru": "Страница не найдена"
+    },
+    "description": {
+      "en": "",
+      "es": "",
+      "ru": ""
+    }
   },
   "sections": [
     {
       "id": "page-hero",
       "type": "pageHero",
       "enabled": true,
-      "eyebrow": { "en": "404", "es": "404", "ru": "404" },
-      "title": { "en": "Page Not Found", "es": "Página no encontrada", "ru": "Страница не найдена" },
+      "eyebrow": {
+        "en": "404",
+        "es": "404",
+        "ru": "404"
+      },
+      "title": {
+        "en": "Page Not Found",
+        "es": "Página no encontrada",
+        "ru": "Страница не найдена"
+      },
       "subtitle": {
         "en": "The page you are looking for does not exist or has moved.",
         "es": "La página que busca no existe o ha cambiado de lugar.",
@@ -22,13 +38,24 @@
       "id": "back-home",
       "type": "comingSoon",
       "enabled": true,
-      "title": { "en": "Let us help you find your way", "es": "Le ayudamos a encontrar el camino", "ru": "Поможем найти нужную страницу" },
+      "title": {
+        "en": "Let us help you find your way",
+        "es": "Le ayudamos a encontrar el camino",
+        "ru": "Поможем найти нужную страницу"
+      },
       "text": {
         "en": "Return to the home page or see the schedule of services.",
         "es": "Vuelva a la página de inicio o consulte el horario de los servicios.",
         "ru": "Вернитесь на главную страницу или посмотрите расписание богослужений."
       },
-      "link": { "to": "/", "label": { "en": "Go to the home page", "es": "Ir al inicio", "ru": "На главную" } }
+      "link": {
+        "to": "/",
+        "label": {
+          "en": "Go to the home page",
+          "es": "Ir al inicio",
+          "ru": "На главную"
+        }
+      }
     }
   ]
 }

@@ -33,7 +33,7 @@ export default function Intro({ section }: { section: IntroSection }) {
               className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.16em] text-primary-700 transition-colors hover:text-accent-600"
             >
               {t(section.link.label)}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2} aria-hidden />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" strokeWidth={2} aria-hidden />
             </Link>
           )}
         </Reveal>
@@ -54,13 +54,13 @@ export default function Intro({ section }: { section: IntroSection }) {
                     className="absolute inset-0"
                     style={{ background: 'linear-gradient(180deg, transparent 55%, rgb(var(--color-primary-950) / 0.6) 100%)' }}
                   />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-6 font-serif text-lg italic text-white">
+                  <figcaption className="absolute inset-x-0 bottom-0 p-6 font-heading text-lg italic text-white">
                     {t(section.caption)}
                   </figcaption>
                 </>
               )}
             </figure>
-            <div aria-hidden className="absolute -bottom-5 -right-5 -z-10 h-full w-full rounded-2xl border-2 border-accent-300" />
+            <div aria-hidden className="absolute -bottom-5 -end-5 -z-10 h-full w-full rounded-2xl border-2 border-accent-300" />
           </Reveal>
         )}
       </div>

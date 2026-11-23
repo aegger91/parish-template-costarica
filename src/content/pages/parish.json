@@ -1,12 +1,27 @@
 {
-  "id": "about",
-  "path": "/about",
+  "id": "parish",
+  "path": "/parish",
+  "navLabel": {
+    "en": "Our Parish",
+    "es": "Nuestra parroquia",
+    "ru": "Наш приход"
+  },
+  "icon": "church",
+  "summary": {
+    "en": "Our story and who we are.",
+    "es": "Nuestra historia y quiénes somos.",
+    "ru": "Наша история и кто мы."
+  },
   "seo": {
-    "title": { "en": "About the Parish", "es": "Sobre la parroquia", "ru": "О приходе" },
+    "title": {
+      "en": "Our Parish",
+      "es": "Nuestra parroquia",
+      "ru": "Наш приход"
+    },
     "description": {
-      "en": "The story, faith, and clergy of St. Example Orthodox Church, a parish of the {site.diocese}.",
-      "es": "La historia, la fe y el clero de la Iglesia Ortodoxa San Ejemplo, parroquia de la {site.diocese}.",
-      "ru": "История, вера и духовенство храма святого Примера."
+      "en": "Who we are: the story, clergy and life of {site.name}.",
+      "es": "Quiénes somos: la historia, el clero y la vida de {site.name}.",
+      "ru": "Кто мы: история, духовенство и жизнь прихода."
     }
   },
   "sections": [
@@ -14,15 +29,31 @@
       "id": "page-hero",
       "type": "pageHero",
       "enabled": true,
-      "eyebrow": { "en": "Our Parish", "es": "Nuestra parroquia", "ru": "Наш приход" },
-      "title": { "en": "{site.name}", "es": "{site.name}", "ru": "{site.name}" },
-      "subtitle": { "en": "{site.diocese}", "es": "{site.diocese}", "ru": "{site.diocese}" }
+      "eyebrow": {
+        "en": "Our Parish",
+        "es": "Nuestra parroquia",
+        "ru": "Наш приход"
+      },
+      "title": {
+        "en": "{site.name}",
+        "es": "{site.name}",
+        "ru": "{site.name}"
+      },
+      "subtitle": {
+        "en": "{site.diocese}",
+        "es": "{site.diocese}",
+        "ru": "{site.diocese}"
+      }
     },
     {
       "id": "story",
       "type": "story",
       "enabled": true,
-      "title": { "en": "Our Story", "es": "Nuestra historia", "ru": "Наша история" },
+      "title": {
+        "en": "Our Story",
+        "es": "Nuestra historia",
+        "ru": "Наша история"
+      },
       "paragraphs": [
         {
           "en": "Sample text. Tell how the parish began: who gathered the first community, when the first Divine Liturgy was served, and who the patron saint is.",
@@ -41,7 +72,11 @@
         }
       ],
       "aside": {
-        "title": { "en": "Our Faith", "es": "Nuestra fe", "ru": "Наша вера" },
+        "title": {
+          "en": "Our Faith",
+          "es": "Nuestra fe",
+          "ru": "Наша вера"
+        },
         "items": [
           {
             "id": "jurisdiction",
@@ -74,10 +109,24 @@
       }
     },
     {
+      "id": "more",
+      "type": "childPages",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Our Parish",
+        "es": "Nuestra parroquia",
+        "ru": "Наш приход"
+      },
+      "title": {
+        "en": "Get to Know Us",
+        "es": "Conózcanos",
+        "ru": "Познакомьтесь с нами"
+      }
+    },
+    {
       "id": "theotokion",
       "type": "quote",
       "enabled": true,
-      "variant": "light",
       "text": {
         "en": "“Rejoice, O Virgin Theotokos, Mary full of grace, the Lord is with you; blessed are you among women, and blessed is the fruit of your womb, for you have borne the Savior of our souls.”",
         "es": "«Alégrate, Oh Virgen Madre de Dios, María llena de gracia, el Señor es contigo; bendita tú entre las mujeres, y bendito el fruto de tu vientre, porque diste a luz al Salvador de nuestras almas.»",
@@ -88,13 +137,6 @@
         "es": "Himno «Alégrate, Virgen Madre de Dios» · tono 4",
         "ru": "«Радуйся, Дево Богородице» · глас 4"
       }
-    },
-    {
-      "id": "clergy",
-      "type": "clergy",
-      "enabled": true,
-      "eyebrow": { "en": "Clergy & Contacts", "es": "Clero y contactos", "ru": "Духовенство и контакты" },
-      "title": { "en": "Serving the Parish", "es": "Sirviendo a la parroquia", "ru": "Служение приходу" }
     }
   ]
 }

@@ -36,7 +36,7 @@ export default function VisitInfo({ section }: { section: VisitInfoSection }) {
       <div className="container-px container-max grid gap-6 sm:gap-8 lg:grid-cols-2">
         <Reveal>
           <div className="h-full rounded-2xl bg-primary-900 p-6 text-primary-100 sm:p-8">
-            <h2 className="font-serif text-2xl font-semibold text-white">{t(section.addressTitle)}</h2>
+            <h2 className="font-heading text-2xl font-semibold text-white">{t(section.addressTitle)}</h2>
             <address className="mt-5 text-[15px] not-italic leading-relaxed text-primary-100">
               <AddressLines />
             </address>
@@ -54,7 +54,7 @@ export default function VisitInfo({ section }: { section: VisitInfoSection }) {
 
         <Reveal delay={0.12}>
           <div className="h-full rounded-2xl border border-primary-100 bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="font-serif text-2xl font-semibold text-primary-900">{t(section.expectTitle)}</h2>
+            <h2 className="font-heading text-2xl font-semibold text-primary-900">{t(section.expectTitle)}</h2>
             <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-ink-700">
               {section.expectParagraphs.map((p, i) => (
                 <p key={i}>{t(p)}</p>

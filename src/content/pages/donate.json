@@ -1,8 +1,18 @@
 {
-  "id": "give",
-  "path": "/give",
+  "id": "donate",
+  "path": "/donate",
+  "navLabel": {
+    "en": "Donate",
+    "es": "Donar",
+    "ru": "Пожертвовать"
+  },
+  "icon": "candle",
   "seo": {
-    "title": { "en": "Give", "es": "Donar", "ru": "Пожертвования" },
+    "title": {
+      "en": "Donate",
+      "es": "Donar",
+      "ru": "Пожертвовать"
+    },
     "description": {
       "en": "Support St. Example Orthodox Church with a one-time or monthly gift.",
       "es": "Apoye a la Iglesia Ortodoxa San Ejemplo con un donativo único o mensual.",
@@ -14,8 +24,16 @@
       "id": "page-hero",
       "type": "pageHero",
       "enabled": true,
-      "eyebrow": { "en": "Give", "es": "Donar", "ru": "Пожертвования" },
-      "title": { "en": "Support the Parish", "es": "Apoye a la parroquia", "ru": "Поддержите приход" },
+      "eyebrow": {
+        "en": "Give",
+        "es": "Donar",
+        "ru": "Пожертвования"
+      },
+      "title": {
+        "en": "Support the Parish",
+        "es": "Apoye a la parroquia",
+        "ru": "Поддержите приход"
+      },
       "subtitle": {
         "en": "Your gifts keep the church open, the services celebrated, and the parish family cared for. Thank you for your generosity.",
         "es": "Sus donativos mantienen la iglesia abierta, sostienen los servicios y cuidan de la familia parroquial. Gracias por su generosidad.",
@@ -23,11 +41,19 @@
       }
     },
     {
-      "id": "give-form",
+      "id": "give",
       "type": "giveForm",
       "enabled": true,
-      "formTitle": { "en": "Make a Gift", "es": "Haga un donativo", "ru": "Сделать пожертвование" },
-      "asideTitle": { "en": "Questions About Giving", "es": "Preguntas sobre donaciones", "ru": "Вопросы о пожертвованиях" },
+      "formTitle": {
+        "en": "Make a Gift",
+        "es": "Haga un donativo",
+        "ru": "Сделать пожертвование"
+      },
+      "asideTitle": {
+        "en": "Questions About Giving",
+        "es": "Preguntas sobre donaciones",
+        "ru": "Вопросы о пожертвованиях"
+      },
       "asideText": {
         "en": "Our treasurer will gladly help with gifts, receipts, or other ways to give.",
         "es": "Nuestro tesorero le ayudará con gusto con donativos, recibos u otras formas de donar.",
@@ -37,6 +63,21 @@
         "en": "“God loves a cheerful giver.” 2 Corinthians 9:7",
         "es": "«Dios ama al que da con alegría.» 2 Corintios 9:7",
         "ru": "«Доброхотно дающего любит Бог.» 2 Кор. 9:7"
+      }
+    },
+    {
+      "id": "projects",
+      "type": "projects",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Projects",
+        "es": "Proyectos",
+        "ru": "Проекты"
+      },
+      "title": {
+        "en": "Building Together",
+        "es": "Construimos juntos",
+        "ru": "Строим вместе"
       }
     }
   ]

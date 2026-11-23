@@ -1,0 +1,64 @@
+{
+  "id": "news",
+  "path": "/news",
+  "navLabel": {
+    "en": "News",
+    "es": "Noticias",
+    "ru": "Новости"
+  },
+  "icon": "gospel",
+  "summary": {
+    "en": "Notices and news from the parish.",
+    "es": "Avisos y noticias de la parroquia.",
+    "ru": "Объявления и новости прихода."
+  },
+  "seo": {
+    "title": {
+      "en": "Parish News",
+      "es": "Noticias de la parroquia",
+      "ru": "Приходские новости"
+    },
+    "description": {
+      "en": "News, notices, and events from St. Example Orthodox Church.",
+      "es": "Noticias, avisos y eventos de la Iglesia Ortodoxa San Ejemplo.",
+      "ru": "Новости, объявления и события храма святого Примера."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "News",
+        "es": "Noticias",
+        "ru": "Новости"
+      },
+      "title": {
+        "en": "Parish News",
+        "es": "Noticias de la parroquia",
+        "ru": "Приходские новости"
+      },
+      "subtitle": {
+        "en": "News and notices from the parish.",
+        "es": "Noticias y avisos de la parroquia.",
+        "ru": "Новости и объявления прихода."
+      }
+    },
+    {
+      "id": "news",
+      "type": "newsList",
+      "enabled": true,
+      "emptyTitle": {
+        "en": "Coming soon",
+        "es": "Próximamente",
+        "ru": "Скоро"
+      },
+      "emptyText": {
+        "en": "This page is not ready yet. Please check back soon for updates.",
+        "es": "Esta página aún no tiene contenido. Vuelva pronto para conocer las novedades.",
+        "ru": "Эта страница пока пуста. Загляните позже, здесь появятся обновления."
+      }
+    }
+  ]
+}

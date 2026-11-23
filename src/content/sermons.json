@@ -1,0 +1,64 @@
+{
+  "categories": [
+    { "id": "sunday", "label": { "en": "Sunday homilies", "es": "Homilías dominicales", "ru": "Воскресные проповеди" } },
+    { "id": "feasts", "label": { "en": "Feast days", "es": "Días de fiesta", "ru": "Праздники" } },
+    { "id": "talks", "label": { "en": "Talks", "es": "Charlas", "ru": "Беседы" } }
+  ],
+  "items": [
+    {
+      "id": "sample-sermon-1",
+      "date": "2026-11-22",
+      "speakerId": "rector",
+      "category": "sunday",
+      "title": { "en": "Sample homily: the Rich Fool", "es": "Homilía de ejemplo: el rico insensato", "ru": "Пример проповеди: о безумном богаче" },
+      "scripture": { "en": "Luke 12:16-21", "es": "Lucas 12:16-21", "ru": "Лк. 12:16-21" },
+      "summary": {
+        "en": "Sample entry. The audio is a short test tone so you can try the player.",
+        "es": "Entrada de ejemplo. El audio es un tono de prueba corto para probar el reproductor.",
+        "ru": "Пример записи. Вместо аудио короткий тестовый сигнал, чтобы проверить плеер."
+      },
+      "media": { "type": "audio", "src": "/media/sample-sermon.mp3" }
+    },
+    {
+      "id": "sample-sermon-2",
+      "date": "2026-11-21",
+      "speakerId": "rector",
+      "category": "feasts",
+      "title": { "en": "Sample homily: the Entry of the Theotokos", "es": "Homilía de ejemplo: la Presentación de la Madre de Dios", "ru": "Пример проповеди: на Введение" },
+      "scripture": { "en": "Luke 10:38-42; 11:27-28", "es": "Lucas 10:38-42; 11:27-28", "ru": "Лк. 10:38-42; 11:27-28" },
+      "summary": {
+        "en": "Sample entry. Replace with a real recording.",
+        "es": "Entrada de ejemplo. Reemplácela con una grabación real.",
+        "ru": "Пример записи. Замените настоящей записью."
+      },
+      "media": { "type": "audio", "src": "/media/sample-sermon.mp3" }
+    },
+    {
+      "id": "sample-sermon-3",
+      "date": "2026-11-15",
+      "speakerId": "deacon",
+      "category": "talks",
+      "title": { "en": "Sample talk: keeping the Nativity Fast", "es": "Charla de ejemplo: cómo vivir el ayuno de Navidad", "ru": "Пример беседы: как проводить Рождественский пост" },
+      "summary": {
+        "en": "Sample entry. Replace with a real recording.",
+        "es": "Entrada de ejemplo. Reemplácela con una grabación real.",
+        "ru": "Пример записи. Замените настоящей записью."
+      },
+      "media": { "type": "audio", "src": "/media/sample-sermon.mp3" }
+    },
+    {
+      "id": "sample-sermon-4",
+      "date": "2026-11-15",
+      "speakerId": "rector",
+      "category": "sunday",
+      "title": { "en": "Sample homily: the Good Samaritan", "es": "Homilía de ejemplo: el buen samaritano", "ru": "Пример проповеди: о милосердном самарянине" },
+      "scripture": { "en": "Luke 10:25-37", "es": "Lucas 10:25-37", "ru": "Лк. 10:25-37" },
+      "summary": {
+        "en": "Sample entry. Replace with a real recording.",
+        "es": "Entrada de ejemplo. Reemplácela con una grabación real.",
+        "ru": "Пример записи. Замените настоящей записью."
+      },
+      "media": { "type": "audio", "src": "/media/sample-sermon.mp3" }
+    }
+  ]
+}
