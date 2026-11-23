@@ -38,7 +38,15 @@ import type {
   ZapiskiConfig,
 } from './types';
 
-export const site = siteJson as Site;
+import { normalizeCalendarStyle } from '@/lib/calendarStyle';
+
+export const site: Site = {
+  ...(siteJson as Site),
+  calendar: {
+    ...(siteJson as Site).calendar,
+    style: normalizeCalendarStyle((siteJson as Site).calendar?.style),
+  },
+};
 export const languages = languagesJson as Languages;
 export const navigation = navigationJson as Navigation;
 export const services = servicesJson.weekly as Service[];

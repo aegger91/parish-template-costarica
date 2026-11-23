@@ -39,9 +39,9 @@ export default function ChildPages({ section }: { section: ChildPagesSection }) 
             <Reveal key={item.id} delay={0.06 * i}>
               <Link
                 to={item.to}
-                className="group flex h-full flex-col rounded-2xl border border-primary-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-primary-900/10 sm:p-7"
+                className="card group flex h-full flex-col p-6 transition-all hover:-translate-y-1 hover:border-accent-400 sm:p-7"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-900 text-accent-300 transition-colors group-hover:bg-accent-400 group-hover:text-primary-900">
+                <span className="flex h-12 w-12 items-center justify-center rounded-t-full rounded-b-md border border-accent-400/45 bg-primary-900 text-accent-300 transition-colors group-hover:bg-accent-400 group-hover:text-primary-900">
                   <Icon name={item.page?.icon ?? 'church'} className="h-5 w-5" strokeWidth={1.6} />
                 </span>
                 <h3 className="mt-5 font-heading text-2xl font-semibold text-primary-900">{t(item.label)}</h3>

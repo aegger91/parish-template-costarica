@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="10" fill="#0f2d50"/>
+  <rect width="64" height="64" rx="10" fill="#3a121a"/>
   <!-- Same path as src/components/ui/OrthodoxCross.tsx (24 x 32 grid); footrest's left end is higher. -->
-  <path transform="translate(14 8) scale(1.5)" d="M12 2v28M8.5 7h7M4 13h16M7.5 21l9 4" fill="none" stroke="#d8a83e" stroke-width="2.4" stroke-linecap="round"/>
+  <path transform="translate(14 8) scale(1.5)" d="M12 2v28M8.5 7h7M4 13h16M7.5 21l9 4" fill="none" stroke="#c49a3a" stroke-width="2.4" stroke-linecap="round"/>
 </svg>

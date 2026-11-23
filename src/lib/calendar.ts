@@ -1,5 +1,6 @@
 import { datedServices, feasts, moduleOn, services, site } from '@/content';
 import type { CalendarStyle, Feast, Service } from '@/content';
+import { isOldCalendar } from './calendarStyle';
 import {
   gregorianFromJdn,
   jdnFromGregorian,
@@ -24,31 +25,14 @@ function julianPaschaJdn(year: number): number {
   return jdnFromJulian({ year, month, day });
 }
 
-function westernPaschaJdn(year: number): number {
-  const a = year % 19;
-  const b = Math.floor(year / 100);
-  const c = year % 100;
-  const d = Math.floor(b / 4);
-  const e = b % 4;
-  const f = Math.floor((b + 8) / 25);
-  const g = Math.floor((b - f + 1) / 3);
-  const h = (19 * a + b - d - g + 15) % 30;
-  const i = Math.floor(c / 4);
-  const k = c % 4;
-  const l = (32 + 2 * e + 2 * i - h - k) % 7;
-  const m = Math.floor((a + 11 * h + 22 * l) / 451);
-  const month = Math.floor((h + l - 7 * m + 114) / 31);
-  const day = ((h + l - 7 * m + 114) % 31) + 1;
-  return jdnFromGregorian({ year, month, day });
-}
-
-export function paschaJdn(style: CalendarStyle, civilYear: number): number {
-  return style === 'gregorian' ? westernPaschaJdn(civilYear) : julianPaschaJdn(civilYear);
+/** Orthodox Paschalion for both New and Old Calendar (movable feasts share Pascha). */
+export function paschaJdn(_style: CalendarStyle, civilYear: number): number {
+  return julianPaschaJdn(civilYear);
 }
 
 /** The church-calendar date of a civil day: 13 days behind on the Old Calendar. */
 function churchMonthDay(style: CalendarStyle, jdn: number): string {
-  const d = style === 'julian' ? julianFromJdn(jdn) : gregorianFromJdn(jdn);
+  const d = isOldCalendar(style) ? julianFromJdn(jdn) : gregorianFromJdn(jdn);
   return `${String(d.month).padStart(2, '0')}-${String(d.day).padStart(2, '0')}`;
 }
 
@@ -89,7 +73,7 @@ const monthCache = new Map<string, Promise<Map<number, OrthocalDay>>>();
  * Old Calendar commemorations. Days are keyed by Julian Day Number, so they line up with civil dates.
  */
 export function loadOrthocalMonth(style: CalendarStyle, year: number, month: number): Promise<Map<number, OrthocalDay>> {
-  const source = style === 'julian' ? 'julian' : 'gregorian';
+  const source = isOldCalendar(style) ? 'julian' : 'gregorian';
   const key = `${source}-${year}-${month}`;
   let hit = monthCache.get(key);
   if (!hit) {
@@ -108,17 +92,13 @@ export function loadOrthocalMonth(style: CalendarStyle, year: number, month: num
   return hit;
 }
 
-/**
- * The orthocal data follows the Orthodox Paschalion, so with the Gregorian style only the
- * fixed commemorations (saints) are used; the moveable cycle and the fasts are left out.
- */
-export function usesOrthocalCycle(style: CalendarStyle): boolean {
-  return style !== 'gregorian';
+/** Both New and Old Calendar use the Orthodox Paschalion for moveable cycle and fasting. */
+export function usesOrthocalCycle(_style: CalendarStyle): boolean {
+  return true;
 }
 
-export function commemorations(day: OrthocalDay | undefined, style: CalendarStyle): string[] {
+export function commemorations(day: OrthocalDay | undefined, _style: CalendarStyle): string[] {
   if (!day) return [];
-  if (!usesOrthocalCycle(style)) return day.saints ?? [];
   const list = [...(day.feasts ?? []), ...(day.saints ?? [])].filter((s) => !/^begin /i.test(s));
   return list.length ? list : [day.summary_title].filter(Boolean);
 }
@@ -186,6 +166,27 @@ export function upcomingServices(now: ParishNow, days: number): ServiceOccurrenc
     out.push(...servicesOn(jdn).filter((o) => i > 0 || o.end > now.minutes));
   }
   return out;
+}
+
+/** Next occurrence of a weekly service on or after `from` (inclusive of today if still upcoming). */
+export function nextOccurrence(service: Service, now: ParishNow): ServiceOccurrence | null {
+  if (service.date) {
+    const jdn = jdnFromIso(service.date);
+    const start = minutesOf(service.time);
+    if (jdn > now.jdn || (jdn === now.jdn && start + service.durationMinutes > now.minutes)) {
+      return { service, jdn, start, end: start + service.durationMinutes };
+    }
+    return null;
+  }
+  if (service.weekday === undefined) return null;
+  for (let i = 0; i < 14; i++) {
+    const jdn = now.jdn + i;
+    if (weekdayOfJdn(jdn) !== service.weekday) continue;
+    const start = minutesOf(service.time);
+    if (i === 0 && start + service.durationMinutes <= now.minutes) continue;
+    return { service, jdn, start, end: start + service.durationMinutes };
+  }
+  return null;
 }
 
 export function liveService(now: ParishNow): ServiceOccurrence | null {

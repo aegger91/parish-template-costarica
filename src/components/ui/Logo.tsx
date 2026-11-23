@@ -12,8 +12,8 @@ const FRAME: Record<Exclude<LogoStyle, 'wordmark'>, string> = {
 
 const SIZE = {
   sm: 'h-10',
-  md: 'h-12',
-  lg: 'h-14',
+  md: 'h-[3.25rem]',
+  lg: 'h-16',
 };
 
 /** The logo image from site.json "logo.src" in its frame, or an Orthodox cross when no image is set. */
@@ -53,7 +53,7 @@ export function Brand({
       <span className="flex min-w-0 flex-col">
         <span className={`font-heading font-semibold leading-tight tracking-wide text-white ${nameClassName}`}>{t(site.name)}</span>
         {site.logo.wordmarkSubtitle && (
-          <span className="ornament mt-0.5 text-[10px] font-semibold uppercase tracking-[0.28em] text-accent-300 sm:text-[11px]">
+          <span className="ornament mt-0.5 text-[10px] font-semibold uppercase leading-snug tracking-[0.14em] text-accent-300 sm:text-[11px]">
             {t(site.logo.wordmarkSubtitle)}
           </span>
         )}

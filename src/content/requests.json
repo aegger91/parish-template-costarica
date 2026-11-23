@@ -4,8 +4,16 @@
       "id": "zapiska",
       "icon": "note",
       "image": "",
-      "title": { "en": "Submit a Commemoration Note (Zapiska)", "es": "Enviar una nota de conmemoración (Zapiska)", "ru": "Подать записку" },
-      "summary": { "en": "Names for health and for repose.", "es": "Nombres por la salud y por el descanso.", "ru": "Имена о здравии и об упокоении." },
+      "title": {
+        "en": "Submit commemoration names",
+        "es": "Enviar nombres para conmemorar",
+        "ru": "Подать записку"
+      },
+      "summary": {
+        "en": "Names for health and for repose.",
+        "es": "Nombres por la salud y por el descanso.",
+        "ru": "Имена о здравии и об упокоении."
+      },
       "price": "donation",
       "durationMinutes": 0,
       "sendTo": "office",
@@ -15,8 +23,16 @@
       "id": "moleben",
       "icon": "censer",
       "image": "",
-      "title": { "en": "Moleben", "es": "Moleben", "ru": "Молебен" },
-      "summary": { "en": "Prayers for a need or in thanksgiving.", "es": "Oraciones por una necesidad o en acción de gracias.", "ru": "О нуждах или благодарственный." },
+      "title": {
+        "en": "Moleben",
+        "es": "Moleben",
+        "ru": "Молебен"
+      },
+      "summary": {
+        "en": "Prayers for a need or in thanksgiving.",
+        "es": "Oraciones por una necesidad o en acción de gracias.",
+        "ru": "О нуждах или благодарственный."
+      },
       "price": "donation",
       "durationMinutes": 30,
       "sendTo": "rector"
@@ -25,8 +41,16 @@
       "id": "baptism",
       "icon": "font",
       "image": "",
-      "title": { "en": "Baptism", "es": "Bautismo", "ru": "Крещение" },
-      "summary": { "en": "For a child or an adult.", "es": "Para un niño o un adulto.", "ru": "Для ребёнка или взрослого." },
+      "title": {
+        "en": "Baptism",
+        "es": "Bautismo",
+        "ru": "Крещение"
+      },
+      "summary": {
+        "en": "For a child or an adult.",
+        "es": "Para un niño o un adulto.",
+        "ru": "Для ребёнка или взрослого."
+      },
       "price": "free",
       "durationMinutes": 60,
       "sendTo": "rector"
@@ -35,8 +59,16 @@
       "id": "confession",
       "icon": "gospel",
       "image": "",
-      "title": { "en": "Confession", "es": "Confesión", "ru": "Исповедь" },
-      "summary": { "en": "By appointment.", "es": "Con cita previa.", "ru": "По договорённости." },
+      "title": {
+        "en": "Confession",
+        "es": "Confesión",
+        "ru": "Исповедь"
+      },
+      "summary": {
+        "en": "By appointment.",
+        "es": "Con cita previa.",
+        "ru": "По договорённости."
+      },
       "price": "free",
       "durationMinutes": 30,
       "sendTo": "rector"
@@ -45,8 +77,16 @@
       "id": "chrismation",
       "icon": "chrism",
       "image": "",
-      "title": { "en": "Chrismation", "es": "Crismación", "ru": "Миропомазание" },
-      "summary": { "en": "By appointment.", "es": "Con cita previa.", "ru": "По договорённости." },
+      "title": {
+        "en": "Chrismation",
+        "es": "Crismación",
+        "ru": "Миропомазание"
+      },
+      "summary": {
+        "en": "By appointment.",
+        "es": "Con cita previa.",
+        "ru": "По договорённости."
+      },
       "price": "free",
       "durationMinutes": 45,
       "sendTo": "rector"
@@ -55,8 +95,16 @@
       "id": "wedding",
       "icon": "crowns",
       "image": "",
-      "title": { "en": "Wedding (Crowning)", "es": "Boda (Coronación)", "ru": "Венчание" },
-      "summary": { "en": "Please write well ahead of the date.", "es": "Escriba con antelación a la fecha.", "ru": "Пишите заранее." },
+      "title": {
+        "en": "Wedding (Crowning)",
+        "es": "Boda (Coronación)",
+        "ru": "Венчание"
+      },
+      "summary": {
+        "en": "Please write well ahead of the date.",
+        "es": "Escriba con antelación a la fecha.",
+        "ru": "Пишите заранее."
+      },
       "price": "donation",
       "durationMinutes": 60,
       "sendTo": "rector"
@@ -65,8 +113,16 @@
       "id": "unction",
       "icon": "lampada",
       "image": "",
-      "title": { "en": "Holy Unction", "es": "Santa Unción", "ru": "Соборование" },
-      "summary": { "en": "At the church, at home or in hospital.", "es": "En la iglesia, en casa o en el hospital.", "ru": "В храме, дома или в больнице." },
+      "title": {
+        "en": "Holy Unction",
+        "es": "Santa Unción",
+        "ru": "Соборование"
+      },
+      "summary": {
+        "en": "At the church, at home or in hospital.",
+        "es": "En la iglesia, en casa o en el hospital.",
+        "ru": "В храме, дома или в больнице."
+      },
       "price": "free",
       "durationMinutes": 60,
       "sendTo": "rector"
@@ -75,8 +131,16 @@
       "id": "blessing",
       "icon": "holy-water",
       "image": "",
-      "title": { "en": "House or Car Blessing", "es": "Bendición de casa o automóvil", "ru": "Освящение дома или машины" },
-      "summary": { "en": "A home, car or other blessing.", "es": "Una casa, un coche u otra bendición.", "ru": "Дом, машина или другое освящение." },
+      "title": {
+        "en": "House or Car Blessing",
+        "es": "Bendición de casa o automóvil",
+        "ru": "Освящение дома или машины"
+      },
+      "summary": {
+        "en": "A home, car or other blessing.",
+        "es": "Una casa, un coche u otra bendición.",
+        "ru": "Дом, машина или другое освящение."
+      },
       "price": "donation",
       "durationMinutes": 30,
       "sendTo": "rector"
@@ -85,8 +149,16 @@
       "id": "funeral",
       "icon": "candle",
       "image": "",
-      "title": { "en": "Funeral Service (Panikhida / Otpevanie)", "es": "Servicio fúnebre (Panijida / Otpevanie)", "ru": "Панихида или отпевание" },
-      "summary": { "en": "Funeral service or memorial.", "es": "Funeral o servicio memorial.", "ru": "Отпевание или панихида." },
+      "title": {
+        "en": "Funeral Service (Panikhida / Otpevanie)",
+        "es": "Servicio fúnebre (Panijida / Otpevanie)",
+        "ru": "Панихида или отпевание"
+      },
+      "summary": {
+        "en": "Funeral service or memorial.",
+        "es": "Funeral o servicio memorial.",
+        "ru": "Отпевание или панихида."
+      },
       "price": "donation",
       "durationMinutes": 45,
       "sendTo": "rector"
@@ -95,8 +167,16 @@
       "id": "counseling",
       "icon": "prayer-rope",
       "image": "",
-      "title": { "en": "Pastoral Counseling", "es": "Orientación pastoral", "ru": "Беседа со священником" },
-      "summary": { "en": "A conversation with the priest.", "es": "Una conversación con el sacerdote.", "ru": "Беседа со священником." },
+      "title": {
+        "en": "Pastoral Counseling",
+        "es": "Orientación pastoral",
+        "ru": "Беседа со священником"
+      },
+      "summary": {
+        "en": "A conversation with the priest.",
+        "es": "Una conversación con el sacerdote.",
+        "ru": "Беседа со священником."
+      },
       "price": "free",
       "durationMinutes": 45,
       "sendTo": "rector"

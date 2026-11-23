@@ -34,7 +34,7 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
   const { t, ui, lang, language } = useI18n();
   const uid = useId();
   const [frequency, setFrequency] = useState(giving.frequencies[0]?.id ?? 'once');
-  const [preset, setPreset] = useState<number | null>(giving.defaultAmount ?? null);
+  const [preset, setPreset] = useState<number | null>(giving.defaultAmount && giving.defaultAmount > 0 ? giving.defaultAmount : null);
   const [custom, setCustom] = useState('');
   const [params] = useSearchParams();
   const designations = [...giving.funds.map((f) => ({ id: f.id, label: f.label })), ...giving.projects.map((p) => ({ id: p.id, label: p.title }))];
@@ -55,14 +55,17 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
 
   const contact = clergy.find((m) => m.id === giving.contactId);
   const symbol = useMemo(() => currencySymbol(payments.currency, language.locale), [language.locale]);
-  const amount = custom ? Number(custom.replace(',', '.')) : (preset ?? 0);
-  const validAmount = Number.isFinite(amount) && amount >= giving.minimumAmount;
-  const money = validAmount ? formatMoney(amount, payments.currency, language.locale) : '';
+  const rawCustom = custom.trim();
+  const amount = rawCustom ? Number(rawCustom.replace(',', '.')) : (preset ?? 0);
+  const amountEntered = rawCustom !== '' || preset !== null;
+  const validAmount = !amountEntered || (Number.isFinite(amount) && amount >= 0);
+  const money = Number.isFinite(amount) && amount > 0 ? formatMoney(amount, payments.currency, language.locale) : formatMoney(0, payments.currency, language.locale);
   const recurring = frequency !== 'once';
 
-  const submitLabel = !validAmount
-    ? ui('give.submitEmpty')
-    : ui(recurring ? 'give.submitRecurring' : 'give.submitOnce', { amount: money });
+  const submitLabel =
+    amount > 0
+      ? ui(recurring ? 'give.submitRecurring' : 'give.submitOnce', { amount: money })
+      : ui('give.submitEmpty');
 
   const validate = (): Errors => {
     const next: Errors = {};
@@ -190,9 +193,11 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
                   type="text"
                   inputMode="decimal"
                   autoComplete="off"
+                  placeholder="0"
                   value={custom}
                   onChange={(e) => {
                     setCustom(e.target.value.replace(/[^\d.,]/g, ''));
+                    setPreset(null);
                     setErrors((er) => ({ ...er, amount: undefined }));
                   }}
                   aria-invalid={!!errors.amount}

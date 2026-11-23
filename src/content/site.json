@@ -18,8 +18,8 @@
   "dioceseUrl": "https://example.org/",
   "jurisdictionUrl": "https://example.org/",
   "logo": {
-    "style": "seal",
-    "src": "",
+    "style": "kiot",
+    "src": "/images/church/christ-pantocrator.jpg",
     "alt": "St. Example Orthodox Church logo",
     "wordmarkSubtitle": {
       "en": "Orthodox Church",
@@ -54,7 +54,7 @@
   },
   "calendar": {
     "apiBase": "https://orthocal.info/api",
-    "style": "revised-julian",
+    "style": "old",
     "weekStartsOn": 0,
     "saintsLanguages": [
       "en"

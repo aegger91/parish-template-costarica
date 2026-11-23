@@ -14,8 +14,29 @@ body {
   overflow-x: hidden;
 }
 
+/*
+  Language-fit guardrails: uppercase + letter-spacing and tight line-heights
+  commonly clip serif glyphs (Cyrillic/Greek/Latin-ext). Keep text boxes open.
+*/
+.uppercase {
+  line-height: 1.35;
+  overflow: visible;
+}
+
+.tracking-wider,
+.tracking-widest {
+  overflow: visible;
+}
+
 body {
-  @apply bg-white text-ink-900 font-sans antialiased;
+  @apply text-ink-900 font-sans antialiased;
+  background-color: rgb(var(--color-parchment));
+  /* Soft parchment grain + faint icon-gold wash — restrained, not kitschy */
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -10%, rgb(var(--color-accent-200) / 0.22), transparent 55%),
+    radial-gradient(ellipse 80% 50% at 100% 100%, rgb(var(--color-primary-200) / 0.18), transparent 50%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-attachment: fixed;
 }
 
 ::selection {
@@ -23,7 +44,8 @@ body {
 }
 
 :focus-visible {
-  @apply outline-none ring-2 ring-accent-400 ring-offset-2 ring-offset-white;
+  @apply outline-none ring-2 ring-accent-400 ring-offset-2;
+  ring-offset-color: rgb(var(--color-parchment));
 }
 
 [hidden] {
@@ -50,6 +72,20 @@ li {
 
   .section {
     padding-block: var(--section-y);
+    position: relative;
+  }
+
+  .section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(36rem, 78%);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--ornament-gold-soft), var(--ornament-gold), var(--ornament-gold-soft), transparent);
+    opacity: 0.7;
+    pointer-events: none;
   }
 
   @media (min-width: 640px) {
@@ -63,6 +99,8 @@ li {
     font-family: var(--font-ornament);
     font-size: var(--text-eyebrow);
     letter-spacing: var(--tracking-eyebrow);
+    line-height: 1.45;
+    overflow: visible;
   }
 
   /* Small decorative labels: eyebrows, the wordmark subtitle, slip headings. */
@@ -73,10 +111,24 @@ li {
   .nav-link {
     font-size: var(--text-nav);
     letter-spacing: var(--tracking-nav);
+    line-height: 1.35;
+    overflow: visible;
+    padding-block: 0.15em;
   }
 
   .heading-section {
-    @apply font-heading text-2xl font-semibold leading-tight sm:text-4xl;
+    @apply font-heading text-2xl font-semibold sm:text-4xl;
+    line-height: 1.25;
+    overflow: visible;
+    padding-block: 0.08em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    overflow: visible;
+    text-wrap: pretty;
   }
 
   .prose-block p {
@@ -87,52 +139,256 @@ li {
     @apply mt-4;
   }
 
+  /* Thin gold double-rule */
   .accent-rule {
-    @apply h-px w-16 bg-accent-400;
+    position: relative;
+    width: 4.5rem;
+    height: 0.5rem;
+    background: transparent;
+    border: none;
   }
 
+  .accent-rule::before,
+  .accent-rule::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--ornament-gold), transparent);
+  }
+
+  .accent-rule::before {
+    top: 0.1rem;
+  }
+
+  .accent-rule::after {
+    bottom: 0.1rem;
+    opacity: 0.7;
+  }
+
+  /* Byzantine / Slavic interlace-style section divider */
+  .ornament-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: rgb(var(--color-accent-500));
+  }
+
+  .ornament-divider::before,
+  .ornament-divider::after {
+    content: '';
+    height: 1px;
+    width: min(6rem, 22vw);
+    background: linear-gradient(90deg, transparent, var(--ornament-gold-soft), var(--ornament-gold));
+  }
+
+  .ornament-divider::after {
+    background: linear-gradient(90deg, var(--ornament-gold), var(--ornament-gold-soft), transparent);
+  }
+
+  .ornament-divider__cross {
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+
+  /* Buttons: gentle rounding, gold / burgundy — not flat generic pills */
   .btn-accent {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-pill bg-accent-400 px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-primary-900 transition-colors hover:bg-accent-300 disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-[12px] font-semibold uppercase transition-all disabled:cursor-not-allowed disabled:opacity-60;
     font-family: var(--font-button);
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    overflow: visible;
+    white-space: normal;
+    text-align: center;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(180deg, rgb(var(--color-accent-300)), rgb(var(--color-accent-500)));
+    color: rgb(var(--color-primary-950));
+    border: 1px solid rgb(var(--color-accent-600) / 0.45);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.28), 0 1px 2px rgb(var(--color-primary-950) / 0.12);
+  }
+
+  .btn-accent:hover {
+    background: linear-gradient(180deg, rgb(var(--color-accent-200)), rgb(var(--color-accent-400)));
   }
 
   .btn-primary {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-pill bg-primary-900 px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:bg-primary-700 disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-[12px] font-semibold uppercase text-white transition-all disabled:cursor-not-allowed disabled:opacity-60;
     font-family: var(--font-button);
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    overflow: visible;
+    white-space: normal;
+    text-align: center;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(180deg, rgb(var(--color-primary-700)), rgb(var(--color-primary-900)));
+    border: 1px solid rgb(var(--color-accent-500) / 0.35);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 1px 2px rgb(var(--color-primary-950) / 0.2);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(180deg, rgb(var(--color-primary-600)), rgb(var(--color-primary-800)));
   }
 
   .btn-outline {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-pill border border-primary-200 bg-white px-5 py-2.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-primary-800 transition-colors hover:border-accent-400 hover:text-accent-700 disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 px-5 py-2.5 text-[12px] font-semibold uppercase transition-all disabled:cursor-not-allowed disabled:opacity-60;
     font-family: var(--font-button);
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    overflow: visible;
+    white-space: normal;
+    text-align: center;
+    border-radius: var(--radius-pill);
+    color: rgb(var(--color-primary-800));
+    background: rgb(var(--color-ivory) / 0.85);
+    border: 1px solid rgb(var(--color-accent-400) / 0.55);
+    box-shadow: inset 0 0 0 1px rgb(var(--color-accent-200) / 0.4);
+  }
+
+  .btn-outline:hover {
+    border-color: rgb(var(--color-accent-500));
+    color: rgb(var(--color-accent-800));
+    background: rgb(var(--color-accent-50));
   }
 
   .btn-ghost-light {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-pill border border-white/40 px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white transition-colors hover:border-accent-300 hover:text-accent-200;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-[12px] font-semibold uppercase text-white transition-all;
     font-family: var(--font-button);
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    overflow: visible;
+    white-space: normal;
+    text-align: center;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgb(255 255 255 / 0.35);
+    background: rgb(255 255 255 / 0.06);
+    box-shadow: inset 0 0 0 1px rgb(var(--color-accent-400) / 0.2);
+  }
+
+  .btn-ghost-light:hover {
+    border-color: rgb(var(--color-accent-300));
+    color: rgb(var(--color-accent-200));
+    background: rgb(255 255 255 / 0.1);
   }
 
   .chip {
-    @apply inline-flex min-h-10 items-center gap-1.5 whitespace-nowrap rounded-pill border px-4 py-2 text-[13px] font-medium transition-colors;
+    @apply inline-flex min-h-10 items-center gap-1.5 whitespace-nowrap border px-4 py-2 text-[13px] font-medium transition-colors;
+    border-radius: var(--radius-pill);
   }
 
   .chip-off {
-    @apply border-primary-200 bg-white text-primary-700 hover:border-accent-400 hover:text-accent-700;
+    @apply text-primary-700 hover:text-accent-700;
+    border-color: rgb(var(--color-accent-300) / 0.55);
+    background: rgb(var(--color-ivory) / 0.9);
+  }
+
+  .chip-off:hover {
+    border-color: rgb(var(--color-accent-400));
   }
 
   .chip-on {
-    @apply border-primary-900 bg-primary-900 text-white;
+    @apply text-white;
+    background: rgb(var(--color-primary-900));
+    border-color: rgb(var(--color-accent-500) / 0.4);
   }
 
   .card {
-    @apply rounded-2xl border border-primary-100 bg-white shadow-sm;
+    border-radius: var(--radius-card);
+    border: 1px solid rgb(var(--color-accent-400) / 0.4);
+    background:
+      linear-gradient(165deg, rgb(var(--color-ivory)) 0%, rgb(var(--color-parchment)) 55%, rgb(var(--color-parchment-deep) / 0.85) 100%);
+    box-shadow:
+      inset 0 0 0 1px rgb(var(--color-accent-100) / 0.65),
+      inset 0 1px 0 rgb(255 255 255 / 0.45),
+      0 2px 8px rgb(var(--color-primary-950) / 0.07);
+  }
+
+  /* Warm parchment panel with soft kiot (arched) top — for hero glance cards and feature panels */
+  .panel-kiot {
+    border-radius: 50% 50% var(--radius-card) var(--radius-card) / 18% 18% var(--radius-card) var(--radius-card);
+    border: 1px solid rgb(var(--color-accent-400) / 0.45);
+    background:
+      linear-gradient(180deg, rgb(var(--color-ivory)) 0%, rgb(var(--color-parchment)) 70%, rgb(var(--color-parchment-deep) / 0.9) 100%);
+    box-shadow:
+      inset 0 0 0 1px rgb(var(--color-accent-100) / 0.7),
+      inset 0 0 0 4px rgb(var(--color-ivory) / 0.55),
+      0 6px 18px rgb(var(--color-primary-950) / 0.18);
+  }
+
+  .font-slavonic {
+    font-family: 'Ponomar', 'Old Standard TT', 'Cormorant Garamond', 'EB Garamond', serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* Thin ornamental band under header / between major sections */
+  .ornament-band {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12px;
+    color: rgb(var(--color-accent-400));
+    background:
+      linear-gradient(90deg, transparent, rgb(var(--color-accent-500) / 0.35), transparent),
+      linear-gradient(180deg, rgb(var(--color-primary-950) / 0.15), transparent);
+  }
+
+  .ornament-band__motif {
+    display: block;
+    width: min(42rem, 92%);
+    height: 12px;
+  }
+
+  .section-ornament {
+    position: relative;
+  }
+
+  .section-ornament::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(28rem, 70%);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--ornament-gold-soft), var(--ornament-gold), var(--ornament-gold-soft), transparent);
+    opacity: 0.85;
+  }
+
+  /* Soft Byzantine arch on image frames */
+  .arch-frame {
+    border-radius: 50% 50% 0.35rem 0.35rem / 28% 28% 0.35rem 0.35rem;
+    overflow: hidden;
+    border: 1px solid rgb(var(--color-accent-400) / 0.55);
+    box-shadow:
+      inset 0 0 0 3px rgb(var(--color-ivory)),
+      0 2px 8px rgb(var(--color-primary-950) / 0.08);
+  }
+
+  .arch-frame-top {
+    border-radius: 50% 50% var(--radius-card) var(--radius-card) / 22% 22% var(--radius-card) var(--radius-card);
   }
 
   .field {
-    @apply block min-h-11 w-full rounded-xl border border-primary-200 bg-white px-4 py-2.5 text-[15px] text-primary-900 outline-none transition-colors placeholder:text-ink-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-400/30;
+    @apply block min-h-11 w-full px-4 py-2.5 text-[15px] text-primary-900 outline-none transition-colors placeholder:text-ink-500;
+    border-radius: var(--radius-inner);
+    border: 1px solid rgb(var(--color-primary-200));
+    background: rgb(var(--color-ivory));
+  }
+
+  .field:focus {
+    border-color: rgb(var(--color-accent-400));
+    box-shadow: 0 0 0 3px rgb(var(--color-accent-400) / 0.25);
   }
 
   .field[aria-invalid='true'] {
-    @apply border-rose-400 focus:border-rose-500 focus:ring-rose-400/30;
+    @apply border-rose-400;
+  }
+
+  .field[aria-invalid='true']:focus {
+    border-color: rgb(244 63 94);
+    box-shadow: 0 0 0 3px rgb(244 63 94 / 0.25);
   }
 
   .label {
@@ -142,10 +398,39 @@ li {
   .field-error {
     @apply mt-1.5 text-[13px] text-rose-700;
   }
+
+  /* Hero: let the church photo read through — liturgical wash, not a flat tech gradient */
+  .hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgb(var(--color-primary-950) / 0.55) 0%,
+        rgb(var(--color-primary-950) / 0.28) 38%,
+        rgb(var(--color-primary-950) / 0.62) 72%,
+        rgb(var(--color-primary-950) / 0.88) 100%
+      ),
+      radial-gradient(ellipse 75% 50% at 50% 25%, rgb(var(--color-accent-400) / 0.14), transparent 70%);
+  }
+}
+
+/* Remap flat white / cool gray surfaces to warm ivory parchment (design-only). */
+.bg-white {
+  background-color: rgb(var(--color-ivory)) !important;
+}
+
+.bg-primary-50 {
+  background-color: rgb(var(--color-parchment-deep) / 0.65) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .btn-accent,
+  .btn-primary,
+  .btn-outline,
+  .btn-ghost-light {
+    transition: none;
   }
 }

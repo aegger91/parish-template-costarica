@@ -76,7 +76,7 @@ export default function Gallery({ section }: { section: GallerySection }) {
                     lastTrigger.current = e.currentTarget;
                     setSelected(i);
                   }}
-                  className="group relative block w-full overflow-hidden rounded-2xl shadow-sm"
+                  className="arch-frame group relative block w-full shadow-sm"
                   aria-label={`${t(photo.caption)}. ${ui('gallery.open')}`}
                 >
                   <img src={photo.src} alt={t(photo.alt)} className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />

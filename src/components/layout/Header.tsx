@@ -4,6 +4,7 @@ import { Clock, MapPin, Menu, ShoppingBag } from 'lucide-react';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import LiveBadge from '@/components/ui/LiveBadge';
 import { Brand } from '@/components/ui/Logo';
+import OrnamentBand from '@/components/ui/OrnamentBand';
 import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import { getPage, moduleOn, site } from '@/content';
 import { lookupUi, useI18n } from '@/i18n';
@@ -124,13 +125,17 @@ export default function Header() {
   const solid = condensed || pathname !== '/';
 
   const links = navTree.filter((i) => !i.button);
-  const { navRef, measureRef, visible } = usePriorityNav(links.length, [lang, desktop, condensed]);
+  const { navRef, measureRef, visible } = usePriorityNav(links.length, [lang, desktop]);
   const useDrawer = !desktop || visible < Math.min(MIN_VISIBLE, links.length);
   const shown = links.slice(0, visible);
   const overflow = links.slice(visible);
 
   useEffect(() => {
-    const onScroll = () => setCondensed(window.scrollY > 32);
+    // Hysteresis avoids flicker when scroll sits near the threshold.
+    const onScroll = () => {
+      const y = window.scrollY;
+      setCondensed((was) => (was ? y > 12 : y > 48));
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -145,9 +150,9 @@ export default function Header() {
 
   const linkClass = (active: boolean) =>
     [
-      'nav-link relative whitespace-nowrap font-medium uppercase transition-colors duration-200',
+      'nav-link relative inline-flex items-center whitespace-nowrap font-medium uppercase',
       active
-        ? 'text-accent-300 after:absolute after:-bottom-1.5 after:start-0 after:h-0.5 after:w-full after:bg-accent-400'
+        ? 'text-accent-300 after:absolute after:-bottom-1 after:start-0 after:h-0.5 after:w-full after:bg-accent-400'
         : 'text-white/85 hover:text-white',
     ].join(' ');
 
@@ -173,25 +178,23 @@ export default function Header() {
     <>
       <header
         className={[
-          'fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300',
-          solid ? 'bg-primary-900/95 shadow-lg shadow-primary-950/30 backdrop-blur-md' : 'bg-gradient-to-b from-primary-950/60 to-transparent',
+          // Always reserve 1px bottom border so solid/transparent never changes header height.
+          'fixed inset-x-0 top-0 z-50 border-b',
+          // Background only — no height/layout transitions (avoids scroll jitter).
+          solid
+            ? 'border-accent-400/25 bg-primary-900/95 shadow-lg shadow-primary-950/25 backdrop-blur-md'
+            : 'border-transparent bg-gradient-to-b from-primary-950/75 to-transparent',
         ].join(' ')}
       >
-        {/* Utility strip: next service or live badge, address, language. Folds away on scroll. */}
-        <div
-          className={`hidden border-b border-white/10 transition-[max-height,opacity] duration-300 lg:block ${
-            condensed ? 'max-h-0 overflow-hidden border-transparent opacity-0' : 'max-h-10 opacity-100'
-          }`}
-          aria-hidden={condensed}
-        >
-          <div className="container-px mx-auto flex h-9 max-w-[88rem] items-center justify-between gap-6 text-[12.5px] text-white/85">
+        {/* Utility strip stays a fixed height on large screens so the bar never jumps. */}
+        <div className="hidden border-b border-white/10 lg:block">
+          <div className="container-px mx-auto flex h-9 max-w-[88rem] items-center justify-between gap-6 text-[12.5px] leading-snug text-white/85">
             <div className="flex min-w-0 items-center gap-6">
               <NextService />
               <a
                 href={site.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                tabIndex={condensed ? -1 : undefined}
                 className="hidden min-w-0 items-center gap-2 truncate transition-colors hover:text-white xl:flex"
               >
                 <MapPin className="h-3.5 w-3.5 shrink-0 text-accent-300" strokeWidth={1.8} aria-hidden />
@@ -200,7 +203,7 @@ export default function Header() {
             </div>
             <div className="flex shrink-0 items-center gap-4">
               {moduleOn('zapiski') && getPage('zapiski') && (
-                <Link to={getPage('zapiski')!.path} tabIndex={condensed ? -1 : undefined} className="flex items-center gap-1.5 hover:text-white">
+                <Link to={getPage('zapiski')!.path} className="flex items-center gap-1.5 whitespace-nowrap hover:text-white">
                   <OrthodoxIcon name="note" className="h-3.5 w-3.5 text-accent-300" strokeWidth={1.8} />
                   {ui('header.submitNote')}
                 </Link>
@@ -210,23 +213,20 @@ export default function Header() {
           </div>
         </div>
 
-        <div
-          className={`container-px mx-auto flex max-w-[88rem] items-center gap-3 transition-[height] duration-300 sm:gap-4 ${
-            condensed ? 'h-16' : 'h-16 sm:h-20'
-          }`}
-        >
+        <div className="container-px mx-auto flex h-16 max-w-[88rem] items-center gap-3 sm:gap-4">
           <Link to="/" className="flex min-w-0 shrink items-center gap-2.5 sm:gap-3" aria-label={`${t(site.name)}, ${ui('home')}`}>
             <Brand
-              size={condensed ? 'sm' : 'md'}
-              nameClassName="line-clamp-2 text-[14px] min-[400px]:text-[15px] sm:text-lg lg:max-w-[13rem] xl:max-w-[16rem] xl:text-[19px]"
+              size="md"
+              nameClassName="line-clamp-2 leading-snug text-[14px] min-[400px]:text-[15px] sm:text-lg lg:max-w-[14rem] xl:max-w-[18rem] xl:text-[19px]"
             />
           </Link>
 
           <nav
             ref={navRef}
-            className={`relative hidden h-full min-w-0 flex-1 items-center justify-end lg:flex ${useDrawer ? 'invisible' : ''}`}
+            className={`relative hidden h-full min-w-0 flex-1 items-center justify-end lg:flex ${useDrawer ? 'pointer-events-none opacity-0' : 'opacity-100'}`}
             style={{ gap: GAP }}
             aria-label={ui('primaryNav')}
+            aria-hidden={useDrawer}
           >
             <div ref={measureRef} aria-hidden className="pointer-events-none invisible absolute start-0 top-0 flex whitespace-nowrap" style={{ gap: GAP }}>
               {links.map((item) => (
@@ -277,6 +277,13 @@ export default function Header() {
             )}
           </div>
         </div>
+        <OrnamentBand
+          className={
+            solid
+              ? 'text-accent-400/90 bg-primary-950/40'
+              : 'text-accent-300/80 bg-gradient-to-b from-primary-950/25 to-transparent'
+          }
+        />
       </header>
       <MobileDrawer open={drawer} onClose={closeDrawer} />
     </>

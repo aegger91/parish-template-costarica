@@ -38,7 +38,17 @@
     "findUs": { "en": "Find us", "es": "Cómo llegar", "ru": "Как нас найти" },
     "directions": { "en": "Directions", "es": "Indicaciones", "ru": "Маршрут" },
     "nextFeast": { "en": "Next feast", "es": "Próxima fiesta", "ru": "Ближайший праздник" },
-    "commemoration": { "en": "Submit a commemoration", "es": "Enviar una conmemoración", "ru": "Подать записку" }
+    "commemoration": { "en": "Submit a commemoration", "es": "Enviar una conmemoración", "ru": "Подать записку" },
+    "slavonicBlessing": {
+      "en": "Слава Іисусу Христу",
+      "es": "Слава Іисусу Христу",
+      "ru": "Слава Іисусу Христу"
+    },
+    "slavonicBlessingLabel": {
+      "en": "Church Slavonic greeting: Glory to Jesus Christ",
+      "es": "Saludo en eslavo eclesiástico: Gloria a Jesucristo",
+      "ru": "Церковнославянское приветствие: Слава Іисусу Христу"
+    }
   },
 
   "calendar": {
@@ -47,21 +57,20 @@
     "monthly": { "en": "Month", "es": "Mes", "ru": "Месяц" },
     "range": { "en": "{from} to {to}", "es": "Del {from} al {to}", "ru": "С {from} по {to}" },
     "styles": {
-      "julian": { "en": "Old Calendar", "es": "Calendario antiguo", "ru": "Старый стиль" },
-      "revised-julian": { "en": "New Calendar", "es": "Calendario nuevo", "ru": "Новый стиль" },
-      "gregorian": { "en": "Western Paschalion", "es": "Pascua occidental", "ru": "Западная пасхалия" }
+      "old": { "en": "Old Calendar (Julian)", "es": "Calendario antiguo (juliano)", "ru": "Старый стиль (юлианский)" },
+      "new": { "en": "New Calendar", "es": "Calendario nuevo", "ru": "Новый стиль" }
     },
     "styleNote": {
-      "julian": { "en": "This parish keeps the Old Calendar.", "es": "Esta parroquia sigue el calendario antiguo.", "ru": "Приход живёт по старому стилю." },
-      "revised-julian": { "en": "This parish keeps the New Calendar.", "es": "Esta parroquia sigue el calendario nuevo.", "ru": "Приход живёт по новому стилю." },
-      "gregorian": { "en": "This parish keeps the Gregorian calendar.", "es": "Esta parroquia sigue el calendario gregoriano.", "ru": "Приход живёт по григорианскому календарю." }
+      "old": { "en": "This parish keeps the Old Calendar (Julian).", "es": "Esta parroquia sigue el calendario antiguo (juliano).", "ru": "Приход живёт по старому стилю (юлианскому)." },
+      "new": { "en": "This parish keeps the New Calendar (Revised Julian).", "es": "Esta parroquia sigue el calendario nuevo (juliano revisado).", "ru": "Приход живёт по новому стилю (новоюлианскому)." }
     },
     "source": {
       "en": "Saints and fasting come from orthocal.info. Please confirm feast day times with the parish.",
       "es": "Los santos y el ayuno provienen de orthocal.info. Confirme con la parroquia el horario de los días de fiesta.",
       "ru": "Святые и посты по данным orthocal.info. Время праздничных служб уточняйте в приходе."
     },
-    "oldStyleDate": { "en": "{date} on the church calendar", "es": "{date} según el calendario eclesiástico", "ru": "{date} по старому стилю" },
+    "oldStyleDate": { "en": "{date} O.S.", "es": "{date} (estilo antiguo)", "ru": "{date} ст. ст." },
+    "civilWithOldStyle": { "en": "{civil} ({old} O.S.)", "es": "{civil} ({old} estilo antiguo)", "ru": "{civil} ({old} ст. ст.)" },
     "legendFeast": { "en": "Great Feast", "es": "Gran fiesta", "ru": "Великий праздник" },
     "legendParish": { "en": "Parish feast", "es": "Fiesta parroquial", "ru": "Престольный праздник" },
     "pickDay": { "en": "Choose a day to see its services, saints and fasting.", "es": "Elija un día para ver sus servicios, santos y ayuno.", "ru": "Выберите день, чтобы увидеть службы, святых и пост." },
@@ -171,7 +180,7 @@
     "submitRecurring": { "en": "Donate {amount} monthly", "es": "Donar {amount} al mes", "ru": "Жертвовать {amount} ежемесячно" },
     "submitEmpty": { "en": "Donate", "es": "Donar", "ru": "Пожертвовать" },
     "processing": { "en": "Please wait…", "es": "Espere un momento…", "ru": "Пожалуйста, подождите…" },
-    "errorAmount": { "en": "Please choose or enter an amount.", "es": "Elija o escriba un monto.", "ru": "Выберите или введите сумму." },
+    "errorAmount": { "en": "Please enter a valid amount.", "es": "Escriba un monto válido.", "ru": "Введите корректную сумму." },
     "errorName": { "en": "Please enter your name.", "es": "Escriba su nombre.", "ru": "Введите ваше имя." },
     "errorEmail": { "en": "Please enter a valid email address.", "es": "Escriba un correo electrónico válido.", "ru": "Введите правильный адрес почты." },
     "raisedOf": { "en": "raised of {goal}", "es": "recaudados de {goal}", "ru": "собрано из {goal}" },
@@ -280,16 +289,16 @@
     "namesCount": { "en": "{n} of {max} names", "es": "{n} de {max} nombres", "ru": "{n} из {max} имён" },
     "namesHint": { "en": "Write baptismal names only, one per line.", "es": "Escriba solo nombres de bautismo, uno por línea.", "ru": "Пишите только имена в крещении, по одному в строке." },
     "commemoration": { "en": "Where to commemorate", "es": "Dónde recordarlos", "ru": "Где помянуть" },
-    "suggested": { "en": "Suggested donation. Give what you can.", "es": "Donativo sugerido. Dé lo que pueda.", "ru": "Рекомендуемое пожертвование. Жертвуйте по силам." },
+    "suggested": { "en": "Suggested donation — optional. Any amount is welcome, including none.", "es": "Donativo sugerido — opcional. Cualquier monto es bienvenido, incluso ninguno.", "ru": "Рекомендуемое пожертвование — по желанию. Любая сумма, в том числе без пожертвования." },
     "candle": { "en": "Candle", "es": "Vela", "ru": "Свеча" },
     "candleOptional": { "en": "Light a candle (optional)", "es": "Encender una vela (opcional)", "ru": "Поставить свечу (необязательно)" },
     "noCandle": { "en": "No candle", "es": "Sin vela", "ru": "Без свечи" },
     "extra": { "en": "Additional donation (optional)", "es": "Donativo adicional (opcional)", "ru": "Дополнительное пожертвование (необязательно)" },
     "slipTotal": { "en": "This note", "es": "Esta nota", "ru": "За записку" },
     "removeSlip": { "en": "Remove this note", "es": "Quitar esta nota", "ru": "Удалить записку" },
-    "addHealth": { "en": "Add a note for health", "es": "Añadir nota por la salud", "ru": "Ещё записка о здравии" },
-    "addRepose": { "en": "Add a note for the repose", "es": "Añadir nota por el descanso", "ru": "Ещё записка об упокоении" },
-    "total": { "en": "Notes: {n}", "es": "Notas: {n}", "ru": "Записок: {n}" },
+    "addHealth": { "en": "Add names for health", "es": "Añadir nombres por la salud", "ru": "Ещё записка о здравии" },
+    "addRepose": { "en": "Add names for the repose", "es": "Añadir nombres por el descanso", "ru": "Ещё записка об упокоении" },
+    "total": { "en": "Commemoration names: {n}", "es": "Nombres para conmemorar: {n}", "ru": "Записок: {n}" },
     "errorNames": { "en": "Please write at least one name on this note.", "es": "Escriba al menos un nombre en esta nota.", "ru": "Впишите хотя бы одно имя." },
     "consent": {
       "en": "I agree that {parish} may keep these names to pray for them. They are used only for commemoration and are deleted after the commemoration ends.",
@@ -299,9 +308,26 @@
     "consentRequired": { "en": "Please agree so we can keep the names for prayer.", "es": "Acepte para que podamos guardar los nombres para la oración.", "ru": "Отметьте согласие, чтобы мы могли сохранить имена для поминовения." },
     "cartHint": { "en": "You can also add the notes to your cart and pay together with store items.", "es": "También puede añadir las notas al carrito y pagar junto con artículos de la tienda.", "ru": "Записки можно добавить в корзину и оплатить вместе с покупками." },
     "donateSubmit": { "en": "Donate {amount} and submit", "es": "Donar {amount} y enviar", "ru": "Пожертвовать {amount} и подать" },
+    "donateSubmitFree": { "en": "Submit names", "es": "Enviar nombres", "ru": "Подать записки" },
     "addToCart": { "en": "Add to cart", "es": "Añadir al carrito", "ru": "В корзину" },
     "added": { "en": "Notes added to your cart: {n}.", "es": "Notas añadidas al carrito: {n}.", "ru": "Записок в корзине: {n}." },
     "success": { "en": "Thank you. Your notes will be read at the altar.", "es": "Gracias. Sus notas se leerán en el altar.", "ru": "Спасибо. Ваши записки будут прочитаны у престола." }
+  },
+
+  "schedule": {
+    "detailEyebrow": { "en": "Service", "es": "Servicio", "ru": "Богослужение" },
+    "date": { "en": "Date", "es": "Fecha", "ru": "Дата" },
+    "time": { "en": "Time", "es": "Hora", "ru": "Время" },
+    "place": { "en": "Place", "es": "Lugar", "ru": "Место" },
+    "note": { "en": "Note", "es": "Nota", "ru": "Примечание" },
+    "detailNote": {
+      "en": "All are welcome. Please arrive a few minutes early.",
+      "es": "Todos son bienvenidos. Llegue unos minutos antes.",
+      "ru": "Всех приглашаем. Пожалуйста, приходите немного заранее."
+    },
+    "addToCalendar": { "en": "Add to calendar", "es": "Añadir al calendario", "ru": "В календарь" },
+    "googleCalendar": { "en": "Google Calendar", "es": "Google Calendar", "ru": "Google Календарь" },
+    "openDetails": { "en": "View details for {name}", "es": "Ver detalles de {name}", "ru": "Подробности: {name}" }
   },
 
   "connect": {

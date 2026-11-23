@@ -40,7 +40,7 @@ export default function Intro({ section }: { section: IntroSection }) {
 
         {section.image && (
           <Reveal delay={0.15} className="relative">
-            <figure className="relative overflow-hidden rounded-2xl bg-primary-900 shadow-2xl shadow-primary-900/25">
+            <figure className="arch-frame relative bg-primary-900 shadow-2xl shadow-primary-900/25">
               <img
                 src={section.image.src}
                 alt={t(section.image.alt)}
@@ -60,7 +60,11 @@ export default function Intro({ section }: { section: IntroSection }) {
                 </>
               )}
             </figure>
-            <div aria-hidden className="absolute -bottom-5 -end-5 -z-10 h-full w-full rounded-2xl border-2 border-accent-300" />
+            <div
+              aria-hidden
+              className="absolute -bottom-5 -end-5 -z-10 h-full w-full border-2 border-accent-400/60"
+              style={{ borderRadius: '50% 50% 0.35rem 0.35rem / 28% 28% 0.35rem 0.35rem' }}
+            />
           </Reveal>
         )}
       </div>

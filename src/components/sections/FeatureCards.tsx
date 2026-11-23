@@ -46,9 +46,9 @@ export default function FeatureCards({ section }: { section: FeatureCardsSection
             <Reveal key={card.id} delay={0.1 * i}>
               <Link
                 to={card.href}
-                className="group block h-full rounded-2xl border border-primary-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-primary-900/10 sm:p-8"
+                className="group panel-kiot block h-full p-6 transition-all hover:-translate-y-1 hover:border-accent-500 sm:p-8"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-900 text-accent-300 transition-colors group-hover:bg-accent-400 group-hover:text-primary-900">
+                <span className="flex h-12 w-12 items-center justify-center rounded-t-full rounded-b-md border border-accent-400/55 bg-primary-900 text-accent-300 shadow-[inset_0_0_0_2px_rgb(var(--color-ivory)/0.15)] transition-colors group-hover:bg-accent-400 group-hover:text-primary-900">
                   <Icon name={card.icon} className="h-5 w-5" strokeWidth={1.6} />
                 </span>
                 <h3 className="mt-5 font-heading text-2xl font-semibold text-primary-900">{t(card.title)}</h3>

@@ -16,7 +16,7 @@ export interface ContactCardsSection extends SectionBase {
 function CardTitle({ icon: IconCmp, children }: { icon: typeof Mail; children: string }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-900 text-accent-300">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-t-full rounded-b-md border border-accent-400/45 bg-primary-900 text-accent-300">
         <IconCmp className="h-5 w-5" strokeWidth={1.6} aria-hidden />
       </span>
       <h2 className="font-heading text-xl font-semibold text-primary-900">{children}</h2>
@@ -33,7 +33,7 @@ export default function ContactCards({ section }: { section: ContactCardsSection
       <div className="container-px container-max">
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal>
-            <div className="flex h-full flex-col rounded-2xl border border-primary-100 bg-white p-6 shadow-sm sm:p-8">
+            <div className="card flex h-full flex-col p-6 sm:p-8">
               <CardTitle icon={Mail}>{t(section.emailTitle)}</CardTitle>
               <a
                 href={`mailto:${site.contact.email}`}
@@ -54,7 +54,7 @@ export default function ContactCards({ section }: { section: ContactCardsSection
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="flex h-full flex-col rounded-2xl border border-primary-100 bg-white p-6 shadow-sm sm:p-8">
+            <div className="card flex h-full flex-col p-6 sm:p-8">
               <CardTitle icon={MapPin}>{t(section.addressTitle)}</CardTitle>
               <address className="mt-5 text-[15px] not-italic leading-relaxed text-ink-700">
                 {a.street}
@@ -78,7 +78,7 @@ export default function ContactCards({ section }: { section: ContactCardsSection
 
         {section.showDirectContacts !== false && section.directTitle && (
           <Reveal delay={0.1}>
-            <div className="mt-6 rounded-2xl border border-primary-100 bg-white p-6 shadow-sm sm:p-8">
+            <div className="card mt-6 p-6 sm:p-8">
               <h2 className="font-heading text-xl font-semibold text-primary-900">{t(section.directTitle)}</h2>
               <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {clergy.map((member) => (

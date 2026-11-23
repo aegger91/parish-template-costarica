@@ -12,12 +12,12 @@ export default function ClergyCard({ member }: { member: ClergyMember }) {
   const bio = t(member.bio);
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm transition-shadow hover:shadow-lg hover:shadow-primary-900/10">
-      <div className="relative flex aspect-[4/3] items-center justify-center bg-primary-900">
+    <article className="card flex h-full flex-col overflow-visible transition-shadow hover:border-accent-400">
+      <div className="arch-frame-top relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-primary-900">
         {member.photo ? (
           <img src={member.photo} alt={name} loading="lazy" className="h-full w-full object-cover object-top" />
         ) : (
-          <span aria-hidden className="flex h-24 w-24 items-center justify-center rounded-full border border-accent-400/60 font-heading text-4xl font-semibold text-accent-300">
+          <span aria-hidden className="flex h-24 w-24 items-center justify-center rounded-t-full rounded-b-md border-2 border-accent-400/60 font-heading text-4xl font-semibold text-accent-300">
             {initials(name)}
           </span>
         )}
