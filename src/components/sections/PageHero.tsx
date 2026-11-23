@@ -39,21 +39,14 @@ export function PageHeroFrame({
           style={{ backgroundImage: `url('${backgroundImage}')`, backgroundSize: 'cover', backgroundPosition: 'center 22%' }}
         />
       )}
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(180deg, rgb(var(--color-primary-950) / 0.72) 0%, rgb(var(--color-primary-950) / 0.62) 40%, rgb(var(--color-primary-900)) 100%)',
-        }}
-      />
+      <div aria-hidden className="hero-overlay absolute inset-0" />
       <div className="container-px container-max relative">
         <Reveal>
           <Breadcrumbs items={crumbs} />
           {eyebrow && (
             <p className="eyebrow mt-5 text-[11px] text-accent-300 sm:text-[12px]">{eyebrow}</p>
           )}
-          <h1 className="mt-3 max-w-3xl font-heading text-[32px] font-semibold leading-[1.12] text-white sm:text-5xl">{title}</h1>
+          <h1 className="mt-3 max-w-3xl font-heading text-[32px] font-semibold leading-[1.2] text-white sm:text-5xl sm:leading-[1.18]">{title}</h1>
           <div className="accent-rule mt-6" />
           {subtitle && <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-primary-100 sm:text-base">{subtitle}</p>}
           {children}

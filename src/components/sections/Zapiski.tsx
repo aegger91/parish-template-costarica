@@ -194,13 +194,16 @@ function SlipEditor({
           </label>
           <input
             id={`${uid}-extra`}
-            type="number"
-            min={0}
-            step={1}
+            type="text"
             inputMode="decimal"
             className="field"
-            value={slip.extra || ''}
-            onChange={(e) => onChange({ ...slip, extra: Math.max(0, Number(e.target.value) || 0) })}
+            placeholder="0"
+            value={slip.extra ? String(slip.extra) : ''}
+            onChange={(e) => {
+              const raw = e.target.value.replace(/[^\d.,]/g, '');
+              const n = raw === '' ? 0 : Number(raw.replace(',', '.'));
+              onChange({ ...slip, extra: Number.isFinite(n) && n >= 0 ? n : 0 });
+            }}
           />
         </div>
         <p className="flex justify-between border-t border-primary-200 pt-3 text-[15px] font-semibold text-primary-900">
@@ -364,7 +367,11 @@ export default function Zapiski({ section }: { section: ZapiskiSection }) {
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <button type="submit" disabled={state === 'sending'} className="btn-accent">
                 <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
-                {state === 'sending' ? ui('give.processing') : ui('zapiski.donateSubmit', { amount: money(total) })}
+                {state === 'sending'
+                  ? ui('give.processing')
+                  : total > 0
+                    ? ui('zapiski.donateSubmit', { amount: money(total) })
+                    : ui('zapiski.donateSubmitFree')}
               </button>
               {canCart && (
                 <button type="button" onClick={addToCart} className="btn-outline">

@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, RotateCw } from 'lucide-react';
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
 import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
+import ServiceDetail from '@/components/ui/ServiceDetail';
 import { moduleOn, site } from '@/content';
 import type { CalendarStyle, Feast, Localized, SectionBase } from '@/content';
 import { useI18n } from '@/i18n';
@@ -16,6 +17,7 @@ import {
   usesOrthocalCycle,
 } from '@/lib/calendar';
 import type { OrthocalDay, ServiceOccurrence } from '@/lib/calendar';
+import { isOldCalendar } from '@/lib/calendarStyle';
 import { useOrthocalDays, useParishNow } from '@/lib/hooks';
 import {
   formatDay,
@@ -73,26 +75,41 @@ function FeastLine({ feast, compact = false }: { feast: Feast; compact?: boolean
 
 function ServiceLine({ o, live, compact = false }: { o: ServiceOccurrence; live: boolean; compact?: boolean }) {
   const { t, ui, language } = useI18n();
+  const [open, setOpen] = useState(false);
+  const name = t(o.service.name);
   return (
-    <li className={`flex flex-wrap gap-x-2 ${compact ? 'text-[11.5px] leading-tight' : 'text-[14px] leading-snug'}`}>
-      <span className={`shrink-0 tabular-nums font-semibold ${o.service.highlight ? 'text-primary-900' : 'text-primary-700'}`}>
-        {formatTime(o.service.time, language.locale)}
-      </span>
-      <span className={`min-w-0 ${compact ? 'line-clamp-2' : ''} ${o.service.highlight ? 'font-medium text-primary-900' : 'text-ink-700'}`}>
-        {t(o.service.name)}
-        {live && <span className="ms-1.5 inline-block whitespace-nowrap rounded-pill bg-rose-600 px-1.5 py-px text-[10px] font-bold uppercase text-white">{ui('live.short')}</span>}
-      </span>
+    <li className={compact ? 'text-[11.5px] leading-tight' : 'text-[14px] leading-snug'}>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="flex w-full flex-wrap gap-x-2 rounded-md text-start transition-colors hover:bg-accent-50/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400"
+        aria-label={ui('schedule.openDetails', { name })}
+      >
+        <span className={`shrink-0 tabular-nums font-semibold ${o.service.highlight ? 'text-primary-900' : 'text-primary-700'}`}>
+          {formatTime(o.service.time, language.locale)}
+        </span>
+        <span className={`min-w-0 ${compact ? 'line-clamp-2' : ''} ${o.service.highlight ? 'font-medium text-primary-900' : 'text-ink-700'}`}>
+          {name}
+          {live && (
+            <span className="ms-1.5 inline-block whitespace-nowrap rounded-pill bg-rose-600 px-1.5 py-px text-[10px] font-bold uppercase text-white">
+              {ui('live.short')}
+            </span>
+          )}
+        </span>
+      </button>
+      <ServiceDetail occurrence={o} open={open} onClose={() => setOpen(false)} />
     </li>
   );
 }
 
 function OldStyleDate({ jdn }: { jdn: number }) {
-  const { language } = useI18n();
+  const { ui, language } = useI18n();
+  const civil = formatDay(jdn, language.locale, { month: 'short', day: 'numeric' });
   const j = julianFromJdn(jdn);
-  const text = new Intl.DateTimeFormat(language.locale, { day: 'numeric', month: 'short', timeZone: 'UTC' }).format(
+  const old = new Intl.DateTimeFormat(language.locale, { day: 'numeric', month: 'short', timeZone: 'UTC' }).format(
     new Date(Date.UTC(2001, j.month - 1, j.day)),
   );
-  return <span className="text-[11px] text-ink-500">{text}</span>;
+  return <span className="text-[11px] text-ink-500">{ui('calendar.civilWithOldStyle', { civil, old })}</span>;
 }
 
 /** Full details for one day: used in the week view, the mobile list and the selected day of the month view. */
@@ -109,7 +126,7 @@ function DayDetails({ info, style, today, live, heading = true }: { info: DayInf
             {formatDay(info.jdn, language.locale, { weekday: 'long', day: 'numeric', month: 'long' })}
           </p>
           <span className="flex shrink-0 items-center gap-2">
-            {style === 'julian' && <OldStyleDate jdn={info.jdn} />}
+            {isOldCalendar(style) && <OldStyleDate jdn={info.jdn} />}
             {isToday && <span className="rounded-pill bg-accent-400 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-900">{ui('today')}</span>}
           </span>
         </div>
@@ -209,7 +226,9 @@ export default function Calendar({ section }: { section: CalendarSection }) {
                 </button>
               ))}
             </div>
-            <span className="rounded-pill bg-primary-50 px-3 py-1.5 text-[12px] font-semibold text-primary-700">{ui(`calendar.styles.${style}`)}</span>
+            <span className="rounded-pill border border-accent-300/40 bg-primary-50 px-3 py-1.5 text-[12px] font-semibold text-primary-800">
+              {ui(`calendar.styles.${style}`)}
+            </span>
           </div>
 
           <div className="flex items-center justify-between gap-2 sm:justify-start">
@@ -274,7 +293,7 @@ export default function Calendar({ section }: { section: CalendarSection }) {
                     <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-500">{weekdayName(weekdayOfJdn(info.jdn), language.locale, 'short')}</p>
                     <p className={`font-heading text-2xl font-semibold ${isToday ? 'text-accent-700' : 'text-primary-900'}`}>
                       {gregorianFromJdn(info.jdn).day}
-                      {style === 'julian' && (
+                      {isOldCalendar(style) && (
                         <span className="ms-1.5 align-middle">
                           <OldStyleDate jdn={info.jdn} />
                         </span>
@@ -323,7 +342,7 @@ export default function Calendar({ section }: { section: CalendarSection }) {
                         >
                           {gregorianFromJdn(info.jdn).day}
                         </span>
-                        {style === 'julian' && <OldStyleDate jdn={info.jdn} />}
+                        {isOldCalendar(style) && <OldStyleDate jdn={info.jdn} />}
                       </span>
                       {feast && <FeastLine feast={feast} compact />}
                       <ul className="space-y-0.5">

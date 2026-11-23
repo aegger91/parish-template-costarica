@@ -3,56 +3,69 @@
   variables through tailwind.config.js and src/index.css. Parish content and
   options live in src/content, not here.
   Colors are space-separated RGB channels so Tailwind opacity modifiers work.
+
+  Visual direction: dignified Russian Orthodox (ROCOR / OCA) parish —
+  deep liturgical burgundy, antique gold, warm parchment.
 */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
-
 :root {
-  /* Primary: deep navy */
-  --color-primary-50: 238 243 249;
-  --color-primary-100: 215 226 239;
-  --color-primary-200: 174 191 214;
-  --color-primary-300: 126 149 182;
-  --color-primary-400: 79 107 144;
-  --color-primary-500: 44 74 112;
-  --color-primary-600: 31 58 92;
-  --color-primary-700: 22 48 77;
-  --color-primary-800: 18 44 68;
-  --color-primary-900: 13 35 56;
-  --color-primary-950: 8 24 40;
+  /* Primary: deep liturgical burgundy */
+  --color-primary-50: 250 244 242;
+  --color-primary-100: 243 228 224;
+  --color-primary-200: 226 190 182;
+  --color-primary-300: 196 140 130;
+  --color-primary-400: 160 88 82;
+  --color-primary-500: 130 52 52;
+  --color-primary-600: 110 38 44;
+  --color-primary-700: 92 30 38;
+  --color-primary-800: 74 24 32;
+  --color-primary-900: 58 18 26;
+  --color-primary-950: 36 10 16;
 
-  /* Accent: liturgical gold */
-  --color-accent-50: 251 247 236;
-  --color-accent-100: 245 236 210;
-  --color-accent-200: 233 213 161;
-  --color-accent-300: 221 189 112;
-  --color-accent-400: 208 162 70;
-  --color-accent-500: 192 138 45;
-  --color-accent-600: 165 109 34;
-  --color-accent-700: 134 82 30;
-  --color-accent-800: 107 66 31;
-  --color-accent-900: 88 55 28;
+  /* Accent: antique liturgical gold */
+  --color-accent-50: 252 248 236;
+  --color-accent-100: 246 236 204;
+  --color-accent-200: 232 208 148;
+  --color-accent-300: 214 180 96;
+  --color-accent-400: 196 154 58;
+  --color-accent-500: 176 132 40;
+  --color-accent-600: 148 108 32;
+  --color-accent-700: 118 86 28;
+  --color-accent-800: 92 68 26;
+  --color-accent-900: 74 54 22;
 
-  /* Ink: body text */
-  --color-ink-900: 28 25 23;
-  --color-ink-700: 68 64 60;
-  --color-ink-500: 120 113 108;
-  --color-ink-300: 214 211 209;
+  /* Ink: warm body text on parchment */
+  --color-ink-900: 42 28 24;
+  --color-ink-700: 78 58 50;
+  --color-ink-500: 120 96 84;
+  --color-ink-300: 214 200 188;
 
-  /* Typography */
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --text-eyebrow: 12px;
-  --tracking-eyebrow: 0.22em;
-  --text-nav: 14px;
-  --tracking-nav: 0.12em;
+  /* Surfaces */
+  --color-parchment: 247 241 230;
+  --color-parchment-deep: 238 228 210;
+  --color-ivory: 252 248 240;
 
-  /* Radii */
-  --radius-card: 1rem;
-  --radius-inner: 0.75rem;
-  --radius-pill: 9999px;
+  /* Typography — self-hosted (see fonts.css); EB Garamond covers Greek glyphs */
+  --font-heading: 'Cormorant Garamond', 'EB Garamond', 'Old Standard TT', 'Times New Roman', serif;
+  --font-serif: var(--font-heading);
+  --font-sans: 'Source Serif 4', 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-body: var(--font-sans);
+  --text-eyebrow: 11px;
+  --tracking-eyebrow: 0.12em;
+  --text-nav: 13px;
+  --tracking-nav: 0.05em;
+
+  /* Radii — gentle churchly rounding, not IT pills or sharp boxes */
+  --radius-card: 0.65rem;
+  --radius-inner: 0.45rem;
+  --radius-pill: 0.45rem;
+  --radius-arch: 999px;
 
   /* Layout and spacing */
   --container-max: 72rem;
   --section-y: 3.5rem;
-  --section-y-lg: 6rem;
+  --section-y-lg: 5.5rem;
+
+  /* Ornament */
+  --ornament-gold: rgb(var(--color-accent-400));
+  --ornament-gold-soft: rgb(var(--color-accent-300) / 0.55);
 }

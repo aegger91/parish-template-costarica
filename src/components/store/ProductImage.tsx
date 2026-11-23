@@ -11,7 +11,7 @@ export default function ProductImage({ product, index = 0, className = '' }: { p
   if (!src || failed) {
     return (
       <div className={`flex items-center justify-center bg-gradient-to-b from-accent-50 to-primary-50 ${className}`}>
-        <span className="flex h-20 w-20 items-center justify-center rounded-full border border-accent-300 bg-white text-accent-600">
+        <span className="flex h-20 w-20 items-center justify-center rounded-t-full rounded-b-md border-2 border-accent-400 bg-[rgb(var(--color-ivory))] text-accent-700">
           <Icon name={icon} className="h-9 w-9" strokeWidth={1.4} />
         </span>
       </div>

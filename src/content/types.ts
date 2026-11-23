@@ -33,11 +33,12 @@ export interface Languages {
 export type LogoStyle = 'seal' | 'kiot' | 'square' | 'wordmark';
 
 /**
- * julian: Old Calendar (fixed feasts 13 days after the civil date, Orthodox Pascha).
- * revised-julian: New Calendar (fixed feasts on the civil date, Orthodox Pascha).
- * gregorian: fixed feasts on the civil date and the Western date of Pascha.
+ * Site-level church calendar (no visitor toggle).
+ * old: Julian / Old Calendar — fixed feasts 13 days behind the civil date; Orthodox Pascha.
+ * new: Revised Julian / New Calendar — fixed feasts on the civil date; Orthodox Pascha.
+ * Movable Pascha-based feasts follow the same Orthodox Paschalion in both.
  */
-export type CalendarStyle = 'julian' | 'revised-julian' | 'gregorian';
+export type CalendarStyle = 'new' | 'old';
 
 export type ModuleId = 'livestream' | 'store' | 'serviceRequests' | 'zapiski' | 'getInvolved';
 
@@ -286,8 +287,10 @@ export interface GivingProject {
 
 export interface GivingConfig {
   presetAmounts: number[];
+  /** Suggested starting chip; 0 or omitted leaves the amount empty / $0. */
   defaultAmount: number;
-  minimumAmount: number;
+  /** Deprecated: ignored. Forms never enforce a minimum amount. */
+  minimumAmount?: number;
   frequencies: { id: string; label: Localized }[];
   funds: { id: string; label: Localized }[];
   /** Projects are also offered as designations in the gift form. */

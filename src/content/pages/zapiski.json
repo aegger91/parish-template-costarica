@@ -3,8 +3,8 @@
   "path": "/services/zapiski",
   "module": "zapiski",
   "navLabel": {
-    "en": "Zapiski and Candles",
-    "es": "Notas y velas",
+    "en": "Commemoration names",
+    "es": "Nombres para conmemorar",
     "ru": "Записки и свечи"
   },
   "icon": "note",
@@ -15,8 +15,8 @@
   },
   "seo": {
     "title": {
-      "en": "Commemoration Notes and Candles",
-      "es": "Notas de conmemoración y velas",
+      "en": "Commemoration names and candles",
+      "es": "Nombres para conmemorar y velas",
       "ru": "Записки и свечи"
     },
     "description": {
@@ -36,8 +36,8 @@
         "ru": "Богослужения"
       },
       "title": {
-        "en": "Commemoration Notes and Candles",
-        "es": "Notas de conmemoración y velas",
+        "en": "Commemoration names and candles",
+        "es": "Nombres para conmemorar y velas",
         "ru": "Записки и свечи"
       },
       "subtitle": {

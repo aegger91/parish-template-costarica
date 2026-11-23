@@ -114,7 +114,7 @@ export default function LanguageSwitcher({ variant }: { variant: Variant }) {
           onClick={() => setLang(l.code)}
           aria-pressed={lang === l.code}
           aria-label={l.label}
-          className={`min-h-7 rounded-pill px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors ${
+          className={`inline-flex min-h-7 min-w-[2.25rem] items-center justify-center rounded-pill px-2 py-0.5 text-[11px] font-semibold uppercase leading-snug tracking-[0.06em] transition-colors ${
             lang === l.code ? 'bg-accent-400 text-primary-900' : 'text-white/85 hover:text-white'
           }`}
         >

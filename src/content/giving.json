@@ -5,8 +5,8 @@
     100,
     250
   ],
-  "defaultAmount": 50,
-  "minimumAmount": 1,
+  "defaultAmount": 0,
+  "minimumAmount": 0,
   "frequencies": [
     {
       "id": "once",

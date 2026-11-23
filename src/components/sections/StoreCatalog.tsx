@@ -68,8 +68,8 @@ export default function StoreCatalog({ section }: { section: StoreCatalogSection
             return (
               <li key={p.id}>
                 <Reveal delay={0.04 * (i % 4)} className="h-full">
-                  <Link to={to} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-primary-900/10">
-                    <div className="relative aspect-square overflow-hidden">
+                  <Link to={to} className="group flex h-full flex-col overflow-visible rounded-2xl border border-primary-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-primary-900/10">
+                    <div className="relative aspect-square overflow-hidden rounded-t-2xl">
                       <ProductImage product={p} className="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]" />
                       {stock <= 0 && (
                         <span className="absolute start-2 top-2 rounded-pill bg-primary-950/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">

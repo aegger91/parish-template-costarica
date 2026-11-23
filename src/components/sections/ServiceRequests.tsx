@@ -172,30 +172,30 @@ export default function ServiceRequests({ section }: { section: ServiceRequestsS
           {serviceRequestTypes.map((type, i) => {
             const body = (
               <>
-                <div className="aspect-[5/3] overflow-hidden border-b border-primary-100">
+                <div className="aspect-[5/3] overflow-hidden rounded-t-2xl border-b border-primary-100">
                   <IllustrationFrame image={type.image} icon={type.icon} />
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <div className="flex flex-wrap items-center gap-2">
                     <PriceBadge price={type.price} />
                     {type.durationMinutes > 0 && (
-                      <span className="inline-flex items-center gap-1 text-[12px] text-ink-500">
-                        <Clock className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden />
+                      <span className="inline-flex items-center gap-1 text-[12px] leading-snug text-ink-500">
+                        <Clock className="h-3.5 w-3.5 shrink-0" strokeWidth={1.8} aria-hidden />
                         {formatDuration(type.durationMinutes, language.locale)}
                       </span>
                     )}
                   </div>
                   <h3 className="mt-3 font-heading text-xl font-semibold leading-snug text-primary-900">{t(type.title)}</h3>
                   <p className="mt-1.5 flex-1 text-[14px] leading-relaxed text-ink-700">{t(type.summary)}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-accent-700">
+                  <span className="mt-4 inline-flex max-w-full flex-wrap items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.1em] leading-snug text-accent-700">
                     {ui(type.link ? 'requests.open' : 'requests.request')}
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 rtl:rotate-180" strokeWidth={2} aria-hidden />
+                    <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5 rtl:rotate-180" strokeWidth={2} aria-hidden />
                   </span>
                 </div>
               </>
             );
             const cls =
-              'group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-primary-100 bg-white text-start shadow-sm transition-all hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-primary-900/10';
+              'group flex h-full w-full flex-col overflow-visible rounded-2xl border border-primary-100 bg-white text-start shadow-sm transition-all hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-primary-900/10';
             return (
               <li key={type.id}>
                 <Reveal delay={0.04 * (i % 4)} className="h-full">

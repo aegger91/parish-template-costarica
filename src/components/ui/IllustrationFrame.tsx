@@ -12,7 +12,7 @@ export default function IllustrationFrame({ image, icon, className = '' }: { ima
         <path d="M0 108 H200" stroke="currentColor" strokeWidth="1" />
         <path d="M0 112 H200" stroke="currentColor" strokeWidth="0.5" />
       </svg>
-      <span className="relative flex h-[72%] max-h-28 items-center justify-center rounded-b-md rounded-t-full border-2 border-accent-400 bg-white px-[6%] shadow-sm ring-4 ring-white/60 aspect-[4/5]">
+      <span className="relative flex aspect-[4/5] h-[72%] max-h-28 items-center justify-center rounded-b-md rounded-t-full border-2 border-accent-400 bg-ivory px-[6%] shadow-sm ring-4 ring-[rgb(var(--color-ivory)/0.65)]" style={{ background: 'rgb(var(--color-ivory))' }}>
         <Icon name={icon} className="h-1/2 w-auto text-primary-800" strokeWidth={1.4} />
       </span>
     </div>

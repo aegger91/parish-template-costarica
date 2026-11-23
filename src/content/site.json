@@ -54,7 +54,7 @@
   },
   "calendar": {
     "apiBase": "https://orthocal.info/api",
-    "style": "revised-julian",
+    "style": "old",
     "weekStartsOn": 0,
     "saintsLanguages": [
       "en"
