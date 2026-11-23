@@ -1,0 +1,129 @@
+{
+  "sample": true,
+  "categories": [
+    { "id": "worship", "label": { "en": "Worship", "es": "Culto", "ru": "Богослужение" } },
+    { "id": "fellowship", "label": { "en": "Fellowship", "es": "Convivencia", "ru": "Общение" } },
+    { "id": "learning", "label": { "en": "Learning", "es": "Formación", "ru": "Просвещение" } },
+    { "id": "service", "label": { "en": "Serving others", "es": "Servicio", "ru": "Служение" } },
+    { "id": "care", "label": { "en": "Care for the church", "es": "Cuidado del templo", "ru": "Забота о храме" } }
+  ],
+  "items": [
+    {
+      "id": "evt-lunch-1129",
+      "kind": "event",
+      "title": { "en": "Parish lunch after Liturgy", "es": "Almuerzo parroquial después de la Liturgia", "ru": "Приходская трапеза после литургии" },
+      "summary": { "en": "Sample event. Stay after the service and share a meal.", "es": "Evento de ejemplo. Quédese después del servicio y comparta la comida.", "ru": "Пример события. Оставайтесь после службы на общую трапезу." },
+      "date": "2026-11-29",
+      "time": "12:15",
+      "location": { "en": "Parish hall", "es": "Salón parroquial", "ru": "Приходской зал" },
+      "capacity": 60,
+      "signups": 34,
+      "organizer": "Mary Sample",
+      "category": "fellowship"
+    },
+    {
+      "id": "evt-catechism-1202",
+      "kind": "event",
+      "title": { "en": "Catechism class: the Creed", "es": "Catequesis: el Credo", "ru": "Катехизис: Символ веры" },
+      "summary": { "en": "Sample event. Open to inquirers and anyone who wants to learn.", "es": "Evento de ejemplo. Abierto a interesados y a quien quiera aprender.", "ru": "Пример события. Для интересующихся и всех, кто хочет учиться." },
+      "date": "2026-12-02",
+      "time": "19:00",
+      "location": { "en": "Parish library", "es": "Biblioteca parroquial", "ru": "Приходская библиотека" },
+      "capacity": 20,
+      "signups": 11,
+      "organizer": "Deacon Stephen Sample",
+      "category": "learning"
+    },
+    {
+      "id": "evt-carols-1220",
+      "kind": "event",
+      "title": { "en": "Nativity carols and choir practice", "es": "Villancicos de Navidad y ensayo del coro", "ru": "Рождественские колядки и спевка" },
+      "summary": { "en": "Sample event. All voices welcome.", "es": "Evento de ejemplo. Todas las voces son bienvenidas.", "ru": "Пример события. Приглашаются все голоса." },
+      "date": "2026-12-20",
+      "time": "16:00",
+      "location": { "en": "Church", "es": "Iglesia", "ru": "Храм" },
+      "capacity": 0,
+      "signups": 9,
+      "organizer": "Anna Example",
+      "category": "worship"
+    },
+    {
+      "id": "evt-yolka-0110",
+      "kind": "event",
+      "title": { "en": "Children's Nativity party", "es": "Fiesta de Navidad para niños", "ru": "Рождественская ёлка для детей" },
+      "summary": { "en": "Sample event. Games, a short play and gifts.", "es": "Evento de ejemplo. Juegos, una pequeña obra y regalos.", "ru": "Пример события. Игры, небольшой спектакль и подарки." },
+      "date": "2027-01-10",
+      "time": "13:00",
+      "location": { "en": "Parish hall", "es": "Salón parroquial", "ru": "Приходской зал" },
+      "capacity": 40,
+      "signups": 40,
+      "organizer": "Mary Sample",
+      "category": "fellowship"
+    },
+    {
+      "id": "vol-coffee-1129",
+      "kind": "volunteer",
+      "title": { "en": "Coffee hour hosts", "es": "Anfitriones del café", "ru": "Дежурство на чаепитии" },
+      "summary": { "en": "Set out coffee, tea and a simple snack, then tidy up.", "es": "Preparar café, té y algo sencillo para comer, y luego recoger.", "ru": "Приготовить чай, кофе и угощение, потом прибрать." },
+      "date": "2026-11-29",
+      "time": "11:45",
+      "location": { "en": "Parish hall", "es": "Salón parroquial", "ru": "Приходской зал" },
+      "capacity": 4,
+      "signups": 2,
+      "organizer": "Mary Sample",
+      "category": "fellowship"
+    },
+    {
+      "id": "vol-cleaning-1205",
+      "kind": "volunteer",
+      "title": { "en": "Church cleaning before the feast", "es": "Limpieza de la iglesia antes de la fiesta", "ru": "Уборка храма перед праздником" },
+      "summary": { "en": "Dust, polish brass, wash floors. Bring gloves if you have them.", "es": "Quitar el polvo, pulir el latón, lavar el piso. Traiga guantes si tiene.", "ru": "Протереть пыль, почистить подсвечники, вымыть полы. Возьмите перчатки, если есть." },
+      "date": "2026-12-05",
+      "time": "10:00",
+      "location": { "en": "Church", "es": "Iglesia", "ru": "Храм" },
+      "capacity": 8,
+      "signups": 3,
+      "organizer": "Peter Sample",
+      "category": "care"
+    },
+    {
+      "id": "vol-choir",
+      "kind": "volunteer",
+      "title": { "en": "Sing in the choir", "es": "Cantar en el coro", "ru": "Петь на клиросе" },
+      "summary": { "en": "Rehearsals on Thursdays. No experience needed.", "es": "Ensayos los jueves. No se necesita experiencia.", "ru": "Спевки по четвергам. Опыт не нужен." },
+      "date": "",
+      "time": "19:00",
+      "location": { "en": "Church", "es": "Iglesia", "ru": "Храм" },
+      "capacity": 12,
+      "signups": 7,
+      "organizer": "Anna Example",
+      "category": "worship"
+    },
+    {
+      "id": "need-food-drive",
+      "kind": "need",
+      "title": { "en": "Food drive for the city pantry", "es": "Colecta de alimentos para el banco de alimentos", "ru": "Сбор продуктов для городского продуктового банка" },
+      "summary": { "en": "Canned food and rice, left in the box by the door through December.", "es": "Latas y arroz, en la caja junto a la puerta durante diciembre.", "ru": "Консервы и крупы, в коробку у входа, весь декабрь." },
+      "date": "",
+      "time": "",
+      "location": { "en": "Church entrance", "es": "Entrada de la iglesia", "ru": "Вход в храм" },
+      "capacity": 30,
+      "signups": 18,
+      "organizer": "Peter Sample",
+      "category": "service"
+    },
+    {
+      "id": "need-meals",
+      "kind": "need",
+      "title": { "en": "Meals for a family with a newborn", "es": "Comidas para una familia con un recién nacido", "ru": "Обеды для семьи с новорождённым" },
+      "summary": { "en": "One meal each evening for two weeks. Choose a day.", "es": "Una comida cada tarde durante dos semanas. Elija un día.", "ru": "Один ужин каждый вечер в течение двух недель. Выберите день." },
+      "date": "2026-11-30",
+      "time": "",
+      "location": { "en": "Delivered to the family", "es": "Se entrega a la familia", "ru": "С доставкой семье" },
+      "capacity": 14,
+      "signups": 9,
+      "organizer": "Mary Sample",
+      "category": "service"
+    }
+  ]
+}

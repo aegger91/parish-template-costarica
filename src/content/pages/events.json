@@ -1,0 +1,55 @@
+{
+  "id": "events",
+  "path": "/get-involved/events",
+  "module": "getInvolved",
+  "navLabel": {
+    "en": "Events",
+    "es": "Eventos",
+    "ru": "События"
+  },
+  "icon": "calendar",
+  "summary": {
+    "en": "Gatherings, classes and feasts.",
+    "es": "Encuentros, clases y fiestas.",
+    "ru": "Встречи, занятия и праздники."
+  },
+  "seo": {
+    "title": {
+      "en": "Events",
+      "es": "Eventos",
+      "ru": "События"
+    },
+    "description": {
+      "en": "Parish events and gatherings. RSVP with your OrthodoxConnect account.",
+      "es": "Eventos y encuentros parroquiales. Confirme su asistencia con su cuenta de OrthodoxConnect.",
+      "ru": "Приходские события и встречи. Записывайтесь через OrthodoxConnect."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Get Involved",
+        "es": "Participe",
+        "ru": "Участие"
+      },
+      "title": {
+        "en": "Parish Events",
+        "es": "Eventos parroquiales",
+        "ru": "Приходские события"
+      },
+      "subtitle": {
+        "en": "Meals, classes, feasts and gatherings. Come along and bring a friend.",
+        "es": "Comidas, clases, fiestas y encuentros. Venga y traiga a un amigo.",
+        "ru": "Трапезы, занятия, праздники и встречи. Приходите и приводите друзей."
+      }
+    },
+    {
+      "id": "events",
+      "type": "connectEvents",
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "volunteer",
+  "path": "/get-involved/volunteer",
+  "module": "getInvolved",
+  "navLabel": {
+    "en": "Volunteer and Needs",
+    "es": "Voluntariado",
+    "ru": "Помощь и нужды"
+  },
+  "icon": "prayer-rope",
+  "summary": {
+    "en": "Sign up to help.",
+    "es": "Apúntese para ayudar.",
+    "ru": "Запишитесь помогать."
+  },
+  "seo": {
+    "title": {
+      "en": "Volunteer and Needs",
+      "es": "Voluntariado y necesidades",
+      "ru": "Помощь и нужды"
+    },
+    "description": {
+      "en": "Help at coffee hour, cleaning, the choir, the food drive or meals for families.",
+      "es": "Ayude en el café, la limpieza, el coro, la colecta de alimentos o comidas para familias.",
+      "ru": "Помогите с трапезой, уборкой, хором, сбором продуктов или едой для семей."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Get Involved",
+        "es": "Participe",
+        "ru": "Участие"
+      },
+      "title": {
+        "en": "Volunteer and Parish Needs",
+        "es": "Voluntariado y necesidades",
+        "ru": "Помощь и нужды прихода"
+      },
+      "subtitle": {
+        "en": "Many hands make light work. Pick a slot that suits you.",
+        "es": "Entre todos el trabajo es más ligero. Elija el turno que le convenga.",
+        "ru": "Вместе любое дело спорится. Выберите удобное время."
+      }
+    },
+    {
+      "id": "volunteer",
+      "type": "connectVolunteer",
+      "enabled": true
+    }
+  ]
+}
