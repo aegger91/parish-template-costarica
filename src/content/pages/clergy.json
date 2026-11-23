@@ -1,0 +1,64 @@
+{
+  "id": "clergy",
+  "path": "/parish/clergy",
+  "navLabel": {
+    "en": "Clergy",
+    "es": "Clero",
+    "ru": "Духовенство"
+  },
+  "icon": "icon",
+  "summary": {
+    "en": "Our priest, deacon and parish council.",
+    "es": "Nuestro sacerdote, diácono y consejo parroquial.",
+    "ru": "Священник, диакон и приходской совет."
+  },
+  "seo": {
+    "title": {
+      "en": "Clergy",
+      "es": "Clero",
+      "ru": "Духовенство"
+    },
+    "description": {
+      "en": "The clergy and parish contacts of {site.name}.",
+      "es": "El clero y los contactos de {site.name}.",
+      "ru": "Духовенство и контакты прихода."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Our Parish",
+        "es": "Nuestra parroquia",
+        "ru": "Наш приход"
+      },
+      "title": {
+        "en": "Clergy and Contacts",
+        "es": "Clero y contactos",
+        "ru": "Духовенство и контакты"
+      },
+      "subtitle": {
+        "en": "Sample text. One line about the clergy.",
+        "es": "Texto de ejemplo. Una línea sobre el clero.",
+        "ru": "Пример текста. Одна строка о духовенстве."
+      }
+    },
+    {
+      "id": "clergy",
+      "type": "clergy",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Clergy and Contacts",
+        "es": "Clero y contactos",
+        "ru": "Духовенство и контакты"
+      },
+      "title": {
+        "en": "Serving the Parish",
+        "es": "Sirviendo a la parroquia",
+        "ru": "Служение приходу"
+      }
+    }
+  ]
+}

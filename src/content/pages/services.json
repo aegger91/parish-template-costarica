@@ -1,0 +1,85 @@
+{
+  "id": "services",
+  "path": "/services",
+  "navLabel": {
+    "en": "Schedule",
+    "es": "Horario",
+    "ru": "Расписание"
+  },
+  "icon": "calendar",
+  "summary": {
+    "en": "Weekly services, feasts and the parish calendar.",
+    "es": "Servicios semanales, fiestas y el calendario.",
+    "ru": "Богослужения, праздники и календарь."
+  },
+  "seo": {
+    "title": {
+      "en": "Schedule of Services",
+      "es": "Horario de los servicios",
+      "ru": "Расписание богослужений"
+    },
+    "description": {
+      "en": "Weekly services and the Orthodox calendar of saints, feasts, and fasts at St. Example Orthodox Church.",
+      "es": "Servicios semanales y el calendario ortodoxo de santos, fiestas y ayunos en la Iglesia Ortodoxa San Ejemplo.",
+      "ru": "Богослужения недели и православный календарь святых, праздников и постов храма святого Примера."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Schedule",
+        "es": "Horario",
+        "ru": "Расписание"
+      },
+      "title": {
+        "en": "Schedule of Services",
+        "es": "Horario de los servicios",
+        "ru": "Расписание богослужений"
+      },
+      "subtitle": {
+        "en": "Weekly services and the parish calendar.",
+        "es": "Servicios semanales y calendario parroquial.",
+        "ru": "Богослужения недели и приходской календарь."
+      }
+    },
+    {
+      "id": "weekly",
+      "type": "serviceTimes",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Service Schedule",
+        "es": "Horario de servicios",
+        "ru": "Богослужения"
+      },
+      "title": {
+        "en": "Weekly Services",
+        "es": "Servicios semanales",
+        "ru": "Богослужения недели"
+      },
+      "note": {
+        "en": "Feast day services as announced.",
+        "es": "Los servicios de los días de fiesta se anuncian en la parroquia.",
+        "ru": "О праздничных богослужениях объявляется в приходе."
+      }
+    },
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "enabled": true,
+      "title": {
+        "en": "Parish Calendar",
+        "es": "Calendario de la parroquia",
+        "ru": "Приходской календарь"
+      },
+      "eyebrow": {
+        "en": "Calendar",
+        "es": "Calendario",
+        "ru": "Календарь"
+      },
+      "defaultView": "week"
+    }
+  ]
+}

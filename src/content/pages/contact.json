@@ -1,0 +1,102 @@
+{
+  "id": "contact",
+  "path": "/contact",
+  "navLabel": {
+    "en": "Contact",
+    "es": "Contacto",
+    "ru": "Контакты"
+  },
+  "icon": "mail",
+  "seo": {
+    "title": {
+      "en": "Contact",
+      "es": "Contacto",
+      "ru": "Контакты"
+    },
+    "description": {
+      "en": "Contact St. Example Orthodox Church.",
+      "es": "Contacte con la Iglesia Ortodoxa San Ejemplo.",
+      "ru": "Контакты храма святого Примера."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Contact",
+        "es": "Contacto",
+        "ru": "Контакты"
+      },
+      "title": {
+        "en": "Contact Us",
+        "es": "Contáctenos",
+        "ru": "Связаться с нами"
+      },
+      "subtitle": {
+        "en": "Sample text. One line about how to reach the parish.",
+        "es": "Texto de ejemplo. Una línea sobre cómo contactar a la parroquia.",
+        "ru": "Пример текста. Одна строка о том, как связаться с приходом."
+      }
+    },
+    {
+      "id": "form",
+      "type": "contactForm",
+      "enabled": true,
+      "title": {
+        "en": "Send a Message",
+        "es": "Envíe un mensaje",
+        "ru": "Написать нам"
+      },
+      "text": {
+        "en": "We usually answer within two days.",
+        "es": "Solemos responder en dos días.",
+        "ru": "Обычно мы отвечаем в течение двух дней."
+      },
+      "topics": [
+        {
+          "id": "general",
+          "label": {
+            "en": "A general question",
+            "es": "Una pregunta general",
+            "ru": "Общий вопрос"
+          }
+        },
+        {
+          "id": "pastoral",
+          "label": {
+            "en": "Speaking with the priest",
+            "es": "Hablar con el sacerdote",
+            "ru": "Беседа со священником"
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact-cards",
+      "type": "contactCards",
+      "enabled": true,
+      "emailTitle": {
+        "en": "Parish Email",
+        "es": "Correo de la parroquia",
+        "ru": "Приходская почта"
+      },
+      "addressTitle": {
+        "en": "Address",
+        "es": "Dirección",
+        "ru": "Адрес"
+      },
+      "mapLabel": {
+        "en": "View on map",
+        "es": "Ver en el mapa",
+        "ru": "Открыть на карте"
+      },
+      "directTitle": {
+        "en": "Direct Contacts",
+        "es": "Contactos directos",
+        "ru": "Прямые контакты"
+      }
+    }
+  ]
+}

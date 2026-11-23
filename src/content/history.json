@@ -1,0 +1,56 @@
+{
+  "events": [
+    {
+      "id": "founding",
+      "year": "1950",
+      "title": { "en": "Sample: the first Liturgy", "es": "Ejemplo: la primera Liturgia", "ru": "Пример: первая литургия" },
+      "text": {
+        "en": "Sample text. A few families gather in a home and a visiting priest serves the first Divine Liturgy.",
+        "es": "Texto de ejemplo. Algunas familias se reúnen en una casa y un sacerdote visitante celebra la primera Divina Liturgia.",
+        "ru": "Пример текста. Несколько семей собираются в доме, и приезжий священник служит первую литургию."
+      }
+    },
+    {
+      "id": "parish",
+      "year": "1958",
+      "title": { "en": "Sample: the parish is founded", "es": "Ejemplo: se funda la parroquia", "ru": "Пример: основание прихода" },
+      "text": {
+        "en": "Sample text. The bishop blesses the new parish and names its patron saint.",
+        "es": "Texto de ejemplo. El obispo bendice la nueva parroquia y nombra a su santo patrono.",
+        "ru": "Пример текста. Епископ благословляет новый приход и даёт ему небесного покровителя."
+      }
+    },
+    {
+      "id": "church",
+      "year": "1972",
+      "title": { "en": "Sample: the church is consecrated", "es": "Ejemplo: se consagra el templo", "ru": "Пример: освящение храма" },
+      "text": {
+        "en": "Sample text. After years of work and giving, the church building is finished and consecrated.",
+        "es": "Texto de ejemplo. Tras años de trabajo y donativos, el templo se termina y se consagra.",
+        "ru": "Пример текста. После многих лет трудов и пожертвований храм построен и освящён."
+      },
+      "image": "/images/placeholder/gallery-1.jpg"
+    },
+    {
+      "id": "iconostasis",
+      "year": "1999",
+      "title": { "en": "Sample: the new iconostasis", "es": "Ejemplo: el nuevo iconostasio", "ru": "Пример: новый иконостас" },
+      "text": {
+        "en": "Sample text. Icons painted by a local iconographer are blessed and installed.",
+        "es": "Texto de ejemplo. Se bendicen e instalan los íconos pintados por un iconógrafo local.",
+        "ru": "Пример текста. Освящены и установлены иконы, написанные местным иконописцем."
+      },
+      "image": "/images/placeholder/gallery-2.jpg"
+    },
+    {
+      "id": "today",
+      "year": "2026",
+      "title": { "en": "Sample: the parish today", "es": "Ejemplo: la parroquia hoy", "ru": "Пример: приход сегодня" },
+      "text": {
+        "en": "Sample text. Describe the parish now: the families, the languages, and what you hope for next.",
+        "es": "Texto de ejemplo. Describa la parroquia hoy: las familias, los idiomas y lo que esperan para el futuro.",
+        "ru": "Пример текста. Расскажите о приходе сегодня: о семьях, языках и о том, чего вы ждёте впереди."
+      }
+    }
+  ]
+}

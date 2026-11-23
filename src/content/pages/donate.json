@@ -1,0 +1,84 @@
+{
+  "id": "donate",
+  "path": "/donate",
+  "navLabel": {
+    "en": "Donate",
+    "es": "Donar",
+    "ru": "Пожертвовать"
+  },
+  "icon": "candle",
+  "seo": {
+    "title": {
+      "en": "Donate",
+      "es": "Donar",
+      "ru": "Пожертвовать"
+    },
+    "description": {
+      "en": "Support St. Example Orthodox Church with a one-time or monthly gift.",
+      "es": "Apoye a la Iglesia Ortodoxa San Ejemplo con un donativo único o mensual.",
+      "ru": "Поддержите храм святого Примера разовым или ежемесячным пожертвованием."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Give",
+        "es": "Donar",
+        "ru": "Пожертвования"
+      },
+      "title": {
+        "en": "Support the Parish",
+        "es": "Apoye a la parroquia",
+        "ru": "Поддержите приход"
+      },
+      "subtitle": {
+        "en": "Sample text. One line about supporting the parish.",
+        "es": "Texto de ejemplo. Una línea sobre cómo apoyar a la parroquia.",
+        "ru": "Пример текста. Одна строка о поддержке прихода."
+      }
+    },
+    {
+      "id": "give",
+      "type": "giveForm",
+      "enabled": true,
+      "formTitle": {
+        "en": "Make a Gift",
+        "es": "Haga un donativo",
+        "ru": "Сделать пожертвование"
+      },
+      "asideTitle": {
+        "en": "Questions About Giving",
+        "es": "Preguntas sobre donaciones",
+        "ru": "Вопросы о пожертвованиях"
+      },
+      "asideText": {
+        "en": "Our treasurer will gladly help with gifts, receipts, or other ways to give.",
+        "es": "Nuestro tesorero le ayudará con gusto con donativos, recibos u otras formas de donar.",
+        "ru": "Наш казначей с радостью поможет с пожертвованиями, квитанциями и другими способами помощи."
+      },
+      "quote": {
+        "en": "“God loves a cheerful giver.” 2 Corinthians 9:7",
+        "es": "«Dios ama al que da con alegría.» 2 Corintios 9:7",
+        "ru": "«Доброхотно дающего любит Бог.» 2 Кор. 9:7"
+      }
+    },
+    {
+      "id": "projects",
+      "type": "projects",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Projects",
+        "es": "Proyectos",
+        "ru": "Проекты"
+      },
+      "title": {
+        "en": "Building Together",
+        "es": "Construimos juntos",
+        "ru": "Строим вместе"
+      }
+    }
+  ]
+}

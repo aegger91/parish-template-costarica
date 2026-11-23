@@ -1,0 +1,24 @@
+{
+  "id": "product",
+  "path": "/store/:productId",
+  "module": "store",
+  "seo": {
+    "title": {
+      "en": "Church Store",
+      "es": "Tienda parroquial",
+      "ru": "Церковная лавка"
+    },
+    "description": {
+      "en": "A product from the parish store.",
+      "es": "Un artículo de la tienda parroquial.",
+      "ru": "Товар церковной лавки."
+    }
+  },
+  "sections": [
+    {
+      "id": "product",
+      "type": "productDetail",
+      "enabled": true
+    }
+  ]
+}

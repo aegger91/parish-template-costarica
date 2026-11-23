@@ -1,0 +1,72 @@
+{
+  "categories": [
+    { "id": "parish", "label": { "en": "Parish life", "es": "Vida parroquial", "ru": "Жизнь прихода" } },
+    { "id": "events", "label": { "en": "Events", "es": "Eventos", "ru": "События" } }
+  ],
+  "items": [
+    {
+      "id": "sample-news-nativity",
+      "date": "2026-11-15",
+      "category": "parish",
+      "title": {
+        "en": "Sample news: the Nativity Fast begins",
+        "es": "Noticia de ejemplo: comienza el ayuno de Navidad",
+        "ru": "Пример новости: начался Рождественский пост"
+      },
+      "summary": {
+        "en": "Sample text. One or two lines about the notice.",
+        "es": "Esta es una noticia de ejemplo. Reemplácela con sus propios avisos. Sin noticias, la página indica que pronto habrá novedades.",
+        "ru": "Это пример новости. Замените её своими объявлениями. Если новостей нет, страница сообщит, что они скоро появятся."
+      },
+      "url": ""
+    },
+    {
+      "id": "sample-news-lunch",
+      "date": "2026-11-08",
+      "category": "events",
+      "title": {
+        "en": "Sample news: parish lunch after Liturgy",
+        "es": "Noticia de ejemplo: almuerzo parroquial después de la Liturgia",
+        "ru": "Пример новости: трапеза после литургии"
+      },
+      "summary": {
+        "en": "Sample text. Everyone is invited to stay for lunch in the parish hall. Bring a dish to share if you can.",
+        "es": "Texto de ejemplo. Todos están invitados a quedarse a almorzar en el salón parroquial. Traiga un plato para compartir si puede.",
+        "ru": "Пример текста. Все приглашены остаться на трапезу в приходском зале. По возможности принесите угощение."
+      },
+      "url": ""
+    },
+    {
+      "id": "sample-news-cleanup",
+      "date": "2026-10-04",
+      "category": "events",
+      "title": {
+        "en": "Sample news: church cleaning day",
+        "es": "Noticia de ejemplo: día de limpieza de la iglesia",
+        "ru": "Пример новости: уборка храма"
+      },
+      "summary": {
+        "en": "Sample text. One or two lines about the notice.",
+        "es": "Texto de ejemplo. Una o dos líneas sobre el aviso.",
+        "ru": "Пример текста. Одна или две строки об объявлении."
+      },
+      "url": ""
+    },
+    {
+      "id": "sample-news-feast",
+      "date": "2026-09-14",
+      "category": "parish",
+      "title": {
+        "en": "Sample news: the Exaltation of the Cross",
+        "es": "Noticia de ejemplo: la Exaltación de la Cruz",
+        "ru": "Пример новости: Воздвижение Креста"
+      },
+      "summary": {
+        "en": "Sample text. Photos and a few words from the feast day.",
+        "es": "Texto de ejemplo. Fotos y unas palabras del día de fiesta.",
+        "ru": "Пример текста. Фотографии и несколько слов о празднике."
+      },
+      "url": ""
+    }
+  ]
+}

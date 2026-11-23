@@ -1,0 +1,54 @@
+{
+  "header": [
+    { "id": "home", "page": "home" },
+    {
+      "id": "parish-menu",
+      "label": { "en": "Our Parish", "es": "Parroquia", "ru": "Приход" },
+      "children": [
+        { "id": "parish", "page": "parish", "label": { "en": "About the Parish", "es": "Sobre la parroquia", "ru": "О приходе" } },
+        { "id": "clergy", "page": "clergy" },
+        { "id": "history", "page": "history" },
+        { "id": "gallery", "page": "gallery" },
+        { "id": "news", "page": "news" }
+      ]
+    },
+    {
+      "id": "services-menu",
+      "label": { "en": "Services", "es": "Servicios", "ru": "Богослужения" },
+      "children": [
+        { "id": "schedule", "page": "services" },
+        { "id": "request", "page": "request" },
+        { "id": "zapiski", "page": "zapiski" }
+      ]
+    },
+    { "id": "livestream", "page": "livestream" },
+    {
+      "id": "involved-menu",
+      "label": { "en": "Get Involved", "es": "Participe", "ru": "Участие" },
+      "children": [
+        { "id": "events", "page": "events" },
+        { "id": "volunteer", "page": "volunteer" }
+      ]
+    },
+    { "id": "store", "page": "store" },
+    { "id": "contact", "page": "contact" },
+    { "id": "donate", "page": "donate", "button": true }
+  ],
+  "footer": {
+    "visitHeading": { "en": "Visit Us", "es": "Visítenos", "ru": "Приезжайте" },
+    "scheduleHeading": { "en": "Weekly Services", "es": "Servicios semanales", "ru": "Богослужения недели" },
+    "scheduleNote": {
+      "en": "Feast day services are on the schedule.",
+      "es": "Los servicios de los días de fiesta están en el horario.",
+      "ru": "Праздничные службы смотрите в расписании."
+    },
+    "scheduleLink": { "to": "/services", "label": { "en": "Full schedule", "es": "Horario completo", "ru": "Всё расписание" } },
+    "giveHeading": { "en": "Support the Parish", "es": "Apoye a la parroquia", "ru": "Поддержать приход" },
+    "newsletterHeading": { "en": "Parish Newsletter", "es": "Boletín parroquial", "ru": "Приходская рассылка" },
+    "newsletterText": {
+      "en": "News, feast days and service changes, about once a week.",
+      "es": "Noticias, días de fiesta y cambios de horario, más o menos una vez por semana.",
+      "ru": "Новости, праздники и изменения в расписании, примерно раз в неделю."
+    }
+  }
+}

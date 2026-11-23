@@ -1,0 +1,80 @@
+{
+  "id": "livestream",
+  "path": "/livestream",
+  "module": "livestream",
+  "navLabel": {
+    "en": "Livestream",
+    "es": "Transmisión",
+    "ru": "Трансляции"
+  },
+  "icon": "bells",
+  "summary": {
+    "en": "Live services and recorded sermons.",
+    "es": "Servicios en directo y homilías grabadas.",
+    "ru": "Прямые трансляции и записи проповедей."
+  },
+  "seo": {
+    "title": {
+      "en": "Livestream and Sermons",
+      "es": "Transmisión y homilías",
+      "ru": "Трансляции и проповеди"
+    },
+    "description": {
+      "en": "Watch services live and listen to recent sermons.",
+      "es": "Vea los servicios en directo y escuche las homilías recientes.",
+      "ru": "Смотрите богослужения онлайн и слушайте проповеди."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Livestream",
+        "es": "Transmisión",
+        "ru": "Трансляция"
+      },
+      "title": {
+        "en": "Livestream and Sermons",
+        "es": "Transmisión y homilías",
+        "ru": "Трансляции и проповеди"
+      },
+      "subtitle": {
+        "en": "Watch services live from the parish.",
+        "es": "Vea los servicios en directo desde la parroquia.",
+        "ru": "Трансляции богослужений из храма."
+      }
+    },
+    {
+      "id": "live",
+      "type": "livestream",
+      "enabled": true,
+      "title": {
+        "en": "Watch the Services",
+        "es": "Vea los servicios",
+        "ru": "Смотреть богослужения"
+      },
+      "text": {
+        "en": "Streamed services appear here.",
+        "es": "Aquí aparecen los servicios transmitidos.",
+        "ru": "Здесь появляются трансляции служб."
+      }
+    },
+    {
+      "id": "sermons",
+      "type": "sermons",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Listen",
+        "es": "Escuche",
+        "ru": "Слушайте"
+      },
+      "title": {
+        "en": "Sermons and Talks",
+        "es": "Homilías y charlas",
+        "ru": "Проповеди и беседы"
+      }
+    }
+  ]
+}

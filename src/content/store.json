@@ -1,0 +1,251 @@
+{
+  "shipping": { "flatRate": 8, "freeOver": 75, "countries": ["Country"] },
+  "pickup": {
+    "location": {
+      "en": "The candle desk at the church",
+      "es": "La mesa de velas en la iglesia",
+      "ru": "Свечной ящик в храме"
+    },
+    "note": {
+      "en": "Ready after the next Divine Liturgy. We will email you when it is set aside.",
+      "es": "Listo después de la próxima Divina Liturgia. Le escribiremos cuando esté apartado.",
+      "ru": "Заказ будет готов после ближайшей литургии. Мы напишем, когда отложим его для вас."
+    }
+  },
+  "lowStockAt": 3,
+  "categories": [
+    { "id": "icons", "icon": "icon", "label": { "en": "Icons", "es": "Íconos", "ru": "Иконы" } },
+    { "id": "candles", "icon": "candle", "label": { "en": "Candles", "es": "Velas", "ru": "Свечи" } },
+    { "id": "books", "icon": "gospel", "label": { "en": "Books", "es": "Libros", "ru": "Книги" } },
+    { "id": "prayer-ropes", "icon": "prayer-rope", "label": { "en": "Prayer ropes", "es": "Komboskinis", "ru": "Чётки" } },
+    { "id": "incense", "icon": "censer", "label": { "en": "Incense", "es": "Incienso", "ru": "Ладан" } },
+    { "id": "crosses", "icon": "cross", "label": { "en": "Crosses", "es": "Cruces", "ru": "Крестики" } },
+    { "id": "gifts", "icon": "lampada", "label": { "en": "Gifts", "es": "Regalos", "ru": "Подарки" } }
+  ],
+  "products": [
+    {
+      "id": "icon-theotokos",
+      "category": "icons",
+      "featured": true,
+      "name": { "en": "Icon of the Theotokos of Tenderness", "es": "Ícono de la Madre de Dios de la Ternura", "ru": "Икона Богородицы «Умиление»" },
+      "summary": { "en": "Mounted print on wood, with gold edging.", "es": "Impresión montada sobre madera, con borde dorado.", "ru": "Печать на дереве, с золочёным краем." },
+      "description": {
+        "en": "Sample product. A mounted icon print on a wooden board with a gilded edge, blessed at the church. Replace this text with your own description.",
+        "es": "Producto de ejemplo. Impresión de ícono montada sobre tabla de madera con borde dorado, bendecida en la iglesia. Reemplace este texto con su propia descripción.",
+        "ru": "Пример товара. Икона, напечатанная на деревянной доске, с золочёным краем, освящена в храме. Замените этот текст своим описанием."
+      },
+      "price": 28,
+      "stock": 0,
+      "images": ["/images/store/icon-theotokos-1.jpg", "/images/store/icon-theotokos-2.jpg"],
+      "variants": [
+        { "id": "small", "label": { "en": "13 × 18 cm", "es": "13 × 18 cm", "ru": "13 × 18 см" }, "price": 28, "stock": 12 },
+        { "id": "large", "label": { "en": "20 × 25 cm", "es": "20 × 25 cm", "ru": "20 × 25 см" }, "price": 45, "stock": 2 }
+      ],
+      "shippable": true
+    },
+    {
+      "id": "icon-pantocrator",
+      "category": "icons",
+      "name": { "en": "Icon of Christ the Pantocrator", "es": "Ícono de Cristo Pantocrátor", "ru": "Икона Спасителя «Вседержитель»" },
+      "summary": { "en": "Mounted print on wood.", "es": "Impresión montada sobre madera.", "ru": "Печать на дереве." },
+      "description": {
+        "en": "Sample product. Replace with your own description, size and finish.",
+        "es": "Producto de ejemplo. Reemplace con su propia descripción, tamaño y acabado.",
+        "ru": "Пример товара. Замените своим описанием, размером и отделкой."
+      },
+      "price": 32,
+      "stock": 8,
+      "images": ["/images/store/icon-pantocrator-1.jpg"],
+      "variants": [],
+      "shippable": true
+    },
+    {
+      "id": "beeswax-tapers",
+      "category": "candles",
+      "featured": true,
+      "name": { "en": "Beeswax taper candles", "es": "Velas de cera de abeja", "ru": "Восковые свечи" },
+      "summary": { "en": "Pure beeswax, bundle of 50.", "es": "Cera de abeja pura, paquete de 50.", "ru": "Чистый пчелиный воск, 50 штук." },
+      "description": {
+        "en": "Sample product. Thin beeswax tapers for prayer at home. Replace with your own description.",
+        "es": "Producto de ejemplo. Velas finas de cera de abeja para la oración en casa. Reemplace con su propia descripción.",
+        "ru": "Пример товара. Тонкие восковые свечи для домашней молитвы. Замените своим описанием."
+      },
+      "price": 14,
+      "stock": 0,
+      "images": ["/images/store/beeswax-tapers-1.jpg"],
+      "variants": [
+        { "id": "no2", "label": { "en": "Thin (No. 2)", "es": "Finas (n.º 2)", "ru": "Тонкие (№ 2)" }, "price": 14, "stock": 30 },
+        { "id": "no4", "label": { "en": "Medium (No. 4)", "es": "Medianas (n.º 4)", "ru": "Средние (№ 4)" }, "price": 18, "stock": 20 }
+      ],
+      "shippable": true
+    },
+    {
+      "id": "lampada-candles",
+      "category": "candles",
+      "name": { "en": "Candles for the vigil lamp", "es": "Velas para la lámpara votiva", "ru": "Свечи для лампады" },
+      "summary": { "en": "Box of 24 tea lights.", "es": "Caja de 24 velas pequeñas.", "ru": "Коробка, 24 штуки." },
+      "description": {
+        "en": "Sample product. Replace with your own description.",
+        "es": "Producto de ejemplo. Reemplace con su propia descripción.",
+        "ru": "Пример товара. Замените своим описанием."
+      },
+      "price": 9,
+      "stock": 2,
+      "images": ["/images/store/lampada-candles-1.jpg"],
+      "variants": [],
+      "shippable": true
+    },
+    {
+      "id": "prayer-book",
+      "category": "books",
+      "featured": true,
+      "name": { "en": "Pocket prayer book", "es": "Libro de oraciones de bolsillo", "ru": "Карманный молитвослов" },
+      "summary": { "en": "Morning and evening prayers.", "es": "Oraciones de la mañana y de la noche.", "ru": "Утренние и вечерние молитвы." },
+      "description": {
+        "en": "Sample product. A small prayer book with the morning and evening prayers and the prayers before Communion.",
+        "es": "Producto de ejemplo. Un pequeño libro con las oraciones de la mañana y de la noche y las oraciones antes de la Comunión.",
+        "ru": "Пример товара. Небольшой молитвослов с утренними и вечерними молитвами и последованием ко Причащению."
+      },
+      "price": 12,
+      "stock": 0,
+      "images": ["/images/store/prayer-book-1.jpg"],
+      "variants": [
+        { "id": "en", "label": { "en": "English", "es": "Inglés", "ru": "На английском" }, "stock": 15 },
+        { "id": "es", "label": { "en": "Spanish", "es": "Español", "ru": "На испанском" }, "stock": 6 },
+        { "id": "csl", "label": { "en": "Church Slavonic", "es": "Eslavo eclesiástico", "ru": "На церковнославянском" }, "stock": 4 }
+      ],
+      "shippable": true
+    },
+    {
+      "id": "psalter",
+      "category": "books",
+      "name": { "en": "The Psalter", "es": "El Salterio", "ru": "Псалтирь" },
+      "summary": { "en": "Hardcover, with the kathismata marked.", "es": "Tapa dura, con las catismas señaladas.", "ru": "В твёрдом переплёте, с разделением на кафизмы." },
+      "description": {
+        "en": "Sample product. Replace with your own description.",
+        "es": "Producto de ejemplo. Reemplace con su propia descripción.",
+        "ru": "Пример товара. Замените своим описанием."
+      },
+      "price": 24,
+      "stock": 5,
+      "images": ["/images/store/psalter-1.jpg"],
+      "variants": [],
+      "shippable": true
+    },
+    {
+      "id": "prayer-rope",
+      "category": "prayer-ropes",
+      "featured": true,
+      "name": { "en": "Wool prayer rope", "es": "Komboskini de lana", "ru": "Шерстяные чётки" },
+      "summary": { "en": "Hand-tied, with a knotted cross.", "es": "Anudado a mano, con cruz de nudos.", "ru": "Вязаные вручную, с узелковым крестом." },
+      "description": {
+        "en": "Sample product. A prayer rope tied by hand for the Jesus Prayer. Replace with your own description.",
+        "es": "Producto de ejemplo. Un komboskini anudado a mano para la Oración de Jesús. Reemplace con su propia descripción.",
+        "ru": "Пример товара. Чётки, связанные вручную, для Иисусовой молитвы. Замените своим описанием."
+      },
+      "price": 10,
+      "stock": 0,
+      "images": ["/images/store/prayer-rope-1.jpg"],
+      "variants": [
+        { "id": "33", "label": { "en": "33 knots", "es": "33 nudos", "ru": "33 узелка" }, "price": 10, "stock": 20 },
+        { "id": "50", "label": { "en": "50 knots", "es": "50 nudos", "ru": "50 узелков" }, "price": 14, "stock": 9 },
+        { "id": "100", "label": { "en": "100 knots", "es": "100 nudos", "ru": "100 узелков" }, "price": 20, "stock": 0 }
+      ],
+      "shippable": true
+    },
+    {
+      "id": "incense",
+      "category": "incense",
+      "name": { "en": "Monastery incense", "es": "Incienso de monasterio", "ru": "Монастырский ладан" },
+      "summary": { "en": "100 g, for the home censer.", "es": "100 g, para el incensario de casa.", "ru": "100 г, для домашней кадильницы." },
+      "description": {
+        "en": "Sample product. Replace with your own description.",
+        "es": "Producto de ejemplo. Reemplace con su propia descripción.",
+        "ru": "Пример товара. Замените своим описанием."
+      },
+      "price": 11,
+      "stock": 0,
+      "images": ["/images/store/incense-1.jpg"],
+      "variants": [
+        { "id": "rose", "label": { "en": "Rose", "es": "Rosa", "ru": "Роза" }, "stock": 14 },
+        { "id": "myrrh", "label": { "en": "Myrrh", "es": "Mirra", "ru": "Смирна" }, "stock": 7 },
+        { "id": "frank", "label": { "en": "Frankincense", "es": "Olíbano", "ru": "Ливан" }, "stock": 11 }
+      ],
+      "shippable": true
+    },
+    {
+      "id": "censer-home",
+      "category": "incense",
+      "name": { "en": "Home censer", "es": "Incensario para el hogar", "ru": "Домашняя кадильница" },
+      "summary": { "en": "Brass, with a handle.", "es": "De latón, con asa.", "ru": "Латунь, с ручкой." },
+      "description": {
+        "en": "Sample product. Replace with your own description.",
+        "es": "Producto de ejemplo. Reemplace con su propia descripción.",
+        "ru": "Пример товара. Замените своим описанием."
+      },
+      "price": 26,
+      "stock": 4,
+      "images": ["/images/store/censer-home-1.jpg"],
+      "variants": [],
+      "shippable": true
+    },
+    {
+      "id": "baptismal-cross",
+      "category": "crosses",
+      "featured": true,
+      "name": { "en": "Baptismal cross", "es": "Cruz bautismal", "ru": "Нательный крестик" },
+      "summary": { "en": "Eight-pointed, on a cord.", "es": "De ocho puntas, con cordón.", "ru": "Восьмиконечный, на гайтане." },
+      "description": {
+        "en": "Sample product. A small eight-pointed cross for a newly baptized child or adult, blessed at the church.",
+        "es": "Producto de ejemplo. Una pequeña cruz de ocho puntas para un niño o adulto recién bautizado, bendecida en la iglesia.",
+        "ru": "Пример товара. Небольшой восьмиконечный крестик для новокрещёного ребёнка или взрослого, освящён в храме."
+      },
+      "price": 18,
+      "stock": 0,
+      "images": ["/images/store/baptismal-cross-1.jpg"],
+      "variants": [
+        { "id": "silver", "label": { "en": "Sterling silver", "es": "Plata de ley", "ru": "Серебро" }, "price": 38, "stock": 5 },
+        { "id": "brass", "label": { "en": "Brass", "es": "Latón", "ru": "Латунь" }, "price": 18, "stock": 18 }
+      ],
+      "shippable": true
+    },
+    {
+      "id": "lampada",
+      "category": "gifts",
+      "name": { "en": "Hanging vigil lamp", "es": "Lámpara votiva colgante", "ru": "Подвесная лампада" },
+      "summary": { "en": "Glass cup, brass chains.", "es": "Vaso de vidrio, cadenas de latón.", "ru": "Стеклянный стаканчик, латунные цепочки." },
+      "description": {
+        "en": "Sample product. A vigil lamp for the icon corner at home. Replace with your own description.",
+        "es": "Producto de ejemplo. Una lámpara votiva para el rincón de los íconos en casa. Reemplace con su propia descripción.",
+        "ru": "Пример товара. Лампада для домашнего красного угла. Замените своим описанием."
+      },
+      "price": 30,
+      "stock": 0,
+      "images": ["/images/store/lampada-1.jpg"],
+      "variants": [
+        { "id": "red", "label": { "en": "Red glass", "es": "Vidrio rojo", "ru": "Красное стекло" }, "stock": 3 },
+        { "id": "clear", "label": { "en": "Clear glass", "es": "Vidrio transparente", "ru": "Прозрачное стекло" }, "stock": 6 }
+      ],
+      "shippable": true
+    },
+    {
+      "id": "gift-card",
+      "category": "gifts",
+      "name": { "en": "Parish gift card", "es": "Tarjeta de regalo de la parroquia", "ru": "Подарочная карта прихода" },
+      "summary": { "en": "Collected at the candle desk.", "es": "Se recoge en la mesa de velas.", "ru": "Выдаётся за свечным ящиком." },
+      "description": {
+        "en": "Sample product. A card for the parish shop, for pickup at the church only.",
+        "es": "Producto de ejemplo. Una tarjeta para la tienda parroquial, solo para recoger en la iglesia.",
+        "ru": "Пример товара. Карта для приходской лавки, только для получения в храме."
+      },
+      "price": 25,
+      "stock": 0,
+      "images": ["/images/store/gift-card-1.jpg"],
+      "variants": [
+        { "id": "25", "label": { "en": "$25", "es": "25 $", "ru": "25 $" }, "price": 25, "stock": 99 },
+        { "id": "50", "label": { "en": "$50", "es": "50 $", "ru": "50 $" }, "price": 50, "stock": 99 }
+      ],
+      "shippable": false
+    }
+  ]
+}

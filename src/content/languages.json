@@ -1,0 +1,9 @@
+{
+  "default": "en",
+  "storageKey": "site-lang",
+  "languages": [
+    { "code": "en", "label": "English", "short": "EN", "htmlLang": "en", "locale": "en-US", "ogLocale": "en_US" },
+    { "code": "es", "label": "Español", "short": "ES", "htmlLang": "es", "locale": "es-ES", "ogLocale": "es_ES" },
+    { "code": "ru", "label": "Русский", "short": "RU", "htmlLang": "ru", "locale": "ru-RU", "ogLocale": "ru_RU" }
+  ]
+}

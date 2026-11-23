@@ -1,0 +1,49 @@
+{
+  "members": [
+    {
+      "id": "rector",
+      "name": { "en": "Fr. John Example", "es": "P. Juan Ejemplo", "ru": "Иерей Иоанн Примеров" },
+      "role": { "en": "Rector", "es": "Párroco", "ru": "Настоятель" },
+      "bio": { "en": "Sample text. A short bio, one or two lines.", "es": "Texto de ejemplo. Una breve biografía, una o dos líneas.", "ru": "Пример текста. Краткая биография, одна или две строки." },
+      "phone": "+1 (555) 010-0101",
+      "email": "rector@example.org",
+      "photo": ""
+    },
+    {
+      "id": "deacon",
+      "name": { "en": "Deacon Stephen Sample", "es": "Diácono Esteban Muestra", "ru": "Диакон Стефан Образцов" },
+      "role": { "en": "Deacon", "es": "Diácono", "ru": "Диакон" },
+      "bio": { "en": "Sample text. A short bio, one or two lines.", "es": "Texto de ejemplo. Una breve biografía, una o dos líneas.", "ru": "Пример текста. Краткая биография, одна или две строки." },
+      "phone": "+1 (555) 010-0102",
+      "email": "deacon@example.org",
+      "photo": ""
+    },
+    {
+      "id": "council",
+      "name": { "en": "Mary Sample", "es": "María Muestra", "ru": "Мария Образцова" },
+      "role": { "en": "Parish Council President", "es": "Presidenta del consejo parroquial", "ru": "Председатель приходского совета" },
+      "bio": { "en": "Sample text. A short bio, one or two lines.", "es": "Texto de ejemplo. Una breve biografía, una o dos líneas.", "ru": "Пример текста. Краткая биография, одна или две строки." },
+      "phone": "+1 (555) 010-0103",
+      "email": "council@example.org",
+      "photo": ""
+    },
+    {
+      "id": "choir",
+      "name": { "en": "Anna Example", "es": "Ana Ejemplo", "ru": "Анна Примерова" },
+      "role": { "en": "Choir Director", "es": "Directora del coro", "ru": "Регент хора" },
+      "bio": { "en": "Sample text. A short bio, one or two lines.", "es": "Texto de ejemplo. Una breve biografía, una o dos líneas.", "ru": "Пример текста. Краткая биография, одна или две строки." },
+      "phone": "",
+      "email": "choir@example.org",
+      "photo": ""
+    },
+    {
+      "id": "treasurer",
+      "name": { "en": "Peter Sample", "es": "Pedro Muestra", "ru": "Пётр Образцов" },
+      "role": { "en": "Treasurer", "es": "Tesorero", "ru": "Казначей" },
+      "bio": { "en": "Sample text. A short bio, one or two lines.", "es": "Texto de ejemplo. Una breve biografía, una o dos líneas.", "ru": "Пример текста. Краткая биография, одна или две строки." },
+      "phone": "+1 (555) 010-0105",
+      "email": "treasurer@example.org",
+      "photo": ""
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "albums": [
+    { "id": "church", "label": { "en": "The Church", "es": "El templo", "ru": "Храм" } },
+    { "id": "services", "label": { "en": "Services", "es": "Servicios", "ru": "Богослужения" } },
+    { "id": "community", "label": { "en": "Community", "es": "Comunidad", "ru": "Община" } }
+  ],
+  "photos": [
+    {
+      "id": "sample-1",
+      "src": "/images/placeholder/gallery-1.jpg",
+      "album": "church",
+      "alt": { "en": "Sample photo placeholder", "es": "Foto de ejemplo", "ru": "Пример фотографии" },
+      "caption": {
+        "en": "Sample caption: the church on a feast day",
+        "es": "Texto de ejemplo: la iglesia en un día de fiesta",
+        "ru": "Пример подписи: храм в праздничный день"
+      }
+    },
+    {
+      "id": "sample-2",
+      "src": "/images/placeholder/gallery-2.jpg",
+      "album": "church",
+      "alt": { "en": "Sample photo placeholder", "es": "Foto de ejemplo", "ru": "Пример фотографии" },
+      "caption": {
+        "en": "Sample caption: the iconostasis",
+        "es": "Texto de ejemplo: el iconostasio",
+        "ru": "Пример подписи: иконостас"
+      }
+    },
+    {
+      "id": "sample-3",
+      "src": "/images/placeholder/gallery-3.jpg",
+      "album": "services",
+      "alt": { "en": "Sample photo placeholder", "es": "Foto de ejemplo", "ru": "Пример фотографии" },
+      "caption": {
+        "en": "Sample caption: the Divine Liturgy",
+        "es": "Texto de ejemplo: la Divina Liturgia",
+        "ru": "Пример подписи: Божественная литургия"
+      }
+    },
+    {
+      "id": "sample-4",
+      "src": "/images/placeholder/gallery-4.jpg",
+      "album": "services",
+      "alt": { "en": "Sample photo placeholder", "es": "Foto de ejemplo", "ru": "Пример фотографии" },
+      "caption": {
+        "en": "Sample caption: the choir",
+        "es": "Texto de ejemplo: el coro",
+        "ru": "Пример подписи: хор"
+      }
+    },
+    {
+      "id": "sample-5",
+      "src": "/images/placeholder/gallery-5.jpg",
+      "album": "community",
+      "alt": { "en": "Sample photo placeholder", "es": "Foto de ejemplo", "ru": "Пример фотографии" },
+      "caption": {
+        "en": "Sample caption: a parish lunch",
+        "es": "Texto de ejemplo: un almuerzo parroquial",
+        "ru": "Пример подписи: приходская трапеза"
+      }
+    },
+    {
+      "id": "sample-6",
+      "src": "/images/placeholder/gallery-6.jpg",
+      "album": "community",
+      "alt": { "en": "Sample photo placeholder", "es": "Foto de ejemplo", "ru": "Пример фотографии" },
+      "caption": {
+        "en": "Sample caption: the church grounds",
+        "es": "Texto de ejemplo: los terrenos de la iglesia",
+        "ru": "Пример подписи: территория храма"
+      }
+    }
+  ]
+}

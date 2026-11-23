@@ -1,0 +1,55 @@
+{
+  "id": "request",
+  "path": "/services/request",
+  "module": "serviceRequests",
+  "navLabel": {
+    "en": "Request a Service",
+    "es": "Solicitar un servicio",
+    "ru": "Заказать требу"
+  },
+  "icon": "censer",
+  "summary": {
+    "en": "Molebens, blessings, sacraments and pastoral care.",
+    "es": "Molebens, bendiciones, sacramentos y atención pastoral.",
+    "ru": "Молебны, освящения, таинства и беседы."
+  },
+  "seo": {
+    "title": {
+      "en": "Request a Service",
+      "es": "Solicitar un servicio",
+      "ru": "Заказать требу"
+    },
+    "description": {
+      "en": "Ask the parish for a moleben, blessing, baptism, wedding, confession or pastoral visit.",
+      "es": "Solicite a la parroquia un moleben, una bendición, un bautizo, una boda, la confesión o una visita pastoral.",
+      "ru": "Закажите молебен, освящение, крещение, венчание, исповедь или беседу со священником."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Services",
+        "es": "Servicios",
+        "ru": "Богослужения"
+      },
+      "title": {
+        "en": "Request a Service",
+        "es": "Solicitar un servicio",
+        "ru": "Заказать требу"
+      },
+      "subtitle": {
+        "en": "Choose a service and send a request.",
+        "es": "Elija un servicio y envíe una solicitud.",
+        "ru": "Выберите требу и отправьте заявку."
+      }
+    },
+    {
+      "id": "requests",
+      "type": "serviceRequests",
+      "enabled": true
+    }
+  ]
+}

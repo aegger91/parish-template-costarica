@@ -1,0 +1,64 @@
+{
+  "id": "history",
+  "path": "/parish/history",
+  "navLabel": {
+    "en": "History",
+    "es": "Historia",
+    "ru": "История"
+  },
+  "icon": "bells",
+  "summary": {
+    "en": "How the parish began and grew.",
+    "es": "Cómo nació y creció la parroquia.",
+    "ru": "Как появился и рос приход."
+  },
+  "seo": {
+    "title": {
+      "en": "History",
+      "es": "Historia",
+      "ru": "История"
+    },
+    "description": {
+      "en": "The history of {site.name}.",
+      "es": "La historia de {site.name}.",
+      "ru": "История прихода."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Our Parish",
+        "es": "Nuestra parroquia",
+        "ru": "Наш приход"
+      },
+      "title": {
+        "en": "Our History",
+        "es": "Nuestra historia",
+        "ru": "Наша история"
+      },
+      "subtitle": {
+        "en": "Sample text: how the parish began and grew.",
+        "es": "Texto de ejemplo: cómo nació y creció la parroquia.",
+        "ru": "Пример текста: как появился и рос приход."
+      }
+    },
+    {
+      "id": "timeline",
+      "type": "timeline",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Since 1950",
+        "es": "Desde 1950",
+        "ru": "С 1950 года"
+      },
+      "title": {
+        "en": "Milestones",
+        "es": "Momentos importantes",
+        "ru": "Вехи истории"
+      }
+    }
+  ]
+}

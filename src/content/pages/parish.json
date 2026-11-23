@@ -1,0 +1,96 @@
+{
+  "id": "parish",
+  "path": "/parish",
+  "navLabel": {
+    "en": "Our Parish",
+    "es": "Nuestra parroquia",
+    "ru": "Наш приход"
+  },
+  "icon": "church",
+  "summary": {
+    "en": "Our story and who we are.",
+    "es": "Nuestra historia y quiénes somos.",
+    "ru": "Наша история и кто мы."
+  },
+  "seo": {
+    "title": {
+      "en": "Our Parish",
+      "es": "Nuestra parroquia",
+      "ru": "Наш приход"
+    },
+    "description": {
+      "en": "Who we are: the story, clergy and life of {site.name}.",
+      "es": "Quiénes somos: la historia, el clero y la vida de {site.name}.",
+      "ru": "Кто мы: история, духовенство и жизнь прихода."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Our Parish",
+        "es": "Nuestra parroquia",
+        "ru": "Наш приход"
+      },
+      "title": {
+        "en": "{site.name}",
+        "es": "{site.name}",
+        "ru": "{site.name}"
+      },
+      "subtitle": {
+        "en": "{site.diocese}",
+        "es": "{site.diocese}",
+        "ru": "{site.diocese}"
+      }
+    },
+    {
+      "id": "story",
+      "type": "story",
+      "enabled": true,
+      "title": {
+        "en": "About the Parish",
+        "es": "Sobre la parroquia",
+        "ru": "О приходе"
+      },
+      "paragraphs": [
+        {
+          "en": "Sample text. A short note about the parish, one or two lines.",
+          "es": "Texto de ejemplo. Una breve nota sobre la parroquia, una o dos líneas.",
+          "ru": "Пример текста. Несколько слов о приходе, одна или две строки."
+        }
+      ]
+    },
+    {
+      "id": "more",
+      "type": "childPages",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Our Parish",
+        "es": "Nuestra parroquia",
+        "ru": "Наш приход"
+      },
+      "title": {
+        "en": "Get to Know Us",
+        "es": "Conózcanos",
+        "ru": "Познакомьтесь с нами"
+      }
+    },
+    {
+      "id": "theotokion",
+      "type": "quote",
+      "enabled": true,
+      "text": {
+        "en": "“Rejoice, O Virgin Theotokos, Mary full of grace, the Lord is with you; blessed are you among women, and blessed is the fruit of your womb, for you have borne the Savior of our souls.”",
+        "es": "«Alégrate, Oh Virgen Madre de Dios, María llena de gracia, el Señor es contigo; bendita tú entre las mujeres, y bendito el fruto de tu vientre, porque diste a luz al Salvador de nuestras almas.»",
+        "ru": "«Радуйся, Дево Богородице, Марие благодатная, Господь с Тобою; благословенна Ты в женах, и благословен плод чрева Твоего, яко Спаса родила еси душ наших.»"
+      },
+      "source": {
+        "en": "Theotokion, Tone 4 · “Rejoice, O Virgin Theotokos”",
+        "es": "Himno «Alégrate, Virgen Madre de Dios» · tono 4",
+        "ru": "«Радуйся, Дево Богородице» · глас 4"
+      }
+    }
+  ]
+}

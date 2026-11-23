@@ -1,0 +1,100 @@
+{
+  "id": "st-example",
+  "name": {
+    "en": "St. Example Orthodox Church",
+    "es": "Iglesia Ortodoxa San Ejemplo",
+    "ru": "Храм святого Примера"
+  },
+  "jurisdiction": {
+    "en": "Sample Orthodox Jurisdiction",
+    "es": "Jurisdicción ortodoxa de ejemplo",
+    "ru": "Пример православной юрисдикции"
+  },
+  "diocese": {
+    "en": "Sample Diocese of the Orthodox Church",
+    "es": "Diócesis de ejemplo de la Iglesia Ortodoxa",
+    "ru": "Пример епархии Православной Церкви"
+  },
+  "dioceseUrl": "https://example.org/",
+  "jurisdictionUrl": "https://example.org/",
+  "logo": {
+    "style": "seal",
+    "src": "",
+    "alt": "St. Example Orthodox Church logo",
+    "wordmarkSubtitle": {
+      "en": "Orthodox Church",
+      "es": "Iglesia Ortodoxa",
+      "ru": "Православный храм"
+    }
+  },
+  "pageHeroBackground": "/images/placeholder/icon.jpg",
+  "url": "https://www.example.org/",
+  "socialImage": "/social-preview.jpg",
+  "timeZone": "America/Chicago",
+  "contact": {
+    "email": "info@example.org",
+    "phone": "+1 (555) 010-0100"
+  },
+  "address": {
+    "street": "123 Example Street",
+    "locality": "Sample City",
+    "region": "Sample Region",
+    "country": "Country",
+    "singleLine": {
+      "en": "123 Example Street, Sample City, Sample Region, Country",
+      "es": "Calle Ejemplo 123, Ciudad de Ejemplo, Región de Ejemplo, País",
+      "ru": "ул. Примерная, 123, город Пример, Примерный регион, Страна"
+    }
+  },
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=123+Example+Street",
+  "map": {
+    "lat": null,
+    "lng": null,
+    "zoom": 16
+  },
+  "calendar": {
+    "apiBase": "https://orthocal.info/api",
+    "style": "revised-julian",
+    "weekStartsOn": 0,
+    "saintsLanguages": [
+      "en"
+    ]
+  },
+  "modules": {
+    "livestream": true,
+    "store": true,
+    "serviceRequests": true,
+    "zapiski": true,
+    "getInvolved": true
+  },
+  "livestream": {
+    "watchUrl": "",
+    "embedUrl": "",
+    "providerLabel": "YouTube"
+  },
+  "formsEndpoint": "",
+  "orthodoxConnect": {
+    "parishId": "sample-parish-0001",
+    "appUrl": "https://orthodoxconnect.example/",
+    "deepLinkScheme": "orthodoxconnect://",
+    "feedUrl": "",
+    "signupEndpoint": "",
+    "newsletter": {
+      "enabled": true,
+      "endpoint": ""
+    }
+  },
+  "slavonicFont": "",
+  "footer": {
+    "copyright": {
+      "en": "All rights reserved.",
+      "es": "Todos los derechos reservados.",
+      "ru": "Все права защищены."
+    },
+    "tagline": {
+      "en": "Made with prayer",
+      "es": "Hecho con oración",
+      "ru": "Создано с молитвой"
+    }
+  }
+}

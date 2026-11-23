@@ -1,0 +1,60 @@
+{
+  "id": "zapiski",
+  "path": "/services/zapiski",
+  "module": "zapiski",
+  "navLabel": {
+    "en": "Zapiski and Candles",
+    "es": "Notas y velas",
+    "ru": "Записки и свечи"
+  },
+  "icon": "note",
+  "summary": {
+    "en": "Names for commemoration and candles.",
+    "es": "Nombres para conmemorar y velas.",
+    "ru": "Поминовение и свечи."
+  },
+  "seo": {
+    "title": {
+      "en": "Commemoration Notes and Candles",
+      "es": "Notas de conmemoración y velas",
+      "ru": "Записки и свечи"
+    },
+    "description": {
+      "en": "Send names for commemoration at the Liturgy, a moleben or a panikhida, and light a candle.",
+      "es": "Envíe nombres para ser recordados en la Liturgia, un moleben o una panijida, y encienda una vela.",
+      "ru": "Подайте записку о здравии или об упокоении и поставьте свечу."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Services",
+        "es": "Servicios",
+        "ru": "Богослужения"
+      },
+      "title": {
+        "en": "Commemoration Notes and Candles",
+        "es": "Notas de conmemoración y velas",
+        "ru": "Записки и свечи"
+      },
+      "subtitle": {
+        "en": "Names for health and for repose.",
+        "es": "Nombres por la salud y por el descanso.",
+        "ru": "Имена о здравии и об упокоении."
+      }
+    },
+    {
+      "id": "notes",
+      "type": "zapiski",
+      "enabled": true,
+      "intro": {
+        "en": "One slip for the living, another for the departed.",
+        "es": "Una nota por los vivos y otra por los difuntos.",
+        "ru": "Одна записка о живых, другая об усопших."
+      }
+    }
+  ]
+}
