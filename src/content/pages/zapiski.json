@@ -1,0 +1,60 @@
+{
+  "id": "zapiski",
+  "path": "/services/zapiski",
+  "module": "zapiski",
+  "navLabel": {
+    "en": "Zapiski and Candles",
+    "es": "Notas y velas",
+    "ru": "Записки и свечи"
+  },
+  "icon": "note",
+  "summary": {
+    "en": "Names for commemoration and candles.",
+    "es": "Nombres para conmemorar y velas.",
+    "ru": "Поминовение и свечи."
+  },
+  "seo": {
+    "title": {
+      "en": "Commemoration Notes and Candles",
+      "es": "Notas de conmemoración y velas",
+      "ru": "Записки и свечи"
+    },
+    "description": {
+      "en": "Send names for commemoration at the Liturgy, a moleben or a panikhida, and light a candle.",
+      "es": "Envíe nombres para ser recordados en la Liturgia, un moleben o una panijida, y encienda una vela.",
+      "ru": "Подайте записку о здравии или об упокоении и поставьте свечу."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Services",
+        "es": "Servicios",
+        "ru": "Богослужения"
+      },
+      "title": {
+        "en": "Commemoration Notes and Candles",
+        "es": "Notas de conmemoración y velas",
+        "ru": "Записки и свечи"
+      },
+      "subtitle": {
+        "en": "Write the names of those you pray for. The clergy will remember them at the altar.",
+        "es": "Escriba los nombres de aquellos por quienes reza. El clero los recordará en el altar.",
+        "ru": "Напишите имена тех, за кого молитесь. Священнослужители помянут их у престола."
+      }
+    },
+    {
+      "id": "notes",
+      "type": "zapiski",
+      "enabled": true,
+      "intro": {
+        "en": "Fill in one slip for the living and another for the departed. You may send several slips at once.",
+        "es": "Llene una nota por los vivos y otra por los difuntos. Puede enviar varias notas a la vez.",
+        "ru": "Заполните отдельные записки о здравии и об упокоении. Можно подать несколько записок сразу."
+      }
+    }
+  ]
+}

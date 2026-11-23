@@ -1,0 +1,65 @@
+{
+  "maxNames": 10,
+  "slipTypes": [
+    {
+      "id": "health",
+      "label": { "en": "For Health", "es": "Por la salud", "ru": "О здравии" },
+      "heading": { "en": "For the health of", "es": "Por la salud de", "ru": "О здравии" }
+    },
+    {
+      "id": "repose",
+      "label": { "en": "For the Repose", "es": "Por el descanso", "ru": "Об упокоении" },
+      "heading": { "en": "For the repose of", "es": "Por el descanso eterno de", "ru": "Об упокоении" }
+    }
+  ],
+  "prefixes": [
+    { "id": "priest", "group": "clergy", "label": { "en": "Priest", "es": "Sacerdote", "ru": "иерея" } },
+    { "id": "deacon", "group": "clergy", "label": { "en": "Deacon", "es": "Diácono", "ru": "диакона" } },
+    { "id": "monk", "group": "monastic", "label": { "en": "Monk", "es": "Monje", "ru": "монаха" } },
+    { "id": "nun", "group": "monastic", "label": { "en": "Nun", "es": "Monja", "ru": "монахини" } },
+    { "id": "infant", "group": "infant", "label": { "en": "Infant (under 7)", "es": "Infante (menor de 7)", "ru": "младенца (до 7 лет)" } },
+    { "id": "child", "group": "infant", "label": { "en": "Child (7 to 15)", "es": "Niño (7 a 15)", "ru": "отрока / отроковицы (от 7 до 15 лет)" } }
+  ],
+  "commemorations": [
+    {
+      "id": "proskomedia",
+      "for": ["health", "repose"],
+      "label": { "en": "Proskomedia", "es": "Proskomidia", "ru": "Проскомидия" },
+      "text": { "en": "A particle is taken from the prosphora for each name.", "es": "Se toma una partícula de la prósfora por cada nombre.", "ru": "За каждое имя вынимается частица из просфоры." },
+      "suggested": 5
+    },
+    {
+      "id": "liturgy",
+      "for": ["health", "repose"],
+      "label": { "en": "At the Liturgy", "es": "En la Liturgia", "ru": "На литургии" },
+      "text": { "en": "The names are read aloud during the Divine Liturgy.", "es": "Los nombres se leen en voz alta durante la Divina Liturgia.", "ru": "Имена читаются вслух на литургии." },
+      "suggested": 10
+    },
+    {
+      "id": "moleben",
+      "for": ["health"],
+      "label": { "en": "Moleben", "es": "Moleben", "ru": "Молебен" },
+      "text": { "en": "Remembered at the next moleben.", "es": "Se recuerdan en el próximo moleben.", "ru": "Поминовение на ближайшем молебне." },
+      "suggested": 10
+    },
+    {
+      "id": "panikhida",
+      "for": ["repose"],
+      "label": { "en": "Panikhida", "es": "Panijida", "ru": "Панихида" },
+      "text": { "en": "Remembered at the next memorial service.", "es": "Se recuerdan en el próximo oficio de difuntos.", "ru": "Поминовение на ближайшей панихиде." },
+      "suggested": 10
+    },
+    {
+      "id": "sorokoust",
+      "for": ["health", "repose"],
+      "label": { "en": "Sorokoust (40 days)", "es": "Sorokoust (40 días)", "ru": "Сорокоуст" },
+      "text": { "en": "Remembered at the Liturgy for forty days.", "es": "Se recuerdan en la Liturgia durante cuarenta días.", "ru": "Поминовение на литургии в течение сорока дней." },
+      "suggested": 40
+    }
+  ],
+  "candles": [
+    { "id": "small", "label": { "en": "Small candle", "es": "Vela pequeña", "ru": "Маленькая свеча" }, "price": 2 },
+    { "id": "medium", "label": { "en": "Medium candle", "es": "Vela mediana", "ru": "Средняя свеча" }, "price": 5 },
+    { "id": "large", "label": { "en": "Large candle", "es": "Vela grande", "ru": "Большая свеча" }, "price": 10 }
+  ]
+}
