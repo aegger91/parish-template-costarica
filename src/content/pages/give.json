@@ -1,0 +1,43 @@
+{
+  "id": "give",
+  "path": "/give",
+  "seo": {
+    "title": { "en": "Give", "es": "Donar", "ru": "Пожертвования" },
+    "description": {
+      "en": "Support Our Lady of Vladimir Church with a one-time or monthly gift.",
+      "es": "Apoye a la Iglesia de la Virgen de Vladimir con un donativo único o mensual.",
+      "ru": "Поддержите храм Владимирской иконы Божией Матери разовым или ежемесячным пожертвованием."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": { "en": "Give", "es": "Donar", "ru": "Пожертвования" },
+      "title": { "en": "Support the Parish", "es": "Apoye a la parroquia", "ru": "Поддержите приход" },
+      "subtitle": {
+        "en": "Your gifts keep the church open, the services celebrated, and the parish family cared for. Thank you for your generosity.",
+        "es": "Sus donativos mantienen la iglesia abierta, sostienen los servicios y cuidan de la familia parroquial. Gracias por su generosidad.",
+        "ru": "Ваши пожертвования помогают храму оставаться открытым, совершать богослужения и заботиться о приходской семье. Благодарим вас за щедрость."
+      }
+    },
+    {
+      "id": "give-form",
+      "type": "giveForm",
+      "enabled": true,
+      "formTitle": { "en": "Make a Gift", "es": "Haga un donativo", "ru": "Сделать пожертвование" },
+      "asideTitle": { "en": "Questions About Giving", "es": "Preguntas sobre donaciones", "ru": "Вопросы о пожертвованиях" },
+      "asideText": {
+        "en": "Our treasurer will gladly help with gifts, receipts, or other ways to give.",
+        "es": "Nuestra tesorera le ayudará con gusto con donativos, recibos u otras formas de donar.",
+        "ru": "Наш казначей с радостью поможет с пожертвованиями, квитанциями и другими способами помощи."
+      },
+      "quote": {
+        "en": "“God loves a cheerful giver.” 2 Corinthians 9:7",
+        "es": "«Dios ama al que da con alegría.» 2 Corintios 9:7",
+        "ru": "«Доброхотно дающего любит Бог.» 2 Кор. 9:7"
+      }
+    }
+  ]
+}

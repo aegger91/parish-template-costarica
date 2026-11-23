@@ -1,0 +1,37 @@
+{
+  "id": "worship",
+  "path": "/worship",
+  "seo": {
+    "title": { "en": "Schedule of Services", "es": "Horario de los servicios", "ru": "Расписание богослужений" },
+    "description": {
+      "en": "Sunday services and the Orthodox calendar of saints, feasts, and fasts at Our Lady of Vladimir Church.",
+      "es": "Servicios dominicales y el calendario ortodoxo de santos, fiestas y ayunos en la Iglesia de la Virgen de Vladimir.",
+      "ru": "Воскресные богослужения и православный календарь святых, праздников и постов храма Владимирской иконы Божией Матери."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": { "en": "Schedule", "es": "Horario", "ru": "Расписание" },
+      "title": { "en": "Schedule of Services", "es": "Horario de los servicios", "ru": "Расписание богослужений" },
+      "subtitle": {
+        "en": "Sundays: Confession {time:sunday-confession} · Divine Liturgy {time:sunday-liturgy}. Weekday services are announced in the parish.",
+        "es": "Domingos: Confesión {time:sunday-confession} · Divina Liturgia {time:sunday-liturgy}. Los servicios de semana se anuncian en la parroquia.",
+        "ru": "Воскресенье: Исповедь {time:sunday-confession} · Божественная литургия {time:sunday-liturgy}. Богослужения по будням объявляются в приходе."
+      }
+    },
+    {
+      "id": "calendar",
+      "type": "calendar",
+      "enabled": true,
+      "title": { "en": "Parish Calendar", "es": "Calendario de la parroquia", "ru": "Приходской календарь" },
+      "footnote": {
+        "en": "Saints and feasts come from the orthocal.info service. Please confirm weekday service times with the priest before travelling.",
+        "es": "Los santos y fiestas provienen del servicio orthocal.info. Confirme los horarios de semana con el párroco antes de viajar.",
+        "ru": "Данные о святых и праздниках предоставлены службой orthocal.info. О богослужениях по будням уточняйте у настоятеля."
+      }
+    }
+  ]
+}

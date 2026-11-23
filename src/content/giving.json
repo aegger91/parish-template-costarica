@@ -1,0 +1,17 @@
+{
+  "provider": "none",
+  "checkoutEndpoint": "",
+  "currency": "USD",
+  "presetAmounts": [25, 50, 100, 250],
+  "defaultAmount": 50,
+  "minimumAmount": 1,
+  "frequencies": [
+    { "id": "once", "label": { "en": "One-time", "es": "Una vez", "ru": "Разово" } },
+    { "id": "monthly", "label": { "en": "Monthly", "es": "Mensual", "ru": "Ежемесячно" } }
+  ],
+  "funds": [
+    { "id": "general", "label": { "en": "Where it is needed most", "es": "Donde más se necesite", "ru": "На нужды прихода" } },
+    { "id": "projects", "label": { "en": "Parish projects", "es": "Proyectos de la parroquia", "ru": "Проекты прихода" } }
+  ],
+  "contactId": "treasurer"
+}

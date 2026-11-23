@@ -1,0 +1,35 @@
+{
+  "header": [
+    { "id": "home", "to": "/", "label": { "en": "Home", "es": "Inicio", "ru": "Главная" } },
+    {
+      "id": "parish",
+      "label": { "en": "Our Parish", "es": "Nuestra Parroquia", "ru": "Приход" },
+      "children": [
+        { "id": "about", "to": "/about", "label": { "en": "About the Parish", "es": "Sobre la parroquia", "ru": "О приходе" } },
+        { "id": "visit", "to": "/visit", "label": { "en": "Plan a Visit", "es": "Planee su Visita", "ru": "Как нас найти" } },
+        { "id": "gallery", "to": "/gallery", "label": { "en": "Gallery", "es": "Galería", "ru": "Галерея" } },
+        { "id": "sacraments", "to": "/sacraments", "label": { "en": "Sacraments", "es": "Sacramentos", "ru": "Таинства" } },
+        { "id": "projects", "to": "/projects", "label": { "en": "Projects", "es": "Proyectos", "ru": "Проекты" } }
+      ]
+    },
+    { "id": "schedule", "to": "/worship", "label": { "en": "Schedule", "es": "Horario", "ru": "Расписание" } },
+    { "id": "news", "to": "/announcements", "label": { "en": "News", "es": "Noticias", "ru": "Новости" } },
+    { "id": "contact", "to": "/contact", "label": { "en": "Contact", "es": "Contacto", "ru": "Контакты" } }
+  ],
+  "donate": {
+    "id": "donate",
+    "to": "/give",
+    "label": { "en": "Donate", "es": "Donar", "ru": "Пожертвовать" }
+  },
+  "footer": {
+    "visitHeading": { "en": "Visit Us", "es": "Visítenos", "ru": "Приезжайте" },
+    "scheduleHeading": { "en": "Service Schedule", "es": "Horario de servicios", "ru": "Богослужения" },
+    "scheduleNote": {
+      "en": "Sundays and feast days. See the schedule for weekday services.",
+      "es": "Los domingos y días festivos. Consulte el horario para servicios de días de semana.",
+      "ru": "По воскресеньям и праздникам. О будничных богослужениях смотрите расписание."
+    },
+    "scheduleLink": { "to": "/worship", "label": { "en": "Schedule", "es": "Horario", "ru": "Расписание" } },
+    "giveHeading": { "en": "Support the Parish", "es": "Apoye a la parroquia", "ru": "Поддержать приход" }
+  }
+}

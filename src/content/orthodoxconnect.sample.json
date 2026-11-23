@@ -1,0 +1,29 @@
+{
+  "sample": true,
+  "items": [
+    {
+      "id": "sample-event-1",
+      "type": "event",
+      "date": "2026-12-06",
+      "title": { "en": "Sample event: parish lunch after Liturgy", "es": "Evento de ejemplo: almuerzo parroquial después de la Liturgia", "ru": "Пример события: приходская трапеза после литургии" },
+      "summary": { "en": "Placeholder entry. Real events will come from OrthodoxConnect.", "es": "Entrada de ejemplo. Los eventos reales vendrán de OrthodoxConnect.", "ru": "Пример записи. Настоящие события будут приходить из OrthodoxConnect." },
+      "url": ""
+    },
+    {
+      "id": "sample-volunteer-1",
+      "type": "volunteer",
+      "date": "2026-12-12",
+      "title": { "en": "Sample request: help prepare the church for a feast", "es": "Solicitud de ejemplo: ayude a preparar la iglesia para una fiesta", "ru": "Пример просьбы: помочь подготовить храм к празднику" },
+      "summary": { "en": "Placeholder entry. Volunteer sign-ups will come from OrthodoxConnect.", "es": "Entrada de ejemplo. Las inscripciones de voluntarios vendrán de OrthodoxConnect.", "ru": "Пример записи. Запись добровольцев будет приходить из OrthodoxConnect." },
+      "url": ""
+    },
+    {
+      "id": "sample-need-1",
+      "type": "need",
+      "date": "",
+      "title": { "en": "Sample need: candles and flowers for the icons", "es": "Necesidad de ejemplo: velas y flores para los íconos", "ru": "Пример нужды: свечи и цветы для икон" },
+      "summary": { "en": "Placeholder entry. Parish needs will come from OrthodoxConnect.", "es": "Entrada de ejemplo. Las necesidades de la parroquia vendrán de OrthodoxConnect.", "ru": "Пример записи. Нужды прихода будут приходить из OrthodoxConnect." },
+      "url": ""
+    }
+  ]
+}

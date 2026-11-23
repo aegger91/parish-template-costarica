@@ -1,0 +1,31 @@
+{
+  "id": "gallery",
+  "path": "/gallery",
+  "seo": {
+    "title": { "en": "Gallery", "es": "Galería", "ru": "Галерея" },
+    "description": {
+      "en": "Photos of Our Lady of Vladimir Church and parish life in Vázquez de Coronado, Costa Rica.",
+      "es": "Fotos de la Iglesia de la Virgen de Vladimir y de la vida parroquial en Vázquez de Coronado, Costa Rica.",
+      "ru": "Фотографии храма Владимирской иконы Божией Матери и приходской жизни в Васкес-де-Коронадо, Коста-Рика."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": { "en": "Gallery", "es": "Galería", "ru": "Галерея" },
+      "title": { "en": "The Life of Our Community", "es": "La vida de nuestra comunidad", "ru": "Жизнь нашей общины" },
+      "subtitle": {
+        "en": "The temple, its sky-blue dome with golden stars, and the life of our parish in Vázquez de Coronado.",
+        "es": "El templo, su cúpula azul con estrellas doradas, y la vida de nuestra parroquia en Vázquez de Coronado.",
+        "ru": "Храм, его голубой купол с золотыми звёздами и жизнь нашего прихода в Васкес-де-Коронадо."
+      }
+    },
+    {
+      "id": "photos",
+      "type": "gallery",
+      "enabled": true
+    }
+  ]
+}

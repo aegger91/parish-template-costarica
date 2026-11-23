@@ -1,0 +1,38 @@
+{
+  "id": "projects",
+  "path": "/projects",
+  "seo": {
+    "title": { "en": "Projects", "es": "Proyectos", "ru": "Проекты" },
+    "description": {
+      "en": "Projects and works of Our Lady of Vladimir parish.",
+      "es": "Proyectos y obras de la parroquia de la Virgen de Vladimir.",
+      "ru": "Проекты и труды прихода Владимирской иконы Божией Матери."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": { "en": "Projects", "es": "Proyectos", "ru": "Проекты" },
+      "title": { "en": "Building Together", "es": "Construyendo juntos", "ru": "Строим вместе" },
+      "subtitle": {
+        "en": "The projects and works of the parish will be presented here.",
+        "es": "Los proyectos y obras de la parroquia se presentarán aquí.",
+        "ru": "Здесь будут представлены проекты и труды прихода."
+      }
+    },
+    {
+      "id": "coming-soon",
+      "type": "comingSoon",
+      "enabled": true,
+      "title": { "en": "Coming soon", "es": "Próximamente", "ru": "Скоро" },
+      "text": {
+        "en": "This page is not ready yet. Please check back soon for updates.",
+        "es": "Esta página aún no tiene contenido. Vuelva pronto para conocer las novedades.",
+        "ru": "Эта страница пока пуста. Загляните позже, здесь появятся обновления."
+      },
+      "link": { "to": "/give", "label": { "en": "Support the parish", "es": "Apoye a la parroquia", "ru": "Поддержать приход" } }
+    }
+  ]
+}

@@ -1,17 +1,11 @@
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { LangProvider } from '@/context/LangContext';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Home from '@/pages/Home';
-import About from '@/pages/About';
-import Worship from '@/pages/Worship';
-import Visit from '@/pages/Visit';
-import Gallery from '@/pages/Gallery';
-import Sacraments from '@/pages/Sacraments';
-import Projects from '@/pages/Projects';
-import Contact from '@/pages/Contact';
-import Announcements from '@/pages/Announcements';
+import { MotionConfig } from 'framer-motion';
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
+import { getPage, pages } from '@/content';
+import { LangProvider, useI18n } from '@/i18n';
+import Page from '@/pages/Page';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -21,28 +15,41 @@ function ScrollToTop() {
   return null;
 }
 
+function SkipLink() {
+  const { ui } = useI18n();
+  return (
+    <a
+      href="#main"
+      className="sr-only z-[80] rounded-pill bg-accent-400 px-5 py-3 text-sm font-semibold text-primary-900 focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+    >
+      {ui('skipToContent')}
+    </a>
+  );
+}
+
+const notFound = getPage('not-found');
+
 export default function App() {
   return (
     <LangProvider>
-      <ScrollToTop />
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/worship" element={<Worship />} />
-            <Route path="/visit" element={<Visit />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/sacraments" element={<Sacraments />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/announcements" element={<Announcements />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<Home />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <MotionConfig reducedMotion="user">
+        <ScrollToTop />
+        <SkipLink />
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main id="main" className="flex-1">
+            <Routes>
+              {pages
+                .filter((p) => p.path !== '*')
+                .map((p) => (
+                  <Route key={p.id} path={p.path} element={<Page page={p} />} />
+                ))}
+              {notFound && <Route path="*" element={<Page page={notFound} />} />}
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </MotionConfig>
     </LangProvider>
   );
 }

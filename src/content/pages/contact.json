@@ -1,0 +1,35 @@
+{
+  "id": "contact",
+  "path": "/contact",
+  "seo": {
+    "title": { "en": "Contact", "es": "Contacto", "ru": "Контакты" },
+    "description": {
+      "en": "Contact Our Lady of Vladimir Church for baptisms, weddings, confessions, visits, or questions about the Orthodox faith.",
+      "es": "Comuníquese con la Iglesia de la Virgen de Vladimir para bautismos, bodas, confesiones, visitas o preguntas sobre la fe ortodoxa.",
+      "ru": "Свяжитесь с храмом Владимирской иконы Божией Матери по вопросам крещения, венчания, исповеди, посещения или православной веры."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": { "en": "Contact", "es": "Contacto", "ru": "Контакты" },
+      "title": { "en": "We Are Here to Serve You", "es": "Estamos para servirle", "ru": "Мы к вашим услугам" },
+      "subtitle": {
+        "en": "For baptisms, weddings, confessions, visits, or any question about the Orthodox faith.",
+        "es": "Para bautismos, bodas, confesiones, visitas o cualquier pregunta sobre la fe ortodoxa.",
+        "ru": "По вопросам крещения, венчания, исповеди, посещения или о православной вере."
+      }
+    },
+    {
+      "id": "contact-cards",
+      "type": "contactCards",
+      "enabled": true,
+      "emailTitle": { "en": "Parish Email", "es": "Correo de la parroquia", "ru": "Приходская почта" },
+      "addressTitle": { "en": "Address", "es": "Dirección", "ru": "Адрес" },
+      "mapLabel": { "en": "View on map", "es": "Ver en el mapa", "ru": "Открыть на карте" },
+      "directTitle": { "en": "Direct Contacts", "es": "Contactos directos", "ru": "Прямые контакты" }
+    }
+  ]
+}

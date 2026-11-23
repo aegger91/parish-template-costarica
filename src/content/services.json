@@ -1,0 +1,22 @@
+{
+  "weekly": [
+    {
+      "id": "sunday-confession",
+      "weekday": 0,
+      "time": "09:00",
+      "display": "9:00 AM",
+      "icon": "calendar",
+      "highlight": false,
+      "name": { "en": "Confession", "es": "Confesión", "ru": "Исповедь" }
+    },
+    {
+      "id": "sunday-liturgy",
+      "weekday": 0,
+      "time": "10:00",
+      "display": "10:00 AM",
+      "icon": "clock",
+      "highlight": true,
+      "name": { "en": "Divine Liturgy", "es": "Divina Liturgia", "ru": "Божественная литургия" }
+    }
+  ]
+}

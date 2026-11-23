@@ -1,0 +1,67 @@
+{
+  "menu": { "en": "Menu", "es": "Menú", "ru": "Меню" },
+  "openMenu": { "en": "Open menu", "es": "Abrir menú", "ru": "Открыть меню" },
+  "closeMenu": { "en": "Close menu", "es": "Cerrar menú", "ru": "Закрыть меню" },
+  "language": { "en": "Language", "es": "Idioma", "ru": "Язык" },
+  "home": { "en": "Home", "es": "Inicio", "ru": "Главная" },
+  "primaryNav": { "en": "Primary", "es": "Principal", "ru": "Основное меню" },
+  "skipToContent": { "en": "Skip to content", "es": "Saltar al contenido", "ru": "Перейти к содержанию" },
+  "learnMore": { "en": "Learn more", "es": "Aprender más", "ru": "Подробнее" },
+  "close": { "en": "Close", "es": "Cerrar", "ru": "Закрыть" },
+  "previous": { "en": "Previous", "es": "Anterior", "ru": "Назад" },
+  "next": { "en": "Next", "es": "Siguiente", "ru": "Вперёд" },
+  "phone": { "en": "Phone", "es": "Teléfono", "ru": "Телефон" },
+  "email": { "en": "Email", "es": "Correo", "ru": "Почта" },
+  "opensInNewTab": { "en": "opens in a new tab", "es": "se abre en una pestaña nueva", "ru": "откроется в новой вкладке" },
+  "feast": { "en": "Feast", "es": "Fiesta", "ru": "Праздник" },
+  "sample": { "en": "Sample", "es": "Ejemplo", "ru": "Пример" },
+  "calendar": {
+    "style": { "en": "Calendar style", "es": "Estilo del calendario", "ru": "Стиль календаря" },
+    "view": { "en": "Calendar view", "es": "Vista del calendario", "ru": "Вид календаря" },
+    "gregorian": { "en": "New Calendar", "es": "Nuevo (gregoriano)", "ru": "Новый (григорианский)" },
+    "julian": { "en": "Old Calendar", "es": "Antiguo (juliano)", "ru": "Старый (юлианский)" },
+    "weekly": { "en": "Weekly", "es": "Semanal", "ru": "Неделя" },
+    "monthly": { "en": "Monthly", "es": "Mensual", "ru": "Месяц" },
+    "loading": { "en": "Loading the calendar…", "es": "Cargando el calendario…", "ru": "Загрузка календаря…" },
+    "error": {
+      "en": "The calendar is unavailable right now. Please try again in a few minutes.",
+      "es": "El calendario no está disponible en este momento. Inténtelo de nuevo en unos minutos.",
+      "ru": "Календарь временно недоступен. Попробуйте снова через несколько минут."
+    },
+    "retry": { "en": "Retry", "es": "Reintentar", "ru": "Повторить" },
+    "noFast": { "en": "No fast", "es": "Sin ayuno", "ru": "Поста нет" },
+    "lightFast": { "en": "Fast with dispensation", "es": "Ayuno con dispensa", "ru": "Пост с послаблением" },
+    "strictFast": { "en": "Strict fast", "es": "Ayuno estricto", "ru": "Строгий пост" }
+  },
+  "give": {
+    "frequency": { "en": "How often", "es": "Frecuencia", "ru": "Периодичность" },
+    "amount": { "en": "Amount", "es": "Monto", "ru": "Сумма" },
+    "otherAmount": { "en": "Other amount", "es": "Otro monto", "ru": "Другая сумма" },
+    "fund": { "en": "Designation (optional)", "es": "Destino (opcional)", "ru": "Назначение (необязательно)" },
+    "name": { "en": "Full name", "es": "Nombre completo", "ru": "Имя и фамилия" },
+    "email": { "en": "Email", "es": "Correo electrónico", "ru": "Электронная почта" },
+    "emailHelp": { "en": "We will send your receipt here.", "es": "Le enviaremos aquí su recibo.", "ru": "Мы отправим квитанцию на этот адрес." },
+    "submitOnce": { "en": "Donate {amount}", "es": "Donar {amount}", "ru": "Пожертвовать {amount}" },
+    "submitRecurring": { "en": "Donate {amount} monthly", "es": "Donar {amount} al mes", "ru": "Пожертвовать {amount} ежемесячно" },
+    "submitEmpty": { "en": "Donate", "es": "Donar", "ru": "Пожертвовать" },
+    "processing": { "en": "Please wait…", "es": "Espere un momento…", "ru": "Пожалуйста, подождите…" },
+    "errorAmount": { "en": "Please choose or enter an amount.", "es": "Elija o escriba un monto.", "ru": "Выберите или введите сумму." },
+    "errorName": { "en": "Please enter your name.", "es": "Escriba su nombre.", "ru": "Введите ваше имя." },
+    "errorEmail": { "en": "Please enter a valid email address.", "es": "Escriba un correo electrónico válido.", "ru": "Введите действительный адрес электронной почты." },
+    "notConfigured": {
+      "en": "Online giving is not connected yet. Thank you for your patience. To give today, please contact the parish treasurer.",
+      "es": "Las donaciones en línea aún no están conectadas. Gracias por su paciencia. Para donar hoy, comuníquese con la tesorera de la parroquia.",
+      "ru": "Онлайн-пожертвования пока не подключены. Благодарим за терпение. Чтобы сделать пожертвование сегодня, свяжитесь с казначеем прихода."
+    },
+    "success": {
+      "en": "Thank you for your gift. May God bless you.",
+      "es": "Gracias por su donativo. Que Dios le bendiga.",
+      "ru": "Благодарим за пожертвование. Храни вас Господь."
+    },
+    "failed": {
+      "en": "Something went wrong. Please try again or contact the parish.",
+      "es": "Algo salió mal. Inténtelo de nuevo o comuníquese con la parroquia.",
+      "ru": "Что-то пошло не так. Попробуйте ещё раз или свяжитесь с приходом."
+    }
+  }
+}

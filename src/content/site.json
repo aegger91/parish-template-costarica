@@ -1,0 +1,63 @@
+{
+  "id": "our-lady-of-vladimir",
+  "name": {
+    "en": "Our Lady of Vladimir Church",
+    "es": "Iglesia de la Virgen de Vladimir",
+    "ru": "Храм Владимирской иконы Божией Матери"
+  },
+  "jurisdiction": {
+    "en": "Russian Orthodox Church Outside of Russia",
+    "es": "Iglesia Ortodoxa Rusa Fuera de Rusia",
+    "ru": "Русская Православная Церковь Заграницей"
+  },
+  "diocese": {
+    "en": "Eastern American Diocese of the Russian Orthodox Church Outside of Russia",
+    "es": "Diócesis Oriental Americana de la Iglesia Ortodoxa Rusa Fuera de Rusia",
+    "ru": "Восточно-Американская епархия Русской Православной Церкви Заграницей"
+  },
+  "dioceseUrl": "https://www.eadioc.org/",
+  "jurisdictionUrl": "https://www.synod.com/",
+  "logo": {
+    "src": "/images/logo.jpg",
+    "alt": ""
+  },
+  "pageHeroBackground": "/images/icon-vladimir.jpg",
+  "url": "https://www.ortodoxacr.com/",
+  "socialImage": "/social-preview.jpg",
+  "contact": {
+    "email": "email@ortodoxacr.com",
+    "phone": ""
+  },
+  "address": {
+    "street": "Calle Corazón de Jesús",
+    "locality": "Vázquez de Coronado",
+    "region": "San José",
+    "country": "Costa Rica",
+    "singleLine": {
+      "en": "Calle Corazón de Jesús, Vázquez de Coronado, San José, Costa Rica",
+      "es": "Calle Corazón de Jesús, Vázquez de Coronado, San José, Costa Rica",
+      "ru": "Калья Корасон-де-Хесус, Васкес-де-Коронадо, Сан-Хосе, Коста-Рика"
+    }
+  },
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Iglesia+Ortodoxa+Rusa+Vazquez+de+Coronado+San+Jose+Costa+Rica",
+  "calendar": {
+    "apiBase": "https://orthocal.info/api",
+    "default": "gregorian"
+  },
+  "orthodoxConnect": {
+    "joinUrl": "",
+    "feedUrl": ""
+  },
+  "footer": {
+    "copyright": {
+      "en": "All rights reserved.",
+      "es": "Todos los derechos reservados.",
+      "ru": "Все права защищены."
+    },
+    "tagline": {
+      "en": "Made with prayer in Costa Rica",
+      "es": "Hecho con oración en Costa Rica",
+      "ru": "Создано с молитвой в Коста-Рике"
+    }
+  }
+}

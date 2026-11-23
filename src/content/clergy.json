@@ -1,0 +1,52 @@
+{
+  "members": [
+    {
+      "id": "kaplanov",
+      "name": { "en": "Priest George Kaplanov", "es": "Sacerdote Jorge Kaplanov", "ru": "Иерей Георгий Капланов" },
+      "role": { "en": "Rector", "es": "Párroco", "ru": "Настоятель" },
+      "phone": "+1 (415) 205-4424",
+      "email": "priest.kaplanov@pravmail.ru",
+      "photo": ""
+    },
+    {
+      "id": "miranda",
+      "name": { "en": "Archpriest Ignacio Miranda", "es": "Arcipreste Ignacio Miranda", "ru": "Протоиерей Игнасио Миранда" },
+      "role": { "en": "Priest", "es": "Sacerdote", "ru": "Священник" },
+      "phone": "+506 6031-9373",
+      "email": "ignaciopadre@gmail.com",
+      "photo": ""
+    },
+    {
+      "id": "warden",
+      "name": { "en": "Alexander Ivanov", "es": "Aleksandr Ivanov", "ru": "Александр Иванов" },
+      "role": { "en": "Warden (Starosta)", "es": "Starosta (encargado parroquial)", "ru": "Староста" },
+      "phone": "+506 8399-9777",
+      "email": "americatourscr@hotmail.com",
+      "photo": ""
+    },
+    {
+      "id": "sister",
+      "name": { "en": "Matushka Doris Miranda", "es": "Matushka Doris Miranda", "ru": "Матушка Дорис Миранда" },
+      "role": { "en": "Head Sister", "es": "Hermana mayor", "ru": "Старшая сестра" },
+      "phone": "+506 6274-3363",
+      "email": "",
+      "photo": ""
+    },
+    {
+      "id": "secretary",
+      "name": { "en": "Tatiana Klinkova", "es": "Tatiana Klinkova", "ru": "Татьяна Клинкова" },
+      "role": { "en": "Parish Secretary", "es": "Secretaria parroquial", "ru": "Секретарь прихода" },
+      "phone": "+506 4419-2968",
+      "email": "tania@costaricaluxury.com",
+      "photo": ""
+    },
+    {
+      "id": "treasurer",
+      "name": { "en": "Alevtina Kiriushenko", "es": "Alevtina Kiriushenko", "ru": "Алевтина Кирюшенко" },
+      "role": { "en": "Treasurer", "es": "Tesorera", "ru": "Казначей" },
+      "phone": "+506 8980-1479",
+      "email": "aleftina_01@hotmail.com",
+      "photo": ""
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "id": "home",
+  "path": "/",
+  "seo": {
+    "title": {
+      "en": "Our Lady of Vladimir Church | Russian Orthodox Church in Vázquez de Coronado, Costa Rica",
+      "es": "Iglesia de la Virgen de Vladimir | Iglesia Ortodoxa Rusa en Vázquez de Coronado, Costa Rica",
+      "ru": "Храм Владимирской иконы Божией Матери | Русская Православная Церковь в Коста-Рике"
+    },
+    "description": {
+      "en": "Our Lady of Vladimir Russian Orthodox Church in Vázquez de Coronado, San José, Costa Rica. Divine Liturgy Sundays at {time:sunday-liturgy}, Confession at {time:sunday-confession}. Everyone is welcome.",
+      "es": "Iglesia Ortodoxa Rusa de la Virgen de Vladimir en Vázquez de Coronado, San José, Costa Rica. Divina Liturgia los domingos a las {time:sunday-liturgy}, Confesión a las {time:sunday-confession}. Todos son bienvenidos.",
+      "ru": "Храм Владимирской иконы Божией Матери в Васкес-де-Коронадо, Сан-Хосе, Коста-Рика. Божественная литургия по воскресеньям в {time:sunday-liturgy}, исповедь в {time:sunday-confession}. Все приглашены."
+    }
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "enabled": true,
+      "image": "/images/church-front.jpg",
+      "title": {
+        "en": "Our Lady of [[Vladimir]] Church",
+        "es": "Iglesia de la [[Virgen de Vladimir]]",
+        "ru": "Храм [[Владимирской]] иконы Божией Матери"
+      },
+      "eyebrow": { "en": "{site.jurisdiction}", "es": "{site.jurisdiction}", "ru": "{site.jurisdiction}" },
+      "tagline": { "en": "Everyone is welcome.", "es": "Todos son bienvenidos.", "ru": "Все приглашены." },
+      "primaryCta": { "to": "/visit", "label": { "en": "Plan a Visit", "es": "Planee su visita", "ru": "Как нас найти" } },
+      "secondaryCta": { "to": "/worship", "label": { "en": "Service Schedule", "es": "Horario de servicios", "ru": "Расписание богослужений" } },
+      "servicesLine": {
+        "en": "Sundays: Confession {time:sunday-confession} · Liturgy {time:sunday-liturgy}",
+        "es": "Domingos: Confesión {time:sunday-confession} · Liturgia {time:sunday-liturgy}",
+        "ru": "Воскресенье: Исповедь {time:sunday-confession} · Литургия {time:sunday-liturgy}"
+      }
+    },
+    {
+      "id": "welcome",
+      "type": "intro",
+      "enabled": true,
+      "eyebrow": { "en": "Welcome", "es": "Bienvenido", "ru": "Добро пожаловать" },
+      "title": {
+        "en": "A house of prayer for all peoples",
+        "es": "Una casa de oración para todos los pueblos",
+        "ru": "Дом молитвы для всех народов"
+      },
+      "paragraphs": [
+        {
+          "en": "Our Lady of Vladimir Church is a parish of the Eastern American Diocese of the Russian Orthodox Church Outside of Russia (ROCOR), located in Vázquez de Coronado in the province of San José. We are a spiritual family of Costa Ricans, Russians, and Orthodox Christians of many nations, united by the Orthodox faith and the sacred liturgy.",
+          "es": "La Iglesia de la Virgen de Vladimir es una parroquia de la Diócesis Oriental Americana de la Iglesia Ortodoxa Rusa Fuera de Rusia (ROCOR), ubicada en Vázquez de Coronado, en la provincia de San José. Somos una familia espiritual de costarricenses, rusos y ortodoxos de muchas naciones, unidos por la fe ortodoxa y la liturgia sagrada.",
+          "ru": "Храм Владимирской иконы Божией Матери относится к Восточно-Американской епархии Русской Православной Церкви Заграницей (РПЦЗ) и находится в Васкес-де-Коронадо, в провинции Сан-Хосе. Наш приход объединяет костариканцев, русских и православных многих народов в одну духовную семью, связанную православной верой и священной литургией."
+        },
+        {
+          "en": "Services are celebrated in Spanish, with portions in Church Slavonic and English. Whatever your background, you will be received with Christian warmth.",
+          "es": "Los servicios se celebran en español, con partes en eslavo eclesiástico e inglés. Sea cual sea su origen, será recibido con calidez cristiana.",
+          "ru": "Богослужения совершаются на испанском языке, частично на церковнославянском и английском. Кто бы вы ни были, вас примут с христианской теплотой."
+        }
+      ],
+      "link": { "to": "/about", "label": { "en": "Meet Our Parish", "es": "Conozca nuestra parroquia", "ru": "О нашем приходе" } },
+      "image": {
+        "src": "/images/icon-vladimir.jpg",
+        "alt": {
+          "en": "The Vladimir Icon of the Mother of God",
+          "es": "Ícono de la Virgen de Vladimir",
+          "ru": "Владимирская икона Божией Матери"
+        }
+      },
+      "caption": {
+        "en": "The Vladimir Icon of the Mother of God, protectress of the Russian land",
+        "es": "La Virgen de Vladimir, protectora de la tierra rusa",
+        "ru": "Владимирская икона Божией Матери, покровительница Земли Русской"
+      }
+    },
+    {
+      "id": "service-times",
+      "type": "serviceTimes",
+      "enabled": true,
+      "eyebrow": { "en": "Service Schedule", "es": "Horario de servicios", "ru": "Богослужения" },
+      "title": { "en": "Sundays at the Parish", "es": "Domingos en la parroquia", "ru": "Воскресные богослужения" },
+      "note": {
+        "en": "Weekday services as announced.",
+        "es": "Los servicios de semana se anuncian en la parroquia.",
+        "ru": "Богослужения по будням объявляются в приходе."
+      },
+      "link": { "to": "/worship", "label": { "en": "See the calendar", "es": "Ver el calendario", "ru": "Открыть календарь" } }
+    },
+    {
+      "id": "visit-cards",
+      "type": "featureCards",
+      "enabled": true,
+      "eyebrow": { "en": "Visit Us", "es": "Visítenos", "ru": "Приезжайте" },
+      "title": { "en": "We Look Forward to Meeting You", "es": "Le esperamos", "ru": "Рады видеть вас" },
+      "cards": [
+        {
+          "id": "getting-here",
+          "icon": "map-pin",
+          "to": "/visit",
+          "title": { "en": "Getting Here", "es": "Cómo llegar", "ru": "Как добраться" },
+          "text": {
+            "en": "Calle Corazón de Jesús, Vázquez de Coronado, San José. A short drive from downtown San José.",
+            "es": "Calle Corazón de Jesús, Vázquez de Coronado, San José. A pocos minutos del centro de San José.",
+            "ru": "Калья Корасон-де-Хесус, Васкес-де-Коронадо, Сан-Хосе. Недалеко от центра Сан-Хосе."
+          }
+        },
+        {
+          "id": "first-visit",
+          "icon": "hand-heart",
+          "to": "/visit",
+          "title": { "en": "First Visit", "es": "Primera visita", "ru": "Первое посещение" },
+          "text": {
+            "en": "You do not need to know anything to visit. Simply come and pray with us, and someone will gladly guide you through the service.",
+            "es": "No necesita saber nada para venir. Rece con nosotros y alguien le acompañará con gusto durante el servicio.",
+            "ru": "Не нужно ничего знать заранее. Приходите помолиться с нами, и кто-нибудь с радостью поможет вам во время службы."
+          }
+        },
+        {
+          "id": "community",
+          "icon": "users",
+          "to": "/about",
+          "title": { "en": "Community", "es": "Comunidad", "ru": "Община" },
+          "text": {
+            "en": "A spiritual family of Costa Ricans, Russians, and Orthodox Christians of many nations, united in faith and worship.",
+            "es": "Una familia espiritual de costarricenses, rusos y ortodoxos de muchas naciones, unidos en la fe y en el culto.",
+            "ru": "Духовная семья костариканцев, русских и православных многих народов, объединённых верой и богослужением."
+          }
+        }
+      ]
+    },
+    {
+      "id": "axion-estin",
+      "type": "quote",
+      "enabled": true,
+      "variant": "dark",
+      "backgroundImage": "/images/icon-vladimir.jpg",
+      "text": {
+        "en": "“It is truly meet to bless you, O Theotokos, the ever-blessed and most immaculate Mother of our God.”",
+        "es": "«Es verdaderamente justo llamarte bienaventurada, Oh Madre de Dios, la siempre bienaventurada e inmaculada y Madre de nuestro Dios.»",
+        "ru": "«Достойно есть яко воистину блажити Тя, Богородицу, присноблаженную и пречистую, и Матерь Бога нашего.»"
+      },
+      "source": {
+        "en": "Axion Estin, “It Is Truly Meet” · Divine Liturgy",
+        "es": "«Digno es en verdad» · Divina Liturgia",
+        "ru": "«Достойно есть» · Божественная литургия"
+      }
+    }
+  ]
+}

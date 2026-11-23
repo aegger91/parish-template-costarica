@@ -1,0 +1,172 @@
+{
+  "photos": [
+    {
+      "id": "church-sunset",
+      "src": "/images/church-sunset.jpg",
+      "alt": {
+        "en": "The white church with its blue starred dome at sunset",
+        "es": "La iglesia blanca con su cúpula azul de estrellas al atardecer",
+        "ru": "Белый храм с синим звёздным куполом на закате"
+      },
+      "caption": {
+        "en": "The temple at sunset, its blue dome crowned with golden stars",
+        "es": "El templo al atardecer, con su cúpula azul coronada por estrellas doradas",
+        "ru": "Храм на закате: синий купол, увенчанный золотыми звёздами"
+      }
+    },
+    {
+      "id": "church-blue-sky",
+      "src": "/images/church-blue-sky.jpg",
+      "alt": {
+        "en": "The church under a bright blue sky",
+        "es": "La iglesia bajo un cielo azul brillante",
+        "ru": "Храм под ярким синим небом"
+      },
+      "caption": {
+        "en": "The church grounds on a clear tropical morning",
+        "es": "El terreno de la iglesia en una mañana tropical despejada",
+        "ru": "Территория храма в ясное тропическое утро"
+      }
+    },
+    {
+      "id": "church-dusk",
+      "src": "/images/church-dusk.jpg",
+      "alt": {
+        "en": "The church lit warmly against the evening sky",
+        "es": "La iglesia iluminada contra el cielo de la tarde",
+        "ru": "Храм в тёплом свете на фоне вечернего неба"
+      },
+      "caption": {
+        "en": "Vespers light: the church glowing at dusk",
+        "es": "Luz de vísperas: la iglesia resplandeciente al anochecer",
+        "ru": "Свет вечерни: храм сияет в сумерках"
+      }
+    },
+    {
+      "id": "community-after-liturgy",
+      "src": "/images/community-after-liturgy.jpg",
+      "alt": {
+        "en": "The parish community gathered around the altar after the Divine Liturgy",
+        "es": "La comunidad parroquial reunida alrededor del altar después de la Divina Liturgia",
+        "ru": "Приходская община вокруг алтаря после Божественной литургии"
+      },
+      "caption": {
+        "en": "The parish family gathered before the icon screen after Liturgy",
+        "es": "La familia parroquial reunida ante el iconostasio después de la Liturgia",
+        "ru": "Приходская семья перед иконостасом после литургии"
+      }
+    },
+    {
+      "id": "grounds-aerial",
+      "src": "/images/grounds-aerial.jpg",
+      "alt": {
+        "en": "Aerial view of the church and parish grounds in Vázquez de Coronado",
+        "es": "Vista aérea de la iglesia y el terreno parroquial en Vázquez de Coronado",
+        "ru": "Храм и приходская территория в Васкес-де-Коронадо с высоты"
+      },
+      "caption": {
+        "en": "The parish grounds in Vázquez de Coronado from above",
+        "es": "El terreno parroquial en Vázquez de Coronado desde el aire",
+        "ru": "Приходская территория в Васкес-де-Коронадо с высоты птичьего полёта"
+      }
+    },
+    {
+      "id": "icon-vladimir",
+      "src": "/images/icon-vladimir.jpg",
+      "alt": {
+        "en": "The Vladimir Icon of the Mother of God",
+        "es": "El ícono de la Virgen de Vladimir",
+        "ru": "Владимирская икона Божией Матери"
+      },
+      "caption": {
+        "en": "The Vladimir Icon of the Mother of God, protectress of the Russian land",
+        "es": "El ícono de la Virgen de Vladimir, protectora de la tierra rusa",
+        "ru": "Владимирская икона Божией Матери, покровительница Земли Русской"
+      }
+    },
+    {
+      "id": "church-sunset-clouds",
+      "src": "/images/gallery/church-sunset-clouds.jpg",
+      "alt": {
+        "en": "The church at sunset beneath golden clouds",
+        "es": "La iglesia al atardecer bajo nubes doradas",
+        "ru": "Храм на закате под золотыми облаками"
+      },
+      "caption": {
+        "en": "Sunset over the church and the Costa Rican hills",
+        "es": "Atardecer sobre la iglesia y las colinas costarricenses",
+        "ru": "Закат над храмом и коста-риканскими холмами"
+      }
+    },
+    {
+      "id": "clergy-altar-cross",
+      "src": "/images/gallery/clergy-altar-cross.jpg",
+      "alt": {
+        "en": "The clergy holding the cross in the altar",
+        "es": "El clero con la cruz en el altar",
+        "ru": "Духовенство с крестом в алтаре"
+      },
+      "caption": {
+        "en": "The clergy in the altar with the festal cross",
+        "es": "El clero en el altar con la cruz festiva",
+        "ru": "Духовенство в алтаре с праздничным крестом"
+      }
+    },
+    {
+      "id": "visitors-inside",
+      "src": "/images/gallery/visitors-inside.jpg",
+      "alt": {
+        "en": "A guide speaking with visitors inside the church",
+        "es": "Un guía conversa con visitantes dentro de la iglesia",
+        "ru": "Экскурсовод с посетителями в храме"
+      },
+      "caption": {
+        "en": "Receiving visitors among the icons",
+        "es": "Recibiendo visitantes entre los íconos",
+        "ru": "Приём посетителей среди икон"
+      }
+    },
+    {
+      "id": "feast-day-gathering",
+      "src": "/images/gallery/feast-day-gathering.jpg",
+      "alt": {
+        "en": "The community gathered on the parish grounds for a feast day",
+        "es": "La comunidad reunida en el terreno parroquial en un día festivo",
+        "ru": "Община на приходской территории в праздник"
+      },
+      "caption": {
+        "en": "The parish family gathered for a feast day",
+        "es": "La familia parroquial reunida en un día festivo",
+        "ru": "Приходская семья собралась на праздник"
+      }
+    },
+    {
+      "id": "festival-singers",
+      "src": "/images/gallery/festival-singers.jpg",
+      "alt": {
+        "en": "Singers in traditional Russian dress at a parish festival",
+        "es": "Cantantes con trajes tradicionales rusos en una fiesta parroquial",
+        "ru": "Певцы в русской традиционной одежде на приходском празднике"
+      },
+      "caption": {
+        "en": "Traditional Russian song at the parish festival",
+        "es": "Canto tradicional ruso en la fiesta parroquial",
+        "ru": "Русская народная песня на приходском празднике"
+      }
+    },
+    {
+      "id": "folk-dance",
+      "src": "/images/gallery/folk-dance.jpg",
+      "alt": {
+        "en": "A folk ensemble dancing on the parish lawn",
+        "es": "Un conjunto folclórico danza en el jardín parroquial",
+        "ru": "Фольклорный ансамбль танцует на газоне"
+      },
+      "caption": {
+        "en": "Folk dancing on the grounds after the feast",
+        "es": "Danza folclórica en los terrenos después de la fiesta",
+        "ru": "Народные танцы на территории после праздника"
+      }
+    }
+  ]
+}

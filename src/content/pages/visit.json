@@ -1,0 +1,52 @@
+{
+  "id": "visit",
+  "path": "/visit",
+  "seo": {
+    "title": { "en": "Plan a Visit", "es": "Planee su visita", "ru": "Как нас найти" },
+    "description": {
+      "en": "Address, directions, and what to expect at Our Lady of Vladimir Church in Vázquez de Coronado, San José, Costa Rica.",
+      "es": "Dirección, cómo llegar y qué esperar en la Iglesia de la Virgen de Vladimir en Vázquez de Coronado, San José, Costa Rica.",
+      "ru": "Адрес, как добраться и что ожидать в храме Владимирской иконы Божией Матери в Васкес-де-Коронадо, Сан-Хосе, Коста-Рика."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": { "en": "Plan a Visit", "es": "Planee su visita", "ru": "Как нас найти" },
+      "title": { "en": "We Look Forward to Your Visit", "es": "Le esperamos", "ru": "Рады видеть вас" },
+      "subtitle": {
+        "en": "The church is located in Vázquez de Coronado, San José, Costa Rica.",
+        "es": "La iglesia está en Vázquez de Coronado, San José, Costa Rica.",
+        "ru": "Храм находится в Васкес-де-Коронадо, Сан-Хосе, Коста-Рика."
+      }
+    },
+    {
+      "id": "visit-info",
+      "type": "visitInfo",
+      "enabled": true,
+      "addressTitle": { "en": "Address", "es": "Dirección", "ru": "Адрес" },
+      "directionsLabel": { "en": "Get Directions", "es": "Cómo llegar", "ru": "Проложить маршрут" },
+      "expectTitle": { "en": "What to Expect", "es": "Qué esperar", "ru": "Что ожидать" },
+      "expectParagraphs": [
+        {
+          "en": "Divine Liturgy begins at {time:sunday-liturgy} and confession at {time:sunday-confession}.",
+          "es": "La Divina Liturgia comienza a las {time:sunday-liturgy} y la confesión a las {time:sunday-confession}.",
+          "ru": "Божественная литургия начинается в {time:sunday-liturgy}, а исповедь в {time:sunday-confession}."
+        },
+        {
+          "en": "Only baptized and confessed Orthodox Christians receive communion. Everyone may venerate the icons, light a candle, and receive the blessed bread at the end of the Divine Liturgy.",
+          "es": "Solo los ortodoxos bautizados y confesados comulgan. Todos pueden venerar los íconos, encender una vela y recibir el pan bendito al final de la Divina Liturgia.",
+          "ru": "Причащаются только крещёные и исповедовавшиеся православные. Все могут приложиться к иконам, поставить свечу и получить освящённый хлеб в конце литургии."
+        }
+      ],
+      "languagesTitle": { "en": "Languages", "es": "Idiomas", "ru": "Языки" },
+      "languagesText": {
+        "en": "Services are celebrated in Spanish, with portions in Church Slavonic and English.",
+        "es": "Los servicios se celebran en español, con partes en eslavo eclesiástico e inglés.",
+        "ru": "Богослужения совершаются на испанском языке, частично на церковнославянском и английском."
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+/*
+  Design tokens. Change colors, fonts, radii and spacing here; every component
+  reads from these variables through tailwind.config.js and src/index.css.
+  Colors are space-separated RGB channels so Tailwind opacity modifiers work.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Primary: deep navy */
+  --color-primary-50: 238 243 249;
+  --color-primary-100: 215 226 239;
+  --color-primary-200: 174 191 214;
+  --color-primary-300: 126 149 182;
+  --color-primary-400: 79 107 144;
+  --color-primary-500: 44 74 112;
+  --color-primary-600: 31 58 92;
+  --color-primary-700: 22 48 77;
+  --color-primary-800: 18 44 68;
+  --color-primary-900: 13 35 56;
+  --color-primary-950: 8 24 40;
+
+  /* Accent: liturgical gold */
+  --color-accent-50: 251 247 236;
+  --color-accent-100: 245 236 210;
+  --color-accent-200: 233 213 161;
+  --color-accent-300: 221 189 112;
+  --color-accent-400: 208 162 70;
+  --color-accent-500: 192 138 45;
+  --color-accent-600: 165 109 34;
+  --color-accent-700: 134 82 30;
+  --color-accent-800: 107 66 31;
+  --color-accent-900: 88 55 28;
+
+  /* Ink: body text */
+  --color-ink-900: 28 25 23;
+  --color-ink-700: 68 64 60;
+  --color-ink-500: 120 113 108;
+  --color-ink-300: 214 211 209;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --text-eyebrow: 12px;
+  --tracking-eyebrow: 0.22em;
+  --text-nav: 14px;
+  --tracking-nav: 0.12em;
+
+  /* Radii */
+  --radius-card: 1rem;
+  --radius-inner: 0.75rem;
+  --radius-pill: 9999px;
+
+  /* Layout and spacing */
+  --container-max: 72rem;
+  --section-y: 3.5rem;
+  --section-y-lg: 6rem;
+}
