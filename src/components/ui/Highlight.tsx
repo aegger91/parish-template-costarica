@@ -1,4 +1,4 @@
-/** Renders text where [[words]] get the accent color, e.g. "Our Lady of [[Vladimir]] Church". */
+/** Renders text where [[words]] get the accent color, e.g. "St. [[Example]] Orthodox Church". */
 export default function Highlight({ text, className = 'text-accent-300' }: { text: string; className?: string }) {
   return (
     <>
