@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-white text-ink-900 font-sans antialiased;
+}
+
+::selection {
+  @apply bg-gold-300 text-navy-900;
+}
+
+.container-px {
+  @apply px-5 sm:px-8 lg:px-12;
+}
+
+.container-max {
+  @apply mx-auto max-w-6xl;
+}
+
+.heading-serif {
+  @apply font-serif font-semibold tracking-tight;
+}
+
+.prose-block p {
+  @apply leading-relaxed;
+}
+
+.prose-block p + p {
+  @apply mt-4;
+}
+
+.gold-rule {
+  @apply h-px w-16 bg-gold-400;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-up-slow {
+  animation: fade-up 0.9s ease-out both;
+}

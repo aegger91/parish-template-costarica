@@ -1,0 +1,4 @@
+# Supabase edge function configuration
+
+[functions.orthodox-calendar]
+verify_jwt = false

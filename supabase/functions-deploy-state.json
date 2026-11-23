@@ -1,0 +1,13 @@
+{
+  "projectId": "73091019",
+  "functions": {
+    "contact-message": {
+      "hasChanged": false,
+      "hash": "87121cc57d109af4e0f9ec78c6fd4c90bdfabd6cf43ee73b60144c3340166fca"
+    },
+    "orthodox-calendar": {
+      "hasChanged": false,
+      "hash": "80330429eb8fdff90e1265e97f6c3dfc68f2ed30a520ddaf472419d89413b148"
+    }
+  }
+}
