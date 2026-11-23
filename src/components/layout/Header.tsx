@@ -179,8 +179,8 @@ export default function Header() {
       >
         {/* Utility strip: next service or live badge, address, language. Folds away on scroll. */}
         <div
-          className={`hidden overflow-hidden border-b border-white/10 transition-[max-height,opacity] duration-300 lg:block ${
-            condensed ? 'max-h-0 border-transparent opacity-0' : 'max-h-10 opacity-100'
+          className={`hidden border-b border-white/10 transition-[max-height,opacity] duration-300 lg:block ${
+            condensed ? 'max-h-0 overflow-hidden border-transparent opacity-0' : 'max-h-10 opacity-100'
           }`}
           aria-hidden={condensed}
         >
