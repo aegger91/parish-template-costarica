@@ -1,6 +1,7 @@
 import { useId, useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
-import { AlertCircle, CheckCircle2, ChevronDown, HandHeart, Info, Loader2, Mail, Phone } from 'lucide-react';
+import { AlertCircle, CheckCircle2, ChevronDown, Info, Loader2, Mail, Phone } from 'lucide-react';
+import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import Reveal from '@/components/ui/Reveal';
 import { clergy, giving } from '@/content';
 import type { Localized, SectionBase } from '@/content';
@@ -281,7 +282,7 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
               {submitting ? (
                 <Loader2 className="h-4 w-4 animate-spin" strokeWidth={2} aria-hidden />
               ) : (
-                <HandHeart className="h-4 w-4" strokeWidth={1.8} aria-hidden />
+                <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
               )}
               {submitting ? ui('give.processing') : submitLabel}
             </button>

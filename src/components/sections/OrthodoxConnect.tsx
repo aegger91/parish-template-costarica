@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, CalendarDays, HandHeart, Info, Users } from 'lucide-react';
+import { ArrowUpRight, Info } from 'lucide-react';
+import Icon from '@/components/ui/Icon';
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { site } from '@/content';
@@ -19,16 +20,15 @@ export interface OrthodoxConnectSection extends SectionBase {
   types: Record<OrthodoxConnectItem['type'], Localized>;
 }
 
-const TYPE_ICON = { event: CalendarDays, volunteer: Users, need: HandHeart };
+const TYPE_ICON: Record<OrthodoxConnectItem['type'], string> = { event: 'calendar', volunteer: 'church', need: 'candle' };
 
 function FeedCard({ item, typeLabel, isSample }: { item: OrthodoxConnectItem; typeLabel: string; isSample: boolean }) {
   const { t, ui, language } = useI18n();
-  const TypeIcon = TYPE_ICON[item.type] ?? CalendarDays;
   const body = (
     <>
       <div className="flex items-center justify-between gap-3">
         <span className="inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-accent-600">
-          <TypeIcon className="h-4 w-4" strokeWidth={1.8} aria-hidden />
+          <Icon name={TYPE_ICON[item.type] ?? 'calendar'} className="h-4 w-4" strokeWidth={1.8} />
           {typeLabel}
         </span>
         {isSample && (
