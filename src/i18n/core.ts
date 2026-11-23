@@ -27,7 +27,7 @@ export function pick(field: Localized | string | undefined, lang: string): strin
 /**
  * Fills placeholders in content strings:
  *   {time:<service-id>}  -> the service's display time from services.json
- *   {site.<field>}       -> a localized field from site.json (name, diocese, jurisdiction)
+ *   {site.<path>}        -> a text or localized field from site.json (name, diocese, address.singleLine, contact.email)
  *   {<var>}              -> a value passed in `vars`
  */
 export function interpolate(text: string, lang: string, vars?: Record<string, string>): string {
@@ -36,8 +36,15 @@ export function interpolate(text: string, lang: string, vars?: Record<string, st
       return services.find((s) => s.id === token.slice(5))?.display.replace(/ /g, '\u00a0') ?? match;
     }
     if (token.startsWith('site.')) {
-      const value = (site as unknown as Record<string, Localized | string>)[token.slice(5)];
-      return value === undefined ? match : pick(value, lang);
+      const value = token
+        .slice(5)
+        .split('.')
+        .reduce<unknown>((node, key) => (node && typeof node === 'object' ? (node as Record<string, unknown>)[key] : undefined), site);
+      if (typeof value === 'string') return value;
+      if (value && typeof value === 'object' && Object.values(value).every((v) => typeof v === 'string')) {
+        return pick(value as Localized, lang);
+      }
+      return match;
     }
     return vars?.[token] ?? match;
   });
