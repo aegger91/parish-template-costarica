@@ -5,7 +5,7 @@
       "weekday": 0,
       "time": "09:00",
       "display": "9:00 AM",
-      "icon": "calendar",
+      "icon": "gospel",
       "highlight": false,
       "name": { "en": "Confession", "es": "Confesión", "ru": "Исповедь" }
     },
@@ -14,7 +14,7 @@
       "weekday": 0,
       "time": "10:00",
       "display": "10:00 AM",
-      "icon": "clock",
+      "icon": "chalice",
       "highlight": true,
       "name": { "en": "Divine Liturgy", "es": "Divina Liturgia", "ru": "Божественная литургия" }
     }

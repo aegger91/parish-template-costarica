@@ -54,7 +54,7 @@
           },
           {
             "id": "languages",
-            "icon": "globe",
+            "icon": "gospel",
             "text": {
               "en": "We celebrate in Spanish, with portions in Slavonic and English. Prayer belongs to all.",
               "es": "Celebramos en español, con partes en eslavo e inglés. La oración pertenece a todos.",
@@ -63,7 +63,7 @@
           },
           {
             "id": "welcome",
-            "icon": "heart-handshake",
+            "icon": "prayer-rope",
             "text": {
               "en": "All are welcome to prayer, Orthodox faithful and visitors alike.",
               "es": "Todos son bienvenidos a la oración, ortodoxos y visitantes por igual.",
