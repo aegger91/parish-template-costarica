@@ -1,0 +1,44 @@
+{
+  "id": "cart",
+  "path": "/cart",
+  "module": "store",
+  "navLabel": {
+    "en": "Cart",
+    "es": "Carrito",
+    "ru": "Корзина"
+  },
+  "seo": {
+    "title": {
+      "en": "Your Cart",
+      "es": "Su carrito",
+      "ru": "Корзина"
+    },
+    "description": {
+      "en": "Your cart.",
+      "es": "Su carrito.",
+      "ru": "Ваша корзина."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Store",
+        "es": "Tienda",
+        "ru": "Лавка"
+      },
+      "title": {
+        "en": "Your Cart",
+        "es": "Su carrito",
+        "ru": "Корзина"
+      }
+    },
+    {
+      "id": "cart",
+      "type": "cart",
+      "enabled": true
+    }
+  ]
+}

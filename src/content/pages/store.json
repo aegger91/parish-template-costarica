@@ -1,0 +1,55 @@
+{
+  "id": "store",
+  "path": "/store",
+  "module": "store",
+  "navLabel": {
+    "en": "Store",
+    "es": "Tienda",
+    "ru": "Лавка"
+  },
+  "icon": "candle",
+  "summary": {
+    "en": "Icons, candles, books and gifts.",
+    "es": "Íconos, velas, libros y regalos.",
+    "ru": "Иконы, свечи, книги и подарки."
+  },
+  "seo": {
+    "title": {
+      "en": "Church Store",
+      "es": "Tienda parroquial",
+      "ru": "Церковная лавка"
+    },
+    "description": {
+      "en": "Icons, candles, books, prayer ropes, incense, crosses and gifts. Ship to your home or pick up at the church.",
+      "es": "Íconos, velas, libros, komboskinis, incienso, cruces y regalos. Envío a domicilio o recogida en la iglesia.",
+      "ru": "Иконы, свечи, книги, чётки, ладан, крестики и подарки. Доставка или самовывоз из храма."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Store",
+        "es": "Tienda",
+        "ru": "Лавка"
+      },
+      "title": {
+        "en": "Church Store",
+        "es": "Tienda parroquial",
+        "ru": "Церковная лавка"
+      },
+      "subtitle": {
+        "en": "Every purchase supports the life of the parish.",
+        "es": "Cada compra ayuda a la vida de la parroquia.",
+        "ru": "Каждая покупка помогает приходу."
+      }
+    },
+    {
+      "id": "catalog",
+      "type": "storeCatalog",
+      "enabled": true
+    }
+  ]
+}

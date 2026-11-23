@@ -1,0 +1,44 @@
+{
+  "id": "checkout",
+  "path": "/checkout",
+  "module": "store",
+  "navLabel": {
+    "en": "Checkout",
+    "es": "Pagar",
+    "ru": "Оформление"
+  },
+  "seo": {
+    "title": {
+      "en": "Checkout",
+      "es": "Pagar",
+      "ru": "Оформление заказа"
+    },
+    "description": {
+      "en": "Complete your order.",
+      "es": "Complete su pedido.",
+      "ru": "Оформление заказа."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Store",
+        "es": "Tienda",
+        "ru": "Лавка"
+      },
+      "title": {
+        "en": "Checkout",
+        "es": "Finalizar compra",
+        "ru": "Оформление заказа"
+      }
+    },
+    {
+      "id": "checkout",
+      "type": "checkout",
+      "enabled": true
+    }
+  ]
+}
