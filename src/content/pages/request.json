@@ -1,0 +1,60 @@
+{
+  "id": "request",
+  "path": "/services/request",
+  "module": "serviceRequests",
+  "navLabel": {
+    "en": "Request a Service",
+    "es": "Solicitar un servicio",
+    "ru": "Заказать требу"
+  },
+  "icon": "censer",
+  "summary": {
+    "en": "Molebens, blessings, sacraments and pastoral care.",
+    "es": "Molebens, bendiciones, sacramentos y atención pastoral.",
+    "ru": "Молебны, освящения, таинства и беседы."
+  },
+  "seo": {
+    "title": {
+      "en": "Request a Service",
+      "es": "Solicitar un servicio",
+      "ru": "Заказать требу"
+    },
+    "description": {
+      "en": "Ask the parish for a moleben, blessing, baptism, wedding, confession or pastoral visit.",
+      "es": "Solicite a la parroquia un moleben, una bendición, un bautizo, una boda, la confesión o una visita pastoral.",
+      "ru": "Закажите молебен, освящение, крещение, венчание, исповедь или беседу со священником."
+    }
+  },
+  "sections": [
+    {
+      "id": "page-hero",
+      "type": "pageHero",
+      "enabled": true,
+      "eyebrow": {
+        "en": "Services",
+        "es": "Servicios",
+        "ru": "Богослужения"
+      },
+      "title": {
+        "en": "Request a Service",
+        "es": "Solicitar un servicio",
+        "ru": "Заказать требу"
+      },
+      "subtitle": {
+        "en": "Choose a service and tell us when suits you. The priest or the parish office will call you to confirm.",
+        "es": "Elija un servicio y díganos cuándo le conviene. El sacerdote o la oficina parroquial le llamará para confirmar.",
+        "ru": "Выберите требу и удобное время. Священник или канцелярия прихода перезвонит вам для подтверждения."
+      }
+    },
+    {
+      "id": "requests",
+      "type": "serviceRequests",
+      "enabled": true,
+      "intro": {
+        "en": "Sacraments and services are never sold. Where a donation is mentioned, give what you can; no one is turned away.",
+        "es": "Los sacramentos y servicios nunca se venden. Donde se menciona un donativo, dé lo que pueda; nadie queda sin atención.",
+        "ru": "Таинства и требы не продаются. Где указано пожертвование, жертвуйте по силам; никому не откажут."
+      }
+    }
+  ]
+}
