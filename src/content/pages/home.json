@@ -104,7 +104,7 @@
         },
         {
           "id": "first-visit",
-          "icon": "hand-heart",
+          "icon": "icon",
           "to": "/visit",
           "title": { "en": "First Visit", "es": "Primera visita", "ru": "Первое посещение" },
           "text": {
@@ -115,7 +115,7 @@
         },
         {
           "id": "community",
-          "icon": "users",
+          "icon": "bells",
           "to": "/about",
           "title": { "en": "Community", "es": "Comunidad", "ru": "Община" },
           "text": {
