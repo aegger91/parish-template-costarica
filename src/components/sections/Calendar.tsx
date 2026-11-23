@@ -74,13 +74,13 @@ function FeastLine({ feast, compact = false }: { feast: Feast; compact?: boolean
 function ServiceLine({ o, live, compact = false }: { o: ServiceOccurrence; live: boolean; compact?: boolean }) {
   const { t, ui, language } = useI18n();
   return (
-    <li className={`flex gap-2 ${compact ? 'text-[11.5px] leading-tight' : 'text-[14px] leading-snug'}`}>
+    <li className={`flex flex-wrap gap-x-2 ${compact ? 'text-[11.5px] leading-tight' : 'text-[14px] leading-snug'}`}>
       <span className={`shrink-0 tabular-nums font-semibold ${o.service.highlight ? 'text-primary-900' : 'text-primary-700'}`}>
         {formatTime(o.service.time, language.locale)}
       </span>
       <span className={`min-w-0 ${compact ? 'line-clamp-2' : ''} ${o.service.highlight ? 'font-medium text-primary-900' : 'text-ink-700'}`}>
         {t(o.service.name)}
-        {live && <span className="ms-1.5 rounded-pill bg-rose-600 px-1.5 py-px text-[10px] font-bold uppercase text-white">{ui('live.short')}</span>}
+        {live && <span className="ms-1.5 inline-block whitespace-nowrap rounded-pill bg-rose-600 px-1.5 py-px text-[10px] font-bold uppercase text-white">{ui('live.short')}</span>}
       </span>
     </li>
   );

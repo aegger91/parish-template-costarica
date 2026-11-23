@@ -1,6 +1,11 @@
 {
   "id": "home",
   "path": "/",
+  "navLabel": {
+    "en": "Home",
+    "es": "Inicio",
+    "ru": "Главная"
+  },
   "seo": {
     "title": {
       "en": "St. Example Orthodox Church | Orthodox Parish in Sample City",

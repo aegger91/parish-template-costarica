@@ -59,7 +59,7 @@ function SlipEditor({
     <fieldset className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]" aria-describedby={error ? `${uid}-error` : undefined}>
       <legend className="sr-only">{ui('zapiski.slipN', { n: String(index + 1) })}</legend>
       {/* The paper slip */}
-      <div className={`relative rounded-md bg-white p-5 shadow-md sm:p-8 ${repose ? 'border-[6px] border-ink-900' : 'border-2 border-rose-700'}`}>
+      <div className={`relative self-start rounded-md bg-white p-5 shadow-md sm:p-8 ${repose ? 'border-[6px] border-ink-900' : 'border-2 border-rose-700'}`}>
         {count > 1 && (
           <button type="button" onClick={onRemove} className="absolute end-2 top-2 flex h-10 w-10 items-center justify-center rounded-full text-ink-500 hover:bg-primary-50" aria-label={ui('zapiski.removeSlip')}>
             <X className="h-5 w-5" strokeWidth={1.8} aria-hidden />
