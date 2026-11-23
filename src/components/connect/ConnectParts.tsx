@@ -27,7 +27,7 @@ function openInConnect(e: MouseEvent<HTMLAnchorElement>, action: ConnectAction, 
 export function ConnectBadge() {
   const { ui } = useI18n();
   return (
-    <span className="inline-flex items-center gap-1 rounded-pill border border-primary-200 bg-white px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-[0.1em] text-primary-700">
+    <span className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-pill border border-primary-200 bg-white px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-[0.1em] text-primary-700">
       <OrthodoxIcon name="church" className="h-3 w-3 text-accent-600" strokeWidth={2} />
       {ui('connect.badge')}
     </span>
@@ -181,7 +181,7 @@ export function ItemCard({ item, action, children }: { item: ConnectItem; action
   const { t } = useI18n();
   return (
     <article className="flex h-full flex-col rounded-2xl border border-primary-100 bg-white p-5 shadow-sm sm:p-6">
-      <div className="flex items-start justify-between gap-3">
+      <div className="flex flex-wrap items-start justify-between gap-2">
         {children}
         <ConnectBadge />
       </div>

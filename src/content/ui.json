@@ -286,7 +286,7 @@
     "prefix": { "en": "Title (optional)", "es": "Título (opcional)", "ru": "Сан или возраст (необязательно)" },
     "noPrefix": { "en": "None", "es": "Ninguno", "ru": "Нет" },
     "nameN": { "en": "Name {n}", "es": "Nombre {n}", "ru": "Имя {n}" },
-    "namePlaceholder": { "en": "Baptismal name, e.g. John", "es": "Nombre de bautismo, p. ej. Juan", "ru": "Имя в крещении, например Иоанна" },
+    "namePlaceholder": { "en": "e.g. John", "es": "p. ej. Juan", "ru": "напр. Иоанна" },
     "addName": { "en": "Add a name", "es": "Añadir un nombre", "ru": "Добавить имя" },
     "removeName": { "en": "Remove name {n}", "es": "Quitar el nombre {n}", "ru": "Убрать имя {n}" },
     "namesCount": { "en": "{n} of {max} names", "es": "{n} de {max} nombres", "ru": "{n} из {max} имён" },

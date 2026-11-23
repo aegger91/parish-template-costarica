@@ -30,6 +30,15 @@ body {
   display: none !important;
 }
 
+/* Browsers give fieldsets min-width: min-content, which lets long form rows push past small screens. */
+fieldset {
+  min-width: 0;
+}
+
+li {
+  min-width: 0;
+}
+
 @layer components {
   .container-px {
     @apply px-5 sm:px-8 lg:px-12;
