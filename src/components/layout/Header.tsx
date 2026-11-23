@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronDown, HandHeart, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import Logo from '@/components/ui/Logo';
+import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import { navigation, site } from '@/content';
 import type { NavItem } from '@/content';
 import { useI18n } from '@/i18n';
@@ -151,7 +152,7 @@ export default function Header() {
             )}
 
             <Link to={donate.to} className="btn-accent min-h-0 gap-1.5 px-4 py-2.5 2xl:px-5">
-              <HandHeart className="h-4 w-4" strokeWidth={1.8} aria-hidden />
+              <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
               {t(donate.label)}
             </Link>
 
@@ -160,7 +161,7 @@ export default function Header() {
 
           <div className="flex shrink-0 items-center gap-1 sm:gap-3 xl:hidden">
             <Link to={donate.to} className="btn-accent hidden min-h-0 gap-1.5 px-4 py-2 sm:inline-flex">
-              <HandHeart className="h-4 w-4" strokeWidth={1.8} aria-hidden />
+              <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
               {t(donate.label)}
             </Link>
             <div className="max-[359px]:hidden">
@@ -233,7 +234,7 @@ export default function Header() {
                 </motion.div>
               ))}
               <Link to={donate.to} onClick={() => setOpen(false)} className="btn-accent mt-6 w-full text-[13px]">
-                <HandHeart className="h-4 w-4" strokeWidth={1.8} aria-hidden />
+                <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
                 {t(donate.label)}
               </Link>
             </nav>

@@ -1,25 +1,25 @@
-import type { ComponentType } from 'react';
-import { CalendarDays, Clock, Globe2, HandHeart, HeartHandshake, Mail, MapPin, Phone, Users } from 'lucide-react';
-import type { LucideProps } from 'lucide-react';
-import ChurchIcon from './ChurchIcon';
+import { CalendarDays, Clock, Mail, MapPin, Phone } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+import OrthodoxIcon from './OrthodoxIcon';
+import type { OrthodoxIconName } from './OrthodoxIcon';
+import iconData from './orthodoxIcons.json';
 
-type IconComponent = ComponentType<Pick<LucideProps, 'className' | 'strokeWidth' | 'aria-hidden'>>;
-
-/** Icon names that content files may reference. Add entries here to allow more. */
-const ICONS: Record<string, IconComponent> = {
+/*
+  Icon names that content files may reference: generic utility icons, plus the
+  Orthodox pictograms in orthodoxIcons.json (church, chalice, censer, candle,
+  prayer-rope, gospel, icon, bells, cross).
+*/
+const UTILITY: Record<string, LucideIcon> = {
   calendar: CalendarDays,
-  church: ChurchIcon,
   clock: Clock,
-  globe: Globe2,
-  'hand-heart': HandHeart,
-  'heart-handshake': HeartHandshake,
   mail: Mail,
   'map-pin': MapPin,
   phone: Phone,
-  users: Users,
 };
 
-export default function Icon({ name, className, strokeWidth }: { name: string } & Pick<LucideProps, 'className' | 'strokeWidth'>) {
-  const Component = ICONS[name] ?? ChurchIcon;
-  return <Component aria-hidden className={className} strokeWidth={strokeWidth} />;
+export default function Icon({ name, className, strokeWidth }: { name: string; className?: string; strokeWidth?: number }) {
+  const Utility = UTILITY[name];
+  if (Utility) return <Utility aria-hidden className={className} strokeWidth={strokeWidth} />;
+  const orthodox = (name in iconData ? name : 'church') as OrthodoxIconName;
+  return <OrthodoxIcon name={orthodox} className={className} strokeWidth={strokeWidth} />;
 }

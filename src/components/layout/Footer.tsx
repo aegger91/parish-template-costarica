@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Globe, HandHeart, Mail, MapPin, Phone } from 'lucide-react';
+import { Globe, Mail, MapPin, Phone } from 'lucide-react';
 import { navigation, services, site } from '@/content';
 import { useI18n } from '@/i18n';
 import Logo from '@/components/ui/Logo';
+import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import { weekdayName } from '@/lib/calendar';
 import { telHref } from '@/lib/format';
 
@@ -33,7 +34,7 @@ export default function Footer() {
           </p>
           <p className="mt-6 text-[12px] font-semibold uppercase tracking-[0.2em] text-accent-300">{t(f.giveHeading)}</p>
           <Link to={navigation.donate.to} className="btn-accent mt-4">
-            <HandHeart className="h-4 w-4" strokeWidth={1.8} aria-hidden />
+            <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
             {t(navigation.donate.label)}
           </Link>
         </div>
