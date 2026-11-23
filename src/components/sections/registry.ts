@@ -21,14 +21,12 @@ import PageHero from './PageHero';
 import ProductDetail from './ProductDetail';
 import Projects from './Projects';
 import Quote from './Quote';
-import Sacraments from './Sacraments';
 import Sermons from './Sermons';
 import ServiceRequests from './ServiceRequests';
 import ServiceTimes from './ServiceTimes';
 import StoreCatalog from './StoreCatalog';
 import Story from './Story';
 import Timeline from './Timeline';
-import VisitInfo from './VisitInfo';
 import Zapiski from './Zapiski';
 
 /**
@@ -45,8 +43,6 @@ export const SECTIONS = {
   childPages: ChildPages,
   serviceTimes: ServiceTimes,
   calendar: Calendar,
-  visitInfo: VisitInfo,
-  sacraments: Sacraments,
   clergy: Clergy,
   timeline: Timeline,
   gallery: Gallery,

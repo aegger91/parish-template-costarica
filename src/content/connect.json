@@ -3,7 +3,6 @@
   "categories": [
     { "id": "worship", "label": { "en": "Worship", "es": "Culto", "ru": "Богослужение" } },
     { "id": "fellowship", "label": { "en": "Fellowship", "es": "Convivencia", "ru": "Общение" } },
-    { "id": "learning", "label": { "en": "Learning", "es": "Formación", "ru": "Просвещение" } },
     { "id": "service", "label": { "en": "Serving others", "es": "Servicio", "ru": "Служение" } },
     { "id": "care", "label": { "en": "Care for the church", "es": "Cuidado del templo", "ru": "Забота о храме" } }
   ],
@@ -22,17 +21,17 @@
       "category": "fellowship"
     },
     {
-      "id": "evt-catechism-1202",
+      "id": "evt-choir-1202",
       "kind": "event",
-      "title": { "en": "Catechism class: the Creed", "es": "Catequesis: el Credo", "ru": "Катехизис: Символ веры" },
-      "summary": { "en": "Sample event. Open to inquirers and anyone who wants to learn.", "es": "Evento de ejemplo. Abierto a interesados y a quien quiera aprender.", "ru": "Пример события. Для интересующихся и всех, кто хочет учиться." },
+      "title": { "en": "Choir rehearsal", "es": "Ensayo del coro", "ru": "Спевка хора" },
+      "summary": { "en": "Sample event. All voices welcome.", "es": "Evento de ejemplo. Todas las voces son bienvenidas.", "ru": "Пример события. Приглашаются все голоса." },
       "date": "2026-12-02",
       "time": "19:00",
-      "location": { "en": "Parish library", "es": "Biblioteca parroquial", "ru": "Приходская библиотека" },
+      "location": { "en": "Church", "es": "Iglesia", "ru": "Храм" },
       "capacity": 20,
       "signups": 11,
       "organizer": "Deacon Stephen Sample",
-      "category": "learning"
+      "category": "worship"
     },
     {
       "id": "evt-carols-1220",

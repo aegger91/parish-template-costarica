@@ -1,8 +1,7 @@
 {
   "categories": [
     { "id": "parish", "label": { "en": "Parish life", "es": "Vida parroquial", "ru": "Жизнь прихода" } },
-    { "id": "events", "label": { "en": "Events", "es": "Eventos", "ru": "События" } },
-    { "id": "learning", "label": { "en": "Learning", "es": "Formación", "ru": "Просвещение" } }
+    { "id": "events", "label": { "en": "Events", "es": "Eventos", "ru": "События" } }
   ],
   "items": [
     {
@@ -15,7 +14,7 @@
         "ru": "Пример новости: начался Рождественский пост"
       },
       "summary": {
-        "en": "This is a sample news item. Replace it with your own notices. With no items, the page says news is coming soon.",
+        "en": "Sample text. One or two lines about the notice.",
         "es": "Esta es una noticia de ejemplo. Reemplácela con sus propios avisos. Sin noticias, la página indica que pronto habrá novedades.",
         "ru": "Это пример новости. Замените её своими объявлениями. Если новостей нет, страница сообщит, что они скоро появятся."
       },
@@ -38,18 +37,18 @@
       "url": ""
     },
     {
-      "id": "sample-news-catechism",
+      "id": "sample-news-cleanup",
       "date": "2026-10-04",
-      "category": "learning",
+      "category": "events",
       "title": {
-        "en": "Sample news: catechism classes begin",
-        "es": "Noticia de ejemplo: comienzan las clases de catequesis",
-        "ru": "Пример новости: начинаются занятия по катехизису"
+        "en": "Sample news: church cleaning day",
+        "es": "Noticia de ejemplo: día de limpieza de la iglesia",
+        "ru": "Пример новости: уборка храма"
       },
       "summary": {
-        "en": "Sample text. Classes for adults and inquirers meet after the Divine Liturgy. Everyone is welcome.",
-        "es": "Texto de ejemplo. Las clases para adultos y personas interesadas se reúnen después de la Divina Liturgia. Todos son bienvenidos.",
-        "ru": "Пример текста. Занятия для взрослых и интересующихся проходят после литургии. Приглашаются все."
+        "en": "Sample text. One or two lines about the notice.",
+        "es": "Texto de ejemplo. Una o dos líneas sobre el aviso.",
+        "ru": "Пример текста. Одна или две строки об объявлении."
       },
       "url": ""
     },

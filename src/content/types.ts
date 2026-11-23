@@ -272,7 +272,7 @@ export interface ZapiskiConfig {
   maxNames: number;
   slipTypes: { id: 'health' | 'repose'; label: Localized; heading: Localized }[];
   prefixes: { id: string; group: 'clergy' | 'infant' | 'monastic'; label: Localized }[];
-  commemorations: { id: string; for: ('health' | 'repose')[]; label: Localized; text: Localized; suggested: number }[];
+  commemorations: { id: string; for: ('health' | 'repose')[]; label: Localized; text?: Localized; suggested: number }[];
   candles: { id: string; label: Localized; price: number }[];
 }
 

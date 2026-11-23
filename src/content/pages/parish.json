@@ -50,63 +50,17 @@
       "type": "story",
       "enabled": true,
       "title": {
-        "en": "Our Story",
-        "es": "Nuestra historia",
-        "ru": "Наша история"
+        "en": "About the Parish",
+        "es": "Sobre la parroquia",
+        "ru": "О приходе"
       },
       "paragraphs": [
         {
-          "en": "Sample text. Tell how the parish began: who gathered the first community, when the first Divine Liturgy was served, and who the patron saint is.",
-          "es": "Texto de ejemplo. Cuente cómo comenzó la parroquia: quién reunió a la primera comunidad, cuándo se celebró la primera Divina Liturgia y quién es el santo patrono.",
-          "ru": "Пример текста. Расскажите, как появился приход: кто собрал первую общину, когда была отслужена первая литургия и кто небесный покровитель храма."
-        },
-        {
-          "en": "Sample text. Describe the church building and grounds: when the temple was built or consecrated, and what visitors will see when they arrive.",
-          "es": "Texto de ejemplo. Describa el templo y sus terrenos: cuándo se construyó o consagró, y qué verán los visitantes al llegar.",
-          "ru": "Пример текста. Опишите храм и территорию: когда храм был построен или освящён и что увидят гости, когда придут."
-        },
-        {
-          "en": "Sample text. Describe parish life today: the languages of the services, the calendar the parish follows, the choir, and the ministries that serve the community.",
-          "es": "Texto de ejemplo. Describa la vida parroquial de hoy: los idiomas de los servicios, el calendario que sigue la parroquia, el coro y los ministerios que sirven a la comunidad.",
-          "ru": "Пример текста. Расскажите о жизни прихода сегодня: на каких языках идут службы, какого календаря придерживается приход, о хоре и служениях общины."
+          "en": "Sample text. A short note about the parish, one or two lines.",
+          "es": "Texto de ejemplo. Una breve nota sobre la parroquia, una o dos líneas.",
+          "ru": "Пример текста. Несколько слов о приходе, одна или две строки."
         }
-      ],
-      "aside": {
-        "title": {
-          "en": "Our Faith",
-          "es": "Nuestra fe",
-          "ru": "Наша вера"
-        },
-        "items": [
-          {
-            "id": "jurisdiction",
-            "icon": "church",
-            "text": {
-              "en": "We belong to the {site.jurisdiction}.",
-              "es": "Pertenecemos a la {site.jurisdiction}.",
-              "ru": "Юрисдикция: {site.jurisdiction}."
-            }
-          },
-          {
-            "id": "languages",
-            "icon": "gospel",
-            "text": {
-              "en": "Sample text: we celebrate in English, with portions in other languages. Prayer belongs to all.",
-              "es": "Texto de ejemplo: celebramos en inglés, con partes en otros idiomas. La oración pertenece a todos.",
-              "ru": "Пример текста: богослужения на английском, частично на других языках. Молитва принадлежит всем."
-            }
-          },
-          {
-            "id": "welcome",
-            "icon": "prayer-rope",
-            "text": {
-              "en": "All are welcome to prayer, Orthodox faithful and visitors alike.",
-              "es": "Todos son bienvenidos a la oración, ortodoxos y visitantes por igual.",
-              "ru": "Все приглашены к молитве, православные и гости храма."
-            }
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "more",

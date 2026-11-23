@@ -40,19 +40,19 @@
         "ru": "Все приглашены."
       },
       "primaryCta": {
-        "to": "/services#first-visit",
-        "label": {
-          "en": "Plan your visit",
-          "es": "Planee su visita",
-          "ru": "Как нас найти"
-        }
-      },
-      "secondaryCta": {
         "to": "/services",
         "label": {
           "en": "Service schedule",
           "es": "Horario de servicios",
           "ru": "Расписание богослужений"
+        }
+      },
+      "secondaryCta": {
+        "to": "/contact",
+        "label": {
+          "en": "Contact us",
+          "es": "Contáctenos",
+          "ru": "Связаться с нами"
         }
       },
       "upcoming": 3,
@@ -64,32 +64,27 @@
       "enabled": true,
       "eyebrow": {
         "en": "Welcome",
-        "es": "Bienvenido",
+        "es": "Bienvenidos",
         "ru": "Добро пожаловать"
       },
       "title": {
-        "en": "A house of prayer for all peoples",
-        "es": "Una casa de oración para todos los pueblos",
-        "ru": "Дом молитвы для всех народов"
+        "en": "About the Parish",
+        "es": "Sobre la parroquia",
+        "ru": "О приходе"
       },
       "paragraphs": [
         {
-          "en": "St. Example Orthodox Church is a sample parish of the {site.diocese}. Use this space for a short welcome: who you are, where you are, and how long the parish has been serving the community.",
-          "es": "La Iglesia Ortodoxa San Ejemplo es una parroquia de ejemplo de la {site.diocese}. Use este espacio para una breve bienvenida: quiénes son, dónde están y desde cuándo la parroquia sirve a la comunidad.",
-          "ru": "Храм святого Примера служит образцом прихода. Разместите здесь короткое приветствие: кто вы, где находитесь и как давно приход служит людям."
-        },
-        {
-          "en": "Sample text: services are celebrated in English, with portions in other languages. Whatever your background, you will be received with Christian warmth.",
-          "es": "Texto de ejemplo: los servicios se celebran en inglés, con partes en otros idiomas. Sea cual sea su origen, será recibido con calidez cristiana.",
-          "ru": "Пример текста: богослужения совершаются на английском языке, частично на других языках. Кто бы вы ни были, вас примут с христианской теплотой."
+          "en": "Sample text. A short welcome from the parish, one or two lines.",
+          "es": "Texto de ejemplo. Una breve bienvenida de la parroquia, una o dos líneas.",
+          "ru": "Пример текста. Короткое приветствие прихода, одна или две строки."
         }
       ],
       "link": {
         "to": "/parish",
         "label": {
-          "en": "Meet Our Parish",
-          "es": "Conozca nuestra parroquia",
-          "ru": "О нашем приходе"
+          "en": "About the parish",
+          "es": "Sobre la parroquia",
+          "ru": "О приходе"
         }
       },
       "image": {
@@ -101,9 +96,9 @@
         }
       },
       "caption": {
-        "en": "Sample caption: the patron icon of the parish",
-        "es": "Texto de ejemplo: el ícono patronal de la parroquia",
-        "ru": "Пример подписи: храмовая икона прихода"
+        "en": "Sample caption",
+        "es": "Texto de ejemplo",
+        "ru": "Пример подписи"
       }
     },
     {
@@ -135,34 +130,33 @@
       }
     },
     {
-      "id": "visit-cards",
+      "id": "quick-links",
       "type": "featureCards",
       "enabled": true,
       "eyebrow": {
+        "en": "Explore",
+        "es": "Explore",
+        "ru": "Разделы"
+      },
+      "title": {
         "en": "Parish Life",
         "es": "Vida parroquial",
         "ru": "Жизнь прихода"
       },
-      "title": {
-        "en": "Find Your Place With Us",
-        "es": "Encuentre su lugar entre nosotros",
-        "ru": "Найдите своё место в общине"
-      },
       "cards": [
         {
-          "id": "first-visit",
+          "id": "schedule",
           "icon": "icon",
           "page": "services",
-          "anchor": "first-visit",
           "title": {
-            "en": "First Visit",
-            "es": "Primera visita",
-            "ru": "Первое посещение"
+            "en": "Schedule",
+            "es": "Horario",
+            "ru": "Расписание"
           },
           "text": {
-            "en": "You do not need to know anything to visit. Simply come and pray with us, and someone will gladly guide you through the service.",
-            "es": "No necesita saber nada para venir. Rece con nosotros y alguien le acompañará con gusto durante el servicio.",
-            "ru": "Не нужно ничего знать заранее. Приходите помолиться с нами, и кто-нибудь с радостью поможет вам во время службы."
+            "en": "Weekly services and the parish calendar.",
+            "es": "Servicios semanales y calendario parroquial.",
+            "ru": "Богослужения недели и календарь."
           }
         },
         {
@@ -175,9 +169,9 @@
             "ru": "Заказать требу"
           },
           "text": {
-            "en": "Ask for a moleben, a house blessing, baptism, confession or a visit from the priest.",
-            "es": "Pida un moleben, la bendición de una casa, un bautizo, la confesión o la visita del sacerdote.",
-            "ru": "Молебен, освящение дома, крещение, исповедь или приглашение священника."
+            "en": "Send a request to the priest or the parish office.",
+            "es": "Envíe una solicitud al sacerdote o a la oficina.",
+            "ru": "Заявка священнику или в канцелярию."
           }
         },
         {
@@ -187,12 +181,12 @@
           "title": {
             "en": "Get Involved",
             "es": "Participe",
-            "ru": "Участвуйте"
+            "ru": "Участвовать"
           },
           "text": {
-            "en": "Parish events, the choir, coffee hour and ways to help a neighbor.",
-            "es": "Eventos parroquiales, el coro, el café después de la Liturgia y formas de ayudar al prójimo.",
-            "ru": "Приходские события, хор, трапеза и возможность помочь ближнему."
+            "en": "Events, volunteering and parish needs.",
+            "es": "Eventos, voluntariado y necesidades.",
+            "ru": "События, помощь и нужды прихода."
           }
         }
       ]

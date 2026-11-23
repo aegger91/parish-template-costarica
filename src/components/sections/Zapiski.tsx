@@ -167,7 +167,7 @@ function SlipEditor({
                       {t(c.label)}
                       <span className="shrink-0 font-medium text-ink-700">{money(c.suggested)}</span>
                     </span>
-                    <span className="block text-[12.5px] leading-snug text-ink-500">{t(c.text)}</span>
+                    {c.text && <span className="block text-[12.5px] leading-snug text-ink-500">{t(c.text)}</span>}
                   </span>
                 </label>
               ))}

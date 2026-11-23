@@ -5,7 +5,7 @@
       "icon": "note",
       "image": "",
       "title": { "en": "Submit a Commemoration Note (Zapiska)", "es": "Enviar una nota de conmemoración (Zapiska)", "ru": "Подать записку" },
-      "summary": { "en": "Names of the living and the departed to be prayed for at the services.", "es": "Nombres de vivos y difuntos por quienes se ora en los servicios.", "ru": "Имена живых и усопших для поминовения за богослужением." },
+      "summary": { "en": "Names for health and for repose.", "es": "Nombres por la salud y por el descanso.", "ru": "Имена о здравии и об упокоении." },
       "price": "donation",
       "durationMinutes": 0,
       "sendTo": "office",
@@ -16,7 +16,7 @@
       "icon": "censer",
       "image": "",
       "title": { "en": "Moleben", "es": "Moleben", "ru": "Молебен" },
-      "summary": { "en": "A service of prayer for a need, a thanksgiving, or a feast.", "es": "Un servicio de oración por una necesidad, en acción de gracias o por una fiesta.", "ru": "Молитва о нуждах, благодарственная или праздничная." },
+      "summary": { "en": "Prayers for a need or in thanksgiving.", "es": "Oraciones por una necesidad o en acción de gracias.", "ru": "О нуждах или благодарственный." },
       "price": "donation",
       "durationMinutes": 30,
       "sendTo": "rector"
@@ -26,7 +26,7 @@
       "icon": "font",
       "image": "",
       "title": { "en": "Baptism", "es": "Bautismo", "ru": "Крещение" },
-      "summary": { "en": "For a child or an adult. We will meet first to prepare together.", "es": "Para un niño o un adulto. Primero nos reuniremos para prepararnos juntos.", "ru": "Для ребёнка или взрослого. Сначала мы встретимся для подготовки." },
+      "summary": { "en": "For a child or an adult.", "es": "Para un niño o un adulto.", "ru": "Для ребёнка или взрослого." },
       "price": "free",
       "durationMinutes": 60,
       "sendTo": "rector"
@@ -36,7 +36,7 @@
       "icon": "gospel",
       "image": "",
       "title": { "en": "Confession", "es": "Confesión", "ru": "Исповедь" },
-      "summary": { "en": "Outside the usual times, or for a first confession.", "es": "Fuera del horario habitual o para una primera confesión.", "ru": "Вне обычного времени или для первой исповеди." },
+      "summary": { "en": "By appointment.", "es": "Con cita previa.", "ru": "По договорённости." },
       "price": "free",
       "durationMinutes": 30,
       "sendTo": "rector"
@@ -46,7 +46,7 @@
       "icon": "chrism",
       "image": "",
       "title": { "en": "Chrismation", "es": "Crismación", "ru": "Миропомазание" },
-      "summary": { "en": "For those received into the Church who are already baptized.", "es": "Para quienes son recibidos en la Iglesia y ya están bautizados.", "ru": "Для присоединяемых к Церкви, уже принявших крещение." },
+      "summary": { "en": "By appointment.", "es": "Con cita previa.", "ru": "По договорённости." },
       "price": "free",
       "durationMinutes": 45,
       "sendTo": "rector"
@@ -56,7 +56,7 @@
       "icon": "crowns",
       "image": "",
       "title": { "en": "Wedding (Crowning)", "es": "Boda (Coronación)", "ru": "Венчание" },
-      "summary": { "en": "Please write at least three months before the date you hope for.", "es": "Escriba al menos tres meses antes de la fecha deseada.", "ru": "Напишите, пожалуйста, не позднее чем за три месяца до желаемой даты." },
+      "summary": { "en": "Please write well ahead of the date.", "es": "Escriba con antelación a la fecha.", "ru": "Пишите заранее." },
       "price": "donation",
       "durationMinutes": 60,
       "sendTo": "rector"
@@ -66,7 +66,7 @@
       "icon": "lampada",
       "image": "",
       "title": { "en": "Holy Unction", "es": "Santa Unción", "ru": "Соборование" },
-      "summary": { "en": "Anointing of the sick, at the church, at home or in hospital.", "es": "Unción de los enfermos, en la iglesia, en casa o en el hospital.", "ru": "Елеосвящение в храме, на дому или в больнице." },
+      "summary": { "en": "At the church, at home or in hospital.", "es": "En la iglesia, en casa o en el hospital.", "ru": "В храме, дома или в больнице." },
       "price": "free",
       "durationMinutes": 60,
       "sendTo": "rector"
@@ -76,7 +76,7 @@
       "icon": "holy-water",
       "image": "",
       "title": { "en": "House or Car Blessing", "es": "Bendición de casa o automóvil", "ru": "Освящение дома или машины" },
-      "summary": { "en": "The priest comes with holy water to bless your home or car.", "es": "El sacerdote viene con agua bendita para bendecir su casa o su auto.", "ru": "Священник приедет со святой водой освятить ваш дом или машину." },
+      "summary": { "en": "A home, car or other blessing.", "es": "Una casa, un coche u otra bendición.", "ru": "Дом, машина или другое освящение." },
       "price": "donation",
       "durationMinutes": 30,
       "sendTo": "rector"
@@ -86,7 +86,7 @@
       "icon": "candle",
       "image": "",
       "title": { "en": "Funeral Service (Panikhida / Otpevanie)", "es": "Servicio fúnebre (Panijida / Otpevanie)", "ru": "Панихида или отпевание" },
-      "summary": { "en": "Call the parish as soon as you can. We will help with everything.", "es": "Llame a la parroquia lo antes posible. Le ayudaremos con todo.", "ru": "Позвоните в приход как можно скорее. Мы поможем во всём." },
+      "summary": { "en": "Funeral service or memorial.", "es": "Funeral o servicio memorial.", "ru": "Отпевание или панихида." },
       "price": "donation",
       "durationMinutes": 45,
       "sendTo": "rector"
@@ -96,7 +96,7 @@
       "icon": "prayer-rope",
       "image": "",
       "title": { "en": "Pastoral Counseling", "es": "Orientación pastoral", "ru": "Беседа со священником" },
-      "summary": { "en": "A quiet conversation with the priest about faith or life.", "es": "Una conversación tranquila con el sacerdote sobre la fe o la vida.", "ru": "Спокойная беседа со священником о вере и о жизни." },
+      "summary": { "en": "A conversation with the priest.", "es": "Una conversación con el sacerdote.", "ru": "Беседа со священником." },
       "price": "free",
       "durationMinutes": 45,
       "sendTo": "rector"

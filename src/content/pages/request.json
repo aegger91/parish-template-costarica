@@ -41,20 +41,15 @@
         "ru": "Заказать требу"
       },
       "subtitle": {
-        "en": "Choose a service and tell us when suits you. The priest or the parish office will call you to confirm.",
-        "es": "Elija un servicio y díganos cuándo le conviene. El sacerdote o la oficina parroquial le llamará para confirmar.",
-        "ru": "Выберите требу и удобное время. Священник или канцелярия прихода перезвонит вам для подтверждения."
+        "en": "Choose a service and send a request.",
+        "es": "Elija un servicio y envíe una solicitud.",
+        "ru": "Выберите требу и отправьте заявку."
       }
     },
     {
       "id": "requests",
       "type": "serviceRequests",
-      "enabled": true,
-      "intro": {
-        "en": "Sacraments and services are never sold. Where a donation is mentioned, give what you can; no one is turned away.",
-        "es": "Los sacramentos y servicios nunca se venden. Donde se menciona un donativo, dé lo que pueda; nadie queda sin atención.",
-        "ru": "Таинства и требы не продаются. Где указано пожертвование, жертвуйте по силам; никому не откажут."
-      }
+      "enabled": true
     }
   ]
 }

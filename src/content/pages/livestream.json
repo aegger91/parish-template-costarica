@@ -41,9 +41,9 @@
         "ru": "Трансляции и проповеди"
       },
       "subtitle": {
-        "en": "Pray with us from home when you cannot be in church.",
-        "es": "Rece con nosotros desde casa cuando no pueda venir a la iglesia.",
-        "ru": "Молитесь с нами из дома, если не можете прийти в храм."
+        "en": "Watch services live from the parish.",
+        "es": "Vea los servicios en directo desde la parroquia.",
+        "ru": "Трансляции богослужений из храма."
       }
     },
     {
@@ -56,9 +56,9 @@
         "ru": "Смотреть богослужения"
       },
       "text": {
-        "en": "Services marked as streamed on the schedule are broadcast live. The page shows Live now while a service is on.",
-        "es": "Los servicios marcados como transmitidos en el horario se emiten en directo. La página indica En directo mientras dura el servicio.",
-        "ru": "Богослужения с отметкой о трансляции идут в прямом эфире. Во время службы на странице видна отметка «В эфире»."
+        "en": "Streamed services appear here.",
+        "es": "Aquí aparecen los servicios transmitidos.",
+        "ru": "Здесь появляются трансляции служб."
       }
     },
     {

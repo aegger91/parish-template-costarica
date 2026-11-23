@@ -14,9 +14,9 @@
       "ru": "Контакты"
     },
     "description": {
-      "en": "Contact St. Example Orthodox Church for baptisms, weddings, confessions, visits, or questions about the Orthodox faith.",
-      "es": "Comuníquese con la Iglesia Ortodoxa San Ejemplo para bautismos, bodas, confesiones, visitas o preguntas sobre la fe ortodoxa.",
-      "ru": "Свяжитесь с храмом святого Примера по вопросам крещения, венчания, исповеди, посещения или православной веры."
+      "en": "Contact St. Example Orthodox Church.",
+      "es": "Contacte con la Iglesia Ortodoxa San Ejemplo.",
+      "ru": "Контакты храма святого Примера."
     }
   },
   "sections": [
@@ -30,14 +30,14 @@
         "ru": "Контакты"
       },
       "title": {
-        "en": "We Are Here to Serve You",
-        "es": "Estamos para servirle",
-        "ru": "Мы к вашим услугам"
+        "en": "Contact Us",
+        "es": "Contáctenos",
+        "ru": "Связаться с нами"
       },
       "subtitle": {
-        "en": "For baptisms, weddings, confessions, visits, or any question about the Orthodox faith.",
-        "es": "Para bautismos, bodas, confesiones, visitas o cualquier pregunta sobre la fe ortodoxa.",
-        "ru": "По вопросам крещения, венчания, исповеди, посещения или о православной вере."
+        "en": "Sample text. One line about how to reach the parish.",
+        "es": "Texto de ejemplo. Una línea sobre cómo contactar a la parroquia.",
+        "ru": "Пример текста. Одна строка о том, как связаться с приходом."
       }
     },
     {
@@ -61,22 +61,6 @@
             "en": "A general question",
             "es": "Una pregunta general",
             "ru": "Общий вопрос"
-          }
-        },
-        {
-          "id": "visit",
-          "label": {
-            "en": "Visiting for the first time",
-            "es": "Visitar por primera vez",
-            "ru": "Первое посещение"
-          }
-        },
-        {
-          "id": "faith",
-          "label": {
-            "en": "Learning about the Orthodox faith",
-            "es": "Conocer la fe ortodoxa",
-            "ru": "Православная вера"
           }
         },
         {

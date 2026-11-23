@@ -52,21 +52,9 @@
       "gregorian": { "en": "Western Paschalion", "es": "Pascua occidental", "ru": "Западная пасхалия" }
     },
     "styleNote": {
-      "julian": {
-        "en": "This parish keeps the Old Calendar: fixed feasts fall 13 days after their church date, and Pascha follows the Orthodox reckoning.",
-        "es": "Esta parroquia sigue el calendario antiguo: las fiestas fijas caen 13 días después de su fecha eclesiástica y la Pascua sigue el cómputo ortodoxo.",
-        "ru": "Приход живёт по старому стилю: непереходящие праздники приходятся на 13 дней позже церковной даты, Пасха по православной пасхалии."
-      },
-      "revised-julian": {
-        "en": "This parish keeps the New Calendar: fixed feasts fall on their civil date, and Pascha follows the Orthodox reckoning.",
-        "es": "Esta parroquia sigue el calendario nuevo: las fiestas fijas caen en su fecha civil y la Pascua sigue el cómputo ortodoxo.",
-        "ru": "Приход живёт по новому стилю: непереходящие праздники совпадают с гражданской датой, Пасха по православной пасхалии."
-      },
-      "gregorian": {
-        "en": "This parish keeps fixed feasts on their civil date and Pascha on the Western date.",
-        "es": "Esta parroquia celebra las fiestas fijas en su fecha civil y la Pascua en la fecha occidental.",
-        "ru": "Приход празднует непереходящие праздники по гражданской дате, а Пасху по западной пасхалии."
-      }
+      "julian": { "en": "This parish keeps the Old Calendar.", "es": "Esta parroquia sigue el calendario antiguo.", "ru": "Приход живёт по старому стилю." },
+      "revised-julian": { "en": "This parish keeps the New Calendar.", "es": "Esta parroquia sigue el calendario nuevo.", "ru": "Приход живёт по новому стилю." },
+      "gregorian": { "en": "This parish keeps the Gregorian calendar.", "es": "Esta parroquia sigue el calendario gregoriano.", "ru": "Приход живёт по григорианскому календарю." }
     },
     "source": {
       "en": "Saints and fasting come from orthocal.info. Please confirm feast day times with the parish.",
@@ -290,11 +278,7 @@
     "addName": { "en": "Add a name", "es": "Añadir un nombre", "ru": "Добавить имя" },
     "removeName": { "en": "Remove name {n}", "es": "Quitar el nombre {n}", "ru": "Убрать имя {n}" },
     "namesCount": { "en": "{n} of {max} names", "es": "{n} de {max} nombres", "ru": "{n} из {max} имён" },
-    "namesHint": {
-      "en": "Please write first names only, as given at baptism (Elizabeth, not Betty). In Church Slavonic the names are read in the genitive case; you may write them however you are used to and the clergy will read them correctly.",
-      "es": "Escriba solo los nombres de pila, tal como se dieron en el bautismo (Isabel, no Isa). En eslavo eclesiástico los nombres se leen en genitivo; escríbalos como acostumbre y el clero los leerá correctamente.",
-      "ru": "Пишите только имена, данные в крещении, полной формой (Елисавета, а не Лиза). На церковнославянском имена пишутся в родительном падеже (о здравии Иоанна, Марии), но можно написать как привычно, священнослужители прочитают правильно."
-    },
+    "namesHint": { "en": "Write baptismal names only, one per line.", "es": "Escriba solo nombres de bautismo, uno por línea.", "ru": "Пишите только имена в крещении, по одному в строке." },
     "commemoration": { "en": "Where to commemorate", "es": "Dónde recordarlos", "ru": "Где помянуть" },
     "suggested": { "en": "Suggested donation. Give what you can.", "es": "Donativo sugerido. Dé lo que pueda.", "ru": "Рекомендуемое пожертвование. Жертвуйте по силам." },
     "candle": { "en": "Candle", "es": "Vela", "ru": "Свеча" },

@@ -25,35 +25,30 @@
       "id": "proskomedia",
       "for": ["health", "repose"],
       "label": { "en": "Proskomedia", "es": "Proskomidia", "ru": "Проскомидия" },
-      "text": { "en": "A particle is taken from the prosphora for each name.", "es": "Se toma una partícula de la prósfora por cada nombre.", "ru": "За каждое имя вынимается частица из просфоры." },
       "suggested": 5
     },
     {
       "id": "liturgy",
       "for": ["health", "repose"],
       "label": { "en": "At the Liturgy", "es": "En la Liturgia", "ru": "На литургии" },
-      "text": { "en": "The names are read aloud during the Divine Liturgy.", "es": "Los nombres se leen en voz alta durante la Divina Liturgia.", "ru": "Имена читаются вслух на литургии." },
       "suggested": 10
     },
     {
       "id": "moleben",
       "for": ["health"],
       "label": { "en": "Moleben", "es": "Moleben", "ru": "Молебен" },
-      "text": { "en": "Remembered at the next moleben.", "es": "Se recuerdan en el próximo moleben.", "ru": "Поминовение на ближайшем молебне." },
       "suggested": 10
     },
     {
       "id": "panikhida",
       "for": ["repose"],
       "label": { "en": "Panikhida", "es": "Panijida", "ru": "Панихида" },
-      "text": { "en": "Remembered at the next memorial service.", "es": "Se recuerdan en el próximo oficio de difuntos.", "ru": "Поминовение на ближайшей панихиде." },
       "suggested": 10
     },
     {
       "id": "sorokoust",
       "for": ["health", "repose"],
       "label": { "en": "Sorokoust (40 days)", "es": "Sorokoust (40 días)", "ru": "Сорокоуст" },
-      "text": { "en": "Remembered at the Liturgy for forty days.", "es": "Se recuerdan en la Liturgia durante cuarenta días.", "ru": "Поминовение на литургии в течение сорока дней." },
       "suggested": 40
     }
   ],
