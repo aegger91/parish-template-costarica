@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown, HandHeart, Menu, X } from 'lucide-react';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import Logo from '@/components/ui/Logo';
 import { navigation, site } from '@/content';
 import type { NavItem } from '@/content';
 import { useI18n } from '@/i18n';
@@ -76,7 +77,7 @@ export default function Header() {
         <div className="container-px mx-auto flex h-16 max-w-container items-center justify-between gap-3 sm:h-20 sm:gap-4 xl:max-w-[88rem] xl:gap-8">
           <Link to="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3" aria-label={`${t(site.name)}, ${ui('home')}`}>
             <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/40 bg-white transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:w-12">
-              <img src={site.logo.src} alt={site.logo.alt} width={48} height={48} className="h-full w-full object-cover" />
+              <Logo decorative />
             </span>
             <span className="line-clamp-2 min-w-0 font-serif text-[14px] font-semibold min-[400px]:text-[15px] leading-tight tracking-wide text-white sm:text-xl xl:text-[19px] 2xl:text-xl">
               {t(site.name)}

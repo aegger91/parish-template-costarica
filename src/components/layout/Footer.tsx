@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom';
 import { Globe, HandHeart, Mail, MapPin, Phone } from 'lucide-react';
 import { navigation, services, site } from '@/content';
 import { useI18n } from '@/i18n';
+import Logo from '@/components/ui/Logo';
+import { weekdayName } from '@/lib/calendar';
 import { telHref } from '@/lib/format';
 
 export default function Footer() {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
   const f = navigation.footer;
+  const multipleDays = new Set(services.map((s) => s.weekday)).size > 1;
   const host = site.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
 
   return (
@@ -15,7 +18,7 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-accent-400/50 bg-white">
-              <img src={site.logo.src} alt="" width={48} height={48} loading="lazy" className="h-full w-full object-cover" />
+              <Logo decorative />
             </span>
             <p className="min-w-0 break-words font-serif text-lg leading-snug text-white sm:text-xl">{t(site.name)}</p>
           </div>
@@ -73,7 +76,10 @@ export default function Footer() {
             {services.map((s) => (
               <li key={s.id} className="flex justify-between gap-4 border-b border-white/10 pb-3">
                 <span className="min-w-0">{t(s.name)}</span>
-                <span className="shrink-0 font-medium text-white">{s.display}</span>
+                <span className="shrink-0 font-medium text-white">
+                  {multipleDays && `${weekdayName(s.weekday, language.locale, 'short')} `}
+                  {s.display}
+                </span>
               </li>
             ))}
             <li className="pt-1 text-[13px] italic text-primary-300">{t(f.scheduleNote)}</li>

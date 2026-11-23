@@ -22,7 +22,11 @@ export default function ServiceTimes({ section }: { section: ServiceTimesSection
       <div className="container-px container-max">
         <Reveal>
           <SectionHeading eyebrow={t(section.eyebrow)} title={t(section.title)} tone="dark" rule={false} />
-          <ul className={`mx-auto mt-10 grid gap-6 ${services.length > 1 ? 'max-w-2xl sm:grid-cols-2' : 'max-w-sm'}`}>
+          <ul
+            className={`mx-auto mt-10 grid gap-6 ${
+              services.length >= 3 ? 'max-w-4xl sm:grid-cols-3' : services.length === 2 ? 'max-w-2xl sm:grid-cols-2' : 'max-w-sm'
+            }`}
+          >
             {services.map((s) => (
               <li
                 key={s.id}
