@@ -72,6 +72,20 @@ li {
 
   .section {
     padding-block: var(--section-y);
+    position: relative;
+  }
+
+  .section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(36rem, 78%);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--ornament-gold-soft), var(--ornament-gold), var(--ornament-gold-soft), transparent);
+    opacity: 0.7;
+    pointer-events: none;
   }
 
   @media (min-width: 640px) {
@@ -281,11 +295,65 @@ li {
 
   .card {
     border-radius: var(--radius-card);
-    border: 1px solid rgb(var(--color-accent-300) / 0.35);
-    background: linear-gradient(180deg, rgb(var(--color-ivory)), rgb(var(--color-parchment)));
+    border: 1px solid rgb(var(--color-accent-400) / 0.4);
+    background:
+      linear-gradient(165deg, rgb(var(--color-ivory)) 0%, rgb(var(--color-parchment)) 55%, rgb(var(--color-parchment-deep) / 0.85) 100%);
     box-shadow:
-      inset 0 0 0 1px rgb(var(--color-accent-100) / 0.5),
-      0 1px 3px rgb(var(--color-primary-950) / 0.06);
+      inset 0 0 0 1px rgb(var(--color-accent-100) / 0.65),
+      inset 0 1px 0 rgb(255 255 255 / 0.45),
+      0 2px 8px rgb(var(--color-primary-950) / 0.07);
+  }
+
+  /* Warm parchment panel with soft kiot (arched) top — for hero glance cards and feature panels */
+  .panel-kiot {
+    border-radius: 50% 50% var(--radius-card) var(--radius-card) / 18% 18% var(--radius-card) var(--radius-card);
+    border: 1px solid rgb(var(--color-accent-400) / 0.45);
+    background:
+      linear-gradient(180deg, rgb(var(--color-ivory)) 0%, rgb(var(--color-parchment)) 70%, rgb(var(--color-parchment-deep) / 0.9) 100%);
+    box-shadow:
+      inset 0 0 0 1px rgb(var(--color-accent-100) / 0.7),
+      inset 0 0 0 4px rgb(var(--color-ivory) / 0.55),
+      0 6px 18px rgb(var(--color-primary-950) / 0.18);
+  }
+
+  .font-slavonic {
+    font-family: 'Ponomar', 'Old Standard TT', 'Cormorant Garamond', 'EB Garamond', serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* Thin ornamental band under header / between major sections */
+  .ornament-band {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12px;
+    color: rgb(var(--color-accent-400));
+    background:
+      linear-gradient(90deg, transparent, rgb(var(--color-accent-500) / 0.35), transparent),
+      linear-gradient(180deg, rgb(var(--color-primary-950) / 0.15), transparent);
+  }
+
+  .ornament-band__motif {
+    display: block;
+    width: min(42rem, 92%);
+    height: 12px;
+  }
+
+  .section-ornament {
+    position: relative;
+  }
+
+  .section-ornament::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(28rem, 70%);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--ornament-gold-soft), var(--ornament-gold), var(--ornament-gold-soft), transparent);
+    opacity: 0.85;
   }
 
   /* Soft Byzantine arch on image frames */
@@ -331,11 +399,17 @@ li {
     @apply mt-1.5 text-[13px] text-rose-700;
   }
 
-  /* Hero elegance: richer liturgical overlay wash */
+  /* Hero: let the church photo read through — liturgical wash, not a flat tech gradient */
   .hero-overlay {
     background:
-      linear-gradient(180deg, rgb(var(--color-primary-950) / 0.72) 0%, rgb(var(--color-primary-950) / 0.45) 42%, rgb(var(--color-primary-900) / 0.94) 100%),
-      radial-gradient(ellipse 70% 55% at 50% 20%, rgb(var(--color-accent-500) / 0.12), transparent 70%);
+      linear-gradient(
+        180deg,
+        rgb(var(--color-primary-950) / 0.55) 0%,
+        rgb(var(--color-primary-950) / 0.28) 38%,
+        rgb(var(--color-primary-950) / 0.62) 72%,
+        rgb(var(--color-primary-950) / 0.88) 100%
+      ),
+      radial-gradient(ellipse 75% 50% at 50% 25%, rgb(var(--color-accent-400) / 0.14), transparent 70%);
   }
 }
 

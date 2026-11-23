@@ -38,7 +38,17 @@
     "findUs": { "en": "Find us", "es": "Cómo llegar", "ru": "Как нас найти" },
     "directions": { "en": "Directions", "es": "Indicaciones", "ru": "Маршрут" },
     "nextFeast": { "en": "Next feast", "es": "Próxima fiesta", "ru": "Ближайший праздник" },
-    "commemoration": { "en": "Submit a commemoration", "es": "Enviar una conmemoración", "ru": "Подать записку" }
+    "commemoration": { "en": "Submit a commemoration", "es": "Enviar una conmemoración", "ru": "Подать записку" },
+    "slavonicBlessing": {
+      "en": "Слава Іисусу Христу",
+      "es": "Слава Іисусу Христу",
+      "ru": "Слава Іисусу Христу"
+    },
+    "slavonicBlessingLabel": {
+      "en": "Church Slavonic greeting: Glory to Jesus Christ",
+      "es": "Saludo en eslavo eclesiástico: Gloria a Jesucristo",
+      "ru": "Церковнославянское приветствие: Слава Іисусу Христу"
+    }
   },
 
   "calendar": {

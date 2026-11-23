@@ -4,6 +4,7 @@ import { Clock, MapPin, Menu, ShoppingBag } from 'lucide-react';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import LiveBadge from '@/components/ui/LiveBadge';
 import { Brand } from '@/components/ui/Logo';
+import OrnamentBand from '@/components/ui/OrnamentBand';
 import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import { getPage, moduleOn, site } from '@/content';
 import { lookupUi, useI18n } from '@/i18n';
@@ -276,6 +277,13 @@ export default function Header() {
             )}
           </div>
         </div>
+        <OrnamentBand
+          className={
+            solid
+              ? 'text-accent-400/90 bg-primary-950/40'
+              : 'text-accent-300/80 bg-gradient-to-b from-primary-950/25 to-transparent'
+          }
+        />
       </header>
       <MobileDrawer open={drawer} onClose={closeDrawer} />
     </>

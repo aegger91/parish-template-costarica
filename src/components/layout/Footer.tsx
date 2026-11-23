@@ -5,6 +5,7 @@ import { Globe, Mail, MapPin, Phone } from 'lucide-react';
 import FormNotice from '@/components/ui/FormNotice';
 import type { FormState } from '@/components/ui/FormNotice';
 import { Brand } from '@/components/ui/Logo';
+import OrthodoxCross from '@/components/ui/OrthodoxCross';
 import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import ServiceDetail from '@/components/ui/ServiceDetail';
 import { navigation, services, site } from '@/content';
@@ -93,7 +94,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-accent-400/30 bg-primary-950 text-primary-100">
       <div className="ornament-divider pt-8 text-accent-400" aria-hidden>
-        <OrthodoxIcon name="cross" className="ornament-divider__cross h-4 w-4" strokeWidth={1.8} />
+        <OrthodoxCross className="ornament-divider__cross h-5 w-auto" strokeWidth={1.7} />
       </div>
       <div
         className={`container-px mx-auto grid max-w-[88rem] gap-10 py-10 sm:gap-12 sm:py-14 md:grid-cols-2 ${newsletter ? 'xl:grid-cols-4' : 'lg:grid-cols-3'}`}

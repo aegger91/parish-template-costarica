@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, MapPin, Navigation, PlayCircle } from 'lucide-react';
 import Highlight from '@/components/ui/Highlight';
 import LiveBadge from '@/components/ui/LiveBadge';
+import OrnamentBand from '@/components/ui/OrnamentBand';
+import OrthodoxCross from '@/components/ui/OrthodoxCross';
 import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import ServiceDetail from '@/components/ui/ServiceDetail';
 import { getPage, moduleOn, site } from '@/content';
@@ -31,8 +33,8 @@ export interface HeroSection extends SectionBase {
 
 function GlanceCard({ title, icon, children }: { title: string; icon: ReactNode; children: ReactNode }) {
   return (
-    <div className="rounded-2xl border border-accent-400/25 bg-primary-950/60 p-5 text-start shadow-[inset_0_0_0_1px_rgb(var(--color-accent-300)/0.12)] backdrop-blur-md sm:p-6">
-      <p className="eyebrow flex items-center gap-2 text-[11px] text-accent-300">
+    <div className="panel-kiot p-5 text-start sm:p-6">
+      <p className="eyebrow flex items-center gap-2 text-[11px] text-accent-700">
         {icon}
         {title}
       </p>
@@ -58,21 +60,21 @@ function Today() {
   const civilShort = formatDay(now.jdn, language.locale, { day: 'numeric', month: 'short' });
   return (
     <>
-      <p className="font-heading text-xl font-semibold leading-snug text-white">
+      <p className="font-heading text-xl font-semibold leading-snug text-primary-900">
         {isOldCalendar(style) ? ui('calendar.civilWithOldStyle', { civil: `${civil.split(',')[0]}, ${civilShort}`, old: oldShort }) : civil}
       </p>
       {feast ? (
-        <p className="mt-3 flex items-start gap-2 text-[15px] font-semibold text-accent-200">
-          <OrthodoxIcon name="cross" className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
+        <p className="mt-3 flex items-start gap-2 text-[15px] font-semibold text-accent-800">
+          <OrthodoxCross className="mt-0.5 h-4 w-auto shrink-0 text-accent-600" strokeWidth={1.8} />
           {t(feast.name)}
         </p>
       ) : saint ? (
-        <p className="mt-3 line-clamp-2 text-[14px] leading-snug text-primary-100">{saint}</p>
+        <p className="mt-3 line-clamp-2 text-[14px] leading-snug text-ink-700">{saint}</p>
       ) : null}
-      {day && usesOrthocalCycle(style) && <p className="mt-2 text-[13px] text-primary-200">{fastNote(day, ui)}</p>}
+      {day && usesOrthocalCycle(style) && <p className="mt-2 text-[13px] text-ink-500">{fastNote(day, ui)}</p>}
       {upcoming && (
-        <p className="mt-3 text-[13px] text-primary-200">
-          {ui('hero.nextFeast')}: <span className="text-white">{t(upcoming.feast.name)}</span>,{' '}
+        <p className="mt-3 text-[13px] text-ink-700">
+          {ui('hero.nextFeast')}: <span className="font-semibold text-primary-900">{t(upcoming.feast.name)}</span>,{' '}
           {dayLabel(upcoming.jdn, now.jdn, language.locale, ui)}
         </p>
       )}
@@ -87,7 +89,7 @@ function Upcoming({ count }: { count: number }) {
   const live = liveService(now);
   const list = upcomingServices(now, 10).slice(0, count);
   const [selected, setSelected] = useState<ServiceOccurrence | null>(null);
-  if (!list.length) return <p className="text-[14px] text-primary-200">{ui('hero.noServices')}</p>;
+  if (!list.length) return <p className="text-[14px] text-ink-500">{ui('hero.noServices')}</p>;
   return (
     <>
       <ul className="space-y-2.5">
@@ -96,26 +98,26 @@ function Upcoming({ count }: { count: number }) {
           const feast = feastsOn(style, o.jdn)[0];
           const name = t(o.service.name);
           return (
-            <li key={`${o.jdn}-${o.service.id}`} className="border-b border-white/10 pb-2.5 last:border-0 last:pb-0">
+            <li key={`${o.jdn}-${o.service.id}`} className="border-b border-accent-300/35 pb-2.5 last:border-0 last:pb-0">
               <button
                 type="button"
                 onClick={() => setSelected(o)}
-                className="flex w-full items-baseline justify-between gap-3 rounded-md text-start transition-colors hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400"
+                className="flex w-full items-baseline justify-between gap-3 rounded-md text-start transition-colors hover:bg-accent-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400"
                 aria-label={ui('schedule.openDetails', { name })}
               >
                 <span className="min-w-0">
-                  <span className={`block text-[15px] font-medium leading-snug ${o.service.highlight || feast ? 'text-accent-200' : 'text-white'}`}>
+                  <span className={`block text-[15px] font-medium leading-snug ${o.service.highlight || feast ? 'text-accent-800' : 'text-primary-900'}`}>
                     {name}
                   </span>
-                  {feast && <span className="block text-[12px] text-accent-300">{t(feast.name)}</span>}
+                  {feast && <span className="block text-[12px] text-accent-700">{t(feast.name)}</span>}
                 </span>
-                <span className="shrink-0 text-end text-[13px] text-primary-100">
+                <span className="shrink-0 text-end text-[13px] text-ink-500">
                   {isOn ? (
-                    <span className="font-semibold text-rose-300">{ui('live.now')}</span>
+                    <span className="font-semibold text-rose-700">{ui('live.now')}</span>
                   ) : (
                     <>
                       {dayLabel(o.jdn, now.jdn, language.locale, ui)}
-                      <span className="block font-semibold text-white">{formatTime(o.service.time, language.locale)}</span>
+                      <span className="block font-semibold text-primary-900">{formatTime(o.service.time, language.locale)}</span>
                     </>
                   )}
                 </span>
@@ -140,14 +142,24 @@ export default function Hero({ section }: { section: HeroSection }) {
 
   return (
     <section className="relative overflow-hidden bg-primary-950">
-      <img src={section.image} alt="" {...{ fetchpriority: 'high' }} className="absolute inset-0 h-full w-full object-cover" />
+      <img
+        src={section.image}
+        alt=""
+        {...{ fetchpriority: 'high' }}
+        className="absolute inset-0 h-full w-full scale-[1.02] object-cover object-center"
+      />
       <div aria-hidden className="hero-overlay absolute inset-0" />
+      {/* Soft gold wash so the interior photo stays readable as a churchly plane */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_18%,rgb(var(--color-accent-400)/0.18),transparent_65%)]"
+      />
 
-      <div className="container-px relative mx-auto max-w-[80rem] pb-12 pt-28 sm:pb-16 sm:pt-36 lg:pt-48">
+      <div className="container-px relative mx-auto max-w-[80rem] pb-10 pt-32 sm:pb-14 sm:pt-40 lg:pt-48">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.75, ease: 'easeOut' }}
           className="mx-auto max-w-3xl text-center"
         >
           {live && (
@@ -161,11 +173,23 @@ export default function Hero({ section }: { section: HeroSection }) {
               )}
             </div>
           )}
-          <h1 className="font-heading text-[40px] font-semibold leading-[1.18] text-white sm:text-6xl lg:text-7xl">
+
+          <p
+            className="font-slavonic text-[17px] leading-snug text-accent-200 sm:text-xl"
+            lang="cu"
+            title={ui('hero.slavonicBlessingLabel')}
+          >
+            {ui('hero.slavonicBlessing')}
+          </p>
+          <div className="ornament-divider mt-4 text-accent-300" aria-hidden>
+            <OrthodoxCross className="ornament-divider__cross h-5 w-auto" strokeWidth={1.7} />
+          </div>
+
+          <h1 className="mt-5 font-heading text-[40px] font-semibold leading-[1.18] text-white sm:text-6xl lg:text-7xl">
             <Highlight text={t(section.title)} />
           </h1>
           {section.eyebrow && <p className="eyebrow mt-6 text-[11px] text-accent-300 sm:text-[12px]">{t(section.eyebrow)}</p>}
-          {section.tagline && <p className="mt-5 text-base leading-relaxed text-primary-100 sm:text-lg">{t(section.tagline)}</p>}
+          {section.tagline && <p className="mt-5 text-base leading-relaxed text-primary-50 sm:text-lg">{t(section.tagline)}</p>}
 
           {(section.primaryCta || section.secondaryCta) && (
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
@@ -197,23 +221,23 @@ export default function Hero({ section }: { section: HeroSection }) {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
-            className="mx-auto mt-12 grid max-w-6xl gap-4 md:grid-cols-3 lg:mt-16"
+            transition={{ duration: 0.7, delay: 0.12, ease: 'easeOut' }}
+            className="mx-auto mt-12 grid max-w-6xl gap-4 md:grid-cols-3 lg:mt-14"
           >
             <GlanceCard title={ui('hero.upcoming')} icon={<Clock className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden />}>
               <Upcoming count={upcoming} />
               {services && (
-                <Link to={services.path} className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-accent-200 hover:text-accent-100">
+                <Link to={services.path} className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-accent-700 hover:text-accent-800">
                   {ui('hero.fullSchedule')}
                   <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" strokeWidth={2} aria-hidden />
                 </Link>
               )}
             </GlanceCard>
-            <GlanceCard title={ui('today')} icon={<OrthodoxIcon name="cross" className="h-3.5 w-3.5" strokeWidth={2} />}>
+            <GlanceCard title={ui('today')} icon={<OrthodoxCross className="h-3.5 w-auto" strokeWidth={1.8} />}>
               <Today />
             </GlanceCard>
             <GlanceCard title={ui('hero.findUs')} icon={<MapPin className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden />}>
-              <address className="text-[15px] not-italic leading-relaxed text-white">
+              <address className="text-[15px] not-italic leading-relaxed text-primary-900">
                 {site.address.street}
                 <br />
                 {site.address.locality}, {site.address.region}
@@ -232,6 +256,8 @@ export default function Hero({ section }: { section: HeroSection }) {
           </motion.div>
         )}
       </div>
+
+      <OrnamentBand className="relative text-accent-300" />
     </section>
   );
 }
