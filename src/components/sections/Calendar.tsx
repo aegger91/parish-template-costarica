@@ -334,6 +334,9 @@ export default function Calendar({ section }: { section: CalendarSection }) {
                     </button>
                   );
                 })}
+                {Array.from({ length: (7 - ((lead + list.length) % 7)) % 7 }, (_, i) => (
+                  <div key={`trail-${i}`} className="bg-white/60" aria-hidden />
+                ))}
               </div>
               <div className="mt-4 min-h-[5rem] rounded-2xl border border-primary-100 bg-primary-50/50 p-5" aria-live="polite">
                 {selectedInfo ? (
