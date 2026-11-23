@@ -1,49 +1,66 @@
-import { Mail, Phone } from 'lucide-react';
+import { useId, useState } from 'react';
+import { ChevronDown, Mail, Phone } from 'lucide-react';
 import type { ClergyMember } from '@/content';
 import { useI18n } from '@/i18n';
 import { initials, telHref } from '@/lib/format';
 
 export default function ClergyCard({ member }: { member: ClergyMember }) {
-  const { t } = useI18n();
+  const { t, ui } = useI18n();
+  const [open, setOpen] = useState(false);
+  const bioId = useId();
   const name = t(member.name);
+  const bio = t(member.bio);
 
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-primary-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg hover:shadow-primary-900/10 sm:p-7">
-      <div className="flex items-start justify-between gap-4">
-        <div className="min-w-0">
-          <h3 className="font-serif text-xl font-semibold text-primary-900">{name}</h3>
-          <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-accent-600">{t(member.role)}</p>
-        </div>
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-sm transition-shadow hover:shadow-lg hover:shadow-primary-900/10">
+      <div className="relative flex aspect-[4/3] items-center justify-center bg-primary-900">
         {member.photo ? (
-          <img src={member.photo} alt="" loading="lazy" className="h-12 w-12 shrink-0 rounded-full object-cover" />
+          <img src={member.photo} alt={name} loading="lazy" className="h-full w-full object-cover object-top" />
         ) : (
-          <span
-            aria-hidden
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-900 font-serif text-base font-semibold text-accent-300"
-          >
+          <span aria-hidden className="flex h-24 w-24 items-center justify-center rounded-full border border-accent-400/60 font-heading text-4xl font-semibold text-accent-300">
             {initials(name)}
           </span>
         )}
       </div>
-      {(member.phone || member.email) && (
-        <div className="mt-5 space-y-2.5 border-t border-primary-100 pt-5 text-sm text-ink-700">
-          {member.phone && (
-            <a href={telHref(member.phone)} className="flex min-h-6 items-center gap-2.5 transition-colors hover:text-primary-900">
-              <Phone className="h-3.5 w-3.5 shrink-0 text-accent-600" strokeWidth={1.8} aria-hidden />
-              {member.phone}
-            </a>
-          )}
-          {member.email && (
-            <a
-              href={`mailto:${member.email}`}
-              className="flex min-h-6 items-center gap-2.5 break-all transition-colors hover:text-primary-900"
-            >
-              <Mail className="h-3.5 w-3.5 shrink-0 text-accent-600" strokeWidth={1.8} aria-hidden />
-              {member.email}
-            </a>
-          )}
-        </div>
-      )}
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <p className="eyebrow text-[11px] text-accent-600">{t(member.role)}</p>
+        <h3 className="mt-1.5 font-heading text-2xl font-semibold leading-snug text-primary-900">{name}</h3>
+        {bio && (
+          <>
+            <p id={bioId} className={`mt-3 text-[15px] leading-relaxed text-ink-700 ${open ? '' : 'line-clamp-3'}`}>
+              {bio}
+            </p>
+            {bio.length > 140 && (
+              <button
+                type="button"
+                onClick={() => setOpen((v) => !v)}
+                aria-expanded={open}
+                aria-controls={bioId}
+                className="mt-2 inline-flex min-h-9 w-fit items-center gap-1 text-[13px] font-semibold text-accent-700 hover:text-accent-800"
+              >
+                {ui(open ? 'showLess' : 'readMore')}
+                <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} strokeWidth={1.8} aria-hidden />
+              </button>
+            )}
+          </>
+        )}
+        {(member.phone || member.email) && (
+          <div className="mt-auto space-y-2.5 border-t border-primary-100 pt-5 text-sm text-ink-700 [&:not(:first-child)]:mt-5">
+            {member.phone && (
+              <a href={telHref(member.phone)} dir="ltr" className="flex min-h-6 w-fit items-center gap-2.5 transition-colors hover:text-primary-900">
+                <Phone className="h-3.5 w-3.5 shrink-0 text-accent-600" strokeWidth={1.8} aria-hidden />
+                {member.phone}
+              </a>
+            )}
+            {member.email && (
+              <a href={`mailto:${member.email}`} className="flex min-h-6 items-center gap-2.5 break-all transition-colors hover:text-primary-900">
+                <Mail className="h-3.5 w-3.5 shrink-0 text-accent-600" strokeWidth={1.8} aria-hidden />
+                {member.email}
+              </a>
+            )}
+          </div>
+        )}
+      </div>
     </article>
   );
 }

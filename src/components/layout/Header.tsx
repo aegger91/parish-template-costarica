@@ -1,249 +1,284 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { Clock, MapPin, Menu, ShoppingBag } from 'lucide-react';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
-import Logo from '@/components/ui/Logo';
+import LiveBadge from '@/components/ui/LiveBadge';
+import { Brand } from '@/components/ui/Logo';
 import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
-import { navigation, site } from '@/content';
-import type { NavItem } from '@/content';
-import { useI18n } from '@/i18n';
+import { getPage, moduleOn, site } from '@/content';
+import { lookupUi, useI18n } from '@/i18n';
+import { isLive, upcomingServices } from '@/lib/calendar';
+import { cartCount, useCart } from '@/lib/cart';
+import { useParishNow } from '@/lib/hooks';
+import { donateItem, navTree } from '@/lib/nav';
+import type { ResolvedNavItem } from '@/lib/nav';
+import { formatTime } from '@/lib/time';
+import { dayLabel } from '@/lib/when';
+import MobileDrawer from './MobileDrawer';
+import NavDropdown from './NavDropdown';
 
-function flatten(items: NavItem[]): NavItem[] {
-  return items.flatMap((item) => (item.children ? item.children : [item]));
+const GAP = 22;
+/** With fewer top-level entries than this left in the bar, the drawer is used instead. */
+const MIN_VISIBLE = 3;
+
+function useMediaQuery(query: string): boolean {
+  const [match, setMatch] = useState(() => window.matchMedia(query).matches);
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const on = () => setMatch(mq.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, [query]);
+  return match;
+}
+
+/**
+ * Fits as many top-level entries in the bar as there is room for and moves the rest into "More".
+ * Widths are measured from a hidden copy of the menu, so it works for any language and any number of pages.
+ */
+function usePriorityNav(count: number, deps: unknown[]) {
+  const navRef = useRef<HTMLDivElement>(null);
+  const measureRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(count);
+
+  const compute = useCallback(() => {
+    const nav = navRef.current;
+    const measure = measureRef.current;
+    if (!nav || !measure) return;
+    const widths = [...measure.children].map((c) => c.getBoundingClientRect().width);
+    const more = widths.pop() ?? 0;
+    const available = nav.clientWidth;
+    const total = (k: number) => widths.slice(0, k).reduce((a, b) => a + b, 0) + GAP * Math.max(0, k - 1);
+    if (total(count) <= available) {
+      setVisible(count);
+      return;
+    }
+    let k = count - 1;
+    while (k > 0 && total(k) + GAP + more > available) k -= 1;
+    setVisible(k);
+  }, [count]);
+
+  useLayoutEffect(compute, [compute, ...deps]);
+
+  useEffect(() => {
+    const ro = new ResizeObserver(compute);
+    if (navRef.current) ro.observe(navRef.current);
+    document.fonts?.ready.then(compute).catch(() => {});
+    return () => ro.disconnect();
+  }, [compute]);
+
+  return { navRef, measureRef, visible };
+}
+
+function CartButton({ tone }: { tone: 'light' | 'dark' }) {
+  const { ui } = useI18n();
+  const lines = useCart();
+  const count = cartCount(lines);
+  const cart = getPage('cart');
+  if (!cart || (!moduleOn('store') && count === 0)) return null;
+  return (
+    <Link
+      to={cart.path}
+      className={`relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors ${
+        tone === 'light' ? 'text-white hover:bg-white/10' : 'text-primary-800 hover:bg-primary-50'
+      }`}
+      aria-label={count ? ui('cart.labelCount', { count: String(count) }) : ui('cart.label')}
+    >
+      <ShoppingBag className="h-[22px] w-[22px]" strokeWidth={1.6} aria-hidden />
+      {count > 0 && (
+        <span className="absolute -end-0.5 top-0.5 flex h-5 min-w-5 items-center justify-center rounded-pill bg-accent-400 px-1 text-[11px] font-bold text-primary-900">
+          {count > 99 ? '99+' : count}
+        </span>
+      )}
+    </Link>
+  );
+}
+
+function NextService() {
+  const { t, ui, language } = useI18n();
+  const now = useParishNow();
+  if (isLive(now)) return <LiveBadge size="sm" />;
+  const next = upcomingServices(now, 8)[0];
+  if (!next) return null;
+  return (
+    <Link
+      to={getPage('services')?.path ?? '/'}
+      className="flex min-w-0 items-center gap-2 truncate transition-colors hover:text-white"
+    >
+      <Clock className="h-3.5 w-3.5 shrink-0 text-accent-300" strokeWidth={1.8} aria-hidden />
+      <span className="truncate">
+        <span className="text-primary-200">{ui('header.next')}: </span>
+        {t(next.service.name)}, {dayLabel(next.jdn, now.jdn, language.locale, ui)} {formatTime(next.service.time, language.locale)}
+      </span>
+    </Link>
+  );
 }
 
 export default function Header() {
-  const { t, ui } = useI18n();
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const location = useLocation();
-  const onHome = location.pathname === '/';
-  const solid = scrolled || !onHome || open;
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const { t, ui, lang } = useI18n();
+  const { pathname } = useLocation();
+  const [condensed, setCondensed] = useState(false);
+  const [drawer, setDrawer] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const desktop = useMediaQuery('(min-width: 1024px)');
+  const solid = condensed || pathname !== '/';
+
+  const links = navTree.filter((i) => !i.button);
+  const { navRef, measureRef, visible } = usePriorityNav(links.length, [lang, desktop, condensed]);
+  const useDrawer = !desktop || visible < Math.min(MIN_VISIBLE, links.length);
+  const shown = links.slice(0, visible);
+  const overflow = links.slice(visible);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setCondensed(window.scrollY > 32);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-    setOpenDropdown(null);
-  }, [location.pathname]);
+  useEffect(() => setDrawer(false), [pathname]);
 
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [open]);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Escape') return;
-      setOpenDropdown(null);
-      if (open) {
-        setOpen(false);
-        menuButtonRef.current?.focus();
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [open]);
+  const closeDrawer = useCallback(() => {
+    setDrawer(false);
+    menuButton.current?.focus();
+  }, []);
 
   const linkClass = (active: boolean) =>
     [
       'nav-link relative whitespace-nowrap font-medium uppercase transition-colors duration-200',
       active
-        ? `${solid ? 'text-accent-500' : 'text-accent-400'} after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-full after:bg-accent-400`
-        : solid
-          ? 'text-primary-100/80 hover:text-white'
-          : 'text-white/85 hover:text-white',
+        ? 'text-accent-300 after:absolute after:-bottom-1.5 after:start-0 after:h-0.5 after:w-full after:bg-accent-400'
+        : 'text-white/85 hover:text-white',
     ].join(' ');
 
-  const donate = navigation.donate;
+  const more: ResolvedNavItem = {
+    id: 'more',
+    to: '#more',
+    label: lookupUi('more') ?? { en: 'More' },
+    external: false,
+    button: false,
+    children: overflow,
+  };
+
+  const renderItem = (item: ResolvedNavItem) =>
+    item.children.length ? (
+      <NavDropdown key={item.id} item={item} triggerClass={linkClass} />
+    ) : (
+      <NavLink key={item.id} to={item.to} end={item.to === '/'} className={({ isActive }) => linkClass(isActive)}>
+        {t(item.label)}
+      </NavLink>
+    );
 
   return (
     <>
       <header
         className={[
-          'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-          solid ? 'bg-primary-900/95 shadow-lg shadow-primary-950/30 backdrop-blur-md' : 'bg-transparent',
+          'fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300',
+          solid ? 'bg-primary-900/95 shadow-lg shadow-primary-950/30 backdrop-blur-md' : 'bg-gradient-to-b from-primary-950/60 to-transparent',
         ].join(' ')}
       >
-        <div className="container-px mx-auto flex h-16 max-w-container items-center justify-between gap-3 sm:h-20 sm:gap-4 xl:max-w-[88rem] xl:gap-8">
-          <Link to="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3" aria-label={`${t(site.name)}, ${ui('home')}`}>
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/40 bg-white transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:w-12">
-              <Logo decorative />
-            </span>
-            <span className="line-clamp-2 min-w-0 font-serif text-[14px] font-semibold min-[400px]:text-[15px] leading-tight tracking-wide text-white sm:text-xl xl:text-[19px] 2xl:text-xl">
-              {t(site.name)}
-            </span>
+        {/* Utility strip: next service or live badge, address, language. Folds away on scroll. */}
+        <div
+          className={`hidden overflow-hidden border-b border-white/10 transition-[max-height,opacity] duration-300 lg:block ${
+            condensed ? 'max-h-0 border-transparent opacity-0' : 'max-h-10 opacity-100'
+          }`}
+          aria-hidden={condensed}
+        >
+          <div className="container-px mx-auto flex h-9 max-w-[88rem] items-center justify-between gap-6 text-[12.5px] text-white/85">
+            <div className="flex min-w-0 items-center gap-6">
+              <NextService />
+              <a
+                href={site.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                tabIndex={condensed ? -1 : undefined}
+                className="hidden min-w-0 items-center gap-2 truncate transition-colors hover:text-white xl:flex"
+              >
+                <MapPin className="h-3.5 w-3.5 shrink-0 text-accent-300" strokeWidth={1.8} aria-hidden />
+                <span className="truncate">{t(site.address.singleLine)}</span>
+              </a>
+            </div>
+            <div className="flex shrink-0 items-center gap-4">
+              {moduleOn('zapiski') && getPage('zapiski') && (
+                <Link to={getPage('zapiski')!.path} tabIndex={condensed ? -1 : undefined} className="flex items-center gap-1.5 hover:text-white">
+                  <OrthodoxIcon name="note" className="h-3.5 w-3.5 text-accent-300" strokeWidth={1.8} />
+                  {ui('header.submitNote')}
+                </Link>
+              )}
+              <LanguageSwitcher variant="bar" />
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`container-px mx-auto flex max-w-[88rem] items-center gap-3 transition-[height] duration-300 sm:gap-4 ${
+            condensed ? 'h-16' : 'h-16 sm:h-20'
+          }`}
+        >
+          <Link to="/" className="flex min-w-0 shrink items-center gap-2.5 sm:gap-3" aria-label={`${t(site.name)}, ${ui('home')}`}>
+            <Brand
+              size={condensed ? 'sm' : 'md'}
+              nameClassName="line-clamp-2 text-[14px] min-[400px]:text-[15px] sm:text-lg lg:max-w-[13rem] xl:max-w-[16rem] xl:text-[19px]"
+            />
           </Link>
 
-          <nav className="hidden shrink-0 items-center gap-5 xl:flex 2xl:gap-6" aria-label={ui('primaryNav')}>
-            {navigation.header.map((item) =>
-              item.children ? (
-                <div
-                  key={item.id}
-                  className="relative"
-                  onMouseEnter={() => setOpenDropdown(item.id)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                  onBlur={(e) => {
-                    if (!e.currentTarget.contains(e.relatedTarget as Node)) setOpenDropdown(null);
-                  }}
-                >
-                  <button
-                    type="button"
-                    onClick={() => setOpenDropdown((v) => (v === item.id ? null : item.id))}
-                    className={[
-                      linkClass(item.children.some((c) => c.to === location.pathname)),
-                      'flex items-center gap-1',
-                    ].join(' ')}
-                    aria-haspopup="true"
-                    aria-expanded={openDropdown === item.id}
-                  >
-                    {t(item.label)}
-                    <ChevronDown
-                      className={`h-3.5 w-3.5 transition-transform ${openDropdown === item.id ? 'rotate-180' : ''}`}
-                      strokeWidth={1.8}
-                      aria-hidden
-                    />
-                  </button>
-                  <AnimatePresence>
-                    {openDropdown === item.id && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.16 }}
-                        className="absolute left-1/2 top-full -translate-x-1/2 pt-3"
-                      >
-                        <div className="w-60 overflow-hidden rounded-2xl border border-primary-100 bg-white py-2 shadow-xl shadow-primary-950/15">
-                          {item.children.map((child) => (
-                            <NavLink
-                              key={child.id}
-                              to={child.to ?? '/'}
-                              onClick={() => setOpenDropdown(null)}
-                              className={({ isActive }) =>
-                                [
-                                  'block px-5 py-2.5 text-[14px] font-medium tracking-[0.04em] transition-colors',
-                                  isActive ? 'text-accent-600' : 'text-primary-700 hover:bg-primary-50 hover:text-primary-900',
-                                ].join(' ')
-                              }
-                            >
-                              {t(child.label)}
-                            </NavLink>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <NavLink key={item.id} to={item.to ?? '/'} end={item.to === '/'} className={({ isActive }) => linkClass(isActive)}>
+          <nav
+            ref={navRef}
+            className={`relative hidden h-full min-w-0 flex-1 items-center justify-end lg:flex ${useDrawer ? 'invisible' : ''}`}
+            style={{ gap: GAP }}
+            aria-label={ui('primaryNav')}
+          >
+            <div ref={measureRef} aria-hidden className="pointer-events-none invisible absolute start-0 top-0 flex whitespace-nowrap" style={{ gap: GAP }}>
+              {links.map((item) => (
+                <span key={item.id} className={`${linkClass(false)} flex items-center gap-1`}>
                   {t(item.label)}
-                </NavLink>
-              ),
+                  {item.children.length > 0 && <span className="inline-block w-3.5" />}
+                </span>
+              ))}
+              <span className={`${linkClass(false)} flex items-center gap-1`}>
+                {ui('more')}
+                <span className="inline-block w-3.5" />
+              </span>
+            </div>
+            {!useDrawer && (
+              <>
+                {shown.map(renderItem)}
+                {overflow.length > 0 && <NavDropdown item={more} triggerClass={linkClass} />}
+              </>
             )}
-
-            <Link to={donate.to} className="btn-accent min-h-0 gap-1.5 px-4 py-2.5 2xl:px-5">
-              <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
-              {t(donate.label)}
-            </Link>
-
-            <LanguageSwitcher variant="desktop" />
           </nav>
 
-          <div className="flex shrink-0 items-center gap-1 sm:gap-3 xl:hidden">
-            <Link to={donate.to} className="btn-accent hidden min-h-0 gap-1.5 px-4 py-2 sm:inline-flex">
-              <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
-              {t(donate.label)}
-            </Link>
-            <div className="max-[359px]:hidden">
-              <LanguageSwitcher variant="compact" />
-            </div>
-            <button
-              ref={menuButtonRef}
-              type="button"
-              onClick={() => setOpen(true)}
-              className="flex h-11 w-11 items-center justify-center rounded-full text-white"
-              aria-label={ui('openMenu')}
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-            >
-              <Menu className="h-6 w-6" strokeWidth={1.6} aria-hidden />
-            </button>
+          <div className="ms-auto flex shrink-0 items-center gap-1 sm:gap-2 lg:ms-0">
+            <span className="max-[399px]:hidden lg:hidden">
+              <LiveBadge size="sm" />
+            </span>
+            <CartButton tone="light" />
+            {donateItem && (
+              <Link to={donateItem.to} className="btn-accent hidden min-h-0 gap-1.5 px-4 py-2.5 sm:inline-flex">
+                <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
+                {t(donateItem.label)}
+              </Link>
+            )}
+            <span className="hidden sm:block lg:hidden">
+              <LanguageSwitcher variant="bar" />
+            </span>
+            {useDrawer && (
+              <button
+                ref={menuButton}
+                type="button"
+                onClick={() => setDrawer(true)}
+                className="flex h-11 w-11 items-center justify-center rounded-full text-white hover:bg-white/10"
+                aria-label={ui('openMenu')}
+                aria-expanded={drawer}
+                aria-controls="mobile-menu"
+              >
+                <Menu className="h-6 w-6" strokeWidth={1.6} aria-hidden />
+              </button>
+            )}
           </div>
         </div>
       </header>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            id="mobile-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label={ui('menu')}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[70] flex h-full flex-col bg-primary-950 xl:hidden"
-          >
-            <div className="container-px flex h-16 shrink-0 items-center justify-between sm:h-20">
-              <span className="font-serif text-lg text-white">{ui('menu')}</span>
-              <button
-                type="button"
-                autoFocus
-                onClick={() => setOpen(false)}
-                className="flex h-11 w-11 items-center justify-center rounded-full text-white"
-                aria-label={ui('closeMenu')}
-              >
-                <X className="h-6 w-6" strokeWidth={1.6} aria-hidden />
-              </button>
-            </div>
-            <nav
-              className="container-px mt-4 flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto overscroll-contain pb-6"
-              aria-label={ui('primaryNav')}
-            >
-              {flatten(navigation.header).map((item, i) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.04 * i, duration: 0.3 }}
-                >
-                  <NavLink
-                    to={item.to ?? '/'}
-                    end={item.to === '/'}
-                    onClick={() => setOpen(false)}
-                    className={({ isActive }) =>
-                      [
-                        'block border-b border-white/10 py-3.5 font-serif text-2xl transition-colors',
-                        isActive ? 'text-accent-300' : 'text-white/90 hover:text-accent-200',
-                      ].join(' ')
-                    }
-                  >
-                    {t(item.label)}
-                  </NavLink>
-                </motion.div>
-              ))}
-              <Link to={donate.to} onClick={() => setOpen(false)} className="btn-accent mt-6 w-full text-[13px]">
-                <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
-                {t(donate.label)}
-              </Link>
-            </nav>
-            <div className="container-px shrink-0 border-t border-white/10 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
-              <LanguageSwitcher variant="menu" />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <MobileDrawer open={drawer} onClose={closeDrawer} />
     </>
   );
 }
