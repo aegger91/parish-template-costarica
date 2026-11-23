@@ -4,9 +4,9 @@
   "seo": {
     "title": { "en": "Give", "es": "Donar", "ru": "Пожертвования" },
     "description": {
-      "en": "Support Our Lady of Vladimir Church with a one-time or monthly gift.",
-      "es": "Apoye a la Iglesia de la Virgen de Vladimir con un donativo único o mensual.",
-      "ru": "Поддержите храм Владимирской иконы Божией Матери разовым или ежемесячным пожертвованием."
+      "en": "Support St. Example Orthodox Church with a one-time or monthly gift.",
+      "es": "Apoye a la Iglesia Ortodoxa San Ejemplo con un donativo único o mensual.",
+      "ru": "Поддержите храм святого Примера разовым или ежемесячным пожертвованием."
     }
   },
   "sections": [
@@ -30,7 +30,7 @@
       "asideTitle": { "en": "Questions About Giving", "es": "Preguntas sobre donaciones", "ru": "Вопросы о пожертвованиях" },
       "asideText": {
         "en": "Our treasurer will gladly help with gifts, receipts, or other ways to give.",
-        "es": "Nuestra tesorera le ayudará con gusto con donativos, recibos u otras formas de donar.",
+        "es": "Nuestro tesorero le ayudará con gusto con donativos, recibos u otras formas de donar.",
         "ru": "Наш казначей с радостью поможет с пожертвованиями, квитанциями и другими способами помощи."
       },
       "quote": {

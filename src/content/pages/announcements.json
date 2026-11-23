@@ -4,9 +4,9 @@
   "seo": {
     "title": { "en": "Parish News", "es": "Noticias de la parroquia", "ru": "Приходские новости" },
     "description": {
-      "en": "News, notices, and events from Our Lady of Vladimir parish.",
-      "es": "Noticias, avisos y eventos de la parroquia de la Virgen de Vladimir.",
-      "ru": "Новости, объявления и события прихода Владимирской иконы Божией Матери."
+      "en": "News, notices, and events from St. Example Orthodox Church.",
+      "es": "Noticias, avisos y eventos de la Iglesia Ortodoxa San Ejemplo.",
+      "ru": "Новости, объявления и события храма святого Примера."
     }
   },
   "sections": [
@@ -17,9 +17,9 @@
       "eyebrow": { "en": "News", "es": "Noticias", "ru": "Новости" },
       "title": { "en": "Parish News", "es": "Noticias de la parroquia", "ru": "Приходские новости" },
       "subtitle": {
-        "en": "News and notices from the parish will appear here soon.",
-        "es": "Próximamente compartiremos aquí noticias y avisos de la parroquia.",
-        "ru": "Скоро здесь появятся новости и объявления прихода."
+        "en": "News and notices from the parish.",
+        "es": "Noticias y avisos de la parroquia.",
+        "ru": "Новости и объявления прихода."
       }
     },
     {

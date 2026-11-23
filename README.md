@@ -1,6 +1,6 @@
-# Our Lady of Vladimir Church
+# Orthodox Parish Website Template
 
-Website for Our Lady of Vladimir Russian Orthodox Church in Vázquez de Coronado, San José, Costa Rica. React, Vite, TypeScript, and Tailwind CSS. English, Spanish, and Russian.
+A blank, reusable parish website. All names, people, times, and photos are samples ("St. Example Orthodox Church") to be replaced with real parish content. React, Vite, TypeScript, and Tailwind CSS. English, Spanish, and Russian.
 
 ```bash
 npm install
@@ -11,19 +11,22 @@ npm run typecheck && npm run lint
 
 The build is a static single-page app. On any host, send unknown paths to `index.html` so links like `/about` load directly.
 
-## Where things live
+## Making it a parish's site
 
-- `src/content/`: all text and data as JSON. Translatable fields look like `{ "en": "...", "es": "...", "ru": "..." }`.
-  - `site.json`: parish name, logo, address, email, map link, OrthodoxConnect links
+- **Content:** everything lives in `src/content/` as JSON. Translatable fields look like `{ "en": "...", "es": "...", "ru": "..." }`.
+  - `site.json`: parish name, jurisdiction, diocese, address, email, phone, map link, OrthodoxConnect links
   - `services.json`, `clergy.json`, `gallery.json`, `news.json`, `giving.json`, `navigation.json`, `ui.json`
-  - `pages/*.json`: one file per page with SEO and an ordered `sections` list. Reorder sections, or set `"enabled": false` to hide one.
-  - `languages.json`: languages shown in the switcher
-- `src/styles/tokens.css`: colors, fonts, radii, and spacing
+- **Logo:** set `logo.src` in `site.json` (for example `/images/logo.png`). When it is empty, an Orthodox cross is shown instead.
+- **Theme:** colors, fonts, radii, and spacing are in `src/styles/tokens.css`. The file ends with a commented example of a full re-theme.
+- **Sections:** each page is a file in `src/content/pages/` with an ordered `sections` list. Move sections to reorder them, or set `"enabled": false` to hide one.
+- **Images:** placeholders are in `public/images/placeholder/`. Replace them, or point the content files at new images.
+- **Head tags:** `index.html` and `public/site.webmanifest` hold the default title, description, and app name shown before the app loads.
+
+Content strings can use `{time:sunday-liturgy}` to insert a service time and `{site.name}` or `{site.address.singleLine}` to insert a site field.
+
 - `src/components/sections/`: page sections; `registry.ts` maps each section `type` to its component
 - `src/lib/donate.ts`: the single donation handler (not connected to a payment provider yet, see the TODO)
 - `src/lib/orthodoxConnect.ts`: OrthodoxConnect feed (shows labeled sample data until `feedUrl` is set)
-
-Content strings can use `{time:sunday-liturgy}` to insert a service time and `{site.name}` to insert a site field.
 
 ## Adding a language
 

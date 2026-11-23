@@ -4,9 +4,9 @@
   "seo": {
     "title": { "en": "Plan a Visit", "es": "Planee su visita", "ru": "Как нас найти" },
     "description": {
-      "en": "Address, directions, and what to expect at Our Lady of Vladimir Church in Vázquez de Coronado, San José, Costa Rica.",
-      "es": "Dirección, cómo llegar y qué esperar en la Iglesia de la Virgen de Vladimir en Vázquez de Coronado, San José, Costa Rica.",
-      "ru": "Адрес, как добраться и что ожидать в храме Владимирской иконы Божией Матери в Васкес-де-Коронадо, Сан-Хосе, Коста-Рика."
+      "en": "Address, directions, and what to expect at St. Example Orthodox Church in Sample City.",
+      "es": "Dirección, cómo llegar y qué esperar en la Iglesia Ortodoxa San Ejemplo en Ciudad de Ejemplo.",
+      "ru": "Адрес, как добраться и чего ожидать в храме святого Примера в городе Пример."
     }
   },
   "sections": [
@@ -17,9 +17,9 @@
       "eyebrow": { "en": "Plan a Visit", "es": "Planee su visita", "ru": "Как нас найти" },
       "title": { "en": "We Look Forward to Your Visit", "es": "Le esperamos", "ru": "Рады видеть вас" },
       "subtitle": {
-        "en": "The church is located in Vázquez de Coronado, San José, Costa Rica.",
-        "es": "La iglesia está en Vázquez de Coronado, San José, Costa Rica.",
-        "ru": "Храм находится в Васкес-де-Коронадо, Сан-Хосе, Коста-Рика."
+        "en": "The church is located in Sample City. Sample text: parking is available beside the church.",
+        "es": "La iglesia está en Ciudad de Ejemplo. Texto de ejemplo: hay estacionamiento junto a la iglesia.",
+        "ru": "Храм находится в городе Пример. Пример текста: рядом с храмом есть парковка."
       }
     },
     {
@@ -28,12 +28,12 @@
       "enabled": true,
       "addressTitle": { "en": "Address", "es": "Dirección", "ru": "Адрес" },
       "directionsLabel": { "en": "Get Directions", "es": "Cómo llegar", "ru": "Проложить маршрут" },
-      "expectTitle": { "en": "What to Expect", "es": "Qué esperar", "ru": "Что ожидать" },
+      "expectTitle": { "en": "What to Expect", "es": "Qué esperar", "ru": "Чего ожидать" },
       "expectParagraphs": [
         {
-          "en": "Divine Liturgy begins at {time:sunday-liturgy} and confession at {time:sunday-confession}.",
-          "es": "La Divina Liturgia comienza a las {time:sunday-liturgy} y la confesión a las {time:sunday-confession}.",
-          "ru": "Божественная литургия начинается в {time:sunday-liturgy}, а исповедь в {time:sunday-confession}."
+          "en": "Great Vespers begins Saturday at {time:saturday-vespers}. On Sunday, confession is at {time:sunday-confession} and the Divine Liturgy begins at {time:sunday-liturgy}.",
+          "es": "Las Grandes Vísperas comienzan el sábado a las {time:saturday-vespers}. El domingo, la confesión es a las {time:sunday-confession} y la Divina Liturgia comienza a las {time:sunday-liturgy}.",
+          "ru": "Всенощное бдение начинается в субботу в {time:saturday-vespers}. В воскресенье исповедь в {time:sunday-confession}, Божественная литургия в {time:sunday-liturgy}."
         },
         {
           "en": "Only baptized and confessed Orthodox Christians receive communion. Everyone may venerate the icons, light a candle, and receive the blessed bread at the end of the Divine Liturgy.",
@@ -43,9 +43,9 @@
       ],
       "languagesTitle": { "en": "Languages", "es": "Idiomas", "ru": "Языки" },
       "languagesText": {
-        "en": "Services are celebrated in Spanish, with portions in Church Slavonic and English.",
-        "es": "Los servicios se celebran en español, con partes en eslavo eclesiástico e inglés.",
-        "ru": "Богослужения совершаются на испанском языке, частично на церковнославянском и английском."
+        "en": "Sample text: services are celebrated in English, with portions in other languages.",
+        "es": "Texto de ejemplo: los servicios se celebran en inglés, con partes en otros idiomas.",
+        "ru": "Пример текста: богослужения совершаются на английском языке, частично на других языках."
       }
     }
   ]

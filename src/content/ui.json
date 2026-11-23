@@ -50,7 +50,7 @@
     "errorEmail": { "en": "Please enter a valid email address.", "es": "Escriba un correo electrónico válido.", "ru": "Введите действительный адрес электронной почты." },
     "notConfigured": {
       "en": "Online giving is not connected yet. Thank you for your patience. To give today, please contact the parish treasurer.",
-      "es": "Las donaciones en línea aún no están conectadas. Gracias por su paciencia. Para donar hoy, comuníquese con la tesorera de la parroquia.",
+      "es": "Las donaciones en línea aún no están conectadas. Gracias por su paciencia. Para donar hoy, comuníquese con el tesorero de la parroquia.",
       "ru": "Онлайн-пожертвования пока не подключены. Благодарим за терпение. Чтобы сделать пожертвование сегодня, свяжитесь с казначеем прихода."
     },
     "success": {

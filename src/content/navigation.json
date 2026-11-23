@@ -25,9 +25,9 @@
     "visitHeading": { "en": "Visit Us", "es": "Visítenos", "ru": "Приезжайте" },
     "scheduleHeading": { "en": "Service Schedule", "es": "Horario de servicios", "ru": "Богослужения" },
     "scheduleNote": {
-      "en": "Sundays and feast days. See the schedule for weekday services.",
-      "es": "Los domingos y días festivos. Consulte el horario para servicios de días de semana.",
-      "ru": "По воскресеньям и праздникам. О будничных богослужениях смотрите расписание."
+      "en": "Weekly services. See the schedule for feast days.",
+      "es": "Servicios semanales. Consulte el horario para los días de fiesta.",
+      "ru": "Богослужения недели. О праздниках смотрите расписание."
     },
     "scheduleLink": { "to": "/worship", "label": { "en": "Schedule", "es": "Horario", "ru": "Расписание" } },
     "giveHeading": { "en": "Support the Parish", "es": "Apoye a la parroquia", "ru": "Поддержать приход" }

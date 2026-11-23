@@ -1,11 +1,20 @@
 {
   "weekly": [
     {
+      "id": "saturday-vespers",
+      "weekday": 6,
+      "time": "18:00",
+      "display": "6:00 PM",
+      "icon": "calendar",
+      "highlight": false,
+      "name": { "en": "Great Vespers", "es": "Grandes Vísperas", "ru": "Всенощное бдение" }
+    },
+    {
       "id": "sunday-confession",
       "weekday": 0,
       "time": "09:00",
       "display": "9:00 AM",
-      "icon": "calendar",
+      "icon": "clock",
       "highlight": false,
       "name": { "en": "Confession", "es": "Confesión", "ru": "Исповедь" }
     },
@@ -14,7 +23,7 @@
       "weekday": 0,
       "time": "10:00",
       "display": "10:00 AM",
-      "icon": "clock",
+      "icon": "church",
       "highlight": true,
       "name": { "en": "Divine Liturgy", "es": "Divina Liturgia", "ru": "Божественная литургия" }
     }

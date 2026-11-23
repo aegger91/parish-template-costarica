@@ -1,51 +1,43 @@
 {
   "members": [
     {
-      "id": "kaplanov",
-      "name": { "en": "Priest George Kaplanov", "es": "Sacerdote Jorge Kaplanov", "ru": "Иерей Георгий Капланов" },
+      "id": "rector",
+      "name": { "en": "Fr. John Example", "es": "P. Juan Ejemplo", "ru": "Иерей Иоанн Примеров" },
       "role": { "en": "Rector", "es": "Párroco", "ru": "Настоятель" },
-      "phone": "+1 (415) 205-4424",
-      "email": "priest.kaplanov@pravmail.ru",
+      "phone": "+1 (555) 010-0101",
+      "email": "rector@example.org",
       "photo": ""
     },
     {
-      "id": "miranda",
-      "name": { "en": "Archpriest Ignacio Miranda", "es": "Arcipreste Ignacio Miranda", "ru": "Протоиерей Игнасио Миранда" },
-      "role": { "en": "Priest", "es": "Sacerdote", "ru": "Священник" },
-      "phone": "+506 6031-9373",
-      "email": "ignaciopadre@gmail.com",
+      "id": "deacon",
+      "name": { "en": "Deacon Stephen Sample", "es": "Diácono Esteban Muestra", "ru": "Диакон Стефан Образцов" },
+      "role": { "en": "Deacon", "es": "Diácono", "ru": "Диакон" },
+      "phone": "+1 (555) 010-0102",
+      "email": "deacon@example.org",
       "photo": ""
     },
     {
-      "id": "warden",
-      "name": { "en": "Alexander Ivanov", "es": "Aleksandr Ivanov", "ru": "Александр Иванов" },
-      "role": { "en": "Warden (Starosta)", "es": "Starosta (encargado parroquial)", "ru": "Староста" },
-      "phone": "+506 8399-9777",
-      "email": "americatourscr@hotmail.com",
+      "id": "council",
+      "name": { "en": "Mary Sample", "es": "María Muestra", "ru": "Мария Образцова" },
+      "role": { "en": "Parish Council President", "es": "Presidenta del consejo parroquial", "ru": "Председатель приходского совета" },
+      "phone": "+1 (555) 010-0103",
+      "email": "council@example.org",
       "photo": ""
     },
     {
-      "id": "sister",
-      "name": { "en": "Matushka Doris Miranda", "es": "Matushka Doris Miranda", "ru": "Матушка Дорис Миранда" },
-      "role": { "en": "Head Sister", "es": "Hermana mayor", "ru": "Старшая сестра" },
-      "phone": "+506 6274-3363",
-      "email": "",
-      "photo": ""
-    },
-    {
-      "id": "secretary",
-      "name": { "en": "Tatiana Klinkova", "es": "Tatiana Klinkova", "ru": "Татьяна Клинкова" },
-      "role": { "en": "Parish Secretary", "es": "Secretaria parroquial", "ru": "Секретарь прихода" },
-      "phone": "+506 4419-2968",
-      "email": "tania@costaricaluxury.com",
+      "id": "choir",
+      "name": { "en": "Anna Example", "es": "Ana Ejemplo", "ru": "Анна Примерова" },
+      "role": { "en": "Choir Director", "es": "Directora del coro", "ru": "Регент хора" },
+      "phone": "",
+      "email": "choir@example.org",
       "photo": ""
     },
     {
       "id": "treasurer",
-      "name": { "en": "Alevtina Kiriushenko", "es": "Alevtina Kiriushenko", "ru": "Алевтина Кирюшенко" },
-      "role": { "en": "Treasurer", "es": "Tesorera", "ru": "Казначей" },
-      "phone": "+506 8980-1479",
-      "email": "aleftina_01@hotmail.com",
+      "name": { "en": "Peter Sample", "es": "Pedro Muestra", "ru": "Пётр Образцов" },
+      "role": { "en": "Treasurer", "es": "Tesorero", "ru": "Казначей" },
+      "phone": "+1 (555) 010-0105",
+      "email": "treasurer@example.org",
       "photo": ""
     }
   ]

@@ -55,3 +55,26 @@
   --section-y: 3.5rem;
   --section-y-lg: 6rem;
 }
+
+/*
+  Example re-theme: burgundy with the same gold accent and different fonts.
+  Uncomment this block (or replace the values above), and change the @import
+  line to load the new fonts:
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-primary-50: 250 240 241;
+  --color-primary-100: 242 220 223;
+  --color-primary-200: 226 181 187;
+  --color-primary-300: 203 133 143;
+  --color-primary-400: 168 82 96;
+  --color-primary-500: 138 46 62;
+  --color-primary-600: 117 32 48;
+  --color-primary-700: 98 24 39;
+  --color-primary-800: 80 19 32;
+  --color-primary-900: 62 14 25;
+  --color-primary-950: 42 9 17;
+  --font-serif: 'EB Garamond', Georgia, serif;
+  --font-sans: 'Source Sans 3', system-ui, sans-serif;
+}
+*/

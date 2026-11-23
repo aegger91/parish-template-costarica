@@ -4,9 +4,9 @@
   "seo": {
     "title": { "en": "Contact", "es": "Contacto", "ru": "Контакты" },
     "description": {
-      "en": "Contact Our Lady of Vladimir Church for baptisms, weddings, confessions, visits, or questions about the Orthodox faith.",
-      "es": "Comuníquese con la Iglesia de la Virgen de Vladimir para bautismos, bodas, confesiones, visitas o preguntas sobre la fe ortodoxa.",
-      "ru": "Свяжитесь с храмом Владимирской иконы Божией Матери по вопросам крещения, венчания, исповеди, посещения или православной веры."
+      "en": "Contact St. Example Orthodox Church for baptisms, weddings, confessions, visits, or questions about the Orthodox faith.",
+      "es": "Comuníquese con la Iglesia Ortodoxa San Ejemplo para bautismos, bodas, confesiones, visitas o preguntas sobre la fe ortodoxa.",
+      "ru": "Свяжитесь с храмом святого Примера по вопросам крещения, венчания, исповеди, посещения или православной веры."
     }
   },
   "sections": [

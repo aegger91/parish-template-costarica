@@ -4,9 +4,9 @@
   "seo": {
     "title": { "en": "About the Parish", "es": "Sobre la parroquia", "ru": "О приходе" },
     "description": {
-      "en": "The story, faith, and clergy of Our Lady of Vladimir Church, a parish of the {site.diocese}.",
-      "es": "La historia, la fe y el clero de la Iglesia de la Virgen de Vladimir, parroquia de la {site.diocese}.",
-      "ru": "История, вера и духовенство храма Владимирской иконы Божией Матери: {site.diocese}."
+      "en": "The story, faith, and clergy of St. Example Orthodox Church, a parish of the {site.diocese}.",
+      "es": "La historia, la fe y el clero de la Iglesia Ortodoxa San Ejemplo, parroquia de la {site.diocese}.",
+      "ru": "История, вера и духовенство храма святого Примера."
     }
   },
   "sections": [
@@ -15,7 +15,7 @@
       "type": "pageHero",
       "enabled": true,
       "eyebrow": { "en": "Our Parish", "es": "Nuestra parroquia", "ru": "Наш приход" },
-      "title": { "en": "Our Lady of Vladimir Church", "es": "La Iglesia de la Virgen de Vladimir", "ru": "Храм Владимирской иконы Божией Матери" },
+      "title": { "en": "{site.name}", "es": "{site.name}", "ru": "{site.name}" },
       "subtitle": { "en": "{site.diocese}", "es": "{site.diocese}", "ru": "{site.diocese}" }
     },
     {
@@ -25,40 +25,40 @@
       "title": { "en": "Our Story", "es": "Nuestra historia", "ru": "Наша история" },
       "paragraphs": [
         {
-          "en": "The Russian Orthodox presence in Costa Rica gathers Spanish-, Russian-, and English-speaking faithful under the roof of a single church. The parish of Our Lady of Vladimir belongs to the Eastern American Diocese of the Russian Orthodox Church Outside of Russia (ROCOR), under the protection of the revered image of the Mother of God of Vladimir.",
-          "es": "La presencia ortodoxa rusa en Costa Rica reúne a fieles de habla hispana, rusa e inglesa bajo el techo de una sola iglesia. La parroquia de la Virgen de Vladimir pertenece a la Diócesis Oriental Americana de la Iglesia Ortodoxa Rusa Fuera de Rusia (ROCOR), bajo la protección de la venerada imagen de la Madre de Dios de Vladimir.",
-          "ru": "Русское православие в Коста-Рике собирает верующих, говорящих по-испански, по-русски и по-английски, под кровом одной церкви. Приход Владимирской иконы Божией Матери принадлежит Восточно-Американской епархии Русской Православной Церкви Заграницей (РПЦЗ), под покровом чтимого образа Владимирской иконы Божией Матери."
+          "en": "Sample text. Tell how the parish began: who gathered the first community, when the first Divine Liturgy was served, and who the patron saint is.",
+          "es": "Texto de ejemplo. Cuente cómo comenzó la parroquia: quién reunió a la primera comunidad, cuándo se celebró la primera Divina Liturgia y quién es el santo patrono.",
+          "ru": "Пример текста. Расскажите, как появился приход: кто собрал первую общину, когда была отслужена первая литургия и кто небесный покровитель храма."
         },
         {
-          "en": "The temple, built in the Russian style with its sky-blue dome crowned by golden stars and the three-barred Orthodox cross, was raised in Vázquez de Coronado. Beside the church stand the rectory and spaces for community life, on the green and quiet grounds typical of the Costa Rican highlands.",
-          "es": "El templo, de estilo ruso con su cúpula azul celeste coronada por estrellas doradas y la cruz ortodoxa de tres barras, fue levantado en Vázquez de Coronado. Junto a la iglesia se encuentran la casa parroquial y espacios para la comunidad, en un terreno verde y tranquilo típico de las montañas costarricenses.",
-          "ru": "Храм, построенный в русском стиле с голубым куполом, увенчанным золотыми звёздами, и с трёхконечным православным крестом, возведён в Васкес-де-Коронадо. Рядом с храмом находятся причтовый дом и помещения для общины, на тихой зелёной территории, типичной для гор Коста-Рики."
+          "en": "Sample text. Describe the church building and grounds: when the temple was built or consecrated, and what visitors will see when they arrive.",
+          "es": "Texto de ejemplo. Describa el templo y sus terrenos: cuándo se construyó o consagró, y qué verán los visitantes al llegar.",
+          "ru": "Пример текста. Опишите храм и территорию: когда храм был построен или освящён и что увидят гости, когда придут."
         },
         {
-          "en": "The Divine Liturgy is celebrated in Spanish, with portions in Church Slavonic. The parish follows the Julian calendar for major feasts and keeps the Russian liturgical tradition alive: a cappella singing, icons, incense, and the regular communion of the faithful.",
-          "es": "La Divina Liturgia se celebra en español, con partes en eslavo eclesiástico. La parroquia sigue el calendario juliano para las fiestas principales y mantiene viva la tradición litúrgica rusa: cantos a capela, íconos, incienso y la comunión regular de los fieles.",
-          "ru": "Божественная литургия совершается на испанском языке, частично на церковнославянском. Приход следует юлианскому календарю для главных праздников и хранит русское богослужебное предание: пение a cappella, иконы, каждение и регулярное причащение верующих."
+          "en": "Sample text. Describe parish life today: the languages of the services, the calendar the parish follows, the choir, and the ministries that serve the community.",
+          "es": "Texto de ejemplo. Describa la vida parroquial de hoy: los idiomas de los servicios, el calendario que sigue la parroquia, el coro y los ministerios que sirven a la comunidad.",
+          "ru": "Пример текста. Расскажите о жизни прихода сегодня: на каких языках идут службы, какого календаря придерживается приход, о хоре и служениях общины."
         }
       ],
       "aside": {
         "title": { "en": "Our Faith", "es": "Nuestra fe", "ru": "Наша вера" },
         "items": [
           {
-            "id": "rocor",
+            "id": "jurisdiction",
             "icon": "church",
             "text": {
-              "en": "We belong to the Russian Orthodox Church Outside of Russia (ROCOR).",
-              "es": "Pertenecemos a la Iglesia Ortodoxa Rusa Fuera de Rusia (ROCOR).",
-              "ru": "Мы принадлежим к Русской Православной Церкви Заграницей (РПЦЗ)."
+              "en": "We belong to the {site.jurisdiction}.",
+              "es": "Pertenecemos a la {site.jurisdiction}.",
+              "ru": "Юрисдикция: {site.jurisdiction}."
             }
           },
           {
             "id": "languages",
             "icon": "globe",
             "text": {
-              "en": "We celebrate in Spanish, with portions in Slavonic and English. Prayer belongs to all.",
-              "es": "Celebramos en español, con partes en eslavo e inglés. La oración pertenece a todos.",
-              "ru": "Богослужения на испанском, частично на славянском и английском. Молитва принадлежит всем."
+              "en": "Sample text: we celebrate in English, with portions in other languages. Prayer belongs to all.",
+              "es": "Texto de ejemplo: celebramos en inglés, con partes en otros idiomas. La oración pertenece a todos.",
+              "ru": "Пример текста: богослужения на английском, частично на других языках. Молитва принадлежит всем."
             }
           },
           {

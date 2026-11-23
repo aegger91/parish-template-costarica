@@ -1,3 +1,49 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "sample-news-pascha",
+      "date": "2026-04-05",
+      "title": {
+        "en": "Sample news: Holy Week and Pascha schedule",
+        "es": "Noticia de ejemplo: horario de Semana Santa y Pascua",
+        "ru": "Пример новости: расписание Страстной седмицы и Пасхи"
+      },
+      "summary": {
+        "en": "This is a sample news item. Replace it with your own notices, or leave the list empty to show the “Coming soon” message.",
+        "es": "Esta es una noticia de ejemplo. Reemplácela con sus propios avisos, o deje la lista vacía para mostrar el mensaje «Próximamente».",
+        "ru": "Это пример новости. Замените её своими объявлениями или оставьте список пустым, чтобы показать сообщение «Скоро»."
+      },
+      "url": ""
+    },
+    {
+      "id": "sample-news-catechism",
+      "date": "2026-03-15",
+      "title": {
+        "en": "Sample news: catechism classes begin",
+        "es": "Noticia de ejemplo: comienzan las clases de catequesis",
+        "ru": "Пример новости: начинаются занятия по катехизису"
+      },
+      "summary": {
+        "en": "Sample text. Classes for adults and inquirers meet after the Divine Liturgy. Everyone is welcome.",
+        "es": "Texto de ejemplo. Las clases para adultos y personas interesadas se reúnen después de la Divina Liturgia. Todos son bienvenidos.",
+        "ru": "Пример текста. Занятия для взрослых и интересующихся проходят после литургии. Приглашаются все."
+      },
+      "url": ""
+    },
+    {
+      "id": "sample-news-feast",
+      "date": "2026-02-01",
+      "title": {
+        "en": "Sample news: patronal feast",
+        "es": "Noticia de ejemplo: fiesta patronal",
+        "ru": "Пример новости: престольный праздник"
+      },
+      "summary": {
+        "en": "Sample text. Divine Liturgy followed by a parish meal. Bring a dish to share if you can.",
+        "es": "Texto de ejemplo. Divina Liturgia seguida de una comida parroquial. Traiga un plato para compartir si puede.",
+        "ru": "Пример текста. Божественная литургия, затем приходская трапеза. По возможности принесите угощение."
+      },
+      "url": ""
+    }
+  ]
 }

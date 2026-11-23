@@ -3,14 +3,14 @@
   "path": "/",
   "seo": {
     "title": {
-      "en": "Our Lady of Vladimir Church | Russian Orthodox Church in Vázquez de Coronado, Costa Rica",
-      "es": "Iglesia de la Virgen de Vladimir | Iglesia Ortodoxa Rusa en Vázquez de Coronado, Costa Rica",
-      "ru": "Храм Владимирской иконы Божией Матери | Русская Православная Церковь в Коста-Рике"
+      "en": "St. Example Orthodox Church | Orthodox Parish in Sample City",
+      "es": "Iglesia Ortodoxa San Ejemplo | Parroquia ortodoxa en Ciudad de Ejemplo",
+      "ru": "Храм святого Примера | Православный приход в городе Пример"
     },
     "description": {
-      "en": "Our Lady of Vladimir Russian Orthodox Church in Vázquez de Coronado, San José, Costa Rica. Divine Liturgy Sundays at {time:sunday-liturgy}, Confession at {time:sunday-confession}. Everyone is welcome.",
-      "es": "Iglesia Ortodoxa Rusa de la Virgen de Vladimir en Vázquez de Coronado, San José, Costa Rica. Divina Liturgia los domingos a las {time:sunday-liturgy}, Confesión a las {time:sunday-confession}. Todos son bienvenidos.",
-      "ru": "Храм Владимирской иконы Божией Матери в Васкес-де-Коронадо, Сан-Хосе, Коста-Рика. Божественная литургия по воскресеньям в {time:sunday-liturgy}, исповедь в {time:sunday-confession}. Все приглашены."
+      "en": "St. Example Orthodox Church in Sample City. Great Vespers Saturdays at {time:saturday-vespers}, Divine Liturgy Sundays at {time:sunday-liturgy}. Everyone is welcome.",
+      "es": "Iglesia Ortodoxa San Ejemplo en Ciudad de Ejemplo. Gran Vísperas los sábados a las {time:saturday-vespers}, Divina Liturgia los domingos a las {time:sunday-liturgy}. Todos son bienvenidos.",
+      "ru": "Храм святого Примера в городе Пример. Всенощное бдение по субботам в {time:saturday-vespers}, Божественная литургия по воскресеньям в {time:sunday-liturgy}. Все приглашены."
     }
   },
   "sections": [
@@ -18,20 +18,20 @@
       "id": "hero",
       "type": "hero",
       "enabled": true,
-      "image": "/images/church-front.jpg",
+      "image": "/images/placeholder/hero.jpg",
       "title": {
-        "en": "Our Lady of [[Vladimir]] Church",
-        "es": "Iglesia de la [[Virgen de Vladimir]]",
-        "ru": "Храм [[Владимирской]] иконы Божией Матери"
+        "en": "St. [[Example]] Orthodox Church",
+        "es": "Iglesia Ortodoxa [[San Ejemplo]]",
+        "ru": "Храм [[святого Примера]]"
       },
       "eyebrow": { "en": "{site.jurisdiction}", "es": "{site.jurisdiction}", "ru": "{site.jurisdiction}" },
       "tagline": { "en": "Everyone is welcome.", "es": "Todos son bienvenidos.", "ru": "Все приглашены." },
       "primaryCta": { "to": "/visit", "label": { "en": "Plan a Visit", "es": "Planee su visita", "ru": "Как нас найти" } },
       "secondaryCta": { "to": "/worship", "label": { "en": "Service Schedule", "es": "Horario de servicios", "ru": "Расписание богослужений" } },
       "servicesLine": {
-        "en": "Sundays: Confession {time:sunday-confession} · Liturgy {time:sunday-liturgy}",
-        "es": "Domingos: Confesión {time:sunday-confession} · Liturgia {time:sunday-liturgy}",
-        "ru": "Воскресенье: Исповедь {time:sunday-confession} · Литургия {time:sunday-liturgy}"
+        "en": "Saturday: Vespers {time:saturday-vespers} · Sunday: Liturgy {time:sunday-liturgy}",
+        "es": "Sábado: Vísperas {time:saturday-vespers} · Domingo: Liturgia {time:sunday-liturgy}",
+        "ru": "Суббота: Всенощная {time:saturday-vespers} · Воскресенье: Литургия {time:sunday-liturgy}"
       }
     },
     {
@@ -46,29 +46,29 @@
       },
       "paragraphs": [
         {
-          "en": "Our Lady of Vladimir Church is a parish of the Eastern American Diocese of the Russian Orthodox Church Outside of Russia (ROCOR), located in Vázquez de Coronado in the province of San José. We are a spiritual family of Costa Ricans, Russians, and Orthodox Christians of many nations, united by the Orthodox faith and the sacred liturgy.",
-          "es": "La Iglesia de la Virgen de Vladimir es una parroquia de la Diócesis Oriental Americana de la Iglesia Ortodoxa Rusa Fuera de Rusia (ROCOR), ubicada en Vázquez de Coronado, en la provincia de San José. Somos una familia espiritual de costarricenses, rusos y ortodoxos de muchas naciones, unidos por la fe ortodoxa y la liturgia sagrada.",
-          "ru": "Храм Владимирской иконы Божией Матери относится к Восточно-Американской епархии Русской Православной Церкви Заграницей (РПЦЗ) и находится в Васкес-де-Коронадо, в провинции Сан-Хосе. Наш приход объединяет костариканцев, русских и православных многих народов в одну духовную семью, связанную православной верой и священной литургией."
+          "en": "St. Example Orthodox Church is a sample parish of the {site.diocese}. Use this space for a short welcome: who you are, where you are, and how long the parish has been serving the community.",
+          "es": "La Iglesia Ortodoxa San Ejemplo es una parroquia de ejemplo de la {site.diocese}. Use este espacio para una breve bienvenida: quiénes son, dónde están y desde cuándo la parroquia sirve a la comunidad.",
+          "ru": "Храм святого Примера служит образцом прихода. Разместите здесь короткое приветствие: кто вы, где находитесь и как давно приход служит людям."
         },
         {
-          "en": "Services are celebrated in Spanish, with portions in Church Slavonic and English. Whatever your background, you will be received with Christian warmth.",
-          "es": "Los servicios se celebran en español, con partes en eslavo eclesiástico e inglés. Sea cual sea su origen, será recibido con calidez cristiana.",
-          "ru": "Богослужения совершаются на испанском языке, частично на церковнославянском и английском. Кто бы вы ни были, вас примут с христианской теплотой."
+          "en": "Sample text: services are celebrated in English, with portions in other languages. Whatever your background, you will be received with Christian warmth.",
+          "es": "Texto de ejemplo: los servicios se celebran en inglés, con partes en otros idiomas. Sea cual sea su origen, será recibido con calidez cristiana.",
+          "ru": "Пример текста: богослужения совершаются на английском языке, частично на других языках. Кто бы вы ни были, вас примут с христианской теплотой."
         }
       ],
       "link": { "to": "/about", "label": { "en": "Meet Our Parish", "es": "Conozca nuestra parroquia", "ru": "О нашем приходе" } },
       "image": {
-        "src": "/images/icon-vladimir.jpg",
+        "src": "/images/placeholder/icon.jpg",
         "alt": {
-          "en": "The Vladimir Icon of the Mother of God",
-          "es": "Ícono de la Virgen de Vladimir",
-          "ru": "Владимирская икона Божией Матери"
+          "en": "Placeholder for the parish patron icon",
+          "es": "Espacio para el ícono patronal de la parroquia",
+          "ru": "Место для храмовой иконы"
         }
       },
       "caption": {
-        "en": "The Vladimir Icon of the Mother of God, protectress of the Russian land",
-        "es": "La Virgen de Vladimir, protectora de la tierra rusa",
-        "ru": "Владимирская икона Божией Матери, покровительница Земли Русской"
+        "en": "Sample caption: the patron icon of the parish",
+        "es": "Texto de ejemplo: el ícono patronal de la parroquia",
+        "ru": "Пример подписи: храмовая икона прихода"
       }
     },
     {
@@ -76,11 +76,11 @@
       "type": "serviceTimes",
       "enabled": true,
       "eyebrow": { "en": "Service Schedule", "es": "Horario de servicios", "ru": "Богослужения" },
-      "title": { "en": "Sundays at the Parish", "es": "Domingos en la parroquia", "ru": "Воскресные богослужения" },
+      "title": { "en": "Weekly Services", "es": "Servicios semanales", "ru": "Богослужения недели" },
       "note": {
-        "en": "Weekday services as announced.",
-        "es": "Los servicios de semana se anuncian en la parroquia.",
-        "ru": "Богослужения по будням объявляются в приходе."
+        "en": "Feast day services as announced.",
+        "es": "Los servicios de los días de fiesta se anuncian en la parroquia.",
+        "ru": "О праздничных богослужениях объявляется в приходе."
       },
       "link": { "to": "/worship", "label": { "en": "See the calendar", "es": "Ver el calendario", "ru": "Открыть календарь" } }
     },
@@ -97,9 +97,9 @@
           "to": "/visit",
           "title": { "en": "Getting Here", "es": "Cómo llegar", "ru": "Как добраться" },
           "text": {
-            "en": "Calle Corazón de Jesús, Vázquez de Coronado, San José. A short drive from downtown San José.",
-            "es": "Calle Corazón de Jesús, Vázquez de Coronado, San José. A pocos minutos del centro de San José.",
-            "ru": "Калья Корасон-де-Хесус, Васкес-де-Коронадо, Сан-Хосе. Недалеко от центра Сан-Хосе."
+            "en": "{site.address.singleLine}. Sample text: parking is available beside the church.",
+            "es": "{site.address.singleLine}. Texto de ejemplo: hay estacionamiento junto a la iglesia.",
+            "ru": "{site.address.singleLine}. Пример текста: рядом с храмом есть парковка."
           }
         },
         {
@@ -119,9 +119,9 @@
           "to": "/about",
           "title": { "en": "Community", "es": "Comunidad", "ru": "Община" },
           "text": {
-            "en": "A spiritual family of Costa Ricans, Russians, and Orthodox Christians of many nations, united in faith and worship.",
-            "es": "Una familia espiritual de costarricenses, rusos y ortodoxos de muchas naciones, unidos en la fe y en el culto.",
-            "ru": "Духовная семья костариканцев, русских и православных многих народов, объединённых верой и богослужением."
+            "en": "Sample text: a spiritual family of many backgrounds, united in faith and worship.",
+            "es": "Texto de ejemplo: una familia espiritual de muchos orígenes, unida en la fe y en el culto.",
+            "ru": "Пример текста: духовная семья людей разного происхождения, объединённых верой и богослужением."
           }
         }
       ]
@@ -131,7 +131,7 @@
       "type": "quote",
       "enabled": true,
       "variant": "dark",
-      "backgroundImage": "/images/icon-vladimir.jpg",
+      "backgroundImage": "/images/placeholder/icon.jpg",
       "text": {
         "en": "“It is truly meet to bless you, O Theotokos, the ever-blessed and most immaculate Mother of our God.”",
         "es": "«Es verdaderamente justo llamarte bienaventurada, Oh Madre de Dios, la siempre bienaventurada e inmaculada y Madre de nuestro Dios.»",
