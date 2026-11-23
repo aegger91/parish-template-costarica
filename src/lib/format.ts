@@ -1,3 +1,5 @@
+export { formatDate } from './time';
+
 export function telHref(phone: string): string {
   return `tel:${phone.replace(/[^+\d]/g, '')}`;
 }
@@ -18,8 +20,8 @@ export function formatMoney(amount: number, currency: string, locale: string): s
   }).format(amount);
 }
 
-export function formatDate(iso: string, locale: string): string {
-  if (!iso) return '';
-  const [y, m, d] = iso.split('-').map(Number);
-  return new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(y, m - 1, d));
+export function formatDuration(minutes: number, locale: string): string {
+  if (minutes < 60) return new Intl.NumberFormat(locale, { style: 'unit', unit: 'minute', unitDisplay: 'short' }).format(minutes);
+  const hours = minutes / 60;
+  return new Intl.NumberFormat(locale, { style: 'unit', unit: 'hour', unitDisplay: 'long', maximumFractionDigits: 1 }).format(hours);
 }

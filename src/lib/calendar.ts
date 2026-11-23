@@ -1,166 +1,198 @@
-import { site } from '@/content';
+import { datedServices, feasts, moduleOn, services, site } from '@/content';
+import type { CalendarStyle, Feast, Service } from '@/content';
+import {
+  gregorianFromJdn,
+  jdnFromGregorian,
+  jdnFromIso,
+  jdnFromJulian,
+  julianFromJdn,
+  minutesOf,
+  weekdayOfJdn,
+} from './time';
+import type { ParishNow } from './time';
 
-export interface ScriptureReading {
-  source: string;
-  book: string;
-  display: string;
-  short_display: string;
+/* ---------- Pascha and the Great Feasts, computed locally for every calendar style ---------- */
+
+function julianPaschaJdn(year: number): number {
+  const a = year % 4;
+  const b = year % 7;
+  const c = year % 19;
+  const d = (19 * c + 15) % 30;
+  const e = (2 * a + 4 * b - d + 34) % 7;
+  const month = Math.floor((d + e + 114) / 31);
+  const day = ((d + e + 114) % 31) + 1;
+  return jdnFromJulian({ year, month, day });
 }
 
-export interface CalendarDay {
-  pascha_distance?: number;
-  year: number;
-  month: number;
-  day: number;
-  weekday: number;
+function westernPaschaJdn(year: number): number {
+  const a = year % 19;
+  const b = Math.floor(year / 100);
+  const c = year % 100;
+  const d = Math.floor(b / 4);
+  const e = b % 4;
+  const f = Math.floor((b + 8) / 25);
+  const g = Math.floor((b - f + 1) / 3);
+  const h = (19 * a + b - d - g + 15) % 30;
+  const i = Math.floor(c / 4);
+  const k = c % 4;
+  const l = (32 + 2 * e + 2 * i - h - k) % 7;
+  const m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const month = Math.floor((h + l - 7 * m + 114) / 31);
+  const day = ((h + l - 7 * m + 114) % 31) + 1;
+  return jdnFromGregorian({ year, month, day });
+}
+
+export function paschaJdn(style: CalendarStyle, civilYear: number): number {
+  return style === 'gregorian' ? westernPaschaJdn(civilYear) : julianPaschaJdn(civilYear);
+}
+
+/** The church-calendar date of a civil day: 13 days behind on the Old Calendar. */
+function churchMonthDay(style: CalendarStyle, jdn: number): string {
+  const d = style === 'julian' ? julianFromJdn(jdn) : gregorianFromJdn(jdn);
+  return `${String(d.month).padStart(2, '0')}-${String(d.day).padStart(2, '0')}`;
+}
+
+export function feastsOn(style: CalendarStyle, jdn: number): Feast[] {
+  const md = churchMonthDay(style, jdn);
+  const fromPascha = jdn - paschaJdn(style, gregorianFromJdn(jdn).year);
+  return feasts.filter((f) => (f.date ? f.date === md : f.paschaOffset === fromPascha));
+}
+
+/** The next Great Feast, Pascha or parish feast on or after a day. */
+export function nextFeast(style: CalendarStyle, fromJdn: number, maxDays = 400): { feast: Feast; jdn: number } | null {
+  for (let jdn = fromJdn; jdn < fromJdn + maxDays; jdn++) {
+    const feast = feastsOn(style, jdn)[0];
+    if (feast) return { feast, jdn };
+  }
+  return null;
+}
+
+/* ---------- Daily saints and fasting from orthocal.info ---------- */
+
+export interface OrthocalDay {
+  julian_day_number: number;
   tone: number | null;
   titles: string[] | null;
   summary_title: string;
   feast_level: number;
-  feast_level_description: string;
   feasts: string[] | null;
+  saints: string[] | null;
   fast_level: number;
   fast_level_desc: string;
-  fast_exception: number;
   fast_exception_desc: string;
-  fast_abstentions: string[] | null;
-  saints: string[] | null;
-  service_notes: string[] | null;
-  readings: ScriptureReading[] | null;
 }
 
-export interface CalendarMonth {
-  calendar: CalChoice;
-  year: number;
-  month: number;
-  days: CalendarDay[];
+const monthCache = new Map<string, Promise<Map<number, OrthocalDay>>>();
+
+/**
+ * Loads one civil month. Both orthocal calendars accept civil dates; the "julian" one returns
+ * Old Calendar commemorations. Days are keyed by Julian Day Number, so they line up with civil dates.
+ */
+export function loadOrthocalMonth(style: CalendarStyle, year: number, month: number): Promise<Map<number, OrthocalDay>> {
+  const source = style === 'julian' ? 'julian' : 'gregorian';
+  const key = `${source}-${year}-${month}`;
+  let hit = monthCache.get(key);
+  if (!hit) {
+    hit = fetch(`${site.calendar.apiBase}/${source}/${year}/${month}/`, { headers: { Accept: 'application/json' } })
+      .then((res) => {
+        if (!res.ok) throw new Error(`calendar request failed (${res.status})`);
+        return res.json() as Promise<OrthocalDay[]>;
+      })
+      .then((days) => {
+        if (!Array.isArray(days) || days.length === 0) throw new Error('unexpected calendar response');
+        return new Map(days.map((d) => [d.julian_day_number, d]));
+      });
+    hit.catch(() => monthCache.delete(key));
+    monthCache.set(key, hit);
+  }
+  return hit;
 }
 
-export type CalChoice = 'gregorian' | 'julian';
-
-const monthCache = new Map<string, CalendarMonth>();
-
-/** Fetches a month of saints, feasts, and fasts from orthocal.info (CORS-enabled, no key needed). */
-export async function fetchMonth(cal: CalChoice, year: number, month: number): Promise<CalendarMonth> {
-  const key = `${cal}-${year}-${month}`;
-  const hit = monthCache.get(key);
-  if (hit) return hit;
-  const res = await fetch(`${site.calendar.apiBase}/${cal}/${year}/${month}/`, {
-    headers: { Accept: 'application/json' },
-  });
-  if (!res.ok) throw new Error(`calendar request failed (${res.status})`);
-  const days = (await res.json()) as CalendarDay[];
-  if (!Array.isArray(days) || days.length === 0) throw new Error('unexpected calendar response');
-  const data: CalendarMonth = { calendar: cal, year, month, days };
-  monthCache.set(key, data);
-  return data;
+/**
+ * The orthocal data follows the Orthodox Paschalion, so with the Gregorian style only the
+ * fixed commemorations (saints) are used; the moveable cycle and the fasts are left out.
+ */
+export function usesOrthocalCycle(style: CalendarStyle): boolean {
+  return style !== 'gregorian';
 }
 
-// Weekday/month names come from Intl so any language added in languages.json works.
-const REF_SUNDAY = new Date(2023, 0, 1);
-
-export function weekdayName(weekday: number, locale: string, style: 'long' | 'short' = 'long'): string {
-  const d = new Date(REF_SUNDAY);
-  d.setDate(REF_SUNDAY.getDate() + weekday);
-  const name = new Intl.DateTimeFormat(locale, { weekday: style }).format(d);
-  return name.charAt(0).toLocaleUpperCase(locale) + name.slice(1).replace(/\.$/, '');
+export function commemorations(day: OrthocalDay | undefined, style: CalendarStyle): string[] {
+  if (!day) return [];
+  if (!usesOrthocalCycle(style)) return day.saints ?? [];
+  const list = [...(day.feasts ?? []), ...(day.saints ?? [])].filter((s) => !/^begin /i.test(s));
+  return list.length ? list : [day.summary_title].filter(Boolean);
 }
 
-export function monthName(month: number, locale: string, style: 'long' | 'short' = 'long'): string {
-  return new Intl.DateTimeFormat(locale, { month: style }).format(new Date(2023, month - 1, 1)).replace(/\.$/, '');
+export type FastTone = 'none' | 'light' | 'strict';
+
+export function fastTone(day: OrthocalDay): FastTone {
+  if (day.fast_level === 0) return 'none';
+  if (/allowed|fish|wine|oil/i.test(day.fast_exception_desc)) return 'light';
+  return 'strict';
 }
 
-export function monthYearLabel(year: number, month: number, locale: string): string {
-  const label = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(new Date(year, month - 1, 1));
-  return label.charAt(0).toLocaleUpperCase(locale) + label.slice(1);
-}
-
-const FAST_LEVEL: Record<string, Record<number, string>> = {
-  es: { 1: 'Ayuno estricto', 2: 'Ayuno estricto', 3: 'Ayuno', 4: 'Ayuno', 5: 'Ayuno', 6: 'Ayuno estricto', 7: 'Ayuno estricto' },
-  ru: { 1: 'Строгий пост', 2: 'Строгий пост', 3: 'Пост', 4: 'Пост', 5: 'Пост', 6: 'Строгий пост', 7: 'Строгий пост' },
+const FAST_KEYS: Record<string, string> = {
+  fast: 'fast',
+  'nativity fast': 'nativity',
+  'great lent': 'lent',
+  'lenten fast': 'lent',
+  'apostles fast': 'apostles',
+  'dormition fast': 'dormition',
 };
 
-const FAST_EXCEPTION: Record<string, Record<string, string>> = {
-  es: {
-    'Wine and Oil are Allowed': 'se permite vino y aceite',
-    'Fish, Wine and Oil are Allowed': 'se permite pescado, vino y aceite',
-    'Fish, Wine and Oil Allowed': 'se permite pescado, vino y aceite',
-    'Wine & Oil Allowed': 'se permite vino y aceite',
-    'Fish, Wine and Oil': 'se permite pescado, vino y aceite',
-    'Fast-free': 'sin ayuno',
-    'Abbreviated Psalter': 'salmos abreviados',
-  },
-  ru: {
-    'Wine and Oil are Allowed': 'допускаются вино и елей',
-    'Fish, Wine and Oil are Allowed': 'допускаются рыба, вино и елей',
-    'Fish, Wine and Oil Allowed': 'допускаются рыба, вино и елей',
-    'Wine & Oil Allowed': 'допускаются вино и елей',
-    'Fish, Wine and Oil': 'допускаются рыба, вино и елей',
-    'Fast-free': 'сплошная седмица',
-    'Abbreviated Psalter': 'сокращённая Псалтирь',
-  },
-};
+const EXCEPTION_KEYS: [RegExp, string][] = [
+  [/fish/i, 'fishWineOil'],
+  [/wine/i, 'wineOil'],
+  [/fast[- ]free/i, 'fastFree'],
+];
 
-/** Fast description for tooltips. orthocal.info returns English; known phrases are translated. */
-export function fastDescription(day: CalendarDay, lang: string, noFastLabel: string): string {
-  if (day.fast_level === 0) return noFastLabel;
-  const base = FAST_LEVEL[lang]?.[day.fast_level] ?? day.fast_level_desc;
+/** Builds a fasting note in the visitor's language from orthocal's English labels. */
+export function fastNote(day: OrthocalDay, ui: (path: string) => string): string {
+  if (day.fast_level === 0) return ui('calendar.noFast');
+  const key = FAST_KEYS[day.fast_level_desc.trim().toLowerCase()];
+  const base = (key && ui(`calendar.fasts.${key}`)) || day.fast_level_desc;
+  const exceptionKey = EXCEPTION_KEYS.find(([re]) => re.test(day.fast_exception_desc))?.[1];
   if (!day.fast_exception_desc) return base;
-  const exception = FAST_EXCEPTION[lang]?.[day.fast_exception_desc] ?? day.fast_exception_desc;
+  const exception = (exceptionKey && ui(`calendar.exceptions.${exceptionKey}`)) || day.fast_exception_desc;
   return `${base}, ${exception}`;
 }
 
-// Julian Day Number helpers for switching between the new and old calendars.
-export function jdnFromGregorian(year: number, month: number, day: number): number {
-  const a = Math.floor((14 - month) / 12);
-  const y = year + 4800 - a;
-  const m = month + 12 * a - 3;
-  return day + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045;
+/* ---------- Services ---------- */
+
+export interface ServiceOccurrence {
+  service: Service;
+  jdn: number;
+  start: number;
+  end: number;
 }
 
-export function jdnFromJulian(year: number, month: number, day: number): number {
-  const a = Math.floor((14 - month) / 12);
-  const y = year + 4800 - a;
-  const m = month + 12 * a - 3;
-  return day + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - 32083;
+export function servicesOn(jdn: number): ServiceOccurrence[] {
+  const weekday = weekdayOfJdn(jdn);
+  const dated = datedServices.filter((s) => s.date && jdnFromIso(s.date) === jdn);
+  const weekly = services.filter((s) => s.weekday === weekday);
+  return [...dated, ...weekly]
+    .map((service) => {
+      const start = minutesOf(service.time);
+      return { service, jdn, start, end: start + service.durationMinutes };
+    })
+    .sort((a, b) => a.start - b.start);
 }
 
-export interface YMD {
-  year: number;
-  month: number;
-  day: number;
+/** Services from now on, over the next `days` days, in order. Includes one already in progress. */
+export function upcomingServices(now: ParishNow, days: number): ServiceOccurrence[] {
+  const out: ServiceOccurrence[] = [];
+  for (let i = 0; i < days; i++) {
+    const jdn = now.jdn + i;
+    out.push(...servicesOn(jdn).filter((o) => i > 0 || o.end > now.minutes));
+  }
+  return out;
 }
 
-export function gregorianFromJdn(jdn: number): YMD {
-  const a = jdn + 32044;
-  const b = Math.floor((4 * a + 3) / 146097);
-  const c = a - Math.floor((146097 * b) / 4);
-  const d = Math.floor((4 * c + 3) / 1461);
-  const e = c - Math.floor((1461 * d) / 4);
-  const m = Math.floor((5 * e + 2) / 153);
-  return {
-    day: e - Math.floor((153 * m + 2) / 5) + 1,
-    month: m + 3 - 12 * Math.floor(m / 10),
-    year: 100 * b + d - 4800 + Math.floor(m / 10),
-  };
+export function liveService(now: ParishNow): ServiceOccurrence | null {
+  if (!moduleOn('livestream')) return null;
+  return servicesOn(now.jdn).find((o) => o.start <= now.minutes && now.minutes < o.end && o.service.streamed) ?? null;
 }
 
-export function julianFromJdn(jdn: number): YMD {
-  const c = jdn + 32082;
-  const d = Math.floor((4 * c + 3) / 1461);
-  const e = c - Math.floor((1461 * d) / 4);
-  const m = Math.floor((5 * e + 2) / 153);
-  return {
-    day: e - Math.floor((153 * m + 2) / 5) + 1,
-    month: m + 3 - 12 * Math.floor(m / 10),
-    year: d - 4800 + Math.floor(m / 10),
-  };
-}
-
-export function toJdn(cal: CalChoice, date: YMD): number {
-  return cal === 'julian' ? jdnFromJulian(date.year, date.month, date.day) : jdnFromGregorian(date.year, date.month, date.day);
-}
-
-export function fromJdn(cal: CalChoice, jdn: number): YMD {
-  return cal === 'julian' ? julianFromJdn(jdn) : gregorianFromJdn(jdn);
+export function isLive(now: ParishNow): boolean {
+  return liveService(now) !== null;
 }

@@ -1,67 +1,373 @@
 {
   "menu": { "en": "Menu", "es": "Menú", "ru": "Меню" },
+  "more": { "en": "More", "es": "Más", "ru": "Ещё" },
   "openMenu": { "en": "Open menu", "es": "Abrir menú", "ru": "Открыть меню" },
   "closeMenu": { "en": "Close menu", "es": "Cerrar menú", "ru": "Закрыть меню" },
   "language": { "en": "Language", "es": "Idioma", "ru": "Язык" },
   "home": { "en": "Home", "es": "Inicio", "ru": "Главная" },
   "primaryNav": { "en": "Primary", "es": "Principal", "ru": "Основное меню" },
+  "breadcrumbs": { "en": "You are here", "es": "Usted está aquí", "ru": "Вы здесь" },
   "skipToContent": { "en": "Skip to content", "es": "Saltar al contenido", "ru": "Перейти к содержанию" },
-  "learnMore": { "en": "Learn more", "es": "Aprender más", "ru": "Подробнее" },
+  "learnMore": { "en": "Learn more", "es": "Más información", "ru": "Подробнее" },
+  "readMore": { "en": "Read more", "es": "Leer más", "ru": "Читать далее" },
+  "showLess": { "en": "Show less", "es": "Mostrar menos", "ru": "Свернуть" },
+  "all": { "en": "All", "es": "Todo", "ru": "Все" },
   "close": { "en": "Close", "es": "Cerrar", "ru": "Закрыть" },
   "previous": { "en": "Previous", "es": "Anterior", "ru": "Назад" },
   "next": { "en": "Next", "es": "Siguiente", "ru": "Вперёд" },
-  "phone": { "en": "Phone", "es": "Teléfono", "ru": "Телефон" },
-  "email": { "en": "Email", "es": "Correo", "ru": "Почта" },
+  "today": { "en": "Today", "es": "Hoy", "ru": "Сегодня" },
+  "tomorrow": { "en": "Tomorrow", "es": "Mañana", "ru": "Завтра" },
   "opensInNewTab": { "en": "opens in a new tab", "es": "se abre en una pestaña nueva", "ru": "откроется в новой вкладке" },
-  "feast": { "en": "Feast", "es": "Fiesta", "ru": "Праздник" },
-  "sample": { "en": "Sample", "es": "Ejemplo", "ru": "Пример" },
+
+  "header": {
+    "next": { "en": "Next", "es": "Próximo", "ru": "Ближайшая служба" },
+    "submitNote": { "en": "Submit a commemoration", "es": "Enviar una conmemoración", "ru": "Подать записку" }
+  },
+
+  "live": {
+    "now": { "en": "Live now", "es": "En directo", "ru": "В эфире" },
+    "short": { "en": "Live", "es": "Directo", "ru": "Эфир" },
+    "watch": { "en": "Watch now", "es": "Ver ahora", "ru": "Смотреть" },
+    "streamed": { "en": "Streamed live", "es": "Se transmite", "ru": "Трансляция" }
+  },
+
+  "hero": {
+    "upcoming": { "en": "Next services", "es": "Próximos servicios", "ru": "Ближайшие службы" },
+    "noServices": { "en": "See the schedule for upcoming services.", "es": "Consulte el horario de los próximos servicios.", "ru": "Смотрите расписание ближайших служб." },
+    "fullSchedule": { "en": "Full schedule", "es": "Horario completo", "ru": "Всё расписание" },
+    "findUs": { "en": "Find us", "es": "Cómo llegar", "ru": "Как нас найти" },
+    "directions": { "en": "Directions", "es": "Indicaciones", "ru": "Маршрут" },
+    "nextFeast": { "en": "Next feast", "es": "Próxima fiesta", "ru": "Ближайший праздник" },
+    "commemoration": { "en": "Submit a commemoration", "es": "Enviar una conmemoración", "ru": "Подать записку" }
+  },
+
   "calendar": {
-    "style": { "en": "Calendar style", "es": "Estilo del calendario", "ru": "Стиль календаря" },
     "view": { "en": "Calendar view", "es": "Vista del calendario", "ru": "Вид календаря" },
-    "gregorian": { "en": "New Calendar", "es": "Nuevo (gregoriano)", "ru": "Новый (григорианский)" },
-    "julian": { "en": "Old Calendar", "es": "Antiguo (juliano)", "ru": "Старый (юлианский)" },
-    "weekly": { "en": "Weekly", "es": "Semanal", "ru": "Неделя" },
-    "monthly": { "en": "Monthly", "es": "Mensual", "ru": "Месяц" },
-    "loading": { "en": "Loading the calendar…", "es": "Cargando el calendario…", "ru": "Загрузка календаря…" },
+    "weekly": { "en": "Week", "es": "Semana", "ru": "Неделя" },
+    "monthly": { "en": "Month", "es": "Mes", "ru": "Месяц" },
+    "range": { "en": "{from} to {to}", "es": "Del {from} al {to}", "ru": "С {from} по {to}" },
+    "styles": {
+      "julian": { "en": "Old Calendar", "es": "Calendario antiguo", "ru": "Старый стиль" },
+      "revised-julian": { "en": "New Calendar", "es": "Calendario nuevo", "ru": "Новый стиль" },
+      "gregorian": { "en": "Western Paschalion", "es": "Pascua occidental", "ru": "Западная пасхалия" }
+    },
+    "styleNote": {
+      "julian": {
+        "en": "This parish keeps the Old Calendar: fixed feasts fall 13 days after their church date, and Pascha follows the Orthodox reckoning.",
+        "es": "Esta parroquia sigue el calendario antiguo: las fiestas fijas caen 13 días después de su fecha eclesiástica y la Pascua sigue el cómputo ortodoxo.",
+        "ru": "Приход живёт по старому стилю: непереходящие праздники приходятся на 13 дней позже церковной даты, Пасха по православной пасхалии."
+      },
+      "revised-julian": {
+        "en": "This parish keeps the New Calendar: fixed feasts fall on their civil date, and Pascha follows the Orthodox reckoning.",
+        "es": "Esta parroquia sigue el calendario nuevo: las fiestas fijas caen en su fecha civil y la Pascua sigue el cómputo ortodoxo.",
+        "ru": "Приход живёт по новому стилю: непереходящие праздники совпадают с гражданской датой, Пасха по православной пасхалии."
+      },
+      "gregorian": {
+        "en": "This parish keeps fixed feasts on their civil date and Pascha on the Western date.",
+        "es": "Esta parroquia celebra las fiestas fijas en su fecha civil y la Pascua en la fecha occidental.",
+        "ru": "Приход празднует непереходящие праздники по гражданской дате, а Пасху по западной пасхалии."
+      }
+    },
+    "source": {
+      "en": "Saints and fasting come from orthocal.info. Please confirm feast day times with the parish.",
+      "es": "Los santos y el ayuno provienen de orthocal.info. Confirme con la parroquia el horario de los días de fiesta.",
+      "ru": "Святые и посты по данным orthocal.info. Время праздничных служб уточняйте в приходе."
+    },
+    "oldStyleDate": { "en": "{date} on the church calendar", "es": "{date} según el calendario eclesiástico", "ru": "{date} по старому стилю" },
+    "legendFeast": { "en": "Great Feast", "es": "Gran fiesta", "ru": "Великий праздник" },
+    "legendParish": { "en": "Parish feast", "es": "Fiesta parroquial", "ru": "Престольный праздник" },
+    "pickDay": { "en": "Choose a day to see its services, saints and fasting.", "es": "Elija un día para ver sus servicios, santos y ayuno.", "ru": "Выберите день, чтобы увидеть службы, святых и пост." },
+    "loading": { "en": "Loading saints and fasting…", "es": "Cargando santos y ayuno…", "ru": "Загрузка святых и постов…" },
     "error": {
-      "en": "The calendar is unavailable right now. Please try again in a few minutes.",
-      "es": "El calendario no está disponible en este momento. Inténtelo de nuevo en unos minutos.",
-      "ru": "Календарь временно недоступен. Попробуйте снова через несколько минут."
+      "en": "Saints and fasting are unavailable right now.",
+      "es": "Los santos y el ayuno no están disponibles ahora.",
+      "ru": "Святые и посты сейчас недоступны."
     },
     "retry": { "en": "Retry", "es": "Reintentar", "ru": "Повторить" },
     "noFast": { "en": "No fast", "es": "Sin ayuno", "ru": "Поста нет" },
-    "lightFast": { "en": "Fast with dispensation", "es": "Ayuno con dispensa", "ru": "Пост с послаблением" },
-    "strictFast": { "en": "Strict fast", "es": "Ayuno estricto", "ru": "Строгий пост" }
+    "fasts": {
+      "fast": { "en": "Fast day", "es": "Día de ayuno", "ru": "Постный день" },
+      "nativity": { "en": "Nativity Fast", "es": "Ayuno de Navidad", "ru": "Рождественский пост" },
+      "lent": { "en": "Great Lent", "es": "Gran Cuaresma", "ru": "Великий пост" },
+      "apostles": { "en": "Apostles' Fast", "es": "Ayuno de los Apóstoles", "ru": "Петров пост" },
+      "dormition": { "en": "Dormition Fast", "es": "Ayuno de la Dormición", "ru": "Успенский пост" }
+    },
+    "exceptions": {
+      "fishWineOil": { "en": "fish, wine and oil allowed", "es": "se permite pescado, vino y aceite", "ru": "разрешается рыба, вино и елей" },
+      "wineOil": { "en": "wine and oil allowed", "es": "se permite vino y aceite", "ru": "разрешается вино и елей" },
+      "fastFree": { "en": "fast-free", "es": "sin ayuno", "ru": "сплошная седмица" }
+    }
   },
+
+  "gallery": {
+    "albums": { "en": "Albums", "es": "Álbumes", "ru": "Альбомы" },
+    "open": { "en": "Open photo", "es": "Abrir foto", "ru": "Открыть фото" }
+  },
+
+  "news": {
+    "categories": { "en": "News categories", "es": "Categorías de noticias", "ru": "Рубрики новостей" },
+    "all": { "en": "All news", "es": "Todas las noticias", "ru": "Все новости" }
+  },
+
+  "livestream": {
+    "placeholder": { "en": "The livestream will appear here", "es": "La transmisión aparecerá aquí", "ru": "Здесь будет трансляция" },
+    "placeholderHelp": {
+      "en": "Add the embed link from YouTube or Facebook in site.json under livestream.",
+      "es": "Añada el enlace para insertar de YouTube o Facebook en site.json, en livestream.",
+      "ru": "Добавьте ссылку для встраивания с YouTube или Facebook в site.json, раздел livestream."
+    },
+    "next": { "en": "Next livestream", "es": "Próxima transmisión", "ru": "Следующая трансляция" },
+    "joinUs": { "en": "A service is being streamed now. Join us in prayer.", "es": "Se está transmitiendo un servicio. Únase a nuestra oración.", "ru": "Сейчас идёт трансляция службы. Молитесь вместе с нами." },
+    "none": { "en": "No streamed services in the next two weeks.", "es": "No hay servicios transmitidos en las próximas dos semanas.", "ru": "В ближайшие две недели трансляций нет." },
+    "watchOn": { "en": "Watch on {provider}", "es": "Ver en {provider}", "ru": "Смотреть на {provider}" }
+  },
+
+  "sermons": {
+    "categories": { "en": "Sermon topics", "es": "Temas", "ru": "Темы" },
+    "speaker": { "en": "Speaker", "es": "Predicador", "ru": "Проповедник" },
+    "nowPlaying": { "en": "Now playing", "es": "Reproduciendo", "ru": "Сейчас звучит" },
+    "play": { "en": "Play", "es": "Reproducir", "ru": "Слушать" },
+    "close": { "en": "Close player", "es": "Cerrar reproductor", "ru": "Закрыть плеер" },
+    "none": { "en": "No sermons match these filters.", "es": "Ninguna homilía coincide con estos filtros.", "ru": "Нет проповедей с такими условиями." },
+    "noAudio": { "en": "Your browser cannot play this recording.", "es": "Su navegador no puede reproducir esta grabación.", "ru": "Ваш браузер не может воспроизвести эту запись." }
+  },
+
+  "forms": {
+    "name": { "en": "Your name", "es": "Su nombre", "ru": "Ваше имя" },
+    "email": { "en": "Email", "es": "Correo electrónico", "ru": "Электронная почта" },
+    "emailPlaceholder": { "en": "you@example.com", "es": "usted@ejemplo.com", "ru": "vy@primer.ru" },
+    "phone": { "en": "Phone", "es": "Teléfono", "ru": "Телефон" },
+    "phoneOptional": { "en": "Phone (optional)", "es": "Teléfono (opcional)", "ru": "Телефон (необязательно)" },
+    "topic": { "en": "Topic", "es": "Tema", "ru": "Тема" },
+    "message": { "en": "Message", "es": "Mensaje", "ru": "Сообщение" },
+    "send": { "en": "Send message", "es": "Enviar mensaje", "ru": "Отправить" },
+    "sending": { "en": "Sending…", "es": "Enviando…", "ru": "Отправка…" },
+    "sent": { "en": "Thank you. We will be in touch soon.", "es": "Gracias. Pronto nos pondremos en contacto.", "ru": "Спасибо. Мы скоро свяжемся с вами." },
+    "required": { "en": "Please fill this in.", "es": "Complete este campo.", "ru": "Заполните это поле." },
+    "errorName": { "en": "Please enter your name.", "es": "Escriba su nombre.", "ru": "Введите ваше имя." },
+    "errorEmail": { "en": "Please enter a valid email address.", "es": "Escriba un correo electrónico válido.", "ru": "Введите правильный адрес почты." },
+    "errorPhone": { "en": "Please enter a 10-digit phone number.", "es": "Escriba un teléfono de 10 dígitos.", "ru": "Введите номер из 10 цифр." },
+    "errorMessage": { "en": "Please write a message.", "es": "Escriba un mensaje.", "ru": "Напишите сообщение." },
+    "notConfigured": {
+      "en": "Online forms are not connected yet. Please email us at {email} and we will reply soon.",
+      "es": "Los formularios en línea aún no están conectados. Escríbanos a {email} y le responderemos pronto.",
+      "ru": "Онлайн-формы пока не подключены. Напишите нам на {email}, и мы скоро ответим."
+    },
+    "failed": { "en": "Something went wrong. Please try again or contact the parish.", "es": "Algo salió mal. Inténtelo de nuevo o comuníquese con la parroquia.", "ru": "Что-то пошло не так. Попробуйте ещё раз или свяжитесь с приходом." }
+  },
+
+  "contact": {
+    "map": { "en": "Map to the church", "es": "Mapa hasta la iglesia", "ru": "Карта проезда к храму" }
+  },
+
+  "newsletter": {
+    "subscribe": { "en": "Subscribe", "es": "Suscribirse", "ru": "Подписаться" },
+    "success": { "en": "Thank you. Please check your inbox to confirm.", "es": "Gracias. Revise su correo para confirmar.", "ru": "Спасибо. Проверьте почту, чтобы подтвердить подписку." },
+    "notConfigured": {
+      "en": "The newsletter is not connected yet. Please check back soon.",
+      "es": "El boletín aún no está conectado. Vuelva pronto.",
+      "ru": "Рассылка пока не подключена. Загляните позже."
+    }
+  },
+
   "give": {
     "frequency": { "en": "How often", "es": "Frecuencia", "ru": "Периодичность" },
     "amount": { "en": "Amount", "es": "Monto", "ru": "Сумма" },
     "otherAmount": { "en": "Other amount", "es": "Otro monto", "ru": "Другая сумма" },
     "fund": { "en": "Designation (optional)", "es": "Destino (opcional)", "ru": "Назначение (необязательно)" },
+    "projects": { "en": "Projects", "es": "Proyectos", "ru": "Проекты" },
     "name": { "en": "Full name", "es": "Nombre completo", "ru": "Имя и фамилия" },
     "email": { "en": "Email", "es": "Correo electrónico", "ru": "Электронная почта" },
     "emailHelp": { "en": "We will send your receipt here.", "es": "Le enviaremos aquí su recibo.", "ru": "Мы отправим квитанцию на этот адрес." },
     "submitOnce": { "en": "Donate {amount}", "es": "Donar {amount}", "ru": "Пожертвовать {amount}" },
-    "submitRecurring": { "en": "Donate {amount} monthly", "es": "Donar {amount} al mes", "ru": "Пожертвовать {amount} ежемесячно" },
+    "submitRecurring": { "en": "Donate {amount} monthly", "es": "Donar {amount} al mes", "ru": "Жертвовать {amount} ежемесячно" },
     "submitEmpty": { "en": "Donate", "es": "Donar", "ru": "Пожертвовать" },
     "processing": { "en": "Please wait…", "es": "Espere un momento…", "ru": "Пожалуйста, подождите…" },
     "errorAmount": { "en": "Please choose or enter an amount.", "es": "Elija o escriba un monto.", "ru": "Выберите или введите сумму." },
     "errorName": { "en": "Please enter your name.", "es": "Escriba su nombre.", "ru": "Введите ваше имя." },
-    "errorEmail": { "en": "Please enter a valid email address.", "es": "Escriba un correo electrónico válido.", "ru": "Введите действительный адрес электронной почты." },
+    "errorEmail": { "en": "Please enter a valid email address.", "es": "Escriba un correo electrónico válido.", "ru": "Введите правильный адрес почты." },
+    "raisedOf": { "en": "raised of {goal}", "es": "recaudados de {goal}", "ru": "собрано из {goal}" },
+    "toProject": { "en": "Give to this project", "es": "Donar a este proyecto", "ru": "Пожертвовать на проект" },
     "notConfigured": {
       "en": "Online giving is not connected yet. Thank you for your patience. To give today, please contact the parish treasurer.",
       "es": "Las donaciones en línea aún no están conectadas. Gracias por su paciencia. Para donar hoy, comuníquese con el tesorero de la parroquia.",
       "ru": "Онлайн-пожертвования пока не подключены. Благодарим за терпение. Чтобы сделать пожертвование сегодня, свяжитесь с казначеем прихода."
     },
-    "success": {
-      "en": "Thank you for your gift. May God bless you.",
-      "es": "Gracias por su donativo. Que Dios le bendiga.",
-      "ru": "Благодарим за пожертвование. Храни вас Господь."
+    "success": { "en": "Thank you for your gift. May God bless you.", "es": "Gracias por su donativo. Que Dios le bendiga.", "ru": "Благодарим за пожертвование. Храни вас Господь." },
+    "failed": { "en": "Something went wrong. Please try again or contact the parish.", "es": "Algo salió mal. Inténtelo de nuevo o comuníquese con la parroquia.", "ru": "Что-то пошло не так. Попробуйте ещё раз или свяжитесь с приходом." }
+  },
+
+  "store": {
+    "categories": { "en": "Store categories", "es": "Categorías de la tienda", "ru": "Разделы лавки" },
+    "from": { "en": "From {price}", "es": "Desde {price}", "ru": "От {price}" },
+    "inStock": { "en": "In stock", "es": "Disponible", "ru": "В наличии" },
+    "fewLeft": { "en": "Only {count} left", "es": "Quedan {count}", "ru": "Осталось {count}" },
+    "soldOut": { "en": "Sold out", "es": "Agotado", "ru": "Нет в наличии" },
+    "choose": { "en": "Choose", "es": "Elija", "ru": "Выберите" },
+    "quantity": { "en": "Quantity", "es": "Cantidad", "ru": "Количество" },
+    "less": { "en": "One less", "es": "Uno menos", "ru": "Меньше" },
+    "more": { "en": "One more", "es": "Uno más", "ru": "Больше" },
+    "add": { "en": "Add to cart", "es": "Añadir al carrito", "ru": "В корзину" },
+    "added": { "en": "Added to your cart.", "es": "Añadido al carrito.", "ru": "Добавлено в корзину." },
+    "viewCart": { "en": "View cart", "es": "Ver carrito", "ru": "Открыть корзину" },
+    "remove": { "en": "Remove", "es": "Quitar", "ru": "Убрать" },
+    "each": { "en": "each", "es": "c/u", "ru": "за шт." },
+    "photo": { "en": "Photo {n}", "es": "Foto {n}", "ru": "Фото {n}" },
+    "shippingNote": {
+      "en": "Shipping is {rate}, free on orders over {free}.",
+      "es": "El envío cuesta {rate}, gratis en pedidos de más de {free}.",
+      "ru": "Доставка {rate}, бесплатно при заказе от {free}."
     },
-    "failed": {
-      "en": "Something went wrong. Please try again or contact the parish.",
-      "es": "Algo salió mal. Inténtelo de nuevo o comuníquese con la parroquia.",
-      "ru": "Что-то пошло не так. Попробуйте ещё раз или свяжитесь с приходом."
+    "pickupNote": { "en": "Or pick it up at no charge: {place}.", "es": "O recójalo sin costo: {place}.", "ru": "Или заберите бесплатно: {place}." },
+    "digital": { "en": "Sent by email after purchase.", "es": "Se envía por correo después de la compra.", "ru": "Отправляется по почте после покупки." },
+    "notFound": { "en": "Item not found", "es": "Artículo no encontrado", "ru": "Товар не найден" },
+    "notFoundText": { "en": "This item is no longer in the store.", "es": "Este artículo ya no está en la tienda.", "ru": "Этого товара больше нет в лавке." }
+  },
+
+  "cart": {
+    "label": { "en": "Cart", "es": "Carrito", "ru": "Корзина" },
+    "labelCount": { "en": "Cart, {count} items", "es": "Carrito, {count} artículos", "ru": "Корзина, позиций: {count}" },
+    "empty": { "en": "Your cart is empty", "es": "Su carrito está vacío", "ru": "Корзина пуста" },
+    "browse": { "en": "Visit the store", "es": "Ir a la tienda", "ru": "В лавку" },
+    "subtotal": { "en": "Subtotal", "es": "Subtotal", "ru": "Сумма" },
+    "shippingLater": { "en": "Shipping or pickup is chosen at checkout.", "es": "El envío o la recogida se eligen al pagar.", "ru": "Доставку или самовывоз выберете при оформлении." },
+    "checkout": { "en": "Checkout", "es": "Pagar", "ru": "Оформить заказ" },
+    "continue": { "en": "Keep shopping", "es": "Seguir comprando", "ru": "Продолжить покупки" }
+  },
+
+  "checkout": {
+    "contact": { "en": "Your details", "es": "Sus datos", "ru": "Ваши данные" },
+    "delivery": { "en": "Delivery", "es": "Entrega", "ru": "Получение" },
+    "pickup": { "en": "Pick up at the church", "es": "Recoger en la iglesia", "ru": "Забрать в храме" },
+    "shipping": { "en": "Ship to me", "es": "Enviar a domicilio", "ru": "Доставка" },
+    "shippingCost": { "en": "{rate}, free on orders over {free}.", "es": "{rate}, gratis en pedidos de más de {free}.", "ru": "{rate}, бесплатно при заказе от {free}." },
+    "freeShipping": { "en": "Free shipping on this order.", "es": "Envío gratis en este pedido.", "ru": "Бесплатная доставка этого заказа." },
+    "free": { "en": "Free", "es": "Gratis", "ru": "Бесплатно" },
+    "address1": { "en": "Street address", "es": "Dirección", "ru": "Адрес" },
+    "address2": { "en": "Apartment, suite (optional)", "es": "Apartamento, piso (opcional)", "ru": "Квартира, офис (необязательно)" },
+    "city": { "en": "City", "es": "Ciudad", "ru": "Город" },
+    "region": { "en": "State or region", "es": "Estado o región", "ru": "Область, регион" },
+    "postal": { "en": "Postal code", "es": "Código postal", "ru": "Индекс" },
+    "country": { "en": "Country", "es": "País", "ru": "Страна" },
+    "summary": { "en": "Your order", "es": "Su pedido", "ru": "Ваш заказ" },
+    "total": { "en": "Total", "es": "Total", "ru": "Итого" },
+    "pay": { "en": "Pay {amount}", "es": "Pagar {amount}", "ru": "Оплатить {amount}" },
+    "secure": { "en": "You will finish paying on the secure payment page.", "es": "Terminará el pago en la página de pago segura.", "ru": "Оплата завершается на защищённой странице платёжной системы." },
+    "success": { "en": "Thank you. Your order has been received.", "es": "Gracias. Hemos recibido su pedido.", "ru": "Спасибо. Ваш заказ принят." },
+    "notConfigured": {
+      "en": "Online payment is not connected yet. Please email {email} to place your order.",
+      "es": "El pago en línea aún no está conectado. Escriba a {email} para hacer su pedido.",
+      "ru": "Онлайн-оплата пока не подключена. Чтобы сделать заказ, напишите на {email}."
+    }
+  },
+
+  "requests": {
+    "free": { "en": "Free", "es": "Gratis", "ru": "Бесплатно" },
+    "donation": { "en": "Donation", "es": "Donativo", "ru": "Пожертвование" },
+    "request": { "en": "Request", "es": "Solicitar", "ru": "Заказать" },
+    "open": { "en": "Open", "es": "Abrir", "ru": "Открыть" },
+    "formEyebrow": { "en": "Request a service", "es": "Solicitar un servicio", "ru": "Заказать требу" },
+    "sentTo": { "en": "Your request goes to {who}.", "es": "Su solicitud llega a {who}.", "ru": "Заявку получит: {who}." },
+    "office": { "en": "the parish office", "es": "la oficina parroquial", "ru": "канцелярия прихода" },
+    "date": { "en": "Preferred date", "es": "Fecha preferida", "ru": "Желаемая дата" },
+    "time": { "en": "Preferred time", "es": "Hora preferida", "ru": "Желаемое время" },
+    "notes": { "en": "Notes (optional)", "es": "Notas (opcional)", "ru": "Комментарий (необязательно)" },
+    "notesHint": { "en": "Names, address for a blessing, or anything we should know", "es": "Nombres, dirección para una bendición o lo que debamos saber", "ru": "Имена, адрес для освящения или что нам важно знать" },
+    "errorDate": { "en": "Please choose today or a later date.", "es": "Elija hoy o una fecha posterior.", "ru": "Выберите сегодняшнюю или более позднюю дату." },
+    "send": { "en": "Send request", "es": "Enviar solicitud", "ru": "Отправить заявку" },
+    "thanks": { "en": "Thank you. Your request was sent.", "es": "Gracias. Su solicitud fue enviada.", "ru": "Спасибо. Заявка отправлена." },
+    "thanksText": { "en": "We will call you to confirm the date and time.", "es": "Le llamaremos para confirmar la fecha y la hora.", "ru": "Мы позвоним, чтобы подтвердить дату и время." }
+  },
+
+  "zapiski": {
+    "slip": { "en": "Commemoration note", "es": "Nota de conmemoración", "ru": "Записка" },
+    "slipN": { "en": "Note {n}", "es": "Nota {n}", "ru": "Записка {n}" },
+    "type": { "en": "Type of note", "es": "Tipo de nota", "ru": "Вид записки" },
+    "prefix": { "en": "Title (optional)", "es": "Título (opcional)", "ru": "Сан или возраст (необязательно)" },
+    "noPrefix": { "en": "None", "es": "Ninguno", "ru": "Нет" },
+    "nameN": { "en": "Name {n}", "es": "Nombre {n}", "ru": "Имя {n}" },
+    "namePlaceholder": { "en": "Baptismal name, e.g. John", "es": "Nombre de bautismo, p. ej. Juan", "ru": "Имя в крещении, например Иоанна" },
+    "addName": { "en": "Add a name", "es": "Añadir un nombre", "ru": "Добавить имя" },
+    "removeName": { "en": "Remove name {n}", "es": "Quitar el nombre {n}", "ru": "Убрать имя {n}" },
+    "namesCount": { "en": "{n} of {max} names", "es": "{n} de {max} nombres", "ru": "{n} из {max} имён" },
+    "namesHint": {
+      "en": "Please write first names only, as given at baptism (Elizabeth, not Betty). In Church Slavonic the names are read in the genitive case; you may write them however you are used to and the clergy will read them correctly.",
+      "es": "Escriba solo los nombres de pila, tal como se dieron en el bautismo (Isabel, no Isa). En eslavo eclesiástico los nombres se leen en genitivo; escríbalos como acostumbre y el clero los leerá correctamente.",
+      "ru": "Пишите только имена, данные в крещении, полной формой (Елисавета, а не Лиза). На церковнославянском имена пишутся в родительном падеже (о здравии Иоанна, Марии), но можно написать как привычно, священнослужители прочитают правильно."
+    },
+    "commemoration": { "en": "Where to commemorate", "es": "Dónde recordarlos", "ru": "Где помянуть" },
+    "suggested": { "en": "Suggested donation. Give what you can.", "es": "Donativo sugerido. Dé lo que pueda.", "ru": "Рекомендуемое пожертвование. Жертвуйте по силам." },
+    "candle": { "en": "Candle", "es": "Vela", "ru": "Свеча" },
+    "candleOptional": { "en": "Light a candle (optional)", "es": "Encender una vela (opcional)", "ru": "Поставить свечу (необязательно)" },
+    "noCandle": { "en": "No candle", "es": "Sin vela", "ru": "Без свечи" },
+    "extra": { "en": "Additional donation (optional)", "es": "Donativo adicional (opcional)", "ru": "Дополнительное пожертвование (необязательно)" },
+    "slipTotal": { "en": "This note", "es": "Esta nota", "ru": "За записку" },
+    "removeSlip": { "en": "Remove this note", "es": "Quitar esta nota", "ru": "Удалить записку" },
+    "addHealth": { "en": "Add a note for health", "es": "Añadir nota por la salud", "ru": "Ещё записка о здравии" },
+    "addRepose": { "en": "Add a note for the repose", "es": "Añadir nota por el descanso", "ru": "Ещё записка об упокоении" },
+    "total": { "en": "Notes: {n}", "es": "Notas: {n}", "ru": "Записок: {n}" },
+    "errorNames": { "en": "Please write at least one name on this note.", "es": "Escriba al menos un nombre en esta nota.", "ru": "Впишите хотя бы одно имя." },
+    "consent": {
+      "en": "I agree that {parish} may keep these names to pray for them. They are used only for commemoration and are deleted after the commemoration ends.",
+      "es": "Acepto que {parish} guarde estos nombres para rezar por ellos. Solo se usan para la conmemoración y se borran cuando termina.",
+      "ru": "Я согласен(на), чтобы приход хранил эти имена для молитвенного поминовения. Они используются только для поминовения и удаляются после его окончания."
+    },
+    "consentRequired": { "en": "Please agree so we can keep the names for prayer.", "es": "Acepte para que podamos guardar los nombres para la oración.", "ru": "Отметьте согласие, чтобы мы могли сохранить имена для поминовения." },
+    "cartHint": { "en": "You can also add the notes to your cart and pay together with store items.", "es": "También puede añadir las notas al carrito y pagar junto con artículos de la tienda.", "ru": "Записки можно добавить в корзину и оплатить вместе с покупками." },
+    "donateSubmit": { "en": "Donate {amount} and submit", "es": "Donar {amount} y enviar", "ru": "Пожертвовать {amount} и подать" },
+    "addToCart": { "en": "Add to cart", "es": "Añadir al carrito", "ru": "В корзину" },
+    "added": { "en": "Notes added to your cart: {n}.", "es": "Notas añadidas al carrito: {n}.", "ru": "Записок в корзине: {n}." },
+    "success": { "en": "Thank you. Your notes will be read at the altar.", "es": "Gracias. Sus notas se leerán en el altar.", "ru": "Спасибо. Ваши записки будут прочитаны у престола." }
+  },
+
+  "connect": {
+    "badge": { "en": "on OrthodoxConnect", "es": "en OrthodoxConnect", "ru": "в OrthodoxConnect" },
+    "via": { "en": "Sent through OrthodoxConnect", "es": "Enviado a través de OrthodoxConnect", "ru": "Рассылка через OrthodoxConnect" },
+    "intro": {
+      "en": "Events and sign-ups are managed on OrthodoxConnect, the parish app. You will need a free account to sign up.",
+      "es": "Los eventos y las inscripciones se gestionan en OrthodoxConnect, la aplicación de la parroquia. Necesitará una cuenta gratuita para inscribirse.",
+      "ru": "События и запись ведутся в OrthodoxConnect, приложении прихода. Для записи нужна бесплатная учётная запись."
+    },
+    "createEvent": { "en": "Create an event", "es": "Crear un evento", "ru": "Создать событие" },
+    "postNeed": { "en": "Post a need", "es": "Publicar una necesidad", "ru": "Сообщить о нужде" },
+    "categories": { "en": "Event categories", "es": "Categorías de eventos", "ru": "Категории событий" },
+    "show": { "en": "Show", "es": "Mostrar", "ru": "Показать" },
+    "list": { "en": "List", "es": "Lista", "ru": "Список" },
+    "calendar": { "en": "Calendar", "es": "Calendario", "ru": "Календарь" },
+    "volunteer": { "en": "Volunteer", "es": "Voluntariado", "ru": "Помощь" },
+    "volunteerOne": { "en": "Volunteer", "es": "Voluntariado", "ru": "Помощь" },
+    "needs": { "en": "Parish needs", "es": "Necesidades", "ru": "Нужды прихода" },
+    "need": { "en": "Need", "es": "Necesidad", "ru": "Нужда" },
+    "rsvp": { "en": "RSVP", "es": "Confirmar asistencia", "ru": "Записаться" },
+    "signUp": { "en": "Sign up", "es": "Apuntarse", "ru": "Записаться" },
+    "help": { "en": "I can help", "es": "Puedo ayudar", "ru": "Могу помочь" },
+    "going": { "en": "{n} going", "es": "{n} asistirán", "ru": "Идут: {n}" },
+    "goingOf": { "en": "{n} of {max} going", "es": "{n} de {max} asistirán", "ru": "Идут {n} из {max}" },
+    "filledOf": { "en": "{n} of {max} filled", "es": "{n} de {max} cubiertos", "ru": "Занято {n} из {max}" },
+    "left": { "en": "{n} left", "es": "Quedan {n}", "ru": "Осталось {n}" },
+    "full": { "en": "Full", "es": "Completo", "ru": "Мест нет" },
+    "organizer": { "en": "Organized by {name}", "es": "Organiza {name}", "ru": "Организатор: {name}" },
+    "ongoing": { "en": "Ongoing", "es": "Permanente", "ru": "Постоянно" },
+    "regular": { "en": "Every week", "es": "Cada semana", "ru": "Каждую неделю" },
+    "accountNote": {
+      "en": "You will sign in or create your free OrthodoxConnect account to confirm. Your name is shared only with the organizer.",
+      "es": "Iniciará sesión o creará su cuenta gratuita de OrthodoxConnect para confirmar. Su nombre solo se comparte con el organizador.",
+      "ru": "Для подтверждения войдите в OrthodoxConnect или создайте бесплатную учётную запись. Ваше имя увидит только организатор."
+    },
+    "confirm": { "en": "Continue with OrthodoxConnect", "es": "Continuar con OrthodoxConnect", "ru": "Продолжить в OrthodoxConnect" },
+    "signedUp": { "en": "You are signed up. See you there.", "es": "Ya está inscrito. Le esperamos.", "ru": "Вы записаны. До встречи!" },
+    "notConfigured": {
+      "en": "Sign-up through OrthodoxConnect is not connected yet. Please tell the organizer after the Liturgy.",
+      "es": "La inscripción por OrthodoxConnect aún no está conectada. Avise al organizador después de la Liturgia.",
+      "ru": "Запись через OrthodoxConnect пока не подключена. Сообщите организатору после литургии."
+    },
+    "loading": { "en": "Loading…", "es": "Cargando…", "ru": "Загрузка…" },
+    "noEvents": { "en": "No upcoming events here yet.", "es": "Todavía no hay eventos próximos.", "ru": "Ближайших событий пока нет." },
+    "noNeeds": { "en": "Nothing is needed right now. Thank you.", "es": "Ahora no hace falta nada. Gracias.", "ru": "Сейчас помощь не требуется. Спасибо!" },
+    "sample": {
+      "en": "Sample listings are shown until the OrthodoxConnect feed is connected.",
+      "es": "Se muestran ejemplos hasta que se conecte OrthodoxConnect.",
+      "ru": "Показаны примеры, пока не подключён OrthodoxConnect."
     }
   }
 }

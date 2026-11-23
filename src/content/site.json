@@ -18,12 +18,19 @@
   "dioceseUrl": "https://example.org/",
   "jurisdictionUrl": "https://example.org/",
   "logo": {
+    "style": "seal",
     "src": "",
-    "alt": "St. Example Orthodox Church logo"
+    "alt": "St. Example Orthodox Church logo",
+    "wordmarkSubtitle": {
+      "en": "Orthodox Church",
+      "es": "Iglesia Ortodoxa",
+      "ru": "Православный храм"
+    }
   },
   "pageHeroBackground": "/images/placeholder/icon.jpg",
   "url": "https://www.example.org/",
   "socialImage": "/social-preview.jpg",
+  "timeZone": "America/Chicago",
   "contact": {
     "email": "info@example.org",
     "phone": "+1 (555) 010-0100"
@@ -40,14 +47,44 @@
     }
   },
   "mapsUrl": "https://www.google.com/maps/search/?api=1&query=123+Example+Street",
+  "map": {
+    "lat": null,
+    "lng": null,
+    "zoom": 16
+  },
   "calendar": {
     "apiBase": "https://orthocal.info/api",
-    "default": "gregorian"
+    "style": "revised-julian",
+    "weekStartsOn": 0,
+    "saintsLanguages": [
+      "en"
+    ]
   },
+  "modules": {
+    "livestream": true,
+    "store": true,
+    "serviceRequests": true,
+    "zapiski": true,
+    "getInvolved": true
+  },
+  "livestream": {
+    "watchUrl": "",
+    "embedUrl": "",
+    "providerLabel": "YouTube"
+  },
+  "formsEndpoint": "",
   "orthodoxConnect": {
-    "joinUrl": "",
-    "feedUrl": ""
+    "parishId": "sample-parish-0001",
+    "appUrl": "https://orthodoxconnect.example/",
+    "deepLinkScheme": "orthodoxconnect://",
+    "feedUrl": "",
+    "signupEndpoint": "",
+    "newsletter": {
+      "enabled": true,
+      "endpoint": ""
+    }
   },
+  "slavonicFont": "",
   "footer": {
     "copyright": {
       "en": "All rights reserved.",

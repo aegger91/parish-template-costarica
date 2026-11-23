@@ -4,28 +4,103 @@
       "id": "saturday-vespers",
       "weekday": 6,
       "time": "18:00",
-      "display": "6:00 PM",
+      "durationMinutes": 90,
       "icon": "censer",
       "highlight": false,
+      "streamed": true,
       "name": { "en": "Great Vespers", "es": "Grandes Vísperas", "ru": "Всенощное бдение" }
     },
     {
       "id": "sunday-confession",
       "weekday": 0,
       "time": "09:00",
-      "display": "9:00 AM",
+      "durationMinutes": 50,
       "icon": "gospel",
       "highlight": false,
+      "streamed": false,
       "name": { "en": "Confession", "es": "Confesión", "ru": "Исповедь" }
     },
     {
       "id": "sunday-liturgy",
       "weekday": 0,
       "time": "10:00",
-      "display": "10:00 AM",
+      "durationMinutes": 120,
       "icon": "chalice",
       "highlight": true,
+      "streamed": true,
       "name": { "en": "Divine Liturgy", "es": "Divina Liturgia", "ru": "Божественная литургия" }
+    }
+  ],
+  "dated": [
+    {
+      "id": "entry-vigil-2026",
+      "date": "2026-11-20",
+      "time": "18:00",
+      "durationMinutes": 120,
+      "icon": "censer",
+      "highlight": false,
+      "streamed": true,
+      "name": { "en": "Vigil of the Entry of the Theotokos", "es": "Vigilia de la Presentación de la Madre de Dios", "ru": "Всенощное бдение под Введение" }
+    },
+    {
+      "id": "entry-liturgy-2026",
+      "date": "2026-11-21",
+      "time": "09:00",
+      "durationMinutes": 120,
+      "icon": "chalice",
+      "highlight": true,
+      "streamed": true,
+      "name": { "en": "Divine Liturgy for the Entry of the Theotokos", "es": "Divina Liturgia de la Presentación", "ru": "Литургия на Введение" }
+    },
+    {
+      "id": "akathist-2026-11-25",
+      "date": "2026-11-25",
+      "time": "18:30",
+      "durationMinutes": 60,
+      "icon": "candle",
+      "highlight": false,
+      "streamed": false,
+      "name": { "en": "Akathist to the Theotokos", "es": "Acatisto a la Madre de Dios", "ru": "Акафист Богородице" }
+    },
+    {
+      "id": "st-andrew-2026",
+      "date": "2026-11-30",
+      "time": "09:00",
+      "durationMinutes": 120,
+      "icon": "chalice",
+      "highlight": false,
+      "streamed": false,
+      "name": { "en": "Divine Liturgy, St. Andrew", "es": "Divina Liturgia, San Andrés", "ru": "Литургия, апостол Андрей" }
+    },
+    {
+      "id": "nativity-vigil-2026",
+      "date": "2026-12-24",
+      "time": "18:00",
+      "durationMinutes": 150,
+      "icon": "censer",
+      "highlight": false,
+      "streamed": true,
+      "name": { "en": "Nativity Vigil", "es": "Vigilia de la Natividad", "ru": "Всенощное бдение под Рождество" }
+    },
+    {
+      "id": "nativity-liturgy-2026",
+      "date": "2026-12-25",
+      "time": "09:00",
+      "durationMinutes": 120,
+      "icon": "chalice",
+      "highlight": true,
+      "streamed": true,
+      "name": { "en": "Nativity Divine Liturgy", "es": "Divina Liturgia de la Natividad", "ru": "Литургия Рождества Христова" }
+    },
+    {
+      "id": "theophany-2027",
+      "date": "2027-01-06",
+      "time": "09:00",
+      "durationMinutes": 150,
+      "icon": "chalice",
+      "highlight": true,
+      "streamed": true,
+      "name": { "en": "Theophany Liturgy and Blessing of Water", "es": "Liturgia de la Teofanía y bendición del agua", "ru": "Литургия и великое освящение воды" }
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { site } from '@/content';
 import type { PageContent } from '@/content';
@@ -19,7 +19,7 @@ export function useSeo(page: PageContent) {
   const { t, language } = useI18n();
   const { pathname } = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const siteName = t(site.name);
     const pageTitle = t(page.seo.title);
     const title = page.id === 'home' || pageTitle.includes(siteName) ? pageTitle : `${pageTitle} | ${siteName}`;

@@ -11,6 +11,7 @@ const config = {
       fontFamily: {
         serif: ['var(--font-serif)'],
         sans: ['var(--font-sans)'],
+        heading: ['var(--font-heading)'],
       },
       colors: {
         primary: scale('primary', STEPS),

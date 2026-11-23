@@ -1,0 +1,18 @@
+{
+  "feasts": [
+    { "id": "pascha", "paschaOffset": 0, "rank": "pascha", "name": { "en": "Pascha, the Resurrection of Christ", "es": "Pascua, la Resurrección de Cristo", "ru": "Пасха, Светлое Христово Воскресение" } },
+    { "id": "palm-sunday", "paschaOffset": -7, "rank": "great", "name": { "en": "Entry of the Lord into Jerusalem", "es": "Entrada del Señor en Jerusalén", "ru": "Вход Господень в Иерусалим" } },
+    { "id": "ascension", "paschaOffset": 39, "rank": "great", "name": { "en": "Ascension of the Lord", "es": "Ascensión del Señor", "ru": "Вознесение Господне" } },
+    { "id": "pentecost", "paschaOffset": 49, "rank": "great", "name": { "en": "Pentecost, Holy Trinity", "es": "Pentecostés, Santísima Trinidad", "ru": "День Святой Троицы" } },
+    { "id": "nativity-theotokos", "date": "09-08", "rank": "great", "name": { "en": "Nativity of the Theotokos", "es": "Natividad de la Madre de Dios", "ru": "Рождество Пресвятой Богородицы" } },
+    { "id": "exaltation", "date": "09-14", "rank": "great", "name": { "en": "Exaltation of the Holy Cross", "es": "Exaltación de la Santa Cruz", "ru": "Воздвижение Креста Господня" } },
+    { "id": "entry-theotokos", "date": "11-21", "rank": "great", "name": { "en": "Entry of the Theotokos into the Temple", "es": "Presentación de la Madre de Dios en el Templo", "ru": "Введение во храм Пресвятой Богородицы" } },
+    { "id": "nativity", "date": "12-25", "rank": "great", "name": { "en": "Nativity of Christ", "es": "Natividad de Cristo", "ru": "Рождество Христово" } },
+    { "id": "theophany", "date": "01-06", "rank": "great", "name": { "en": "Theophany", "es": "Teofanía", "ru": "Крещение Господне" } },
+    { "id": "meeting", "date": "02-02", "rank": "great", "name": { "en": "Meeting of the Lord", "es": "Encuentro del Señor", "ru": "Сретение Господне" } },
+    { "id": "annunciation", "date": "03-25", "rank": "great", "name": { "en": "Annunciation", "es": "Anunciación", "ru": "Благовещение" } },
+    { "id": "transfiguration", "date": "08-06", "rank": "great", "name": { "en": "Transfiguration of the Lord", "es": "Transfiguración del Señor", "ru": "Преображение Господне" } },
+    { "id": "dormition", "date": "08-15", "rank": "great", "name": { "en": "Dormition of the Theotokos", "es": "Dormición de la Madre de Dios", "ru": "Успение Пресвятой Богородицы" } },
+    { "id": "patronal", "date": "02-01", "rank": "parish", "name": { "en": "Patronal feast (sample)", "es": "Fiesta patronal (ejemplo)", "ru": "Престольный праздник (пример)" } }
+  ]
+}
