@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import Icon from '@/components/ui/Icon';
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { getPage } from '@/content';
@@ -9,8 +10,11 @@ import { useI18n } from '@/i18n';
 export interface FeatureCard {
   id: string;
   icon: string;
+  /** Page id to link to. The card is hidden when that page or its module is switched off. */
   page?: string;
+  /** Section id on that page to scroll to, e.g. "first-visit". */
   anchor?: string;
+  /** A custom link, used when there is no page. */
   to?: string;
   title: Localized;
   text: Localized;
@@ -32,18 +36,24 @@ export default function FeatureCards({ section }: { section: FeatureCardsSection
   if (!cards.length) return null;
 
   return (
-    <section className="section bg-primary-50/50">
+    <section className="section bg-primary-50">
       <div className="container-px container-max">
         <Reveal>
           <SectionHeading eyebrow={t(section.eyebrow)} title={t(section.title)} />
         </Reveal>
-        <div className={`mt-10 grid gap-4 ${cards.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
+        <div className={`mt-12 grid gap-6 ${cards.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
           {cards.map((card, i) => (
-            <Reveal key={card.id} delay={0.06 * i} className="h-full">
-              <Link to={card.href} className="card group flex h-full flex-col p-7 transition-colors hover:border-accent-400 sm:p-8">
-                <h3 className="font-heading text-2xl font-semibold text-primary-900">{t(card.title)}</h3>
-                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-700">{t(card.text)}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-accent-700">
+            <Reveal key={card.id} delay={0.1 * i}>
+              <Link
+                to={card.href}
+                className="group panel-kiot block h-full p-6 transition-all hover:-translate-y-1 hover:border-accent-500 sm:p-8"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-t-full rounded-b-md border border-accent-400/55 bg-primary-900 text-accent-300 shadow-[inset_0_0_0_2px_rgb(var(--color-ivory)/0.15)] transition-colors group-hover:bg-accent-400 group-hover:text-primary-900">
+                  <Icon name={card.icon} className="h-5 w-5" strokeWidth={1.6} />
+                </span>
+                <h3 className="mt-5 font-heading text-2xl font-semibold text-primary-900">{t(card.title)}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-700">{t(card.text)}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-accent-600">
                   {ui('learnMore')}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:rotate-180" strokeWidth={2} aria-hidden />
                 </span>

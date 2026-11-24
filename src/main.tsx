@@ -7,15 +7,6 @@ import '@/index.css';
 
 if (site.slavonicFont) document.documentElement.dataset.slavonic = site.slavonicFont;
 
-/** If IntersectionObserver never fires, force Reveal content visible ~1.5s after load. */
-const armRevealFallback = () => {
-  window.setTimeout(() => {
-    document.documentElement.classList.add('reveal-fallback');
-  }, 1500);
-};
-if (document.readyState === 'complete') armRevealFallback();
-else window.addEventListener('load', armRevealFallback, { once: true });
-
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>

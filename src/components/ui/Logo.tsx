@@ -11,9 +11,9 @@ const FRAME: Record<Exclude<LogoStyle, 'wordmark'>, string> = {
 };
 
 const SIZE = {
-  sm: 'h-9',
-  md: 'h-11',
-  lg: 'h-14',
+  sm: 'h-10',
+  md: 'h-[3.25rem]',
+  lg: 'h-16',
 };
 
 /** The logo image from site.json "logo.src" in its frame, or an Orthodox cross when no image is set. */
