@@ -15,7 +15,7 @@ const FRAME: Record<FramedStyle, string> = {
 const SIZE = {
   sm: { frame: 'h-10', church: 'h-9' },
   md: { frame: 'h-[3.25rem]', church: 'h-12' },
-  lg: { frame: 'h-16', church: 'h-[4.25rem]' },
+  lg: { frame: 'h-16', church: 'h-[4.75rem]' },
 };
 
 type Size = keyof typeof SIZE;
