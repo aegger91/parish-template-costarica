@@ -422,6 +422,24 @@ li {
   background-color: rgb(var(--color-parchment-deep) / 0.65) !important;
 }
 
+/*
+  Reveal: visible by default (no JS, prerendered HTML). Only html.js, added by the inline head
+  script, hides content until it scrolls into view; html.reveal-fallback (1.5s timer) forces it visible.
+*/
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.55s cubic-bezier(0, 0, 0.58, 1),
+    transform 0.55s cubic-bezier(0, 0, 0.58, 1);
+}
+
+html.js [data-reveal].is-revealed,
+html.js.reveal-fallback [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -431,6 +449,12 @@ li {
   .btn-primary,
   .btn-outline,
   .btn-ghost-light {
+    transition: none;
+  }
+
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }
