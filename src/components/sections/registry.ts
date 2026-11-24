@@ -17,6 +17,7 @@ import Hero from './Hero';
 import Intro from './Intro';
 import Livestream from './Livestream';
 import NewsList from './NewsList';
+import NextFeast from './NextFeast';
 import PageHero from './PageHero';
 import ProductDetail from './ProductDetail';
 import Projects from './Projects';
@@ -42,6 +43,7 @@ export const SECTIONS = {
   featureCards: FeatureCards,
   childPages: ChildPages,
   serviceTimes: ServiceTimes,
+  nextFeast: NextFeast,
   calendar: Calendar,
   clergy: Clergy,
   timeline: Timeline,

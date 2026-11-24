@@ -4,7 +4,6 @@ import { Clock, MapPin, Menu, ShoppingBag } from 'lucide-react';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import LiveBadge from '@/components/ui/LiveBadge';
 import { Brand } from '@/components/ui/Logo';
-import OrnamentBand from '@/components/ui/OrnamentBand';
 import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import { getPage, moduleOn, site } from '@/content';
 import { lookupUi, useI18n } from '@/i18n';
@@ -178,12 +177,10 @@ export default function Header() {
     <>
       <header
         className={[
-          // Always reserve 1px bottom border so solid/transparent never changes header height.
           'fixed inset-x-0 top-0 z-50 border-b',
-          // Background only — no height/layout transitions (avoids scroll jitter).
           solid
-            ? 'border-accent-400/25 bg-primary-900/95 shadow-lg shadow-primary-950/25 backdrop-blur-md'
-            : 'border-transparent bg-gradient-to-b from-primary-950/75 to-transparent',
+            ? 'border-primary-800/80 bg-primary-950/95 backdrop-blur-sm'
+            : 'border-transparent bg-gradient-to-b from-primary-950/80 to-transparent',
         ].join(' ')}
       >
         {/* Utility strip stays a fixed height on large screens so the bar never jumps. */}
@@ -277,13 +274,6 @@ export default function Header() {
             )}
           </div>
         </div>
-        <OrnamentBand
-          className={
-            solid
-              ? 'text-accent-400/90 bg-primary-950/40'
-              : 'text-accent-300/80 bg-gradient-to-b from-primary-950/25 to-transparent'
-          }
-        />
       </header>
       <MobileDrawer open={drawer} onClose={closeDrawer} />
     </>

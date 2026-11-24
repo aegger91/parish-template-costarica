@@ -18,8 +18,8 @@
   "dioceseUrl": "https://example.org/",
   "jurisdictionUrl": "https://example.org/",
   "logo": {
-    "style": "kiot",
-    "src": "/images/church/christ-pantocrator.jpg",
+    "style": "seal",
+    "src": "",
     "alt": "St. Example Orthodox Church logo",
     "wordmarkSubtitle": {
       "en": "Orthodox Church",

@@ -92,12 +92,12 @@ export default function Footer() {
   const [selected, setSelected] = useState<ServiceOccurrence | null>(null);
 
   return (
-    <footer className="border-t border-accent-400/30 bg-primary-950 text-primary-100">
-      <div className="ornament-divider pt-8 text-accent-400" aria-hidden>
-        <OrthodoxCross className="ornament-divider__cross h-5 w-auto" strokeWidth={1.7} />
+    <footer className="border-t border-primary-800 bg-primary-950 text-primary-100">
+      <div className="flex justify-center pt-8" aria-hidden>
+        <OrthodoxCross className="h-6 w-auto text-accent-400" strokeWidth={1.7} />
       </div>
       <div
-        className={`container-px mx-auto grid max-w-[88rem] gap-10 py-10 sm:gap-12 sm:py-14 md:grid-cols-2 ${newsletter ? 'xl:grid-cols-4' : 'lg:grid-cols-3'}`}
+        className={`container-px mx-auto grid max-w-container gap-10 py-10 sm:gap-12 sm:py-14 md:grid-cols-2 ${newsletter ? 'xl:grid-cols-4' : 'lg:grid-cols-3'}`}
       >
         <div>
           <Link to="/" className="flex items-center gap-3">

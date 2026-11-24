@@ -1,0 +1,2 @@
+Source Sans 3 is licensed under the SIL Open Font License, Version 1.1.
+See https://scripts.sil.org/OFL and the upstream package @fontsource/source-sans-3.
