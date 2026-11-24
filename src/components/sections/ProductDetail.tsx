@@ -43,7 +43,7 @@ export default function ProductDetail() {
     return (
       <>
         <PageHeroFrame title={ui('store.notFound')} crumbs={crumbs} />
-        <section className="section bg-white">
+        <section className="section">
           <div className="container-px container-max">
             <NoticeCard title={ui('store.notFound')} text={ui('store.notFoundText')} link={storePage ? { to: storePage.path, label: storePage.navLabel ?? storePage.seo.title } : undefined} />
           </div>
@@ -60,8 +60,8 @@ export default function ProductDetail() {
   return (
     <>
       <PageHeroFrame eyebrow={category ? t(category.label) : undefined} title={t(product.name)} crumbs={crumbs} />
-      <section className="section bg-white">
-        <div className="container-px mx-auto grid max-w-[72rem] gap-8 md:grid-cols-2 lg:gap-14">
+      <section className="section">
+        <div className="container-px mx-auto grid max-w-container gap-8 md:grid-cols-2 lg:gap-14">
           <div>
             <div className="aspect-square overflow-hidden rounded-2xl border border-primary-100 bg-primary-50">
               <ProductImage key={image} product={product} index={image} className="h-full w-full" />
@@ -85,7 +85,7 @@ export default function ProductDetail() {
           </div>
 
           <div>
-            <p className="font-heading text-3xl font-semibold text-primary-900">{money(price)}</p>
+            <p className="font-heading text-3xl font-normal text-ink-900">{money(price)}</p>
             <p className="mt-4 text-[15px] leading-relaxed text-ink-700">{t(product.description)}</p>
 
             {product.variants.length > 0 && (

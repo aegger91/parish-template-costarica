@@ -17,7 +17,7 @@ export default function Projects({ section }: { section: ProjectsSection }) {
   const donate = getPage('donate');
   if (!giving.projects.length) return null;
   return (
-    <section className="section bg-white">
+    <section className="section">
       <div className="container-px container-max">
         <Reveal>
           <SectionHeading eyebrow={t(section.eyebrow)} title={t(section.title)} />
@@ -28,7 +28,7 @@ export default function Projects({ section }: { section: ProjectsSection }) {
             return (
               <Reveal key={p.id} delay={0.08 * i} className="h-full">
                 <article className="card flex h-full flex-col p-6 sm:p-8">
-                  <h3 className="font-heading text-2xl font-semibold leading-snug text-primary-900">{t(p.title)}</h3>
+                  <h3 className="font-heading text-[23px] font-normal leading-snug text-ink-900">{t(p.title)}</h3>
                   <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-700">{t(p.text)}</p>
                   <div className="mt-6">
                     <div

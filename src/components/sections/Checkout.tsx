@@ -126,9 +126,9 @@ export default function Checkout() {
 
   if (!lines.length && state !== 'success') {
     return (
-      <section className="section bg-white">
+      <section className="section">
         <div className="container-px mx-auto max-w-xl text-center">
-          <p className="font-heading text-2xl font-semibold text-primary-900">{ui('cart.empty')}</p>
+          <p className="font-heading text-[23px] font-normal text-ink-900">{ui('cart.empty')}</p>
           {cart && (
             <Link to={cart.path} className="btn-outline mt-6">
               {ui('cart.label')}
@@ -140,12 +140,12 @@ export default function Checkout() {
   }
 
   return (
-    <section className="section bg-white">
-      <form onSubmit={submit} noValidate className="container-px mx-auto grid max-w-[72rem] gap-8 lg:grid-cols-[minmax(0,1fr)_24rem]">
+    <section className="section">
+      <form onSubmit={submit} noValidate className="container-px mx-auto grid max-w-container gap-8 lg:grid-cols-[minmax(0,1fr)_24rem]">
         <div className="space-y-8">
           <fieldset className="card p-6 sm:p-8">
             <legend className="sr-only">{ui('checkout.contact')}</legend>
-            <h2 className="font-heading text-2xl font-semibold text-primary-900">{ui('checkout.contact')}</h2>
+            <h2 className="font-heading text-[23px] font-normal text-ink-900">{ui('checkout.contact')}</h2>
             <div className="mt-5 grid gap-5 sm:grid-cols-2">
               {field('name', ui('forms.name'), { autoComplete: 'name' })}
               {field('email', ui('forms.email'), { type: 'email', autoComplete: 'email' })}
@@ -173,7 +173,7 @@ export default function Checkout() {
           {hasShippable && (
             <fieldset className="card p-6 sm:p-8">
               <legend className="sr-only">{ui('checkout.delivery')}</legend>
-              <h2 className="font-heading text-2xl font-semibold text-primary-900">{ui('checkout.delivery')}</h2>
+              <h2 className="font-heading text-[23px] font-normal text-ink-900">{ui('checkout.delivery')}</h2>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {(['pickup', 'shipping'] as const).map((m) => (
                   <label
@@ -253,7 +253,7 @@ export default function Checkout() {
         </div>
 
         <aside className="h-fit rounded-2xl bg-primary-50 p-6 lg:sticky lg:top-28">
-          <h2 className="font-heading text-2xl font-semibold text-primary-900">{ui('checkout.summary')}</h2>
+          <h2 className="font-heading text-[23px] font-normal text-ink-900">{ui('checkout.summary')}</h2>
           <ul className="mt-2 divide-y divide-primary-100">
             {lines.map((l) => (
               <CartLineView key={l.key} line={l} editable={false} />

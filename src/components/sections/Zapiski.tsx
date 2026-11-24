@@ -59,7 +59,7 @@ function SlipEditor({
     <fieldset className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]" aria-describedby={error ? `${uid}-error` : undefined}>
       <legend className="sr-only">{ui('zapiski.slipN', { n: String(index + 1) })}</legend>
       {/* The paper slip */}
-      <div className={`relative self-start rounded-md bg-white p-5 shadow-md sm:p-8 ${repose ? 'border-[6px] border-ink-900' : 'border-2 border-rose-700'}`}>
+      <div className={`relative self-start rounded-md bg-white p-5 shadow-sm sm:p-8 ${repose ? 'border border-ink-900/45' : 'border border-rose-700/45'}`}>
         {count > 1 && (
           <button type="button" onClick={onRemove} className="absolute end-2 top-2 flex h-10 w-10 items-center justify-center rounded-full text-ink-500 hover:bg-primary-50" aria-label={ui('zapiski.removeSlip')}>
             <X className="h-5 w-5" strokeWidth={1.8} aria-hidden />
@@ -67,14 +67,14 @@ function SlipEditor({
         )}
         <div className={`flex flex-col items-center ${ink}`}>
           <OrthodoxCross className="h-12 w-12" strokeWidth={1.8} />
-          <p className="ornament mt-2 text-center text-xl font-semibold uppercase tracking-[0.12em] sm:text-2xl">{type ? t(type.heading) : ''}</p>
+          <p className="mt-2 text-center font-heading text-[24px] font-normal sm:text-[28px]">{type ? t(type.heading) : ''}</p>
         </div>
 
         <div role="radiogroup" aria-label={ui('zapiski.type')} className="mx-auto mt-4 grid max-w-sm grid-cols-2 gap-1 rounded-pill border border-primary-200 bg-primary-50 p-1">
           {zapiski.slipTypes.map((s) => (
             <label
               key={s.id}
-              className={`flex min-h-10 cursor-pointer items-center justify-center rounded-pill px-2 text-center text-[13px] font-semibold has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent-400 ${
+              className={`flex min-h-10 cursor-pointer items-center justify-center rounded-pill px-2 text-center text-[13px] font-medium has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent-400 ${
                 slip.type === s.id ? (s.id === 'repose' ? 'bg-ink-900 text-white' : 'bg-rose-700 text-white') : 'text-primary-700'
               }`}
             >
@@ -282,8 +282,8 @@ export default function Zapiski({ section }: { section: ZapiskiSection }) {
   };
 
   return (
-    <section className="section bg-primary-50">
-      <div className="container-px mx-auto max-w-[72rem]">
+    <section className="section">
+      <div className="container-px mx-auto max-w-container">
         {section.intro && <p className="max-w-3xl text-[15px] leading-relaxed text-ink-700">{t(section.intro)}</p>}
         <p className="mt-5 flex gap-3 rounded-xl border border-accent-200 bg-accent-50 p-4 text-[14px] leading-relaxed text-ink-700">
           <Info className="mt-0.5 h-4 w-4 shrink-0 text-accent-700" strokeWidth={1.8} aria-hidden />
@@ -321,8 +321,8 @@ export default function Zapiski({ section }: { section: ZapiskiSection }) {
 
           <div className="card mt-10 p-6 sm:p-8">
             <p className="flex flex-wrap items-baseline justify-between gap-2">
-              <span className="font-heading text-2xl font-semibold text-primary-900">{ui('zapiski.total', { n: String(slips.length) })}</span>
-              <span className="font-heading text-3xl font-semibold text-primary-900">{money(total)}</span>
+              <span className="font-heading text-[23px] font-normal text-ink-900">{ui('zapiski.total', { n: String(slips.length) })}</span>
+              <span className="font-heading text-3xl font-normal text-ink-900">{money(total)}</span>
             </p>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">

@@ -21,7 +21,7 @@ export interface ServiceRequestsSection extends SectionBase {
 function PriceBadge({ price }: { price: ServiceRequestType['price'] }) {
   const { ui } = useI18n();
   return (
-    <span className={`rounded-pill px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] ${price === 'free' ? 'bg-emerald-50 text-emerald-800' : 'bg-accent-50 text-accent-800'}`}>
+    <span className={`rounded-pill px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.12em] ${price === 'free' ? 'bg-emerald-50 text-emerald-800' : 'bg-accent-50 text-accent-800'}`}>
       {ui(price === 'free' ? 'requests.free' : 'requests.donation')}
     </span>
   );
@@ -82,7 +82,7 @@ function RequestForm({ type, onDone }: { type: ServiceRequestType; onDone: () =>
   if (state === 'success') {
     return (
       <div className="pt-4 text-center">
-        <p className="font-heading text-2xl font-semibold text-primary-900">{ui('requests.thanks')}</p>
+        <p className="font-heading text-[23px] font-normal text-ink-900">{ui('requests.thanks')}</p>
         <p className="mt-3 text-[15px] text-ink-700">{ui('requests.thanksText')}</p>
         <button type="button" onClick={onDone} className="btn-primary mt-6">
           {ui('close')}
@@ -94,7 +94,7 @@ function RequestForm({ type, onDone }: { type: ServiceRequestType; onDone: () =>
   return (
     <form onSubmit={submit} noValidate>
       <p className="eyebrow text-[11px] text-accent-600">{ui('requests.formEyebrow')}</p>
-      <h2 className="mt-1 pe-10 font-heading text-2xl font-semibold leading-snug text-primary-900 sm:text-3xl">{t(type.title)}</h2>
+      <h2 className="mt-1 pe-10 font-heading text-[23px] font-normal leading-snug text-ink-900 sm:text-3xl">{t(type.title)}</h2>
       <p className="mt-2 text-[13.5px] text-ink-500">
         {ui('requests.sentTo', { who: recipient ? `${t(recipient.name)}, ${t(recipient.role)}` : ui('requests.office') })}
       </p>
@@ -165,8 +165,8 @@ export default function ServiceRequests({ section }: { section: ServiceRequestsS
   const close = useCallback(() => setOpen(null), []);
 
   return (
-    <section className="section bg-primary-50">
-      <div className="container-px mx-auto max-w-[80rem]">
+    <section className="section">
+      <div className="container-px mx-auto max-w-container">
         {section.intro && <p className="mx-auto max-w-3xl text-center text-[15px] leading-relaxed text-ink-700">{t(section.intro)}</p>}
         <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {serviceRequestTypes.map((type, i) => {
@@ -185,9 +185,9 @@ export default function ServiceRequests({ section }: { section: ServiceRequestsS
                       </span>
                     )}
                   </div>
-                  <h3 className="mt-3 font-heading text-xl font-semibold leading-snug text-primary-900">{t(type.title)}</h3>
+                  <h3 className="mt-3 font-heading text-xl font-normal leading-snug text-ink-900">{t(type.title)}</h3>
                   <p className="mt-1.5 flex-1 text-[14px] leading-relaxed text-ink-700">{t(type.summary)}</p>
-                  <span className="mt-4 inline-flex max-w-full flex-wrap items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.1em] leading-snug text-accent-700">
+                  <span className="mt-4 inline-flex max-w-full flex-wrap items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.1em] leading-snug text-accent-700">
                     {ui(type.link ? 'requests.open' : 'requests.request')}
                     <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5 rtl:rotate-180" strokeWidth={2} aria-hidden />
                   </span>

@@ -44,7 +44,9 @@
         "en": "Ways to help and current parish needs.",
         "es": "Formas de ayudar y necesidades actuales.",
         "ru": "Как помочь и текущие нужды прихода."
-      }
+      },
+      "backgroundImage": "/images/church/holy-trinity-chicago.jpg",
+      "backgroundPosition": "50% 40%"
     },
     {
       "id": "volunteer",

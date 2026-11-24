@@ -43,7 +43,8 @@
         "en": "Sample text: how the parish began and grew.",
         "es": "Texto de ejemplo: cómo nació y creció la parroquia.",
         "ru": "Пример текста: как появился и рос приход."
-      }
+      },
+      "backgroundImage": "/images/church/kizhi-pogost.jpg"
     },
     {
       "id": "timeline",

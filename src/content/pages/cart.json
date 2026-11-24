@@ -33,7 +33,8 @@
         "en": "Your Cart",
         "es": "Su carrito",
         "ru": "Корзина"
-      }
+      },
+      "backgroundImage": "/images/church/russian-orthodox-interior.jpg"
     },
     {
       "id": "cart",

@@ -44,7 +44,8 @@
         "en": "Watch services live from the parish.",
         "es": "Vea los servicios en directo desde la parroquia.",
         "ru": "Трансляции богослужений из храма."
-      }
+      },
+      "backgroundImage": "/images/church/holy-ascension-iconostasis.jpg"
     },
     {
       "id": "live",

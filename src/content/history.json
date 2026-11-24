@@ -29,7 +29,7 @@
         "es": "Texto de ejemplo. Tras años de trabajo y donativos, el templo se termina y se consagra.",
         "ru": "Пример текста. После многих лет трудов и пожертвований храм построен и освящён."
       },
-      "image": "/images/placeholder/gallery-1.jpg"
+      "image": "/images/church/resurrection-kostroma.jpg"
     },
     {
       "id": "iconostasis",
@@ -40,7 +40,7 @@
         "es": "Texto de ejemplo. Se bendicen e instalan los íconos pintados por un iconógrafo local.",
         "ru": "Пример текста. Освящены и установлены иконы, написанные местным иконописцем."
       },
-      "image": "/images/placeholder/gallery-2.jpg"
+      "image": "/images/church/holy-ascension-iconostasis.jpg"
     },
     {
       "id": "today",

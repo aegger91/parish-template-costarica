@@ -40,14 +40,14 @@ function Dropdown() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={`${ui('language')}: ${language.label}`}
-        className="flex min-h-9 items-center gap-1.5 rounded-pill border border-white/25 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.08em] text-white/90 transition-colors hover:border-white/50"
+        className="flex min-h-9 items-center gap-1.5 rounded-pill border border-rule px-3 py-1 text-[11.5px] font-medium uppercase tracking-[0.1em] text-ink-700 transition-colors hover:border-primary-500 hover:text-primary-700"
       >
         <Globe className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden />
         {language.short}
         <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`} strokeWidth={1.8} aria-hidden />
       </button>
       {open && (
-        <ul className="absolute end-0 top-full z-50 mt-2 max-h-[70vh] w-52 overflow-y-auto rounded-2xl border border-primary-100 bg-white py-2 shadow-xl shadow-primary-950/15">
+        <ul className="absolute end-0 top-full z-50 mt-2 max-h-[70vh] w-52 overflow-y-auto rounded-[6px] border border-rule/50 bg-paper py-2 shadow-lg shadow-primary-950/10">
           {LANGUAGES.map((l) => (
             <li key={l.code}>
               <button
@@ -61,7 +61,7 @@ function Dropdown() {
                 }}
                 aria-pressed={lang === l.code}
                 className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-start text-[14px] transition-colors ${
-                  lang === l.code ? 'font-semibold text-accent-700' : 'text-primary-700 hover:bg-primary-50'
+                  lang === l.code ? 'font-medium text-primary-700' : 'text-ink-700 hover:bg-cream'
                 }`}
               >
                 {l.label}
@@ -91,8 +91,8 @@ export default function LanguageSwitcher({ variant }: { variant: Variant }) {
             dir={l.dir ?? 'ltr'}
             onClick={() => setLang(l.code)}
             aria-pressed={lang === l.code}
-            className={`min-h-11 truncate rounded-pill border px-2 py-2.5 text-[13px] font-semibold transition-colors ${
-              lang === l.code ? 'border-accent-400 bg-accent-400 text-primary-900' : 'border-white/25 text-white/90 hover:border-accent-300'
+            className={`min-h-11 truncate rounded-pill border px-2 py-2.5 text-[13px] font-medium transition-colors ${
+              lang === l.code ? 'border-primary-600 bg-primary-600 text-white' : 'border-rule text-ink-700 hover:border-primary-500'
             }`}
           >
             {l.label}
@@ -105,7 +105,7 @@ export default function LanguageSwitcher({ variant }: { variant: Variant }) {
   if (LANGUAGES.length > MAX_INLINE) return <Dropdown />;
 
   return (
-    <div className="flex shrink-0 items-center gap-0.5 rounded-pill border border-white/20 p-0.5" role="group" aria-label={ui('language')}>
+    <div className="flex shrink-0 items-center" role="group" aria-label={ui('language')}>
       {LANGUAGES.map((l) => (
         <button
           key={l.code}
@@ -114,8 +114,8 @@ export default function LanguageSwitcher({ variant }: { variant: Variant }) {
           onClick={() => setLang(l.code)}
           aria-pressed={lang === l.code}
           aria-label={l.label}
-          className={`inline-flex min-h-7 min-w-[2.25rem] items-center justify-center rounded-pill px-2 py-0.5 text-[11px] font-semibold uppercase leading-snug tracking-[0.06em] transition-colors ${
-            lang === l.code ? 'bg-accent-400 text-primary-900' : 'text-white/85 hover:text-white'
+          className={`relative inline-flex min-h-8 min-w-[2.1rem] items-center justify-center px-1.5 text-[11.5px] font-medium uppercase leading-snug tracking-[0.1em] transition-colors after:absolute after:inset-x-2 after:bottom-1 after:h-px after:transition-colors ${
+            lang === l.code ? 'text-primary-700 after:bg-accent-500' : 'text-ink-500 after:bg-transparent hover:text-primary-700'
           }`}
         >
           {l.short}

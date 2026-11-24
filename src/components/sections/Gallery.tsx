@@ -55,7 +55,7 @@ export default function Gallery({ section }: { section: GallerySection }) {
 
   return (
     <>
-      <section className="section bg-white">
+      <section className="section">
         <div className="container-px container-max">
           {section.title && (
             <Reveal>

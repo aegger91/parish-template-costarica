@@ -4,68 +4,74 @@
   options live in src/content, not here.
   Colors are space-separated RGB channels so Tailwind opacity modifiers work.
 
-  Visual direction: dignified Russian Orthodox (ROCOR / OCA) parish —
-  deep liturgical burgundy, antique gold, warm parchment.
+  Visual direction: calm classic Russian Orthodox / OCA parish. A muted olive
+  page frame, a white header card, a warm cream body, flat olive and ochre
+  tiles, fine antique-gold line work.
 */
 :root {
-  /* Primary: deep liturgical burgundy */
-  --color-primary-50: 250 244 242;
-  --color-primary-100: 243 228 224;
-  --color-primary-200: 226 190 182;
-  --color-primary-300: 196 140 130;
-  --color-primary-400: 160 88 82;
-  --color-primary-500: 130 52 52;
-  --color-primary-600: 110 38 44;
-  --color-primary-700: 92 30 38;
-  --color-primary-800: 74 24 32;
-  --color-primary-900: 58 18 26;
-  --color-primary-950: 36 10 16;
+  /* Primary: muted olive */
+  --color-primary-50: 244 246 236;
+  --color-primary-100: 229 234 212;
+  --color-primary-200: 205 214 172;
+  --color-primary-300: 174 188 126;
+  --color-primary-400: 145 160 92;
+  --color-primary-500: 121 136 71;
+  --color-primary-600: 103 117 59;
+  --color-primary-700: 85 97 49;
+  /* The darkest steps lean toward graphite so headings read calm, not green. */
+  --color-primary-800: 68 75 46;
+  --color-primary-900: 50 54 38;
+  --color-primary-950: 32 35 25;
 
-  /* Accent: antique liturgical gold */
-  --color-accent-50: 252 248 236;
-  --color-accent-100: 246 236 204;
-  --color-accent-200: 232 208 148;
-  --color-accent-300: 214 180 96;
-  --color-accent-400: 196 154 58;
-  --color-accent-500: 176 132 40;
-  --color-accent-600: 148 108 32;
-  --color-accent-700: 118 86 28;
-  --color-accent-800: 92 68 26;
-  --color-accent-900: 74 54 22;
+  /* Accent: antique gold and ochre */
+  --color-accent-50: 250 246 238;
+  --color-accent-100: 242 233 215;
+  --color-accent-200: 228 211 177;
+  --color-accent-300: 211 186 140;
+  --color-accent-400: 194 162 113;
+  --color-accent-500: 176 141 87;
+  --color-accent-600: 150 117 70;
+  --color-accent-700: 122 94 57;
+  --color-accent-800: 96 75 48;
+  --color-accent-900: 76 60 40;
 
-  /* Ink: warm body text on parchment */
-  --color-ink-900: 42 28 24;
-  --color-ink-700: 78 58 50;
-  --color-ink-500: 120 96 84;
-  --color-ink-300: 214 200 188;
+  /* Ink: warm graphite text */
+  --color-ink-900: 44 44 40;
+  --color-ink-700: 84 84 76;
+  --color-ink-500: 118 116 106;
+  --color-ink-300: 208 204 192;
 
   /* Surfaces */
-  --color-parchment: 247 241 230;
-  --color-parchment-deep: 238 228 210;
-  --color-ivory: 252 248 240;
+  --color-frame: var(--color-primary-500);
+  --color-cream: 241 237 225;
+  --color-cream-deep: 233 227 210;
+  --color-paper: 255 255 255;
+  --color-rule: 201 186 152;
 
-  /* Typography — self-hosted (see fonts.css); EB Garamond covers Greek glyphs */
-  --font-heading: 'Cormorant Garamond', 'EB Garamond', 'Old Standard TT', 'Times New Roman', serif;
+  /* Typography (self-hosted, see fonts.css) */
+  --font-heading: 'Playfair Display', 'EB Garamond', Georgia, 'Times New Roman', serif;
   --font-serif: var(--font-heading);
-  --font-sans: 'Source Serif 4', 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --font-body: var(--font-sans);
-  --text-eyebrow: 11px;
-  --tracking-eyebrow: 0.12em;
-  --text-nav: 13px;
-  --tracking-nav: 0.05em;
+  --font-ornament: var(--font-sans);
+  --font-button: var(--font-sans);
+  --text-eyebrow: 11.5px;
+  --tracking-eyebrow: 0.16em;
+  --text-nav: 12.5px;
+  --tracking-nav: 0.14em;
 
-  /* Radii — gentle churchly rounding, not IT pills or sharp boxes */
-  --radius-card: 0.65rem;
-  --radius-inner: 0.45rem;
-  --radius-pill: 0.45rem;
-  --radius-arch: 999px;
+  /* Radii: crisp tiles, a softly rounded page card */
+  --radius-frame: 1.25rem;
+  --radius-card: 0.25rem;
+  --radius-inner: 0.375rem;
+  --radius-pill: 0.375rem;
 
   /* Layout and spacing */
-  --container-max: 72rem;
+  --container-max: 70rem;
+  --frame-max: 80rem;
   --section-y: 3.5rem;
   --section-y-lg: 5.5rem;
 
-  /* Ornament */
-  --ornament-gold: rgb(var(--color-accent-400));
-  --ornament-gold-soft: rgb(var(--color-accent-300) / 0.55);
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
 }

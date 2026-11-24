@@ -36,7 +36,7 @@ export default function FeatureCards({ section }: { section: FeatureCardsSection
   if (!cards.length) return null;
 
   return (
-    <section className="section bg-primary-50">
+    <section className="section">
       <div className="container-px container-max">
         <Reveal>
           <SectionHeading eyebrow={t(section.eyebrow)} title={t(section.title)} />
@@ -46,14 +46,14 @@ export default function FeatureCards({ section }: { section: FeatureCardsSection
             <Reveal key={card.id} delay={0.1 * i}>
               <Link
                 to={card.href}
-                className="group panel-kiot block h-full p-6 transition-all hover:-translate-y-1 hover:border-accent-500 sm:p-8"
+                className="group panel-kiot block h-full p-6 lift sm:p-8"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-t-full rounded-b-md border border-accent-400/55 bg-primary-900 text-accent-300 shadow-[inset_0_0_0_2px_rgb(var(--color-ivory)/0.15)] transition-colors group-hover:bg-accent-400 group-hover:text-primary-900">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-accent-400/60 text-accent-600 transition-colors group-hover:border-accent-500 group-hover:bg-accent-50">
                   <Icon name={card.icon} className="h-5 w-5" strokeWidth={1.6} />
                 </span>
-                <h3 className="mt-5 font-heading text-2xl font-semibold text-primary-900">{t(card.title)}</h3>
+                <h3 className="mt-5 font-heading text-[23px] font-normal text-ink-900">{t(card.title)}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-ink-700">{t(card.text)}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-accent-600">
+                <span className="mt-5 inline-flex items-center gap-2 text-[14px] font-medium text-primary-700 underline-offset-4 group-hover:underline">
                   {ui('learnMore')}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:rotate-180" strokeWidth={2} aria-hidden />
                 </span>

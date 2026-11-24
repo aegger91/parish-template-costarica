@@ -45,10 +45,10 @@ export function ParishMap({ className = '' }: { className?: string }) {
         <line x1="0" y1="70%" x2="100%" y2="56%" stroke="currentColor" strokeWidth="10" />
         <line x1="62%" y1="0" x2="54%" y2="100%" stroke="currentColor" strokeWidth="6" />
       </svg>
-      <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-primary-900 text-accent-300 shadow-lg">
+      <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-primary-600 text-white shadow-lg">
         <MapPin className="h-6 w-6" strokeWidth={1.8} aria-hidden />
       </span>
-      <p className="relative max-w-xs font-heading text-lg font-semibold text-primary-900">{t(site.address.singleLine)}</p>
+      <p className="relative max-w-xs font-heading text-lg font-normal text-ink-900">{t(site.address.singleLine)}</p>
       <a href={site.mapsUrl} target="_blank" rel="noreferrer" className="btn-primary relative" aria-label={`${ui('hero.directions')} (${ui('opensInNewTab')})`}>
         <Navigation className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
         {ui('hero.directions')}
@@ -98,11 +98,11 @@ export default function ContactForm({ section }: { section: ContactFormSection }
   const aria = (k: Field) => ({ 'aria-invalid': !!errors[k], 'aria-describedby': errors[k] ? `${uid}-${k}-error` : undefined });
 
   return (
-    <section className="section bg-white">
-      <div className="container-px mx-auto grid max-w-[80rem] gap-8 lg:grid-cols-2 lg:gap-12">
+    <section className="section">
+      <div className="container-px mx-auto grid max-w-container gap-8 lg:grid-cols-2 lg:gap-12">
         <Reveal>
           <form onSubmit={submit} noValidate className="card p-6 sm:p-8">
-            <h2 className="font-heading text-2xl font-semibold text-primary-900 sm:text-3xl">{t(section.title)}</h2>
+            <h2 className="font-heading text-[23px] font-normal text-ink-900 sm:text-3xl">{t(section.title)}</h2>
             <div className="accent-rule mt-5" />
             {section.text && <p className="mt-5 text-[15px] leading-relaxed text-ink-700">{t(section.text)}</p>}
             <div className="mt-6 grid gap-5 sm:grid-cols-2">

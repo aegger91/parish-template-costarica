@@ -18,8 +18,8 @@ export default function Intro({ section }: { section: IntroSection }) {
   const { t } = useI18n();
 
   return (
-    <section className="section bg-white">
-      <div className="container-px container-max grid items-center gap-12 lg:grid-cols-2">
+    <section className="section">
+      <div className="container-px container-max grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <Reveal>
           <SectionHeading eyebrow={t(section.eyebrow)} title={t(section.title)} align="left" />
           <div className="prose-block mt-6 text-[15px] text-ink-700 sm:text-base">
@@ -28,43 +28,26 @@ export default function Intro({ section }: { section: IntroSection }) {
             ))}
           </div>
           {section.link && (
-            <Link
-              to={section.link.to}
-              className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.16em] text-primary-700 transition-colors hover:text-accent-600"
-            >
+            <Link to={section.link.to} className="btn-outline group mt-8">
               {t(section.link.label)}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" strokeWidth={2} aria-hidden />
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180" strokeWidth={1.8} aria-hidden />
             </Link>
           )}
         </Reveal>
 
         {section.image && (
-          <Reveal delay={0.15} className="relative">
-            <figure className="arch-frame relative bg-primary-900 shadow-2xl shadow-primary-900/25">
-              <img
-                src={section.image.src}
-                alt={t(section.image.alt)}
-                loading="lazy"
-                className="h-[320px] w-full object-cover object-top sm:h-[480px]"
-              />
-              {section.caption && (
-                <>
-                  <div
-                    aria-hidden
-                    className="absolute inset-0"
-                    style={{ background: 'linear-gradient(180deg, transparent 55%, rgb(var(--color-primary-950) / 0.6) 100%)' }}
-                  />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-6 font-heading text-lg italic text-white">
-                    {t(section.caption)}
-                  </figcaption>
-                </>
-              )}
+          <Reveal delay={0.1}>
+            <figure>
+              <div className="overflow-hidden rounded-2xl bg-cream-deep">
+                <img
+                  src={section.image.src}
+                  alt={t(section.image.alt)}
+                  loading="lazy"
+                  className="h-[320px] w-full object-cover object-[50%_20%] sm:h-[440px]"
+                />
+              </div>
+              {section.caption && <figcaption className="mt-3 text-[13px] text-ink-500">{t(section.caption)}</figcaption>}
             </figure>
-            <div
-              aria-hidden
-              className="absolute -bottom-5 -end-5 -z-10 h-full w-full border-2 border-accent-400/60"
-              style={{ borderRadius: '50% 50% 0.35rem 0.35rem / 28% 28% 0.35rem 0.35rem' }}
-            />
           </Reveal>
         )}
       </div>

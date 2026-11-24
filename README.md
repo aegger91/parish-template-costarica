@@ -43,13 +43,14 @@ Pages can be nested: give a page a path such as `/parish/choir` and add it under
 
 ### Settings in `site.json`
 
-- **`logo.style`**: `seal`, `kiot`, `square` or `wordmark`. Set `logo.src` to use an image; when empty, the eight-pointed cross is drawn.
+- **`logo.style`**: `church` (default: a gold line drawing of a church with onion domes and three-bar crosses, `src/components/ui/ChurchMark.tsx`), or `seal`, `kiot`, `square` or `wordmark`. For the framed styles set `logo.src` to use an image; when empty, the eight-pointed cross is drawn.
+- **`hours`**: one or two short lines of opening hours shown at the top left of the header, e.g. "Church open daily" and "8:00 AM to 7:00 PM". Leave out to hide.
 - **`calendar.style`** (also called **calendarStyle**): `'old'` | `'new'`. Chosen by the builder or parish — there is no visitor toggle. Default: `'old'` (ROCOR / Julian). `'old'` uses Julian fixed feasts and shows civil dates with Old Style (e.g. `Dec 19 (Dec 6 O.S.)`). `'new'` is Revised Julian (fixed feasts on the civil date). Movable Pascha-based feasts follow the Orthodox Paschalion in both. A small “Old Calendar (Julian)” / “New Calendar” label appears in the schedule header.
 - **`modules`**: switch each optional module on or off. A switched-off module removes its pages, menu entries and shortcuts.
 - **`livestream`**: `watchUrl` and `embedUrl` for the parish channel.
 - **`formsEndpoint`**: where contact messages and service requests are posted. When empty, forms show the parish email instead.
 - **`orthodoxConnect`**: parish id, app address, events feed, sign-up address and the newsletter switch. The footer newsletter shows only when `newsletter.enabled` is true.
-- **`slavonicFont`**: empty, or `old-standard`, `ponomar` or `triodion` (all SIL Open Font License, in `public/fonts/`) for headings, buttons and ornaments.
+- **`slavonicFont`**: empty, or `old-standard`, `ponomar` or `triodion` (all SIL Open Font License, in `public/fonts/`) for headings.
 
 ## Optional modules
 
@@ -69,11 +70,13 @@ Contact messages and service requests use `site.json` `formsEndpoint` the same w
 
 ## Look and images
 
-- Colors, type and spacing: `src/styles/tokens.css` (liturgical burgundy, antique gold, parchment). Fonts: `src/styles/fonts.css` — Cormorant Garamond and Source Serif 4 are self-hosted in `public/fonts/` with Latin, Latin Extended, Cyrillic and Greek subsets (EB Garamond Greek covers heading Greek glyphs). Optional Slavonic faces as below. No external font CDN.
+- Colors, type and spacing: `src/styles/tokens.css` (olive frame, white header card, warm cream body, gold and ochre accents). Fonts: `src/styles/fonts.css`: Playfair Display for headings and Inter for text, self-hosted in `public/fonts/` with Latin, Latin Extended and Cyrillic subsets (EB Garamond Greek covers heading Greek glyphs). Optional Slavonic faces as below. No external font CDN.
+- Home page: the `hero` section is a tile grid. `image`, `title`, `upcoming` and `primaryCta` fill the tall photo tile with the next services; `tiles` adds olive tiles and wide ochre tiles (`tone`, `title`, `text`, `page`, `button`, optional `image`, `module`, and `calendarNote` to show the Old or New Calendar label).
+- Inner pages: each `pageHero` shows its `backgroundImage` (default `site.json` `pageHeroBackground`) under an olive tint; `backgroundPosition` moves the crop.
 - Language fit: `npm run language-fit` (with `npm run preview` serving `dist/`) loads every page in every language at 360 / 768 / 1280 and fails if text overflows or overlaps.
 - Schedule rows open a detail panel with Add to calendar (.ics + Google), Directions, and livestream when marked live.
 - Giving and commemorations never enforce a minimum amount; suggested chips are optional. In English UI, “Zapiski” reads as “Commemoration names” (Spanish: “Nombres para conmemorar”; Russian: “Записки”).
-- Placeholder images are in `public/images/`. Replace them, or point the content files at new ones. Use real photographs and canonical icons only; do not use generated images of Christ, the Theotokos or the saints.
+- Sample photographs of Orthodox churches and icons are in `public/images/church/`, with authors and licenses in `CREDITS.md`. Replace them with the parish's own, or point the content files at new ones. Use real photographs and canonical icons only; do not use generated images of Christ, the Theotokos or the saints.
 - `public/site.webmanifest` holds the app name shown when the site is installed on a phone.
 
 ## Adding a language

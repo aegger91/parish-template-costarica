@@ -17,11 +17,18 @@ const config = {
         primary: scale('primary', STEPS),
         accent: scale('accent', STEPS.slice(0, -1)),
         ink: scale('ink', [900, 700, 500, 300]),
+        cream: {
+          DEFAULT: 'rgb(var(--color-cream) / <alpha-value>)',
+          deep: 'rgb(var(--color-cream-deep) / <alpha-value>)',
+        },
+        paper: 'rgb(var(--color-paper) / <alpha-value>)',
+        rule: 'rgb(var(--color-rule) / <alpha-value>)',
       },
       borderRadius: {
         xl: 'var(--radius-inner)',
         '2xl': 'var(--radius-card)',
         pill: 'var(--radius-pill)',
+        frame: 'var(--radius-frame)',
       },
       maxWidth: {
         container: 'var(--container-max)',

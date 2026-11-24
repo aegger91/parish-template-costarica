@@ -23,10 +23,10 @@ export default function Livestream({ section }: { section: LivestreamSection }) 
   const { embedUrl, watchUrl, providerLabel } = site.livestream;
 
   return (
-    <section className="section bg-white">
-      <div className="container-px mx-auto grid max-w-[80rem] gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-12">
+    <section className="section">
+      <div className="container-px mx-auto grid max-w-container gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-12">
         <Reveal>
-          <div className="relative aspect-video overflow-hidden rounded-2xl bg-primary-950 shadow-2xl shadow-primary-900/25">
+          <div className="relative aspect-video overflow-hidden rounded-2xl bg-primary-800 shadow-2xl shadow-primary-900/25">
             {embedUrl ? (
               <iframe
                 src={embedUrl}
@@ -38,9 +38,9 @@ export default function Livestream({ section }: { section: LivestreamSection }) 
               />
             ) : (
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center">
-                <OrthodoxCross className="h-14 w-14 text-accent-300/80" strokeWidth={1.4} />
-                <p className="max-w-sm font-heading text-xl text-white sm:text-2xl">{ui('livestream.placeholder')}</p>
-                <p className="max-w-sm text-[13px] text-primary-200">{ui('livestream.placeholderHelp')}</p>
+                <OrthodoxCross className="h-14 w-14 text-accent-100/80" strokeWidth={1.4} />
+                <p className="max-w-sm font-heading text-xl text-white sm:text-[23px]">{ui('livestream.placeholder')}</p>
+                <p className="max-w-sm text-[13px] text-white/80">{ui('livestream.placeholderHelp')}</p>
               </div>
             )}
             {live && (

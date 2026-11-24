@@ -19,7 +19,7 @@ export default function Clergy({ section }: { section: ClergySection }) {
     : clergy;
 
   return (
-    <section className="section bg-primary-50">
+    <section className="section">
       <div className="container-px container-max">
         <Reveal>
           <SectionHeading eyebrow={t(section.eyebrow)} title={t(section.title)} />

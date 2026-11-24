@@ -1,12 +1,16 @@
 import { useEffect, useRef } from 'react';
 import type { ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useI18n } from '@/i18n';
 
 const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])';
 
-/** Centered dialog on larger screens, a bottom sheet on phones. Escape and the backdrop close it. */
+/**
+ * Centered dialog on larger screens, a bottom sheet on phones. Escape and the backdrop close it.
+ * Rendered into body so tiles, reveal transforms and the sticky menu cannot trap or cover it.
+ */
 export default function Modal({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: ReactNode }) {
   const { ui } = useI18n();
   const panel = useRef<HTMLDivElement>(null);
@@ -39,11 +43,11 @@ export default function Modal({ open, onClose, title, children }: { open: boolea
     };
   }, [open, onClose]);
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {open && (
         <div className="fixed inset-0 z-[80] flex items-end justify-center sm:items-center sm:p-6">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-primary-950/60 backdrop-blur-sm" onClick={onClose} aria-hidden />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-primary-950/45 backdrop-blur-[2px]" onClick={onClose} aria-hidden />
           <motion.div
             ref={panel}
             role="dialog"
@@ -53,15 +57,16 @@ export default function Modal({ open, onClose, title, children }: { open: boolea
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 32 }}
             transition={{ duration: 0.2 }}
-            className="relative max-h-[92vh] w-full max-w-xl overflow-y-auto overscroll-contain rounded-t-2xl bg-white p-6 shadow-2xl sm:rounded-2xl sm:p-8"
+            className="relative max-h-[92vh] w-full max-w-xl overflow-y-auto overscroll-contain rounded-t-2xl bg-paper p-6 shadow-2xl sm:rounded-2xl sm:p-8"
           >
-            <button type="button" onClick={onClose} className="absolute end-3 top-3 flex h-11 w-11 items-center justify-center rounded-full text-primary-700 hover:bg-primary-50" aria-label={ui('close')}>
+            <button type="button" onClick={onClose} className="absolute end-3 top-3 flex h-11 w-11 items-center justify-center rounded-full text-ink-700 hover:bg-cream" aria-label={ui('close')}>
               <X className="h-5 w-5" strokeWidth={1.8} aria-hidden />
             </button>
             {children}
           </motion.div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

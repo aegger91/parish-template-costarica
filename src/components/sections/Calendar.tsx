@@ -91,7 +91,7 @@ function ServiceLine({ o, live, compact = false }: { o: ServiceOccurrence; live:
         <span className={`min-w-0 ${compact ? 'line-clamp-2' : ''} ${o.service.highlight ? 'font-medium text-primary-900' : 'text-ink-700'}`}>
           {name}
           {live && (
-            <span className="ms-1.5 inline-block whitespace-nowrap rounded-pill bg-rose-600 px-1.5 py-px text-[10px] font-bold uppercase text-white">
+            <span className="ms-1.5 inline-block whitespace-nowrap rounded-pill bg-rose-600 px-1.5 py-px text-[10px] font-semibold uppercase text-white">
               {ui('live.short')}
             </span>
           )}
@@ -122,12 +122,12 @@ function DayDetails({ info, style, today, live, heading = true }: { info: DayInf
     <div>
       {heading && (
         <div className="flex items-baseline justify-between gap-2">
-          <p className={`font-heading text-lg font-semibold ${isToday ? 'text-accent-700' : 'text-primary-900'}`}>
+          <p className={`font-heading text-lg font-normal ${isToday ? 'text-accent-700' : 'text-ink-900'}`}>
             {formatDay(info.jdn, language.locale, { weekday: 'long', day: 'numeric', month: 'long' })}
           </p>
           <span className="flex shrink-0 items-center gap-2">
             {isOldCalendar(style) && <OldStyleDate jdn={info.jdn} />}
-            {isToday && <span className="rounded-pill bg-accent-400 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-900">{ui('today')}</span>}
+            {isToday && <span className="rounded-pill bg-accent-400 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary-900">{ui('today')}</span>}
           </span>
         </div>
       )}
@@ -199,8 +199,8 @@ export default function Calendar({ section }: { section: CalendarSection }) {
   const agenda = view === 'month' ? list.filter((d) => d.services.length || d.feasts.length || d.jdn === now.jdn) : list;
 
   return (
-    <section className="section bg-white">
-      <div className="container-px mx-auto max-w-[80rem]">
+    <section className="section">
+      <div className="container-px mx-auto max-w-container">
         <Reveal>
           <SectionHeading eyebrow={t(section.eyebrow)} title={t(section.title)} />
           {section.intro && <p className="mx-auto mt-6 max-w-2xl text-center text-[15px] leading-relaxed text-ink-700">{t(section.intro)}</p>}
@@ -219,7 +219,7 @@ export default function Calendar({ section }: { section: CalendarSection }) {
                   }}
                   aria-pressed={view === v}
                   className={`min-h-9 rounded-pill px-4 text-[13px] font-semibold transition-colors ${
-                    view === v ? 'bg-primary-900 text-white' : 'text-primary-700 hover:text-primary-900'
+                    view === v ? 'bg-primary-600 text-white' : 'text-primary-700 hover:text-primary-900'
                   }`}
                 >
                   {ui(v === 'week' ? 'calendar.weekly' : 'calendar.monthly')}
@@ -235,7 +235,7 @@ export default function Calendar({ section }: { section: CalendarSection }) {
             <button type="button" onClick={() => move(-1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-primary-200 text-primary-800 hover:border-accent-400" aria-label={ui('previous')}>
               <ChevronLeft className="h-5 w-5 rtl:rotate-180" strokeWidth={1.8} aria-hidden />
             </button>
-            <p className="min-w-0 flex-1 text-center font-heading text-xl font-semibold text-primary-900 sm:min-w-[14rem] sm:flex-none" aria-live="polite">
+            <p className="min-w-0 flex-1 text-center font-heading text-xl font-normal text-ink-900 sm:min-w-[14rem] sm:flex-none" aria-live="polite">
               {title}
             </p>
             <button type="button" onClick={() => move(1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-primary-200 text-primary-800 hover:border-accent-400" aria-label={ui('next')}>
@@ -290,11 +290,11 @@ export default function Calendar({ section }: { section: CalendarSection }) {
                     <DayDetails info={info} style={style} today={now.jdn} live={live} />
                   </div>
                   <div className="hidden lg:block">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-500">{weekdayName(weekdayOfJdn(info.jdn), language.locale, 'short')}</p>
-                    <p className={`font-heading text-2xl font-semibold ${isToday ? 'text-accent-700' : 'text-primary-900'}`}>
+                    <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-500">{weekdayName(weekdayOfJdn(info.jdn), language.locale, 'short')}</p>
+                    <p className={`font-heading text-[23px] font-normal ${isToday ? 'text-accent-700' : 'text-ink-900'}`}>
                       {gregorianFromJdn(info.jdn).day}
                       {isOldCalendar(style) && (
-                        <span className="ms-1.5 align-middle">
+                        <span className="block font-sans leading-snug">
                           <OldStyleDate jdn={info.jdn} />
                         </span>
                       )}
@@ -312,7 +312,7 @@ export default function Calendar({ section }: { section: CalendarSection }) {
             <div className="mt-6 hidden md:block">
               <div className="grid grid-cols-7 gap-px overflow-hidden rounded-2xl border border-primary-100 bg-primary-100">
                 {weekdays.map((w) => (
-                  <div key={w} className="bg-primary-50 px-2 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-primary-700">
+                  <div key={w} className="bg-primary-50 px-2 py-2 text-center text-[11px] font-medium uppercase tracking-[0.12em] text-primary-700">
                     {weekdayName(w, language.locale, 'short')}
                   </div>
                 ))}

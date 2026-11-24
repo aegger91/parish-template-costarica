@@ -33,7 +33,8 @@
         "en": "Checkout",
         "es": "Finalizar compra",
         "ru": "Оформление заказа"
-      }
+      },
+      "backgroundImage": "/images/church/russian-orthodox-interior.jpg"
     },
     {
       "id": "checkout",

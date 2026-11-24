@@ -5,7 +5,7 @@ import { useI18n } from '@/i18n';
 export interface QuoteSection extends SectionBase {
   text: Localized;
   source?: Localized;
-  /** Faint image behind the quote. Optional. */
+  /** Kept for older content files; the quote no longer shows an image. */
   backgroundImage?: string;
 }
 
@@ -13,19 +13,13 @@ export default function Quote({ section }: { section: QuoteSection }) {
   const { t } = useI18n();
 
   return (
-    <section className="relative overflow-hidden bg-primary-800 py-14 sm:py-20">
-      {section.backgroundImage && (
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.08]"
-          style={{ backgroundImage: `url('${section.backgroundImage}')`, backgroundSize: 'cover', backgroundPosition: 'center 20%' }}
-        />
-      )}
-      <div className="container-px container-max relative">
+    <section className="section">
+      <div className="container-px container-max">
         <Reveal>
           <blockquote className="mx-auto max-w-3xl text-center">
-            <p className="font-heading text-xl italic leading-snug text-white sm:text-3xl">{t(section.text)}</p>
-            {section.source && <footer className="eyebrow mt-6 text-[12px] text-accent-300">{t(section.source)}</footer>}
+            <div className="accent-rule mx-auto mb-8" />
+            <p className="font-heading text-[22px] italic leading-[1.45] text-ink-900 sm:text-[30px]">{t(section.text)}</p>
+            {section.source && <footer className="eyebrow mt-6 text-accent-700">{t(section.source)}</footer>}
           </blockquote>
         </Reveal>
       </div>

@@ -19,12 +19,12 @@ export default function Cart() {
   const subtotal = lines.reduce((n, l) => n + lineTotal(l), 0);
 
   return (
-    <section className="section bg-white">
-      <div className="container-px mx-auto max-w-[72rem]">
+    <section className="section">
+      <div className="container-px mx-auto max-w-container">
         {lines.length === 0 ? (
           <div className="mx-auto max-w-xl rounded-2xl border border-primary-100 bg-primary-50 p-8 text-center">
             <OrthodoxIcon name="candle" className="mx-auto h-10 w-10 text-accent-600" strokeWidth={1.4} />
-            <p className="mt-4 font-heading text-2xl font-semibold text-primary-900">{ui('cart.empty')}</p>
+            <p className="mt-4 font-heading text-[23px] font-normal text-ink-900">{ui('cart.empty')}</p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               {store && (
                 <Link to={store.path} className="btn-accent">

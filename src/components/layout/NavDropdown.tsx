@@ -11,8 +11,8 @@ function DropdownLinks({ items, depth, onPick }: { items: ResolvedNavItem[]; dep
     <>
       {items.map((item) =>
         item.children.length > 0 && depth === 0 && !item.page ? (
-          <div key={item.id} className="border-t border-primary-100 py-1 first:border-t-0">
-            <p className="px-5 pb-1 pt-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-accent-600">{t(item.label)}</p>
+          <div key={item.id} className="border-t border-rule/40 py-1 first:border-t-0">
+            <p className="eyebrow px-5 pb-1 pt-2.5 text-accent-700">{t(item.label)}</p>
             <DropdownLinks items={item.children} depth={depth + 1} onPick={onPick} />
           </div>
         ) : (
@@ -23,9 +23,9 @@ function DropdownLinks({ items, depth, onPick }: { items: ResolvedNavItem[]; dep
               onClick={onPick}
               className={({ isActive: active }) =>
                 [
-                  'block py-2.5 pe-5 text-[14px] font-medium transition-colors',
+                  'block py-2 pe-5 text-[14px] transition-colors duration-200',
                   depth > 1 ? 'ps-9' : 'ps-5',
-                  active ? 'bg-accent-50 text-accent-700' : 'text-primary-700 hover:bg-primary-50 hover:text-primary-900',
+                  active ? 'bg-cream text-primary-700' : 'text-ink-700 hover:bg-cream hover:text-primary-700',
                 ].join(' ')
               }
             >
@@ -102,14 +102,14 @@ export default function NavDropdown({
         aria-controls={panelId}
       >
         {t(item.label)}
-        <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`} strokeWidth={1.8} aria-hidden />
+        <ChevronDown className={`h-3 w-3 text-accent-600 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} strokeWidth={2} aria-hidden />
       </button>
       <div
         id={panelId}
         hidden={!open}
-        className={`absolute top-full z-50 pt-3 ${align === 'end' ? 'end-0' : 'start-1/2 -translate-x-1/2 rtl:translate-x-1/2'}`}
+        className={`absolute top-full z-50 pt-2 ${align === 'end' ? 'end-0' : 'start-1/2 -translate-x-1/2 rtl:translate-x-1/2'}`}
       >
-        <div className="max-h-[75vh] w-64 overflow-y-auto rounded-2xl border border-primary-100 bg-white py-2 shadow-xl shadow-primary-950/15">
+        <div className="max-h-[75vh] w-60 overflow-y-auto rounded-[6px] border border-rule/50 bg-paper py-2 shadow-lg shadow-primary-950/10">
           <DropdownLinks items={item.children} depth={0} onPick={() => setOpen(false)} />
         </div>
       </div>

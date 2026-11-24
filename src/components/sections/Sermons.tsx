@@ -17,10 +17,10 @@ function Player({ sermon }: { sermon: Sermon }) {
   const { t, ui, language } = useI18n();
   const speaker = clergy.find((c) => c.id === sermon.speakerId);
   return (
-    <div className="rounded-2xl bg-primary-900 p-5 text-white sm:p-7">
-      <p className="eyebrow text-[11px] text-accent-300">{ui('sermons.nowPlaying')}</p>
-      <h3 className="mt-2 font-heading text-2xl font-semibold leading-snug">{t(sermon.title)}</h3>
-      <p className="mt-1 text-[13px] text-primary-200">
+    <div className="rounded-2xl bg-primary-600 p-5 text-white sm:p-7">
+      <p className="eyebrow text-[11px] text-accent-100">{ui('sermons.nowPlaying')}</p>
+      <h3 className="mt-2 font-heading text-[23px] font-normal leading-snug">{t(sermon.title)}</h3>
+      <p className="mt-1 text-[13px] text-white/80">
         {[speaker && t(speaker.name), formatDate(sermon.date, language.locale), sermon.scripture && t(sermon.scripture)].filter(Boolean).join(' · ')}
       </p>
       <div className="mt-5">
@@ -54,7 +54,7 @@ export default function Sermons({ section }: { section: SermonsSection }) {
   const playing = sermons.find((s) => s.id === current);
 
   return (
-    <section className="section bg-primary-50">
+    <section className="section">
       <div className="container-px container-max">
         <Reveal>
           <SectionHeading eyebrow={t(section.eyebrow)} title={t(section.title)} />
@@ -95,20 +95,20 @@ export default function Sermons({ section }: { section: SermonsSection }) {
                     type="button"
                     onClick={() => setCurrent(active ? null : s.id)}
                     className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors ${
-                      active ? 'bg-accent-400 text-primary-900' : 'bg-primary-900 text-accent-300 hover:bg-primary-700'
+                      active ? 'bg-accent-500 text-white' : 'bg-primary-600 text-white hover:bg-primary-700'
                     }`}
                     aria-label={`${ui(active ? 'sermons.close' : 'sermons.play')}: ${t(s.title)}`}
                   >
                     {active ? <Pause className="h-4 w-4" strokeWidth={2} aria-hidden /> : <Play className="h-4 w-4 translate-x-px rtl:-scale-x-100" strokeWidth={2} aria-hidden />}
                   </button>
                   <div className="min-w-0 flex-1">
-                    <p className="font-heading text-lg font-semibold leading-snug text-primary-900 sm:text-xl">{t(s.title)}</p>
+                    <p className="font-heading text-lg font-normal leading-snug text-ink-900 sm:text-xl">{t(s.title)}</p>
                     <p className="mt-0.5 text-[13px] text-ink-500">
                       {[formatDate(s.date, language.locale), who && t(who.name), s.scripture && t(s.scripture)].filter(Boolean).join(' · ')}
                     </p>
                     {s.summary && <p className="mt-1.5 text-[14px] leading-relaxed text-ink-700">{t(s.summary)}</p>}
                   </div>
-                  {cat && <span className="hidden shrink-0 rounded-pill bg-primary-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-primary-700 sm:inline">{t(cat.label)}</span>}
+                  {cat && <span className="hidden shrink-0 rounded-pill bg-primary-50 px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-primary-700 sm:inline">{t(cat.label)}</span>}
                 </li>
               );
             })}

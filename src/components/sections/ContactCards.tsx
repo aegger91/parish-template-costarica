@@ -16,10 +16,10 @@ export interface ContactCardsSection extends SectionBase {
 function CardTitle({ icon: IconCmp, children }: { icon: typeof Mail; children: string }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-t-full rounded-b-md border border-accent-400/45 bg-primary-900 text-accent-300">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent-400/60 text-accent-600">
         <IconCmp className="h-5 w-5" strokeWidth={1.6} aria-hidden />
       </span>
-      <h2 className="font-heading text-xl font-semibold text-primary-900">{children}</h2>
+      <h2 className="font-heading text-xl font-normal text-ink-900">{children}</h2>
     </div>
   );
 }
@@ -29,7 +29,7 @@ export default function ContactCards({ section }: { section: ContactCardsSection
   const a = site.address;
 
   return (
-    <section className="section bg-primary-50">
+    <section className="section">
       <div className="container-px container-max">
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal>
@@ -68,7 +68,7 @@ export default function ContactCards({ section }: { section: ContactCardsSection
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`${t(section.mapLabel)} (${ui('opensInNewTab')})`}
-                className="mt-5 inline-flex min-h-11 w-fit items-center text-[12px] font-semibold uppercase tracking-[0.16em] text-accent-600 underline-offset-4 hover:underline"
+                className="mt-5 inline-flex min-h-11 w-fit items-center text-[14px] font-medium text-primary-700 underline-offset-4 group-hover:underline underline-offset-4 hover:underline"
               >
                 {t(section.mapLabel)}
               </a>
@@ -79,11 +79,11 @@ export default function ContactCards({ section }: { section: ContactCardsSection
         {section.showDirectContacts !== false && section.directTitle && (
           <Reveal delay={0.1}>
             <div className="card mt-6 p-6 sm:p-8">
-              <h2 className="font-heading text-xl font-semibold text-primary-900">{t(section.directTitle)}</h2>
+              <h2 className="font-heading text-xl font-normal text-ink-900">{t(section.directTitle)}</h2>
               <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {clergy.map((member) => (
                   <li key={member.id} className="rounded-xl bg-primary-50 p-5">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent-600">{t(member.role)}</p>
+                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-accent-600">{t(member.role)}</p>
                     <p className="mt-1 font-medium text-primary-900">{t(member.name)}</p>
                     {member.phone && (
                       <a

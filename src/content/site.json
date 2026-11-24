@@ -18,8 +18,8 @@
   "dioceseUrl": "https://example.org/",
   "jurisdictionUrl": "https://example.org/",
   "logo": {
-    "style": "kiot",
-    "src": "/images/church/christ-pantocrator.jpg",
+    "style": "church",
+    "src": "",
     "alt": "St. Example Orthodox Church logo",
     "wordmarkSubtitle": {
       "en": "Orthodox Church",
@@ -27,7 +27,7 @@
       "ru": "Православный храм"
     }
   },
-  "pageHeroBackground": "/images/placeholder/icon.jpg",
+  "pageHeroBackground": "/images/church/resurrection-kostroma.jpg",
   "url": "https://www.example.org/",
   "socialImage": "/social-preview.jpg",
   "timeZone": "America/Chicago",
@@ -35,6 +35,10 @@
     "email": "info@example.org",
     "phone": "+1 (555) 010-0100"
   },
+  "hours": [
+    { "en": "Church open daily", "es": "Templo abierto todos los días", "ru": "Храм открыт ежедневно" },
+    { "en": "8:00 AM to 7:00 PM", "es": "de 8:00 a 19:00", "ru": "с 8:00 до 19:00" }
+  ],
   "address": {
     "street": "123 Example Street",
     "locality": "Sample City",

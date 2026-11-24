@@ -23,16 +23,11 @@
       "id": "hero",
       "type": "hero",
       "enabled": true,
-      "image": "/images/placeholder/hero.jpg",
+      "image": "/images/church/dome-autumn-riga.jpg",
       "title": {
-        "en": "St. [[Example]] Orthodox Church",
-        "es": "Iglesia Ortodoxa [[San Ejemplo]]",
-        "ru": "Храм [[святого Примера]]"
-      },
-      "eyebrow": {
-        "en": "{site.jurisdiction}",
-        "es": "{site.jurisdiction}",
-        "ru": "{site.jurisdiction}"
+        "en": "Next services",
+        "es": "Próximos servicios",
+        "ru": "Ближайшие богослужения"
       },
       "tagline": {
         "en": "Everyone is welcome.",
@@ -42,21 +37,77 @@
       "primaryCta": {
         "to": "/services",
         "label": {
-          "en": "Service schedule",
-          "es": "Horario de servicios",
-          "ru": "Расписание богослужений"
+          "en": "Full schedule",
+          "es": "Horario completo",
+          "ru": "Всё расписание"
         }
       },
-      "secondaryCta": {
-        "to": "/contact",
-        "label": {
-          "en": "Contact us",
-          "es": "Contáctenos",
-          "ru": "Связаться с нами"
+      "upcoming": 4,
+      "tiles": [
+        {
+          "id": "schedule",
+          "tone": "olive",
+          "page": "services",
+          "calendarNote": true,
+          "title": {
+            "en": "Service schedule",
+            "es": "Horario de servicios",
+            "ru": "Расписание богослужений"
+          },
+          "button": {
+            "en": "See the schedule",
+            "es": "Ver el horario",
+            "ru": "Смотреть расписание"
+          },
+          "text": {
+            "en": "Weekly services, feast days and the parish calendar.",
+            "es": "Servicios semanales, días de fiesta y el calendario parroquial.",
+            "ru": "Богослужения недели, праздники и календарь прихода."
+          }
+        },
+        {
+          "id": "donate",
+          "tone": "olive",
+          "page": "donate",
+          "title": {
+            "en": "Donations",
+            "es": "Donativos",
+            "ru": "Пожертвования"
+          },
+          "text": {
+            "en": "Gifts of any size support the life of the parish.",
+            "es": "Donativos de cualquier monto sostienen la vida de la parroquia.",
+            "ru": "Пожертвования любого размера помогают жизни прихода."
+          },
+          "button": {
+            "en": "Give to the parish",
+            "es": "Donar a la parroquia",
+            "ru": "Помочь храму"
+          }
+        },
+        {
+          "id": "commemoration",
+          "tone": "ochre",
+          "page": "zapiski",
+          "module": "zapiski",
+          "image": "/images/church/resurrection-kostroma.jpg",
+          "title": {
+            "en": "Commemoration names",
+            "es": "Nombres para conmemorar",
+            "ru": "Записки"
+          },
+          "text": {
+            "en": "Send the names of the living and the departed to be remembered at the services.",
+            "es": "Envíe los nombres de los vivos y de los difuntos para recordarlos en los servicios.",
+            "ru": "Имена о здравии и об упокоении для поминовения за богослужением."
+          },
+          "button": {
+            "en": "Submit names",
+            "es": "Enviar nombres",
+            "ru": "Подать записку"
+          }
         }
-      },
-      "upcoming": 3,
-      "commemorationShortcut": true
+      ]
     },
     {
       "id": "welcome",
@@ -88,17 +139,17 @@
         }
       },
       "image": {
-        "src": "/images/placeholder/icon.jpg",
+        "src": "/images/church/christ-pantocrator.jpg",
         "alt": {
-          "en": "Placeholder for the parish patron icon",
-          "es": "Espacio para el ícono patronal de la parroquia",
-          "ru": "Место для храмовой иконы"
+          "en": "Icon of Christ Pantocrator",
+          "es": "Ícono de Cristo Pantocrátor",
+          "ru": "Икона Спаса Вседержителя"
         }
       },
       "caption": {
-        "en": "Sample caption",
-        "es": "Texto de ejemplo",
-        "ru": "Пример подписи"
+        "en": "Christ Pantocrator, 16th century icon",
+        "es": "Cristo Pantocrátor, ícono del siglo XVI",
+        "ru": "Спас Вседержитель, икона XVI века"
       }
     },
     {
@@ -221,7 +272,7 @@
       "id": "axion-estin",
       "type": "quote",
       "enabled": true,
-      "backgroundImage": "/images/placeholder/icon.jpg",
+      "backgroundImage": "/images/church/holy-ascension-iconostasis.jpg",
       "text": {
         "en": "“It is truly meet to bless you, O Theotokos, the ever-blessed and most immaculate Mother of our God.”",
         "es": "«Es verdaderamente justo llamarte bienaventurada, Oh Madre de Dios, la siempre bienaventurada e inmaculada y Madre de nuestro Dios.»",

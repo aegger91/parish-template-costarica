@@ -28,7 +28,7 @@ export default function CartLineView({ line, editable = true }: { line: CartLine
           <span className={`mt-1.5 h-px w-8 ${repose ? 'bg-ink-900/40' : 'bg-rose-700/40'}`} />
         </span>
         <div className="min-w-0 flex-1">
-          <p className="font-heading text-lg font-semibold text-primary-900">
+          <p className="font-heading text-lg font-normal text-ink-900">
             {ui('zapiski.slip')}: {l.type}
           </p>
           <p className="text-[13px] text-ink-500">{[l.commemoration, l.candle && `${ui('zapiski.candle')}: ${l.candle}`].filter(Boolean).join(' · ')}</p>
@@ -56,11 +56,11 @@ export default function CartLineView({ line, editable = true }: { line: CartLine
       </div>
       <div className="min-w-0 flex-1">
         {productPage ? (
-          <Link to={productPage.path.replace(':productId', product.id)} className="font-heading text-lg font-semibold leading-snug text-primary-900 hover:text-accent-700">
+          <Link to={productPage.path.replace(':productId', product.id)} className="font-heading text-lg font-normal leading-snug text-ink-900 hover:text-accent-700">
             {t(product.name)}
           </Link>
         ) : (
-          <p className="font-heading text-lg font-semibold text-primary-900">{t(product.name)}</p>
+          <p className="font-heading text-lg font-normal text-ink-900">{t(product.name)}</p>
         )}
         <p className="text-[13px] text-ink-500">
           {[variant && t(variant.label), `${money(unitPrice(product, line.variantId))} ${ui('store.each')}`].filter(Boolean).join(' · ')}

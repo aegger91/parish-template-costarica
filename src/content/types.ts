@@ -30,7 +30,7 @@ export interface Languages {
   languages: Language[];
 }
 
-export type LogoStyle = 'seal' | 'kiot' | 'square' | 'wordmark';
+export type LogoStyle = 'church' | 'seal' | 'kiot' | 'square' | 'wordmark';
 
 /**
  * Site-level church calendar (no visitor toggle).
@@ -63,6 +63,8 @@ export interface Site {
   /** IANA time zone of the parish, e.g. "America/Chicago". Service times are in this zone. */
   timeZone: string;
   contact: { email: string; phone: string };
+  /** Short opening hours shown in the header, one line each, e.g. "Open daily" and "8:00 AM to 7:00 PM". */
+  hours?: Localized[];
   address: {
     street: string;
     locality: string;
@@ -100,7 +102,7 @@ export interface Site {
     signupEndpoint: string;
     newsletter: { enabled: boolean; endpoint: string };
   };
-  /** Church Slavonic-style font for headings, buttons and ornaments. Empty uses the normal serif. */
+  /** Church Slavonic-style font for headings. Empty uses the normal serif. */
   slavonicFont: '' | 'old-standard' | 'ponomar' | 'triodion';
   footer: { copyright: Localized; tagline: Localized };
 }

@@ -27,7 +27,7 @@ function openInConnect(e: MouseEvent<HTMLAnchorElement>, action: ConnectAction, 
 export function ConnectBadge() {
   const { ui } = useI18n();
   return (
-    <span className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-pill border border-primary-200 bg-white px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-[0.1em] text-primary-700">
+    <span className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-pill border border-primary-200 bg-white px-2 py-0.5 text-[10.5px] font-medium uppercase tracking-[0.1em] text-primary-700">
       <OrthodoxIcon name="church" className="h-3 w-3 text-accent-600" strokeWidth={2} />
       {ui('connect.badge')}
     </span>
@@ -97,7 +97,7 @@ export function ItemMeta({ item, showDate = true }: { item: ConnectItem; showDat
   return (
     <div className="space-y-1 text-[13px] text-ink-500">
       <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
-        {category && <span className="font-semibold uppercase tracking-[0.1em] text-accent-700">{t(category.label)}</span>}
+        {category && <span className="font-medium uppercase tracking-[0.1em] text-accent-700">{t(category.label)}</span>}
         {when && <span>{when}</span>}
         {!item.date && <span>{ui(item.kind === 'need' ? 'connect.ongoing' : 'connect.regular')}</span>}
       </p>
@@ -146,7 +146,7 @@ export function SignupButton({ item, label }: { item: ConnectItem; label: string
       <Modal open={open} onClose={close} title={t(item.title)}>
         <form onSubmit={submit} noValidate>
           <ConnectBadge />
-          <h2 className="mt-3 pe-10 font-heading text-2xl font-semibold leading-snug text-primary-900">{t(item.title)}</h2>
+          <h2 className="mt-3 pe-10 font-heading text-[23px] font-normal leading-snug text-ink-900">{t(item.title)}</h2>
           <div className="mt-3">
             <ItemMeta item={item} />
           </div>
@@ -185,7 +185,7 @@ export function ItemCard({ item, action, children }: { item: ConnectItem; action
         {children}
         <ConnectBadge />
       </div>
-      <h3 className="mt-3 font-heading text-xl font-semibold leading-snug text-primary-900">{t(item.title)}</h3>
+      <h3 className="mt-3 font-heading text-xl font-normal leading-snug text-ink-900">{t(item.title)}</h3>
       {item.summary && <p className="mt-1.5 text-[14px] leading-relaxed text-ink-700">{t(item.summary)}</p>}
       <div className="mt-3">
         <ItemMeta item={item} />

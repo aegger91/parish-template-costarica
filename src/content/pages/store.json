@@ -44,7 +44,8 @@
         "en": "Every purchase supports the life of the parish.",
         "es": "Cada compra ayuda a la vida de la parroquia.",
         "ru": "Каждая покупка помогает приходу."
-      }
+      },
+      "backgroundImage": "/images/church/russian-orthodox-interior.jpg"
     },
     {
       "id": "catalog",

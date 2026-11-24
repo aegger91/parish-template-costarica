@@ -44,7 +44,9 @@
         "en": "Parish events and gatherings.",
         "es": "Eventos y encuentros de la parroquia.",
         "ru": "События и встречи прихода."
-      }
+      },
+      "backgroundImage": "/images/church/holy-trinity-chicago.jpg",
+      "backgroundPosition": "50% 40%"
     },
     {
       "id": "events",

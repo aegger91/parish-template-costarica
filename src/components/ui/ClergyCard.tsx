@@ -13,18 +13,18 @@ export default function ClergyCard({ member }: { member: ClergyMember }) {
 
   return (
     <article className="card flex h-full flex-col overflow-visible transition-shadow hover:border-accent-400">
-      <div className="arch-frame-top relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-primary-900">
+      <div className="arch-frame-top relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-cream-deep">
         {member.photo ? (
           <img src={member.photo} alt={name} loading="lazy" className="h-full w-full object-cover object-top" />
         ) : (
-          <span aria-hidden className="flex h-24 w-24 items-center justify-center rounded-t-full rounded-b-md border-2 border-accent-400/60 font-heading text-4xl font-semibold text-accent-300">
+          <span aria-hidden className="flex h-24 w-24 items-center justify-center rounded-full border border-accent-500/60 font-heading text-4xl font-normal text-accent-700">
             {initials(name)}
           </span>
         )}
       </div>
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         <p className="eyebrow text-[11px] text-accent-600">{t(member.role)}</p>
-        <h3 className="mt-1.5 font-heading text-2xl font-semibold leading-snug text-primary-900">{name}</h3>
+        <h3 className="mt-1.5 font-heading text-[23px] font-normal leading-snug text-ink-900">{name}</h3>
         {bio && (
           <>
             <p id={bioId} className={`mt-3 text-[15px] leading-relaxed text-ink-700 ${open ? '' : 'line-clamp-3'}`}>

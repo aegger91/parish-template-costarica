@@ -111,11 +111,11 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
         : 'border-primary-200 bg-white text-primary-700 hover:border-accent-300',
     ].join(' ');
 
-  const labelCls = 'block text-[12px] font-semibold uppercase tracking-[0.16em] text-primary-700';
+  const labelCls = 'block text-[13.5px] font-medium text-ink-900';
   const errorCls = 'mt-2 flex items-center gap-1.5 text-sm text-rose-700';
 
   return (
-    <section className="section bg-primary-50">
+    <section className="section">
       <div className="container-px container-max grid gap-6 lg:grid-cols-5 lg:gap-8">
         <Reveal className="lg:col-span-3">
           <form
@@ -124,7 +124,7 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
             className="h-full rounded-2xl border border-primary-100 bg-white p-6 shadow-sm sm:p-8"
             aria-labelledby={`${uid}-title`}
           >
-            <h2 id={`${uid}-title`} className="font-heading text-2xl font-semibold text-primary-900 sm:text-3xl">
+            <h2 id={`${uid}-title`} className="font-heading text-[23px] font-normal text-ink-900 sm:text-3xl">
               {t(section.formTitle)}
             </h2>
             <div className="accent-rule mt-5" />
@@ -140,9 +140,9 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
                     <label
                       key={f.id}
                       className={[
-                        'flex min-h-10 cursor-pointer items-center justify-center rounded-pill px-3 text-[13px] font-semibold uppercase tracking-[0.12em] transition-colors',
+                        'flex min-h-10 cursor-pointer items-center justify-center rounded-pill px-3 text-[13.5px] font-medium transition-colors',
                         'has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent-400',
-                        frequency === f.id ? 'bg-primary-900 text-white shadow' : 'text-primary-700 hover:text-primary-900',
+                        frequency === f.id ? 'bg-primary-600 text-white shadow' : 'text-primary-700 hover:text-primary-900',
                       ].join(' ')}
                     >
                       <input
@@ -336,25 +336,25 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
         </Reveal>
 
         <Reveal delay={0.12} className="lg:col-span-2">
-          <aside className="flex flex-col rounded-2xl bg-primary-900 p-6 text-primary-100 sm:p-8">
+          <aside className="flex flex-col rounded-2xl bg-primary-600 p-6 text-white/90 sm:p-8">
             {section.asideTitle && (
-              <h2 className="font-heading text-2xl font-semibold text-white">{t(section.asideTitle)}</h2>
+              <h2 className="font-heading text-[23px] font-normal text-white">{t(section.asideTitle)}</h2>
             )}
             {section.asideText && <p className="mt-4 text-[15px] leading-relaxed">{t(section.asideText)}</p>}
             {contact && (
-              <div className="mt-6 rounded-xl border border-white/10 bg-primary-800/60 p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent-300">{t(contact.role)}</p>
-                <p className="mt-1 font-heading text-xl font-semibold text-white">{t(contact.name)}</p>
+              <div className="mt-6 rounded-xl border border-white/10 bg-white/10 p-5">
+                <p className="eyebrow text-accent-100">{t(contact.role)}</p>
+                <p className="mt-1 font-heading text-xl font-normal text-white">{t(contact.name)}</p>
                 <div className="mt-3 space-y-2 text-sm">
                   {contact.phone && (
-                    <a href={telHref(contact.phone)} className="flex min-h-6 items-center gap-2.5 hover:text-accent-200">
-                      <Phone className="h-3.5 w-3.5 shrink-0 text-accent-300" strokeWidth={1.8} aria-hidden />
+                    <a href={telHref(contact.phone)} className="flex min-h-6 items-center gap-2.5 hover:text-white">
+                      <Phone className="h-3.5 w-3.5 shrink-0 text-accent-100" strokeWidth={1.8} aria-hidden />
                       {contact.phone}
                     </a>
                   )}
                   {contact.email && (
-                    <a href={`mailto:${contact.email}`} className="flex min-h-6 items-center gap-2.5 break-all hover:text-accent-200">
-                      <Mail className="h-3.5 w-3.5 shrink-0 text-accent-300" strokeWidth={1.8} aria-hidden />
+                    <a href={`mailto:${contact.email}`} className="flex min-h-6 items-center gap-2.5 break-all hover:text-white">
+                      <Mail className="h-3.5 w-3.5 shrink-0 text-accent-100" strokeWidth={1.8} aria-hidden />
                       {contact.email}
                     </a>
                   )}
@@ -362,7 +362,7 @@ export default function GiveForm({ section }: { section: GiveFormSection }) {
               </div>
             )}
             {section.quote && (
-              <p className="mt-8 border-t border-white/10 pt-6 font-heading text-lg italic leading-snug text-primary-100">
+              <p className="mt-8 border-t border-white/10 pt-6 font-heading text-lg italic leading-snug text-white/90">
                 {t(section.quote)}
               </p>
             )}

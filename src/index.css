@@ -9,17 +9,18 @@ html {
   scroll-behavior: smooth;
 }
 
+/* clip, not hidden: hidden would turn body into a scroll container and break the sticky menu. */
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /*
   Language-fit guardrails: uppercase + letter-spacing and tight line-heights
-  commonly clip serif glyphs (Cyrillic/Greek/Latin-ext). Keep text boxes open.
+  commonly clip Cyrillic and accented Latin glyphs. Keep text boxes open.
 */
 .uppercase {
-  line-height: 1.35;
+  line-height: 1.4;
   overflow: visible;
 }
 
@@ -29,23 +30,19 @@ body {
 }
 
 body {
-  @apply text-ink-900 font-sans antialiased;
-  background-color: rgb(var(--color-parchment));
-  /* Soft parchment grain + faint icon-gold wash — restrained, not kitschy */
-  background-image:
-    radial-gradient(ellipse 120% 80% at 50% -10%, rgb(var(--color-accent-200) / 0.22), transparent 55%),
-    radial-gradient(ellipse 80% 50% at 100% 100%, rgb(var(--color-primary-200) / 0.18), transparent 50%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  background-attachment: fixed;
+  @apply font-sans text-ink-900 antialiased;
+  background-color: rgb(var(--color-frame));
+  font-feature-settings: 'cv11', 'ss01';
 }
 
 ::selection {
-  @apply bg-accent-300 text-primary-900;
+  background: rgb(var(--color-accent-200));
+  color: rgb(var(--color-ink-900));
 }
 
 :focus-visible {
-  @apply outline-none ring-2 ring-accent-400 ring-offset-2;
-  ring-offset-color: rgb(var(--color-parchment));
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  --tw-ring-offset-color: rgb(var(--color-paper));
 }
 
 [hidden] {
@@ -62,6 +59,31 @@ li {
 }
 
 @layer components {
+  /* The page sits on the olive frame as one rounded card: white header, cream body. */
+  .site-frame {
+    @apply mx-auto flex min-h-screen w-full flex-col;
+    max-width: var(--frame-max);
+    background: rgb(var(--color-cream));
+  }
+
+  @media (min-width: 768px) {
+    .site-frame {
+      min-height: calc(100vh - 2.5rem);
+      margin-block: 1.25rem;
+      width: calc(100% - 2.5rem);
+      border-radius: var(--radius-frame);
+      overflow: clip;
+      box-shadow: 0 1px 2px rgb(var(--color-primary-950) / 0.08);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .site-frame {
+      margin-block: 2rem;
+      width: calc(100% - 4rem);
+    }
+  }
+
   .container-px {
     @apply px-5 sm:px-8 lg:px-12;
   }
@@ -75,19 +97,6 @@ li {
     position: relative;
   }
 
-  .section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(36rem, 78%);
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--ornament-gold-soft), var(--ornament-gold), var(--ornament-gold-soft), transparent);
-    opacity: 0.7;
-    pointer-events: none;
-  }
-
   @media (min-width: 640px) {
     .section {
       padding-block: var(--section-y-lg);
@@ -95,32 +104,42 @@ li {
   }
 
   .eyebrow {
-    @apply font-semibold uppercase;
+    @apply font-medium uppercase;
     font-family: var(--font-ornament);
     font-size: var(--text-eyebrow);
     letter-spacing: var(--tracking-eyebrow);
-    line-height: 1.45;
+    line-height: 1.5;
     overflow: visible;
   }
 
-  /* Small decorative labels: eyebrows, the wordmark subtitle, slip headings. */
   .ornament {
     font-family: var(--font-ornament);
   }
 
   .nav-link {
+    font-family: var(--font-sans);
     font-size: var(--text-nav);
+    font-weight: 500;
     letter-spacing: var(--tracking-nav);
-    line-height: 1.35;
+    line-height: 1.4;
     overflow: visible;
-    padding-block: 0.15em;
+    padding-block: 0.35em;
+    transition: color 0.2s var(--ease-out);
   }
 
   .heading-section {
-    @apply font-heading text-2xl font-semibold sm:text-4xl;
-    line-height: 1.25;
+    @apply font-heading text-[28px] font-normal sm:text-[38px];
+    line-height: 1.22;
+    letter-spacing: -0.005em;
     overflow: visible;
-    padding-block: 0.08em;
+    padding-block: 0.06em;
+  }
+
+  .heading-tile {
+    @apply font-heading text-[24px] font-normal sm:text-[28px] lg:text-[21px] xl:text-[24px];
+    line-height: 1.22;
+    overflow: visible;
+    padding-block: 0.06em;
   }
 
   h1,
@@ -131,6 +150,13 @@ li {
     text-wrap: pretty;
   }
 
+  /* Playfair's default old-style figures make times like 9:00 look uneven. */
+  .font-heading,
+  .heading-section,
+  .heading-tile {
+    font-variant-numeric: lining-nums;
+  }
+
   .prose-block p {
     @apply leading-relaxed;
   }
@@ -139,247 +165,218 @@ li {
     @apply mt-4;
   }
 
-  /* Thin gold double-rule */
+  /* A short gold hairline under headings. */
   .accent-rule {
-    position: relative;
-    width: 4.5rem;
-    height: 0.5rem;
-    background: transparent;
-    border: none;
-  }
-
-  .accent-rule::before,
-  .accent-rule::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
+    width: 3rem;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--ornament-gold), transparent);
+    border: none;
+    background: rgb(var(--color-accent-500));
   }
 
-  .accent-rule::before {
-    top: 0.1rem;
-  }
-
-  .accent-rule::after {
-    bottom: 0.1rem;
-    opacity: 0.7;
-  }
-
-  /* Byzantine / Slavic interlace-style section divider */
   .ornament-divider {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.75rem;
     color: rgb(var(--color-accent-500));
   }
 
-  .ornament-divider::before,
-  .ornament-divider::after {
+  .ornament-divider::before {
     content: '';
+    width: 3rem;
     height: 1px;
-    width: min(6rem, 22vw);
-    background: linear-gradient(90deg, transparent, var(--ornament-gold-soft), var(--ornament-gold));
+    background: currentColor;
   }
 
-  .ornament-divider::after {
-    background: linear-gradient(90deg, var(--ornament-gold), var(--ornament-gold-soft), transparent);
+  .ornament-divider > * {
+    display: none;
   }
 
-  .ornament-divider__cross {
-    flex-shrink: 0;
-    opacity: 0.85;
+  .gold-rule {
+    height: 1px;
+    background: rgb(var(--color-rule));
   }
 
-  /* Buttons: gentle rounding, gold / burgundy — not flat generic pills */
-  .btn-accent {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-[12px] font-semibold uppercase transition-all disabled:cursor-not-allowed disabled:opacity-60;
+  /* Buttons: flat, softly rounded, sentence case */
+  .btn-accent,
+  .btn-primary,
+  .btn-outline,
+  .btn-ghost-light {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 px-5 py-2.5 text-[14px] font-medium disabled:cursor-not-allowed disabled:opacity-60;
     font-family: var(--font-button);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.01em;
     line-height: 1.35;
     overflow: visible;
     white-space: normal;
     text-align: center;
     border-radius: var(--radius-pill);
-    background: linear-gradient(180deg, rgb(var(--color-accent-300)), rgb(var(--color-accent-500)));
-    color: rgb(var(--color-primary-950));
-    border: 1px solid rgb(var(--color-accent-600) / 0.45);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.28), 0 1px 2px rgb(var(--color-primary-950) / 0.12);
+    border: 1px solid transparent;
+    transition:
+      background-color 0.2s var(--ease-out),
+      border-color 0.2s var(--ease-out),
+      color 0.2s var(--ease-out);
   }
 
-  .btn-accent:hover {
-    background: linear-gradient(180deg, rgb(var(--color-accent-200)), rgb(var(--color-accent-400)));
-  }
-
+  .btn-accent,
   .btn-primary {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-[12px] font-semibold uppercase text-white transition-all disabled:cursor-not-allowed disabled:opacity-60;
-    font-family: var(--font-button);
-    letter-spacing: 0.08em;
-    line-height: 1.35;
-    overflow: visible;
-    white-space: normal;
-    text-align: center;
-    border-radius: var(--radius-pill);
-    background: linear-gradient(180deg, rgb(var(--color-primary-700)), rgb(var(--color-primary-900)));
-    border: 1px solid rgb(var(--color-accent-500) / 0.35);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 1px 2px rgb(var(--color-primary-950) / 0.2);
+    color: rgb(var(--color-paper));
+    background: rgb(var(--color-primary-600));
   }
 
+  .btn-accent:hover,
   .btn-primary:hover {
-    background: linear-gradient(180deg, rgb(var(--color-primary-600)), rgb(var(--color-primary-800)));
+    background: rgb(var(--color-primary-700));
   }
 
   .btn-outline {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 px-5 py-2.5 text-[12px] font-semibold uppercase transition-all disabled:cursor-not-allowed disabled:opacity-60;
-    font-family: var(--font-button);
-    letter-spacing: 0.08em;
-    line-height: 1.35;
-    overflow: visible;
-    white-space: normal;
-    text-align: center;
-    border-radius: var(--radius-pill);
     color: rgb(var(--color-primary-800));
-    background: rgb(var(--color-ivory) / 0.85);
-    border: 1px solid rgb(var(--color-accent-400) / 0.55);
-    box-shadow: inset 0 0 0 1px rgb(var(--color-accent-200) / 0.4);
+    background: transparent;
+    border-color: rgb(var(--color-primary-500) / 0.55);
   }
 
   .btn-outline:hover {
-    border-color: rgb(var(--color-accent-500));
-    color: rgb(var(--color-accent-800));
-    background: rgb(var(--color-accent-50));
+    color: rgb(var(--color-primary-900));
+    border-color: rgb(var(--color-primary-600));
+    background: rgb(var(--color-primary-50));
   }
 
+  /* The outlined button that sits on photo, olive and ochre tiles. */
   .btn-ghost-light {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 px-5 py-3 text-[12px] font-semibold uppercase text-white transition-all;
-    font-family: var(--font-button);
-    letter-spacing: 0.08em;
-    line-height: 1.35;
-    overflow: visible;
-    white-space: normal;
-    text-align: center;
-    border-radius: var(--radius-pill);
-    border: 1px solid rgb(255 255 255 / 0.35);
-    background: rgb(255 255 255 / 0.06);
-    box-shadow: inset 0 0 0 1px rgb(var(--color-accent-400) / 0.2);
+    color: rgb(var(--color-paper));
+    border-color: rgb(255 255 255 / 0.8);
+    background: transparent;
   }
 
   .btn-ghost-light:hover {
-    border-color: rgb(var(--color-accent-300));
-    color: rgb(var(--color-accent-200));
-    background: rgb(255 255 255 / 0.1);
+    border-color: rgb(var(--color-paper));
+    background: rgb(255 255 255 / 0.14);
   }
 
   .chip {
-    @apply inline-flex min-h-10 items-center gap-1.5 whitespace-nowrap border px-4 py-2 text-[13px] font-medium transition-colors;
+    @apply inline-flex min-h-10 items-center gap-1.5 whitespace-nowrap border px-4 py-2 text-[13.5px] font-medium;
     border-radius: var(--radius-pill);
+    transition:
+      background-color 0.2s var(--ease-out),
+      border-color 0.2s var(--ease-out),
+      color 0.2s var(--ease-out);
   }
 
   .chip-off {
-    @apply text-primary-700 hover:text-accent-700;
-    border-color: rgb(var(--color-accent-300) / 0.55);
-    background: rgb(var(--color-ivory) / 0.9);
+    color: rgb(var(--color-ink-700));
+    border-color: rgb(var(--color-ink-300));
+    background: rgb(var(--color-paper));
   }
 
   .chip-off:hover {
-    border-color: rgb(var(--color-accent-400));
+    color: rgb(var(--color-primary-800));
+    border-color: rgb(var(--color-primary-400));
   }
 
   .chip-on {
-    @apply text-white;
-    background: rgb(var(--color-primary-900));
-    border-color: rgb(var(--color-accent-500) / 0.4);
+    color: rgb(var(--color-paper));
+    background: rgb(var(--color-primary-600));
+    border-color: rgb(var(--color-primary-600));
   }
 
-  .card {
-    border-radius: var(--radius-card);
-    border: 1px solid rgb(var(--color-accent-400) / 0.4);
-    background:
-      linear-gradient(165deg, rgb(var(--color-ivory)) 0%, rgb(var(--color-parchment)) 55%, rgb(var(--color-parchment-deep) / 0.85) 100%);
-    box-shadow:
-      inset 0 0 0 1px rgb(var(--color-accent-100) / 0.65),
-      inset 0 1px 0 rgb(255 255 255 / 0.45),
-      0 2px 8px rgb(var(--color-primary-950) / 0.07);
-  }
-
-  /* Warm parchment panel with soft kiot (arched) top — for hero glance cards and feature panels */
+  .card,
   .panel-kiot {
-    border-radius: 50% 50% var(--radius-card) var(--radius-card) / 18% 18% var(--radius-card) var(--radius-card);
-    border: 1px solid rgb(var(--color-accent-400) / 0.45);
+    border-radius: var(--radius-card);
+    border: 1px solid rgb(var(--color-cream-deep));
+    background: rgb(var(--color-paper));
+  }
+
+  /* Tiles: the flat colour blocks of the home grid and section banners. */
+  .tile {
+    @apply relative isolate flex flex-col overflow-hidden text-white;
+    border-radius: var(--radius-card);
+  }
+
+  .tile-olive {
+    background: rgb(var(--color-primary-500));
+  }
+
+  .tile-ochre {
+    background: rgb(var(--color-accent-500));
+  }
+
+  .tile-photo {
+    background: rgb(var(--color-primary-900));
+    text-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+  }
+
+  .tile-image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.9s var(--ease-out);
+  }
+
+  .tile:hover .tile-image {
+    transform: scale(1.025);
+  }
+
+  .tile-tint-ochre {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, rgb(var(--color-accent-500)) 0%, rgb(var(--color-accent-500) / 0.9) 45%, rgb(var(--color-accent-500) / 0.62) 100%);
+  }
+
+  .tile-tint-olive {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, rgb(var(--color-primary-600) / 0.92) 0%, rgb(var(--color-primary-600) / 0.72) 50%, rgb(var(--color-primary-600) / 0.35) 100%);
+  }
+
+  .tile-shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
     background:
-      linear-gradient(180deg, rgb(var(--color-ivory)) 0%, rgb(var(--color-parchment)) 70%, rgb(var(--color-parchment-deep) / 0.9) 100%);
-    box-shadow:
-      inset 0 0 0 1px rgb(var(--color-accent-100) / 0.7),
-      inset 0 0 0 4px rgb(var(--color-ivory) / 0.55),
-      0 6px 18px rgb(var(--color-primary-950) / 0.18);
+      linear-gradient(90deg, rgb(20 24 30 / 0.5) 0%, rgb(20 24 30 / 0.22) 55%, rgb(20 24 30 / 0) 85%),
+      linear-gradient(180deg, rgb(20 24 30 / 0.7) 0%, rgb(20 24 30 / 0.5) 45%, rgb(20 24 30 / 0.2) 75%, rgb(20 24 30 / 0.45) 100%);
+  }
+
+  .lift {
+    transition:
+      border-color 0.25s var(--ease-out),
+      box-shadow 0.25s var(--ease-out),
+      transform 0.25s var(--ease-out);
+  }
+
+  .lift:hover {
+    border-color: rgb(var(--color-accent-300));
+    box-shadow: 0 10px 24px -16px rgb(var(--color-primary-950) / 0.35);
+    transform: translateY(-2px);
   }
 
   .font-slavonic {
-    font-family: 'Ponomar', 'Old Standard TT', 'Cormorant Garamond', 'EB Garamond', serif;
+    font-family: 'Ponomar', 'Old Standard TT', 'Playfair Display', 'EB Garamond', serif;
     font-weight: 400;
     letter-spacing: 0.02em;
   }
 
-  /* Thin ornamental band under header / between major sections */
-  .ornament-band {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 12px;
-    color: rgb(var(--color-accent-400));
-    background:
-      linear-gradient(90deg, transparent, rgb(var(--color-accent-500) / 0.35), transparent),
-      linear-gradient(180deg, rgb(var(--color-primary-950) / 0.15), transparent);
-  }
-
-  .ornament-band__motif {
-    display: block;
-    width: min(42rem, 92%);
-    height: 12px;
-  }
-
-  .section-ornament {
-    position: relative;
-  }
-
-  .section-ornament::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(28rem, 70%);
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--ornament-gold-soft), var(--ornament-gold), var(--ornament-gold-soft), transparent);
-    opacity: 0.85;
-  }
-
-  /* Soft Byzantine arch on image frames */
-  .arch-frame {
-    border-radius: 50% 50% 0.35rem 0.35rem / 28% 28% 0.35rem 0.35rem;
-    overflow: hidden;
-    border: 1px solid rgb(var(--color-accent-400) / 0.55);
-    box-shadow:
-      inset 0 0 0 3px rgb(var(--color-ivory)),
-      0 2px 8px rgb(var(--color-primary-950) / 0.08);
-  }
-
+  .arch-frame,
   .arch-frame-top {
-    border-radius: 50% 50% var(--radius-card) var(--radius-card) / 22% 22% var(--radius-card) var(--radius-card);
+    border-radius: var(--radius-card);
+    overflow: hidden;
   }
 
   .field {
-    @apply block min-h-11 w-full px-4 py-2.5 text-[15px] text-primary-900 outline-none transition-colors placeholder:text-ink-500;
+    @apply block min-h-11 w-full px-4 py-2.5 text-[15px] text-ink-900 outline-none placeholder:text-ink-500;
     border-radius: var(--radius-inner);
-    border: 1px solid rgb(var(--color-primary-200));
-    background: rgb(var(--color-ivory));
+    border: 1px solid rgb(var(--color-ink-300));
+    background: rgb(var(--color-paper));
+    transition:
+      border-color 0.2s var(--ease-out),
+      box-shadow 0.2s var(--ease-out);
   }
 
   .field:focus {
-    border-color: rgb(var(--color-accent-400));
-    box-shadow: 0 0 0 3px rgb(var(--color-accent-400) / 0.25);
+    border-color: rgb(var(--color-primary-500));
+    box-shadow: 0 0 0 3px rgb(var(--color-primary-200) / 0.6);
   }
 
   .field[aria-invalid='true'] {
@@ -388,38 +385,20 @@ li {
 
   .field[aria-invalid='true']:focus {
     border-color: rgb(244 63 94);
-    box-shadow: 0 0 0 3px rgb(244 63 94 / 0.25);
+    box-shadow: 0 0 0 3px rgb(244 63 94 / 0.2);
   }
 
   .label {
-    @apply mb-1.5 block text-[13px] font-semibold text-primary-800;
+    @apply mb-1.5 block text-[13px] font-medium text-ink-700;
   }
 
   .field-error {
     @apply mt-1.5 text-[13px] text-rose-700;
   }
 
-  /* Hero: let the church photo read through — liturgical wash, not a flat tech gradient */
   .hero-overlay {
-    background:
-      linear-gradient(
-        180deg,
-        rgb(var(--color-primary-950) / 0.55) 0%,
-        rgb(var(--color-primary-950) / 0.28) 38%,
-        rgb(var(--color-primary-950) / 0.62) 72%,
-        rgb(var(--color-primary-950) / 0.88) 100%
-      ),
-      radial-gradient(ellipse 75% 50% at 50% 25%, rgb(var(--color-accent-400) / 0.14), transparent 70%);
+    background: linear-gradient(180deg, rgb(24 26 16 / 0.6) 0%, rgb(24 26 16 / 0.35) 60%, rgb(24 26 16 / 0.5) 100%);
   }
-}
-
-/* Remap flat white / cool gray surfaces to warm ivory parchment (design-only). */
-.bg-white {
-  background-color: rgb(var(--color-ivory)) !important;
-}
-
-.bg-primary-50 {
-  background-color: rgb(var(--color-parchment-deep) / 0.65) !important;
 }
 
 /*
@@ -428,10 +407,10 @@ li {
 */
 html.js [data-reveal] {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(14px);
   transition:
-    opacity 0.55s cubic-bezier(0, 0, 0.58, 1),
-    transform 0.55s cubic-bezier(0, 0, 0.58, 1);
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
 }
 
 html.js [data-reveal].is-revealed,
@@ -448,8 +427,19 @@ html.js.reveal-fallback [data-reveal] {
   .btn-accent,
   .btn-primary,
   .btn-outline,
-  .btn-ghost-light {
+  .btn-ghost-light,
+  .chip,
+  .lift,
+  .tile-image {
     transition: none;
+  }
+
+  .lift:hover {
+    transform: none;
+  }
+
+  .tile:hover .tile-image {
+    transform: none;
   }
 
   html.js [data-reveal] {

@@ -32,7 +32,7 @@ function SkipLink() {
   return (
     <a
       href="#main"
-      className="sr-only z-[90] rounded-pill bg-accent-400 px-5 py-3 text-sm font-semibold text-primary-900 focus:not-sr-only focus:fixed focus:start-4 focus:top-4"
+      className="sr-only z-[90] rounded-pill bg-primary-600 px-5 py-3 text-sm font-medium text-white focus:not-sr-only focus:fixed focus:start-4 focus:top-4"
     >
       {ui('skipToContent')}
     </a>
@@ -47,7 +47,7 @@ export default function App() {
       <MotionConfig reducedMotion="user">
         <ScrollToTop />
         <SkipLink />
-        <div className="flex min-h-screen flex-col">
+        <div className="site-frame">
           <Header />
           <main id="main" className="flex-1">
             <Routes>

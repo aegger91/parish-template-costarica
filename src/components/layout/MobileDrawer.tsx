@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown, Mail, MapPin, Phone, X } from 'lucide-react';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { Brand } from '@/components/ui/Logo';
-import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import { site } from '@/content';
 import { useI18n } from '@/i18n';
 import { telHref } from '@/lib/format';
@@ -24,13 +23,13 @@ function Group({ item, depth, onNavigate }: { item: ResolvedNavItem; depth: numb
         aria-expanded={open}
         aria-controls={id}
         className={`flex w-full items-center justify-between gap-3 py-3.5 text-start font-heading transition-colors ${
-          depth === 0 ? 'text-xl' : 'text-lg'
-        } ${isActive(item, pathname) ? 'text-accent-300' : 'text-white/90'}`}
+          depth === 0 ? 'text-[21px]' : 'text-lg'
+        } ${isActive(item, pathname) ? 'text-primary-700' : 'text-ink-900'}`}
       >
         {t(item.label)}
         <ChevronDown className={`h-5 w-5 shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} strokeWidth={1.6} aria-hidden />
       </button>
-      <ul id={id} hidden={!open} className="mb-2 border-s border-accent-400/40 ps-4">
+      <ul id={id} hidden={!open} className="mb-2 border-s border-accent-400/50 ps-4">
         {item.page && <Leaf item={{ ...item, children: [] }} depth={depth + 1} onNavigate={onNavigate} />}
         {item.children.map((child) => (
           <Item key={child.id} item={child} depth={depth + 1} onNavigate={onNavigate} />
@@ -52,7 +51,7 @@ function Leaf({ item, depth, onNavigate }: { item: ResolvedNavItem; depth: numbe
           [
             'block font-heading transition-colors',
             depth === 0 ? 'py-3.5 text-xl' : 'py-2.5 text-[17px]',
-            active ? 'text-accent-300' : 'text-white/90 hover:text-accent-200',
+            active ? 'text-primary-700' : 'text-ink-900 hover:text-primary-700',
           ].join(' ')
         }
       >
@@ -114,7 +113,7 @@ export default function MobileDrawer({ open, onClose }: { open: boolean; onClose
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute inset-0 bg-primary-950/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-primary-950/45 backdrop-blur-[2px]"
             onClick={onClose}
             aria-hidden
           />
@@ -128,9 +127,9 @@ export default function MobileDrawer({ open, onClose }: { open: boolean; onClose
             animate={{ x: 0 }}
             exit={{ x: offscreen }}
             transition={{ type: 'tween', duration: 0.28, ease: 'easeOut' }}
-            className="drawer-panel absolute inset-y-0 end-0 flex w-[min(24rem,90vw)] flex-col bg-primary-950 shadow-2xl"
+            className="drawer-panel absolute inset-y-0 end-0 flex w-[min(24rem,90vw)] flex-col bg-paper shadow-2xl"
           >
-            <div className="flex h-16 shrink-0 items-center justify-between gap-3 border-b border-white/10 px-5">
+            <div className="flex h-16 shrink-0 items-center justify-between gap-3 border-b border-rule/40 px-5">
               <span className="flex min-w-0 items-center gap-2.5">
                 <Brand size="sm" nameClassName="line-clamp-2 text-[15px]" />
               </span>
@@ -138,7 +137,7 @@ export default function MobileDrawer({ open, onClose }: { open: boolean; onClose
                 type="button"
                 autoFocus
                 onClick={onClose}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white hover:bg-white/10"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink-900 hover:bg-cream"
                 aria-label={ui('closeMenu')}
               >
                 <X className="h-6 w-6" strokeWidth={1.6} aria-hidden />
@@ -146,41 +145,40 @@ export default function MobileDrawer({ open, onClose }: { open: boolean; onClose
             </div>
 
             <nav className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-6 pt-2" aria-label={ui('primaryNav')}>
-              <ul className="divide-y divide-white/10">
+              <ul className="divide-y divide-rule/40">
                 {links.map((item) => (
                   <Item key={item.id} item={item} depth={0} onNavigate={onClose} />
                 ))}
               </ul>
               {donateItem && (
-                <Link to={donateItem.to} onClick={onClose} className="btn-accent mt-6 w-full">
-                  <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
+                <Link to={donateItem.to} onClick={onClose} className="btn-outline mt-6 w-full">
                   {t(donateItem.label)}
                 </Link>
               )}
-              <ul className="mt-8 space-y-3 text-sm text-primary-200">
+              <ul className="mt-8 space-y-3 text-sm text-ink-700">
                 <li>
-                  <a href={site.mapsUrl} target="_blank" rel="noreferrer" className="flex gap-3 hover:text-accent-200">
-                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" strokeWidth={1.6} aria-hidden />
+                  <a href={site.mapsUrl} target="_blank" rel="noreferrer" className="flex gap-3 hover:text-primary-700">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent-600" strokeWidth={1.6} aria-hidden />
                     {t(site.address.singleLine)}
                   </a>
                 </li>
                 {site.contact.phone && (
                   <li>
-                    <a href={telHref(site.contact.phone)} className="flex gap-3 hover:text-accent-200">
-                      <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" strokeWidth={1.6} aria-hidden />
+                    <a href={telHref(site.contact.phone)} className="flex gap-3 hover:text-primary-700">
+                      <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent-600" strokeWidth={1.6} aria-hidden />
                       <span dir="ltr">{site.contact.phone}</span>
                     </a>
                   </li>
                 )}
                 <li>
-                  <a href={`mailto:${site.contact.email}`} className="flex gap-3 break-all hover:text-accent-200">
-                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" strokeWidth={1.6} aria-hidden />
+                  <a href={`mailto:${site.contact.email}`} className="flex gap-3 break-all hover:text-primary-700">
+                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent-600" strokeWidth={1.6} aria-hidden />
                     {site.contact.email}
                   </a>
                 </li>
               </ul>
             </nav>
-            <div className="shrink-0 border-t border-white/10 px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
+            <div className="shrink-0 border-t border-rule/40 px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
               <LanguageSwitcher variant="drawer" />
             </div>
           </motion.div>

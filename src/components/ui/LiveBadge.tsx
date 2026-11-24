@@ -11,7 +11,7 @@ export default function LiveBadge({ size = 'md', className = '' }: { size?: 'sm'
   const now = useParishNow();
   if (!isLive(now)) return null;
   const to = pageIsOn('livestream') ? getPage('livestream')!.path : null;
-  const cls = `inline-flex shrink-0 items-center gap-1.5 rounded-pill bg-rose-600 font-semibold uppercase text-white shadow-sm ${
+  const cls = `inline-flex shrink-0 items-center gap-1.5 rounded-pill bg-rose-600 font-medium uppercase text-white shadow-sm ${
     size === 'sm' ? 'px-2 py-0.5 text-[10px] tracking-[0.12em]' : 'px-2.5 py-1 text-[11px] tracking-[0.14em]'
   } ${className}`;
   const body = (

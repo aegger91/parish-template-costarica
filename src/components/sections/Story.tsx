@@ -16,7 +16,7 @@ export default function Story({ section }: { section: StorySection }) {
   const { t } = useI18n();
 
   return (
-    <section className="section bg-white">
+    <section className="section">
       <div className="container-px container-max grid gap-10 sm:gap-12 lg:grid-cols-5">
         <Reveal className={section.aside ? 'lg:col-span-3' : 'lg:col-span-5'}>
           <h2 className="heading-section text-primary-900">{t(section.title)}</h2>
@@ -30,12 +30,12 @@ export default function Story({ section }: { section: StorySection }) {
 
         {section.aside && (
           <Reveal delay={0.15} className="lg:col-span-2">
-            <div className="rounded-2xl bg-primary-900 p-6 text-primary-100 sm:p-8">
-              <h3 className="font-heading text-2xl font-semibold text-white">{t(section.aside.title)}</h3>
+            <div className="rounded-2xl bg-primary-600 p-6 text-white/90 sm:p-8">
+              <h3 className="font-heading text-[23px] font-normal text-white">{t(section.aside.title)}</h3>
               <ul className="mt-6 space-y-5 text-sm leading-relaxed">
                 {section.aside.items.map((item) => (
                   <li key={item.id} className="flex gap-3">
-                    <Icon name={item.icon} className="mt-0.5 h-4 w-4 shrink-0 text-accent-300" strokeWidth={1.6} />
+                    <Icon name={item.icon} className="mt-0.5 h-4 w-4 shrink-0 text-accent-100" strokeWidth={1.6} />
                     {t(item.text)}
                   </li>
                 ))}

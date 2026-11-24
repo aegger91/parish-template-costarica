@@ -29,8 +29,8 @@ export default function ConnectVolunteer({ section }: { section: ConnectVoluntee
   );
 
   return (
-    <section className="section bg-primary-50">
-      <div className="container-px mx-auto max-w-[80rem]">
+    <section className="section">
+      <div className="container-px mx-auto max-w-container">
         {section.intro && <p className="mb-6 max-w-3xl text-[15px] leading-relaxed text-ink-700">{t(section.intro)}</p>}
         <ConnectActions actions={[{ action: 'post-need', label: ui('connect.postNeed') }]} />
 
@@ -54,10 +54,10 @@ export default function ConnectVolunteer({ section }: { section: ConnectVoluntee
               <li key={item.id}>
                 <ItemCard item={item} action={ui(item.kind === 'need' ? 'connect.help' : 'connect.signUp')}>
                   <span className="flex items-center gap-2">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-900 text-accent-300">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-600 text-accent-100">
                       <Icon name={ICONS[item.category] ?? 'church'} className="h-5 w-5" strokeWidth={1.6} />
                     </span>
-                    <span className={`rounded-pill px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.1em] ${item.kind === 'need' ? 'bg-rose-50 text-rose-800' : 'bg-emerald-50 text-emerald-800'}`}>
+                    <span className={`rounded-pill px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-[0.1em] ${item.kind === 'need' ? 'bg-rose-50 text-rose-800' : 'bg-emerald-50 text-emerald-800'}`}>
                       {ui(item.kind === 'need' ? 'connect.need' : 'connect.volunteerOne')}
                     </span>
                   </span>

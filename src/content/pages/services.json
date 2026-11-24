@@ -43,7 +43,8 @@
         "en": "Weekly services and the parish calendar.",
         "es": "Servicios semanales y calendario parroquial.",
         "ru": "Богослужения недели и приходской календарь."
-      }
+      },
+      "backgroundImage": "/images/church/holy-ascension-choros.jpg"
     },
     {
       "id": "weekly",

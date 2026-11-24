@@ -289,7 +289,7 @@
     "namesCount": { "en": "{n} of {max} names", "es": "{n} de {max} nombres", "ru": "{n} из {max} имён" },
     "namesHint": { "en": "Write baptismal names only, one per line.", "es": "Escriba solo nombres de bautismo, uno por línea.", "ru": "Пишите только имена в крещении, по одному в строке." },
     "commemoration": { "en": "Where to commemorate", "es": "Dónde recordarlos", "ru": "Где помянуть" },
-    "suggested": { "en": "Suggested donation — optional. Any amount is welcome, including none.", "es": "Donativo sugerido — opcional. Cualquier monto es bienvenido, incluso ninguno.", "ru": "Рекомендуемое пожертвование — по желанию. Любая сумма, в том числе без пожертвования." },
+    "suggested": { "en": "Suggested donation, if you wish. Any amount is welcome, including none.", "es": "Donativo sugerido, si lo desea. Cualquier monto es bienvenido, incluso ninguno.", "ru": "Пожертвование по желанию. Любая сумма, можно и без пожертвования." },
     "candle": { "en": "Candle", "es": "Vela", "ru": "Свеча" },
     "candleOptional": { "en": "Light a candle (optional)", "es": "Encender una vela (opcional)", "ru": "Поставить свечу (необязательно)" },
     "noCandle": { "en": "No candle", "es": "Sin vela", "ru": "Без свечи" },

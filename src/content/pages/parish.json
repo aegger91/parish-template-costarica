@@ -43,7 +43,8 @@
         "en": "{site.diocese}",
         "es": "{site.diocese}",
         "ru": "{site.diocese}"
-      }
+      },
+      "backgroundImage": "/images/church/resurrection-kostroma.jpg"
     },
     {
       "id": "story",

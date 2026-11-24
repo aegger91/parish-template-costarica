@@ -38,7 +38,9 @@
         "en": "Sample text. One line about how to reach the parish.",
         "es": "Texto de ejemplo. Una línea sobre cómo contactar a la parroquia.",
         "ru": "Пример текста. Одна строка о том, как связаться с приходом."
-      }
+      },
+      "backgroundImage": "/images/church/holy-trinity-chicago.jpg",
+      "backgroundPosition": "50% 40%"
     },
     {
       "id": "form",

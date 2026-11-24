@@ -43,7 +43,8 @@
         "en": "News and notices from the parish.",
         "es": "Noticias y avisos de la parroquia.",
         "ru": "Новости и объявления прихода."
-      }
+      },
+      "backgroundImage": "/images/church/resurrection-kostroma.jpg"
     },
     {
       "id": "news",

@@ -44,7 +44,8 @@
         "en": "Choose a service and send a request.",
         "es": "Elija un servicio y envíe una solicitud.",
         "ru": "Выберите требу и отправьте заявку."
-      }
+      },
+      "backgroundImage": "/images/church/holy-ascension-iconostasis.jpg"
     },
     {
       "id": "requests",

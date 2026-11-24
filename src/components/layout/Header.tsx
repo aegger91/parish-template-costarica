@@ -1,24 +1,19 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Clock, MapPin, Menu, ShoppingBag } from 'lucide-react';
+import { Menu, ShoppingBag } from 'lucide-react';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import LiveBadge from '@/components/ui/LiveBadge';
 import { Brand } from '@/components/ui/Logo';
-import OrnamentBand from '@/components/ui/OrnamentBand';
-import OrthodoxIcon from '@/components/ui/OrthodoxIcon';
 import { getPage, moduleOn, site } from '@/content';
 import { lookupUi, useI18n } from '@/i18n';
-import { isLive, upcomingServices } from '@/lib/calendar';
 import { cartCount, useCart } from '@/lib/cart';
-import { useParishNow } from '@/lib/hooks';
+import { telHref } from '@/lib/format';
 import { donateItem, navTree } from '@/lib/nav';
 import type { ResolvedNavItem } from '@/lib/nav';
-import { formatTime } from '@/lib/time';
-import { dayLabel } from '@/lib/when';
 import MobileDrawer from './MobileDrawer';
 import NavDropdown from './NavDropdown';
 
-const GAP = 22;
+const GAP = 30;
 /** With fewer top-level entries than this left in the bar, the drawer is used instead. */
 const MIN_VISIBLE = 3;
 
@@ -36,6 +31,7 @@ function useMediaQuery(query: string): boolean {
 /**
  * Fits as many top-level entries in the bar as there is room for and moves the rest into "More".
  * Widths are measured from a hidden copy of the menu, so it works for any language and any number of pages.
+ * The last measured child is the donate link, which always stays in the bar.
  */
 function usePriorityNav(count: number, deps: unknown[]) {
   const navRef = useRef<HTMLDivElement>(null);
@@ -47,8 +43,10 @@ function usePriorityNav(count: number, deps: unknown[]) {
     const measure = measureRef.current;
     if (!nav || !measure) return;
     const widths = [...measure.children].map((c) => c.getBoundingClientRect().width);
+    const donate = widths.pop() ?? 0;
     const more = widths.pop() ?? 0;
-    const available = nav.clientWidth;
+    // A few pixels of slack: measured widths are fractional and rounding must never push the bar over.
+    const available = nav.clientWidth - (donate ? donate + GAP : 0) - 4;
     const total = (k: number) => widths.slice(0, k).reduce((a, b) => a + b, 0) + GAP * Math.max(0, k - 1);
     if (total(count) <= available) {
       setVisible(count);
@@ -71,7 +69,7 @@ function usePriorityNav(count: number, deps: unknown[]) {
   return { navRef, measureRef, visible };
 }
 
-function CartButton({ tone }: { tone: 'light' | 'dark' }) {
+function CartButton() {
   const { ui } = useI18n();
   const lines = useCart();
   const count = cartCount(lines);
@@ -80,14 +78,12 @@ function CartButton({ tone }: { tone: 'light' | 'dark' }) {
   return (
     <Link
       to={cart.path}
-      className={`relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors ${
-        tone === 'light' ? 'text-white hover:bg-white/10' : 'text-primary-800 hover:bg-primary-50'
-      }`}
+      className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-cream hover:text-primary-700"
       aria-label={count ? ui('cart.labelCount', { count: String(count) }) : ui('cart.label')}
     >
-      <ShoppingBag className="h-[22px] w-[22px]" strokeWidth={1.6} aria-hidden />
+      <ShoppingBag className="h-[19px] w-[19px]" strokeWidth={1.5} aria-hidden />
       {count > 0 && (
-        <span className="absolute -end-0.5 top-0.5 flex h-5 min-w-5 items-center justify-center rounded-pill bg-accent-400 px-1 text-[11px] font-bold text-primary-900">
+        <span className="absolute -end-0.5 top-0 flex h-[18px] min-w-[18px] items-center justify-center rounded-pill bg-primary-600 px-1 text-[10.5px] font-semibold text-white">
           {count > 99 ? '99+' : count}
         </span>
       )}
@@ -95,65 +91,48 @@ function CartButton({ tone }: { tone: 'light' | 'dark' }) {
   );
 }
 
-function NextService() {
-  const { t, ui, language } = useI18n();
-  const now = useParishNow();
-  if (isLive(now)) return <LiveBadge size="sm" />;
-  const next = upcomingServices(now, 8)[0];
-  if (!next) return null;
-  return (
-    <Link
-      to={getPage('services')?.path ?? '/'}
-      className="flex min-w-0 items-center gap-2 truncate transition-colors hover:text-white"
-    >
-      <Clock className="h-3.5 w-3.5 shrink-0 text-accent-300" strokeWidth={1.8} aria-hidden />
-      <span className="truncate">
-        <span className="text-primary-200">{ui('header.next')}: </span>
-        {t(next.service.name)}, {dayLabel(next.jdn, now.jdn, language.locale, ui)} {formatTime(next.service.time, language.locale)}
-      </span>
-    </Link>
-  );
-}
-
 export default function Header() {
   const { t, ui, lang } = useI18n();
   const { pathname } = useLocation();
-  const [condensed, setCondensed] = useState(false);
+  const [stuck, setStuck] = useState(false);
   const [drawer, setDrawer] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
+  const deskMenuButton = useRef<HTMLButtonElement>(null);
+  const lastOpener = useRef<HTMLButtonElement | null>(null);
+  const sentinel = useRef<HTMLDivElement>(null);
   const desktop = useMediaQuery('(min-width: 1024px)');
-  const solid = condensed || pathname !== '/';
 
   const links = navTree.filter((i) => !i.button);
   const { navRef, measureRef, visible } = usePriorityNav(links.length, [lang, desktop]);
-  const useDrawer = !desktop || visible < Math.min(MIN_VISIBLE, links.length);
+  const tooTight = visible < Math.min(MIN_VISIBLE, links.length);
   const shown = links.slice(0, visible);
   const overflow = links.slice(visible);
+  const homeLabel = `${t(site.name)}, ${ui('home')}`;
 
   useEffect(() => {
-    // Hysteresis avoids flicker when scroll sits near the threshold.
-    const onScroll = () => {
-      const y = window.scrollY;
-      setCondensed((was) => (was ? y > 12 : y > 48));
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const el = sentinel.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setStuck(!entry.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => setDrawer(false), [pathname]);
 
+  const openDrawer = (from: HTMLButtonElement | null) => {
+    lastOpener.current = from;
+    setDrawer(true);
+  };
   const closeDrawer = useCallback(() => {
     setDrawer(false);
-    menuButton.current?.focus();
+    (lastOpener.current ?? menuButton.current)?.focus();
   }, []);
 
   const linkClass = (active: boolean) =>
     [
-      'nav-link relative inline-flex items-center whitespace-nowrap font-medium uppercase',
-      active
-        ? 'text-accent-300 after:absolute after:-bottom-1 after:start-0 after:h-0.5 after:w-full after:bg-accent-400'
-        : 'text-white/85 hover:text-white',
+      'nav-link relative inline-flex items-center whitespace-nowrap py-2 uppercase transition-colors duration-200',
+      'after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:bg-accent-500 after:transition-transform after:duration-300',
+      active ? 'text-primary-700 after:scale-x-100' : 'text-ink-700 after:scale-x-0 hover:text-primary-700 hover:after:scale-x-100',
     ].join(' ');
 
   const more: ResolvedNavItem = {
@@ -174,117 +153,136 @@ export default function Header() {
       </NavLink>
     );
 
+  const donateLink = donateItem && (
+    <NavLink
+      to={donateItem.to}
+      className={({ isActive }) =>
+        `${linkClass(isActive)} !text-accent-700 hover:!text-accent-600`
+      }
+    >
+      {t(donateItem.label)}
+    </NavLink>
+  );
+
   return (
     <>
-      <header
-        className={[
-          // Always reserve 1px bottom border so solid/transparent never changes header height.
-          'fixed inset-x-0 top-0 z-50 border-b',
-          // Background only — no height/layout transitions (avoids scroll jitter).
-          solid
-            ? 'border-accent-400/25 bg-primary-900/95 shadow-lg shadow-primary-950/25 backdrop-blur-md'
-            : 'border-transparent bg-gradient-to-b from-primary-950/75 to-transparent',
-        ].join(' ')}
-      >
-        {/* Utility strip stays a fixed height on large screens so the bar never jumps. */}
-        <div className="hidden border-b border-white/10 lg:block">
-          <div className="container-px mx-auto flex h-9 max-w-[88rem] items-center justify-between gap-6 text-[12.5px] leading-snug text-white/85">
-            <div className="flex min-w-0 items-center gap-6">
-              <NextService />
-              <a
-                href={site.mapsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="hidden min-w-0 items-center gap-2 truncate transition-colors hover:text-white xl:flex"
-              >
-                <MapPin className="h-3.5 w-3.5 shrink-0 text-accent-300" strokeWidth={1.8} aria-hidden />
-                <span className="truncate">{t(site.address.singleLine)}</span>
+      <header className="sticky top-0 z-50 border-b border-rule/40 bg-paper/95 backdrop-blur-sm lg:static lg:border-0 lg:bg-paper lg:backdrop-blur-none">
+        {/* Large screens: the white card with hours, the centered mark and name, and contacts. */}
+        <div className="container-px mx-auto hidden max-w-container grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-10 pb-7 pt-8 lg:grid">
+          <div className="min-w-0 text-[13px] leading-[1.65] text-ink-700">
+            {site.hours?.map((line, i) => (
+              <p key={i} className={i === 0 ? 'text-ink-900' : undefined}>
+                {t(line)}
+              </p>
+            ))}
+            <span className="mt-2 block empty:hidden">
+              <LiveBadge size="sm" />
+            </span>
+          </div>
+
+          <Link to="/" className="group flex items-center gap-4" aria-label={homeLabel}>
+            <Brand size="lg" nameClassName="max-w-[13.5rem] text-[24px] xl:max-w-[15rem] xl:text-[27px]" />
+          </Link>
+
+          <div className="flex min-w-0 flex-col items-end text-end text-[13px] leading-[1.65] text-ink-700">
+            <a
+              href={site.mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="max-w-[17rem] [text-wrap:balance] transition-colors hover:text-primary-700"
+            >
+              {t(site.address.singleLine)}
+            </a>
+            {site.contact.phone && (
+              <a href={telHref(site.contact.phone)} dir="ltr" className="text-ink-900 transition-colors hover:text-primary-700">
+                {site.contact.phone}
               </a>
-            </div>
-            <div className="flex shrink-0 items-center gap-4">
-              {moduleOn('zapiski') && getPage('zapiski') && (
-                <Link to={getPage('zapiski')!.path} className="flex items-center gap-1.5 whitespace-nowrap hover:text-white">
-                  <OrthodoxIcon name="note" className="h-3.5 w-3.5 text-accent-300" strokeWidth={1.8} />
-                  {ui('header.submitNote')}
-                </Link>
-              )}
+            )}
+            <div className="-me-2 mt-2 flex items-center gap-1">
               <LanguageSwitcher variant="bar" />
+              <CartButton />
             </div>
           </div>
         </div>
 
-        <div className="container-px mx-auto flex h-16 max-w-[88rem] items-center gap-3 sm:gap-4">
-          <Link to="/" className="flex min-w-0 shrink items-center gap-2.5 sm:gap-3" aria-label={`${t(site.name)}, ${ui('home')}`}>
-            <Brand
-              size="md"
-              nameClassName="line-clamp-2 leading-snug text-[14px] min-[400px]:text-[15px] sm:text-lg lg:max-w-[14rem] xl:max-w-[18rem] xl:text-[19px]"
-            />
+        {/* Phones and tablets: a compact bar. */}
+        <div className="container-px flex h-[4.25rem] items-center gap-3 lg:hidden">
+          <Link to="/" className="flex min-w-0 shrink items-center gap-2.5" aria-label={homeLabel}>
+            <Brand size="sm" nameClassName="line-clamp-2 text-[15px] min-[400px]:text-[16px] sm:text-[18px]" />
           </Link>
+          <div className="ms-auto flex shrink-0 items-center gap-1">
+            <span className="max-[419px]:hidden">
+              <LiveBadge size="sm" />
+            </span>
+            <span className="hidden sm:block">
+              <LanguageSwitcher variant="bar" />
+            </span>
+            <CartButton />
+            <button
+              ref={menuButton}
+              type="button"
+              onClick={() => openDrawer(menuButton.current)}
+              className="-me-2 flex h-11 w-11 items-center justify-center rounded-full text-ink-900 transition-colors hover:bg-cream"
+              aria-label={ui('openMenu')}
+              aria-expanded={drawer}
+              aria-controls="mobile-menu"
+            >
+              <Menu className="h-6 w-6" strokeWidth={1.5} aria-hidden />
+            </button>
+          </div>
+        </div>
+      </header>
 
+      <div ref={sentinel} aria-hidden className="hidden h-px bg-paper lg:block" />
+
+      <div
+        className={`sticky top-0 z-50 hidden bg-paper/95 backdrop-blur-sm transition-shadow duration-300 lg:block ${
+          stuck ? 'shadow-[0_6px_18px_-12px_rgb(var(--color-primary-950)/0.35)]' : ''
+        }`}
+      >
+        <div className="container-px mx-auto max-w-container">
+          <div className="gold-rule" />
           <nav
             ref={navRef}
-            className={`relative hidden h-full min-w-0 flex-1 items-center justify-end lg:flex ${useDrawer ? 'pointer-events-none opacity-0' : 'opacity-100'}`}
+            className="relative flex h-[3.25rem] items-center justify-center"
             style={{ gap: GAP }}
             aria-label={ui('primaryNav')}
-            aria-hidden={useDrawer}
           >
             <div ref={measureRef} aria-hidden className="pointer-events-none invisible absolute start-0 top-0 flex whitespace-nowrap" style={{ gap: GAP }}>
               {links.map((item) => (
                 <span key={item.id} className={`${linkClass(false)} flex items-center gap-1`}>
                   {t(item.label)}
-                  {item.children.length > 0 && <span className="inline-block w-3.5" />}
+                  {item.children.length > 0 && <span className="inline-block w-3" />}
                 </span>
               ))}
               <span className={`${linkClass(false)} flex items-center gap-1`}>
                 {ui('more')}
-                <span className="inline-block w-3.5" />
+                <span className="inline-block w-3" />
               </span>
+              {donateItem && <span className={linkClass(false)}>{t(donateItem.label)}</span>}
             </div>
-            {!useDrawer && (
-              <>
-                {shown.map(renderItem)}
-                {overflow.length > 0 && <NavDropdown item={more} triggerClass={linkClass} />}
-              </>
-            )}
-          </nav>
-
-          <div className="ms-auto flex shrink-0 items-center gap-1 sm:gap-2 lg:ms-0">
-            <span className="max-[399px]:hidden lg:hidden">
-              <LiveBadge size="sm" />
-            </span>
-            <CartButton tone="light" />
-            {donateItem && (
-              <Link to={donateItem.to} className="btn-accent hidden min-h-0 gap-1.5 px-4 py-2.5 sm:inline-flex">
-                <OrthodoxIcon name="candle" className="h-4 w-4" strokeWidth={1.8} />
-                {t(donateItem.label)}
-              </Link>
-            )}
-            <span className="hidden sm:block lg:hidden">
-              <LanguageSwitcher variant="bar" />
-            </span>
-            {useDrawer && (
+            {tooTight ? (
               <button
-                ref={menuButton}
+                ref={deskMenuButton}
                 type="button"
-                onClick={() => setDrawer(true)}
-                className="flex h-11 w-11 items-center justify-center rounded-full text-white hover:bg-white/10"
-                aria-label={ui('openMenu')}
+                onClick={() => openDrawer(deskMenuButton.current)}
+                className="nav-link flex items-center gap-2 uppercase text-ink-700 hover:text-primary-700"
                 aria-expanded={drawer}
                 aria-controls="mobile-menu"
               >
-                <Menu className="h-6 w-6" strokeWidth={1.6} aria-hidden />
+                <Menu className="h-4 w-4" strokeWidth={1.6} aria-hidden />
+                {ui('menu')}
               </button>
+            ) : (
+              <>
+                {shown.map(renderItem)}
+                {overflow.length > 0 && <NavDropdown item={more} triggerClass={linkClass} />}
+                {donateLink}
+              </>
             )}
-          </div>
+          </nav>
         </div>
-        <OrnamentBand
-          className={
-            solid
-              ? 'text-accent-400/90 bg-primary-950/40'
-              : 'text-accent-300/80 bg-gradient-to-b from-primary-950/25 to-transparent'
-          }
-        />
-      </header>
+      </div>
       <MobileDrawer open={drawer} onClose={closeDrawer} />
     </>
   );

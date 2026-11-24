@@ -28,7 +28,7 @@ export default function NewsList({ section }: { section: NewsListSection }) {
   const newsPage = getPage('news');
 
   return (
-    <section className={`section ${section.limit ? 'bg-primary-50' : 'bg-white'}`}>
+    <section className="section">
       <div className="container-px container-max">
         {section.title && (
           <Reveal>

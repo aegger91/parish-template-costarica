@@ -8,13 +8,13 @@
  * Default baseUrl: http://127.0.0.1:4173
  */
 import { chromium } from 'playwright';
-import { readdirSync, existsSync, writeFileSync } from 'fs';
+import { readdirSync, existsSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 const base = (process.argv[2] || 'http://127.0.0.1:4173').replace(/\/$/, '');
 const widths = [360, 768, 1280];
 const langs = ['en', 'es', 'ru'];
-const storageKey = 'orthodox-parish-lang';
+const storageKey = JSON.parse(readFileSync(join(process.cwd(), 'src/content/languages.json'), 'utf8')).storageKey;
 
 function collectPaths(distDir) {
   const paths = new Set(['/']);

@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import type { Crumb } from '@/components/ui/Breadcrumbs';
-import OrnamentBand from '@/components/ui/OrnamentBand';
-import OrthodoxCross from '@/components/ui/OrthodoxCross';
 import Reveal from '@/components/ui/Reveal';
 import { site } from '@/content';
 import type { Localized, SectionBase } from '@/content';
@@ -15,6 +13,8 @@ export interface PageHeroSection extends SectionBase {
   subtitle?: Localized;
   /** Overrides site.pageHeroBackground for this page. Use "" for no image. */
   backgroundImage?: string;
+  /** CSS object-position of that photo, e.g. "50% 60%". */
+  backgroundPosition?: string;
 }
 
 export function PageHeroFrame({
@@ -22,6 +22,7 @@ export function PageHeroFrame({
   title,
   subtitle,
   backgroundImage = site.pageHeroBackground,
+  backgroundPosition = '50% 35%',
   crumbs,
   children,
 }: {
@@ -29,34 +30,37 @@ export function PageHeroFrame({
   title: string;
   subtitle?: string;
   backgroundImage?: string;
+  backgroundPosition?: string;
   crumbs: Crumb[];
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden bg-primary-900 pb-12 pt-32 sm:pb-16 sm:pt-40 lg:pt-48">
-      {backgroundImage && (
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.28]"
-          style={{ backgroundImage: `url('${backgroundImage}')`, backgroundSize: 'cover', backgroundPosition: 'center 22%' }}
-        />
-      )}
-      <div aria-hidden className="hero-overlay absolute inset-0" />
-      <div className="container-px container-max relative">
-        <Reveal>
-          <Breadcrumbs items={crumbs} />
-          {eyebrow && (
-            <p className="eyebrow mt-5 text-[11px] text-accent-300 sm:text-[12px]">{eyebrow}</p>
-          )}
-          <h1 className="mt-3 max-w-3xl font-heading text-[32px] font-semibold leading-[1.2] text-white sm:text-5xl sm:leading-[1.18]">{title}</h1>
-          <div className="ornament-divider mt-6 text-accent-300" aria-hidden>
-            <OrthodoxCross className="ornament-divider__cross h-5 w-auto" strokeWidth={1.7} />
+    <section className="container-px mx-auto max-w-container pt-6 sm:pt-9 lg:pt-11">
+      <Reveal>
+        {crumbs.length > 1 && (
+          <div className="mb-4">
+            <Breadcrumbs items={crumbs} tone="light" />
           </div>
-          {subtitle && <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-primary-100 sm:text-base">{subtitle}</p>}
+        )}
+        <div className="tile tile-olive min-h-[14rem] justify-end p-7 sm:min-h-[17rem] sm:p-10 lg:min-h-[19rem] lg:p-12">
+          {backgroundImage && (
+            <>
+              <img
+                src={backgroundImage}
+                alt=""
+                {...{ fetchpriority: 'high' }}
+                className="tile-image opacity-75 mix-blend-luminosity"
+                style={{ objectPosition: backgroundPosition }}
+              />
+              <div aria-hidden className="tile-tint-olive" />
+            </>
+          )}
+          {eyebrow && <p className="eyebrow text-white/85">{eyebrow}</p>}
+          <h1 className="mt-2 max-w-2xl font-heading text-[32px] font-normal leading-[1.18] sm:text-[44px] lg:text-[48px]">{title}</h1>
+          {subtitle && <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/90 sm:text-base">{subtitle}</p>}
           {children}
-        </Reveal>
-      </div>
-      <OrnamentBand className="relative mt-10 text-accent-400/85" />
+        </div>
+      </Reveal>
     </section>
   );
 }
@@ -70,6 +74,7 @@ export default function PageHero({ section }: { section: PageHeroSection }) {
       title={t(section.title)}
       subtitle={section.subtitle ? t(section.subtitle) : undefined}
       backgroundImage={section.backgroundImage ?? site.pageHeroBackground}
+      backgroundPosition={section.backgroundPosition}
       crumbs={crumbs}
     />
   );

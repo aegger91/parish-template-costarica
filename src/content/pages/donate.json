@@ -38,7 +38,9 @@
         "en": "Sample text. One line about supporting the parish.",
         "es": "Texto de ejemplo. Una línea sobre cómo apoyar a la parroquia.",
         "ru": "Пример текста. Одна строка о поддержке прихода."
-      }
+      },
+      "backgroundImage": "/images/church/dome-autumn-riga.jpg",
+      "backgroundPosition": "50% 46%"
     },
     {
       "id": "give",

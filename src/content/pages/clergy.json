@@ -43,7 +43,8 @@
         "en": "Sample text. One line about the clergy.",
         "es": "Texto de ejemplo. Una línea sobre el clero.",
         "ru": "Пример текста. Одна строка о духовенстве."
-      }
+      },
+      "backgroundImage": "/images/church/holy-ascension-iconostasis.jpg"
     },
     {
       "id": "clergy",

@@ -1,35 +1,56 @@
 import { site } from '@/content';
 import type { LogoStyle } from '@/content';
 import { useI18n } from '@/i18n';
+import ChurchMark from './ChurchMark';
 import OrthodoxCross from './OrthodoxCross';
 
-const FRAME: Record<Exclude<LogoStyle, 'wordmark'>, string> = {
-  seal: 'rounded-full border border-white/40 aspect-square',
-  // An icon case (kiot): arched top, square base, gilded edge.
-  kiot: 'rounded-t-[999px] rounded-b-[5px] border-2 border-accent-400 aspect-[4/5] p-[3px]',
-  square: 'rounded-[6px] border border-white/30 aspect-square',
+type FramedStyle = Exclude<LogoStyle, 'wordmark' | 'church'>;
+
+const FRAME: Record<FramedStyle, string> = {
+  seal: 'rounded-full border border-accent-400/60 aspect-square',
+  kiot: 'rounded-t-[999px] rounded-b-[5px] border border-accent-400/70 aspect-[4/5] p-[3px]',
+  square: 'rounded-[6px] border border-accent-400/60 aspect-square',
 };
 
 const SIZE = {
-  sm: 'h-10',
-  md: 'h-[3.25rem]',
-  lg: 'h-16',
+  sm: { frame: 'h-10', church: 'h-9' },
+  md: { frame: 'h-[3.25rem]', church: 'h-12' },
+  lg: { frame: 'h-16', church: 'h-[4.25rem]' },
 };
 
-/** The logo image from site.json "logo.src" in its frame, or an Orthodox cross when no image is set. */
-export function LogoMark({ style = site.logo.style, size = 'md', className = '' }: { style?: LogoStyle; size?: keyof typeof SIZE; className?: string }) {
+type Size = keyof typeof SIZE;
+type Tone = 'dark' | 'light';
+
+/** The parish mark: the church line drawing, or the image from site.json "logo.src" in its frame. */
+export function LogoMark({
+  style = site.logo.style,
+  size = 'md',
+  tone = 'dark',
+  className = '',
+}: {
+  style?: LogoStyle;
+  size?: Size;
+  tone?: Tone;
+  className?: string;
+}) {
   if (style === 'wordmark') return null;
+  if (style === 'church') {
+    return (
+      <ChurchMark
+        className={`w-auto shrink-0 ${SIZE[size].church} ${tone === 'light' ? 'text-accent-300' : 'text-accent-500'} ${className}`}
+        strokeWidth={size === 'sm' ? 2 : 1.7}
+      />
+    );
+  }
   const inner = site.logo.src ? (
     <img src={site.logo.src} alt="" width={56} height={56} className="h-full w-full object-cover" />
   ) : (
-    <OrthodoxCross className="h-3/5 w-3/5 text-primary-800" strokeWidth={2.2} />
+    <OrthodoxCross className="h-3/5 w-3/5 text-accent-600" strokeWidth={2.2} />
   );
   return (
-    <span className={`flex shrink-0 items-center justify-center overflow-hidden bg-white transition-all duration-300 ${FRAME[style]} ${SIZE[size]} ${className}`}>
+    <span className={`flex shrink-0 items-center justify-center overflow-hidden bg-paper ${FRAME[style]} ${SIZE[size].frame} ${className}`}>
       {style === 'kiot' ? (
-        <span className="flex h-full w-full items-center justify-center overflow-hidden rounded-t-[999px] rounded-b-[3px] bg-white ring-1 ring-primary-900/10">
-          {inner}
-        </span>
+        <span className="flex h-full w-full items-center justify-center overflow-hidden rounded-t-[999px] rounded-b-[3px] bg-paper">{inner}</span>
       ) : (
         inner
       )}
@@ -41,19 +62,25 @@ export function LogoMark({ style = site.logo.style, size = 'md', className = '' 
 export function Brand({
   style = site.logo.style,
   size = 'md',
+  tone = 'dark',
   nameClassName = '',
 }: {
   style?: LogoStyle;
-  size?: keyof typeof SIZE;
+  size?: Size;
+  tone?: Tone;
   nameClassName?: string;
 }) {
   const { t } = useI18n();
+  const color = tone === 'light' ? 'text-white' : 'text-ink-900';
+  const name = (
+    <span className={`min-w-0 font-heading font-normal leading-[1.18] [text-wrap:balance] ${color} ${nameClassName}`}>{t(site.name)}</span>
+  );
   if (style === 'wordmark') {
     return (
       <span className="flex min-w-0 flex-col">
-        <span className={`font-heading font-semibold leading-tight tracking-wide text-white ${nameClassName}`}>{t(site.name)}</span>
+        {name}
         {site.logo.wordmarkSubtitle && (
-          <span className="ornament mt-0.5 text-[10px] font-semibold uppercase leading-snug tracking-[0.14em] text-accent-300 sm:text-[11px]">
+          <span className={`eyebrow mt-1 text-[10px] sm:text-[11px] ${tone === 'light' ? 'text-accent-300' : 'text-accent-600'}`}>
             {t(site.logo.wordmarkSubtitle)}
           </span>
         )}
@@ -62,8 +89,8 @@ export function Brand({
   }
   return (
     <>
-      <LogoMark style={style} size={size} />
-      <span className={`min-w-0 font-heading font-semibold leading-tight tracking-wide text-white ${nameClassName}`}>{t(site.name)}</span>
+      <LogoMark style={style} size={size} tone={tone} />
+      {name}
     </>
   );
 }

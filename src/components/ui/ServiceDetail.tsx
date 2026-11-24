@@ -55,30 +55,30 @@ export default function ServiceDetail({
     <Modal open={open} onClose={onClose} title={title}>
       <div className="pe-8">
         <p className="eyebrow text-accent-700">{ui('schedule.detailEyebrow')}</p>
-        <h2 className="mt-2 font-heading text-2xl font-semibold text-primary-900 sm:text-3xl">{title}</h2>
+        <h2 className="mt-2 font-heading text-[23px] font-normal text-ink-900 sm:text-3xl">{title}</h2>
         <div className="accent-rule mt-5" />
       </div>
 
       <dl className="mt-6 space-y-4 text-[15px]">
         <div>
-          <dt className="text-[12px] font-semibold uppercase tracking-[0.14em] text-primary-700">{ui('schedule.date')}</dt>
+          <dt className="text-[12px] font-medium uppercase tracking-[0.14em] text-primary-700">{ui('schedule.date')}</dt>
           <dd className="mt-1 text-ink-900">{dateLabel}</dd>
         </div>
         <div>
-          <dt className="text-[12px] font-semibold uppercase tracking-[0.14em] text-primary-700">{ui('schedule.time')}</dt>
+          <dt className="text-[12px] font-medium uppercase tracking-[0.14em] text-primary-700">{ui('schedule.time')}</dt>
           <dd className="mt-1 text-ink-900">
             <time dateTime={occurrence.service.time}>{timeLabel}</time>
           </dd>
         </div>
         <div>
-          <dt className="text-[12px] font-semibold uppercase tracking-[0.14em] text-primary-700">{ui('schedule.place')}</dt>
+          <dt className="text-[12px] font-medium uppercase tracking-[0.14em] text-primary-700">{ui('schedule.place')}</dt>
           <dd className="mt-1 flex items-start gap-2 text-ink-900">
             <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent-600" strokeWidth={1.8} aria-hidden />
             <span>{place}</span>
           </dd>
         </div>
         <div>
-          <dt className="text-[12px] font-semibold uppercase tracking-[0.14em] text-primary-700">{ui('schedule.note')}</dt>
+          <dt className="text-[12px] font-medium uppercase tracking-[0.14em] text-primary-700">{ui('schedule.note')}</dt>
           <dd className="mt-1 text-ink-700">{note}</dd>
         </div>
       </dl>

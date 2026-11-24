@@ -30,8 +30,8 @@ export default function StoreCatalog({ section }: { section: StoreCatalogSection
   const money = (n: number) => formatMoney(n, payments.currency, language.locale);
 
   return (
-    <section className="section bg-white">
-      <div className="container-px mx-auto max-w-[80rem]">
+    <section className="section">
+      <div className="container-px mx-auto max-w-container">
         {section.intro && <p className="max-w-3xl text-[15px] leading-relaxed text-ink-700">{t(section.intro)}</p>}
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           <p className="flex items-start gap-3 rounded-xl bg-primary-50 px-4 py-3 text-[13.5px] text-ink-700">
@@ -68,17 +68,17 @@ export default function StoreCatalog({ section }: { section: StoreCatalogSection
             return (
               <li key={p.id}>
                 <Reveal delay={0.04 * (i % 4)} className="h-full">
-                  <Link to={to} className="group flex h-full flex-col overflow-visible rounded-2xl border border-primary-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-primary-900/10">
+                  <Link to={to} className="group flex h-full flex-col overflow-visible rounded-2xl border border-primary-100 bg-white shadow-sm lift hover:shadow-xl hover:shadow-primary-900/10">
                     <div className="relative aspect-square overflow-hidden rounded-t-2xl">
                       <ProductImage product={p} className="h-full w-full transition-transform duration-500 group-hover:scale-[1.03]" />
                       {stock <= 0 && (
-                        <span className="absolute start-2 top-2 rounded-pill bg-primary-950/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
+                        <span className="absolute start-2 top-2 rounded-pill bg-primary-950/80 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-white">
                           {ui('store.soldOut')}
                         </span>
                       )}
                     </div>
                     <div className="flex flex-1 flex-col p-3 sm:p-5">
-                      <h3 className="font-heading text-[17px] font-semibold leading-snug text-primary-900 sm:text-xl">{t(p.name)}</h3>
+                      <h3 className="font-heading text-[17px] font-normal leading-snug text-ink-900 sm:text-xl">{t(p.name)}</h3>
                       <p className="mt-1 line-clamp-2 hidden text-[13.5px] leading-snug text-ink-500 sm:block">{t(p.summary)}</p>
                       <div className="mt-auto flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1 pt-3">
                         <span className="text-[15px] font-semibold text-primary-900">{varies ? ui('store.from', { price: money(from) }) : money(from)}</span>

@@ -50,19 +50,6 @@ const context = await browser.newContext({
   reducedMotion: 'no-preference',
 });
 
-// Pages are captured at desktop width, where the header renders no menu button. Take the button
-// from a phone-width render so small screens look the same without JavaScript.
-const phone = await context.newPage();
-await phone.setViewportSize({ width: 390, height: 844 });
-await phone.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'networkidle', timeout: 60000 });
-const menuButton = await phone.$eval('header button[aria-controls="mobile-menu"]', (el) => {
-  el.classList.add('lg:hidden');
-  el.removeAttribute('aria-controls');
-  el.removeAttribute('aria-expanded');
-  return el.outerHTML;
-});
-await phone.close();
-
 let failed = 0;
 for (const { url, file } of pages) {
   const page = await context.newPage();
@@ -71,12 +58,8 @@ for (const { url, file } of pages) {
     await page.waitForSelector('#root > *', { timeout: 15000 });
     // Let mount animations (hero) finish so their final state is what gets saved.
     await page.waitForTimeout(1200);
-    const html = await page.evaluate((button) => {
+    const html = await page.evaluate(() => {
       const doc = document.documentElement;
-      const actions = document.querySelector('header .ms-auto');
-      if (actions && !actions.querySelector('button[aria-label]:last-child svg.lucide-menu')) {
-        actions.insertAdjacentHTML('beforeend', button);
-      }
       doc.classList.remove('js', 'reveal-fallback');
       if (!doc.className) doc.removeAttribute('class');
       document.querySelectorAll('#root [data-reveal]').forEach((el) => {
@@ -91,7 +74,7 @@ for (const { url, file } of pages) {
         el.setAttribute('data-reveal', '');
       });
       return '<!doctype html>\n' + doc.outerHTML;
-    }, menuButton);
+    });
     if (!html.includes('<main')) throw new Error('rendered page has no <main>');
     writeFileSync(file, html);
   } catch (err) {
