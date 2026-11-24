@@ -18,7 +18,8 @@
 ## Fonts
 
 Self-hosted under SIL Open Font License — see `public/fonts/*-OFL.txt`:
-- Cormorant Garamond (Latin, Latin Ext, Cyrillic)
+- Cormorant Garamond (Latin, Latin Ext, Cyrillic) — headings
+- Source Sans 3 (Latin, Latin Ext, Cyrillic) — body / UI
 - Source Serif 4 (Latin, Latin Ext, Cyrillic, Greek)
 - EB Garamond (Greek subset for heading fallback)
 - Old Standard TT, Ponomar, Triodion (optional Slavonic display)

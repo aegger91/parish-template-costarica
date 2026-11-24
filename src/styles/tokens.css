@@ -1,71 +1,81 @@
 /*
-  Design tokens for this template's one design. Every component reads these
-  variables through tailwind.config.js and src/index.css. Parish content and
-  options live in src/content, not here.
-  Colors are space-separated RGB channels so Tailwind opacity modifiers work.
-
-  Visual direction: dignified Russian Orthodox (ROCOR / OCA) parish —
-  deep liturgical burgundy, antique gold, warm parchment.
+  Clean ROCOR / OCA parish design tokens.
+  Warm off-white, deep burgundy, muted gold — used sparingly.
+  Components read these via Tailwind and index.css.
 */
 :root {
-  /* Primary: deep liturgical burgundy */
-  --color-primary-50: 250 244 242;
-  --color-primary-100: 243 228 224;
-  --color-primary-200: 226 190 182;
-  --color-primary-300: 196 140 130;
-  --color-primary-400: 160 88 82;
-  --color-primary-500: 130 52 52;
-  --color-primary-600: 110 38 44;
-  --color-primary-700: 92 30 38;
-  --color-primary-800: 74 24 32;
-  --color-primary-900: 58 18 26;
-  --color-primary-950: 36 10 16;
+  /* Primary: deep liturgical burgundy (restrained) */
+  --color-primary-50: 248 244 242;
+  --color-primary-100: 236 228 224;
+  --color-primary-200: 214 196 190;
+  --color-primary-300: 176 148 140;
+  --color-primary-400: 140 96 90;
+  --color-primary-500: 112 60 56;
+  --color-primary-600: 96 44 48;
+  --color-primary-700: 80 34 40;
+  --color-primary-800: 64 26 32;
+  --color-primary-900: 48 18 24;
+  --color-primary-950: 32 12 16;
 
-  /* Accent: antique liturgical gold */
-  --color-accent-50: 252 248 236;
-  --color-accent-100: 246 236 204;
-  --color-accent-200: 232 208 148;
-  --color-accent-300: 214 180 96;
-  --color-accent-400: 196 154 58;
-  --color-accent-500: 176 132 40;
-  --color-accent-600: 148 108 32;
-  --color-accent-700: 118 86 28;
-  --color-accent-800: 92 68 26;
-  --color-accent-900: 74 54 22;
+  /* Accent: muted gold — sparse */
+  --color-accent-50: 250 246 236;
+  --color-accent-100: 240 230 204;
+  --color-accent-200: 220 200 150;
+  --color-accent-300: 196 168 100;
+  --color-accent-400: 168 136 64;
+  --color-accent-500: 148 116 48;
+  --color-accent-600: 124 96 40;
+  --color-accent-700: 100 76 32;
+  --color-accent-800: 80 60 28;
+  --color-accent-900: 64 48 24;
 
-  /* Ink: warm body text on parchment */
-  --color-ink-900: 42 28 24;
-  --color-ink-700: 78 58 50;
-  --color-ink-500: 120 96 84;
-  --color-ink-300: 214 200 188;
+  /* Ink on warm off-white */
+  --color-ink-900: 36 28 26;
+  --color-ink-700: 72 60 54;
+  --color-ink-500: 112 100 92;
+  --color-ink-300: 210 200 192;
 
   /* Surfaces */
-  --color-parchment: 247 241 230;
-  --color-parchment-deep: 238 228 210;
-  --color-ivory: 252 248 240;
+  --color-parchment: 248 246 241;
+  --color-parchment-deep: 240 236 228;
+  --color-ivory: 252 250 246;
 
-  /* Typography — self-hosted (see fonts.css); EB Garamond covers Greek glyphs */
-  --font-heading: 'Cormorant Garamond', 'EB Garamond', 'Old Standard TT', 'Times New Roman', serif;
+  /* Typography — serif display, clean sans body */
+  --font-heading: 'Cormorant Garamond', 'EB Garamond', 'Times New Roman', serif;
   --font-serif: var(--font-heading);
-  --font-sans: 'Source Serif 4', 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-sans: 'Source Sans 3', 'Source Serif 4', system-ui, sans-serif;
   --font-body: var(--font-sans);
+  --font-button: var(--font-sans);
+  --font-ornament: var(--font-heading);
   --text-eyebrow: 11px;
-  --tracking-eyebrow: 0.12em;
+  --tracking-eyebrow: 0.14em;
   --text-nav: 13px;
-  --tracking-nav: 0.05em;
+  --tracking-nav: 0.04em;
 
-  /* Radii — gentle churchly rounding, not IT pills or sharp boxes */
-  --radius-card: 0.65rem;
-  --radius-inner: 0.45rem;
-  --radius-pill: 0.45rem;
-  --radius-arch: 999px;
+  /* One radius scale */
+  --radius-card: 0.375rem;
+  --radius-inner: 0.25rem;
+  --radius-pill: 0.25rem;
+  --radius-arch: 0.375rem;
 
-  /* Layout and spacing */
-  --container-max: 72rem;
-  --section-y: 3.5rem;
+  /* Layout — one content width, even spacing */
+  --container-max: 68rem;
+  --section-y: 4rem;
   --section-y-lg: 5.5rem;
 
-  /* Ornament */
-  --ornament-gold: rgb(var(--color-accent-400));
-  --ornament-gold-soft: rgb(var(--color-accent-300) / 0.55);
+  --ornament-gold: rgb(var(--color-accent-500));
+  --ornament-gold-soft: rgb(var(--color-accent-400) / 0.45);
+}
+
+html[data-slavonic='old-standard'] {
+  --font-heading: 'Old Standard TT', 'Cormorant Garamond', serif;
+  --font-serif: var(--font-heading);
+}
+html[data-slavonic='ponomar'] {
+  --font-heading: 'Ponomar', 'Old Standard TT', 'Cormorant Garamond', serif;
+  --font-serif: var(--font-heading);
+}
+html[data-slavonic='triodion'] {
+  --font-heading: 'Triodion', 'Old Standard TT', 'Cormorant Garamond', serif;
+  --font-serif: var(--font-heading);
 }
