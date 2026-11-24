@@ -102,14 +102,19 @@ function ServiceLine({ o, live, compact = false }: { o: ServiceOccurrence; live:
   );
 }
 
-function OldStyleDate({ jdn }: { jdn: number }) {
+/** "Dec 19 (Dec 6 O.S.)", or just "Dec 6 O.S." where the civil date is already shown. */
+function OldStyleDate({ jdn, oldOnly = false }: { jdn: number; oldOnly?: boolean }) {
   const { ui, language } = useI18n();
   const civil = formatDay(jdn, language.locale, { month: 'short', day: 'numeric' });
   const j = julianFromJdn(jdn);
   const old = new Intl.DateTimeFormat(language.locale, { day: 'numeric', month: 'short', timeZone: 'UTC' }).format(
     new Date(Date.UTC(2001, j.month - 1, j.day)),
   );
-  return <span className="text-[11px] text-ink-500">{ui('calendar.civilWithOldStyle', { civil, old })}</span>;
+  return (
+    <span className="text-[11px] text-ink-500">
+      {oldOnly ? ui('calendar.oldStyleDate', { date: old }) : ui('calendar.civilWithOldStyle', { civil, old })}
+    </span>
+  );
 }
 
 /** Full details for one day: used in the week view, the mobile list and the selected day of the month view. */
@@ -295,7 +300,7 @@ export default function Calendar({ section }: { section: CalendarSection }) {
                       {gregorianFromJdn(info.jdn).day}
                       {isOldCalendar(style) && (
                         <span className="block font-sans leading-snug">
-                          <OldStyleDate jdn={info.jdn} />
+                          <OldStyleDate jdn={info.jdn} oldOnly />
                         </span>
                       )}
                     </p>
@@ -332,17 +337,17 @@ export default function Calendar({ section }: { section: CalendarSection }) {
                       aria-label={formatDay(info.jdn, language.locale, { weekday: 'long', day: 'numeric', month: 'long' })}
                       className={`flex min-h-[7.5rem] flex-col gap-1 p-2 text-start align-top transition-colors ${
                         feast ? (feast.rank === 'parish' ? 'bg-primary-50' : 'bg-accent-50') : 'bg-white'
-                      } ${isSel ? 'outline outline-2 -outline-offset-2 outline-primary-900' : 'hover:bg-primary-50/70'}`}
+                      } ${isSel ? 'outline outline-2 -outline-offset-2 outline-primary-600' : 'hover:bg-primary-50/70'}`}
                     >
                       <span className="flex items-center justify-between gap-1">
                         <span
                           className={`flex h-7 min-w-7 items-center justify-center rounded-full text-[13px] font-semibold ${
-                            isToday ? 'bg-accent-400 text-primary-900' : 'text-primary-900'
+                            isToday ? 'bg-accent-500 text-white' : 'text-ink-900'
                           }`}
                         >
                           {gregorianFromJdn(info.jdn).day}
                         </span>
-                        {isOldCalendar(style) && <OldStyleDate jdn={info.jdn} />}
+                        {isOldCalendar(style) && <OldStyleDate jdn={info.jdn} oldOnly />}
                       </span>
                       {feast && <FeastLine feast={feast} compact />}
                       <ul className="space-y-0.5">
